@@ -3,10 +3,6 @@
 #include "Networking.h"
 #include "Message.h"
 
-GameServer::GameServer(std::shared_ptr<NetworkingInterface> networking)
-    : m_networking(networking) {}
-
-
 void GameServer::onMessageFromClient(int fromClientID, Message &message)
 {
     std::cout << "[server] Got message from client (id=" << fromClientID << ") : ";
@@ -30,20 +26,4 @@ void GameServer::onMessageFromClient(int fromClientID, Message &message)
             break;
         }
     }
-}
-
-void GameServer::broadcastUpdate(int cycle)
-{
-    Message update{MessageType::UpdateCycle, UpdateCycleMessage{ cycle }};
-    const std::vector<int> ids = m_networking->getConnectedClientIDs();
-
-    std::cout << "[GameServer] update#" << cycle << " for clients: ";
-    bool first = true;
-    for (int id : ids) {
-        if (!first) std::cout << ", ";
-        std::cout << id;
-        m_networking->sendMessageToClient(id, update);
-        first = false;
-    }
-    std::cout << "\n";
 }

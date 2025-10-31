@@ -22,31 +22,48 @@ WebSocketNetworking::WebSocketNetworking(unsigned short port, const std::string&
             int fromClientID = c.id;
             std::cout << "[WebSocket] Client connected (id=" << fromClientID << ")\n";
 
-            if (!m_clients.contains(fromClientID) && m_server && has_server_started) {
-                auto client = std::make_shared<GameClient>(fromClientID, shared_from_this());
-                m_clients[fromClientID] = client;
-            }
-
+            m_connections[fromClientID] = c;
         },
         [this](networking::Connection c) {
             int fromClientID = c.id;
             std::cout << "[WebSocket] Client disconnected (id=" << fromClientID << ")\n";
 
-            m_clients.erase(fromClientID);
+            m_connections.erase(fromClientID);
         }
     );
 
     std::cout << "[WebSocket] Server initialized on port " << port << "\n";
 }
 
-void WebSocketNetworking::setServer(std::shared_ptr<GameServer> server) {
-    m_server = server;
-}
 
 void WebSocketNetworking::startServer()
 {
     std::cout << "[WebSocket] Server started.\n";
     has_server_started = true;
+}
+
+std::vector<std::pair<int, Message>> WebSocketNetworking::receiveFromClients(){
+    std::vector<std::pair<int, Message>> receivedMessages;
+    try{
+        net_server->update();
+        auto messages = net_server->receive();
+        for(auto& msg : messages){
+            std::cout << "[WebSocket] Received: " << msg.text
+                      << "from client " << msg.connection.id << "\n";
+        int fromClientID;
+        if(msg.connection.id){
+            fromClientID = msg.connection.id;
+        }else{
+            fromClientID = 0;
+        }
+        Message translatedMsg = MessageTranslator::deserialize(msg.text);
+        receivedMessages.emplace_back(fromClientID, translatedMsg);
+        }
+    }
+    catch(const std::exception& e){
+        std::cerr << "[WebSocket] Server error: " << e.what() << "\n";
+    }
+    return receivedMessages;
 }
 
 std::vector<std::pair<int, std::string>> WebSocketNetworking::update()
@@ -76,10 +93,10 @@ std::vector<std::pair<int, std::string>> WebSocketNetworking::update()
     return {};
 }
 
-void WebSocketNetworking::sendMessageToClient(int toClientID, Message& message)
+void WebSocketNetworking::sendToClient(int toClientID, const Message& message)
 {
     std::string payload = MessageTranslator::serialize(message); // This is temporarily, hopefully I can decouple this further
-
+    std::cout << "[WebSocket] Sending to client " << toClientID << ": " << payload << "\n";
     // Convert our message into network::Message compatible with the web-socket format to send over the network
     std::deque<networking::Message> out{
         networking::Message{networking::Connection{(uintptr_t)toClientID}, payload}
@@ -88,19 +105,20 @@ void WebSocketNetworking::sendMessageToClient(int toClientID, Message& message)
     net_server->send(out);
 }
 
-void WebSocketNetworking::sendMessageToServer(int fromClientID, Message& message)
-{
-    // Called by GameClient
-    if (m_server) {
-        m_server->onMessageFromClient(fromClientID, message);
-    }
-}
+// void WebSocketNetworking::sendMessageToServer(int fromClientID, const Message& message)
+// {
+//     // Called by GameClient
+//     if (m_server) {
+//         m_server->onMessageFromClient(fromClientID, message);
+//     }
+// }
 
 // TODO: Return a list of currently connected client IDs.
 std::vector<int> WebSocketNetworking::getConnectedClientIDs() const {
     std::vector<int> ids;
-    for (const auto& pair : m_clients) {
-        ids.push_back(pair.first);
+    ids.reserve(m_connections.size());
+    for (const auto& [clientID, connection] : m_connections) {
+        ids.push_back(clientID);
     }
     return ids;
 }

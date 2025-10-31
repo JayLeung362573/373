@@ -1,20 +1,21 @@
 #include "GameClient.h"
 #include "Networking.h"
+#include <iostream>
 
 
-GameClient::GameClient(int clientID, std::shared_ptr<NetworkingInterface> networking)
-    : m_clientID(clientID)
-    , m_networking(networking) {}
+GameClient::GameClient(int clientID)
+    : m_clientID(clientID) {}
 
 
-void GameClient::sendMessageToServer(Message& message)
-{
-    m_networking->sendMessageToServer(m_clientID, message);
+Message GameClient::prepareMessageToServer(const Message& message) const{
+    return message;
 }
 
 
 void GameClient::onMessageFromServer(Message& message)
 {
+    std::cout << "[GameClient " << m_clientID 
+    << "] Received message from server\n";
     // TODO
 }
 
