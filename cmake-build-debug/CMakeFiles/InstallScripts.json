@@ -1,0 +1,19 @@
+{
+	"InstallScripts" : 
+	[
+		"/Users/jiawei/Desktop/373-25-gamjajeon/cmake-build-debug/cmake_install.cmake",
+		"/Users/jiawei/Desktop/373-25-gamjajeon/cmake-build-debug/_deps/web-socket-networking-build/cmake_install.cmake",
+		"/Users/jiawei/Desktop/373-25-gamjajeon/cmake-build-debug/_deps/web-socket-networking-build/lib/cmake_install.cmake",
+		"/Users/jiawei/Desktop/373-25-gamjajeon/cmake-build-debug/_deps/web-socket-networking-build/lib/networking/cmake_install.cmake",
+		"/Users/jiawei/Desktop/373-25-gamjajeon/cmake-build-debug/_deps/web-socket-networking-build/tools/cmake_install.cmake",
+		"/Users/jiawei/Desktop/373-25-gamjajeon/cmake-build-debug/_deps/web-socket-networking-build/tools/server/cmake_install.cmake",
+		"/Users/jiawei/Desktop/373-25-gamjajeon/cmake-build-debug/_deps/web-socket-networking-build/tools/client-ncurses/cmake_install.cmake",
+		"/Users/jiawei/Desktop/373-25-gamjajeon/cmake-build-debug/src/cmake_install.cmake",
+		"/Users/jiawei/Desktop/373-25-gamjajeon/cmake-build-debug/src/GameEngine/cmake_install.cmake",
+		"/Users/jiawei/Desktop/373-25-gamjajeon/cmake-build-debug/tests/cmake_install.cmake",
+		"/Users/jiawei/Desktop/373-25-gamjajeon/cmake-build-debug/_deps/googletest-build/cmake_install.cmake",
+		"/Users/jiawei/Desktop/373-25-gamjajeon/cmake-build-debug/_deps/googletest-build/googlemock/cmake_install.cmake",
+		"/Users/jiawei/Desktop/373-25-gamjajeon/cmake-build-debug/_deps/googletest-build/googletest/cmake_install.cmake"
+	],
+	"Parallel" : false
+}

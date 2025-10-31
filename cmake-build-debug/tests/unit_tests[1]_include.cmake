@@ -1,0 +1,5 @@
+if(EXISTS "/Users/jiawei/Desktop/373-25-gamjajeon/cmake-build-debug/tests/unit_tests[1]_tests.cmake")
+  include("/Users/jiawei/Desktop/373-25-gamjajeon/cmake-build-debug/tests/unit_tests[1]_tests.cmake")
+else()
+  add_test(unit_tests_NOT_BUILT unit_tests_NOT_BUILT)
+endif()

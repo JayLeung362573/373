@@ -1,0 +1,2 @@
+/usr/bin/ar qc ../lib/libcore_lib.a CMakeFiles/core_lib.dir/GameClient.cpp.o CMakeFiles/core_lib.dir/GameServer.cpp.o CMakeFiles/core_lib.dir/Networking.cpp.o CMakeFiles/core_lib.dir/WebsocketNetworking.cpp.o CMakeFiles/core_lib.dir/MessageTranslator.cpp.o
+/usr/bin/ranlib ../lib/libcore_lib.a

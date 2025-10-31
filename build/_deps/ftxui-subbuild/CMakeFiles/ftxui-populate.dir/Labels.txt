@@ -1,0 +1,14 @@
+# Target labels
+ ftxui-populate
+# Source files and their labels
+/Users/jiawei/Desktop/373-25-gamjajeon/build/_deps/ftxui-subbuild/CMakeFiles/ftxui-populate
+/Users/jiawei/Desktop/373-25-gamjajeon/build/_deps/ftxui-subbuild/CMakeFiles/ftxui-populate.rule
+/Users/jiawei/Desktop/373-25-gamjajeon/build/_deps/ftxui-subbuild/CMakeFiles/ftxui-populate-complete.rule
+/Users/jiawei/Desktop/373-25-gamjajeon/build/_deps/ftxui-subbuild/ftxui-populate-prefix/src/ftxui-populate-stamp/ftxui-populate-build.rule
+/Users/jiawei/Desktop/373-25-gamjajeon/build/_deps/ftxui-subbuild/ftxui-populate-prefix/src/ftxui-populate-stamp/ftxui-populate-configure.rule
+/Users/jiawei/Desktop/373-25-gamjajeon/build/_deps/ftxui-subbuild/ftxui-populate-prefix/src/ftxui-populate-stamp/ftxui-populate-download.rule
+/Users/jiawei/Desktop/373-25-gamjajeon/build/_deps/ftxui-subbuild/ftxui-populate-prefix/src/ftxui-populate-stamp/ftxui-populate-install.rule
+/Users/jiawei/Desktop/373-25-gamjajeon/build/_deps/ftxui-subbuild/ftxui-populate-prefix/src/ftxui-populate-stamp/ftxui-populate-mkdir.rule
+/Users/jiawei/Desktop/373-25-gamjajeon/build/_deps/ftxui-subbuild/ftxui-populate-prefix/src/ftxui-populate-stamp/ftxui-populate-patch_disconnected.rule
+/Users/jiawei/Desktop/373-25-gamjajeon/build/_deps/ftxui-subbuild/ftxui-populate-prefix/src/ftxui-populate-stamp/ftxui-populate-test.rule
+/Users/jiawei/Desktop/373-25-gamjajeon/build/_deps/ftxui-subbuild/ftxui-populate-prefix/src/ftxui-populate-stamp/ftxui-populate-update_disconnected.rule

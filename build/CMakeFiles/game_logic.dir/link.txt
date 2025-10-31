@@ -1,0 +1,2 @@
+/usr/bin/ar qc lib/libgame_logic.a CMakeFiles/game_logic.dir/GameClient.cpp.o CMakeFiles/game_logic.dir/GameServer.cpp.o CMakeFiles/game_logic.dir/Networking.cpp.o CMakeFiles/game_logic.dir/WebSocketNetworking.cpp.o
+/usr/bin/ranlib lib/libgame_logic.a

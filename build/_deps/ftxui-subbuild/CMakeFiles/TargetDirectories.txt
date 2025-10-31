@@ -1,0 +1,3 @@
+/Users/jiawei/Desktop/373-25-gamjajeon/build/_deps/ftxui-subbuild/CMakeFiles/ftxui-populate.dir
+/Users/jiawei/Desktop/373-25-gamjajeon/build/_deps/ftxui-subbuild/CMakeFiles/edit_cache.dir
+/Users/jiawei/Desktop/373-25-gamjajeon/build/_deps/ftxui-subbuild/CMakeFiles/rebuild_cache.dir
