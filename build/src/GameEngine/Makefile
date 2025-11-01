@@ -57,33 +57,13 @@ RM = /opt/homebrew/bin/cmake -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /Users/jiawei/Desktop/373-25-gamjajeon
+CMAKE_SOURCE_DIR = /Users/jiawei/Desktop/373
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /Users/jiawei/Desktop/373-25-gamjajeon/build
+CMAKE_BINARY_DIR = /Users/jiawei/Desktop/373/build
 
 #=============================================================================
 # Targets provided globally by CMake.
-
-# Special rule for the target package
-package: preinstall
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --cyan "Run CPack packaging tool..."
-	cd /Users/jiawei/Desktop/373-25-gamjajeon/build && /opt/homebrew/bin/cpack --config ./CPackConfig.cmake
-.PHONY : package
-
-# Special rule for the target package
-package/fast: package
-.PHONY : package/fast
-
-# Special rule for the target package_source
-package_source:
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --cyan "Run CPack packaging tool for source..."
-	cd /Users/jiawei/Desktop/373-25-gamjajeon/build && /opt/homebrew/bin/cpack --config ./CPackSourceConfig.cmake /Users/jiawei/Desktop/373-25-gamjajeon/build/CPackSourceConfig.cmake
-.PHONY : package_source
-
-# Special rule for the target package_source
-package_source/fast: package_source
-.PHONY : package_source/fast
 
 # Special rule for the target test
 test:
@@ -162,14 +142,14 @@ install/strip/fast: preinstall/fast
 
 # The main all target
 all: cmake_check_build_system
-	cd /Users/jiawei/Desktop/373-25-gamjajeon/build && $(CMAKE_COMMAND) -E cmake_progress_start /Users/jiawei/Desktop/373-25-gamjajeon/build/CMakeFiles /Users/jiawei/Desktop/373-25-gamjajeon/build/src/GameEngine//CMakeFiles/progress.marks
-	cd /Users/jiawei/Desktop/373-25-gamjajeon/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 src/GameEngine/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /Users/jiawei/Desktop/373-25-gamjajeon/build/CMakeFiles 0
+	cd /Users/jiawei/Desktop/373/build && $(CMAKE_COMMAND) -E cmake_progress_start /Users/jiawei/Desktop/373/build/CMakeFiles /Users/jiawei/Desktop/373/build/src/GameEngine//CMakeFiles/progress.marks
+	cd /Users/jiawei/Desktop/373/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 src/GameEngine/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /Users/jiawei/Desktop/373/build/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
 clean:
-	cd /Users/jiawei/Desktop/373-25-gamjajeon/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 src/GameEngine/clean
+	cd /Users/jiawei/Desktop/373/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 src/GameEngine/clean
 .PHONY : clean
 
 # The main clean target
@@ -178,22 +158,22 @@ clean/fast: clean
 
 # Prepare targets for installation.
 preinstall: all
-	cd /Users/jiawei/Desktop/373-25-gamjajeon/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 src/GameEngine/preinstall
+	cd /Users/jiawei/Desktop/373/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 src/GameEngine/preinstall
 .PHONY : preinstall
 
 # Prepare targets for installation.
 preinstall/fast:
-	cd /Users/jiawei/Desktop/373-25-gamjajeon/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 src/GameEngine/preinstall
+	cd /Users/jiawei/Desktop/373/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 src/GameEngine/preinstall
 .PHONY : preinstall/fast
 
 # clear depends
 depend:
-	cd /Users/jiawei/Desktop/373-25-gamjajeon/build && $(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
+	cd /Users/jiawei/Desktop/373/build && $(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
 .PHONY : depend
 
 # Convenience name for target.
 src/GameEngine/CMakeFiles/GameEngine.dir/rule:
-	cd /Users/jiawei/Desktop/373-25-gamjajeon/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 src/GameEngine/CMakeFiles/GameEngine.dir/rule
+	cd /Users/jiawei/Desktop/373/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 src/GameEngine/CMakeFiles/GameEngine.dir/rule
 .PHONY : src/GameEngine/CMakeFiles/GameEngine.dir/rule
 
 # Convenience name for target.
@@ -202,7 +182,7 @@ GameEngine: src/GameEngine/CMakeFiles/GameEngine.dir/rule
 
 # fast build rule for target.
 GameEngine/fast:
-	cd /Users/jiawei/Desktop/373-25-gamjajeon/build && $(MAKE) $(MAKESILENT) -f src/GameEngine/CMakeFiles/GameEngine.dir/build.make src/GameEngine/CMakeFiles/GameEngine.dir/build
+	cd /Users/jiawei/Desktop/373/build && $(MAKE) $(MAKESILENT) -f src/GameEngine/CMakeFiles/GameEngine.dir/build.make src/GameEngine/CMakeFiles/GameEngine.dir/build
 .PHONY : GameEngine/fast
 
 Game.o: Game.cpp.o
@@ -210,7 +190,7 @@ Game.o: Game.cpp.o
 
 # target to build an object file
 Game.cpp.o:
-	cd /Users/jiawei/Desktop/373-25-gamjajeon/build && $(MAKE) $(MAKESILENT) -f src/GameEngine/CMakeFiles/GameEngine.dir/build.make src/GameEngine/CMakeFiles/GameEngine.dir/Game.cpp.o
+	cd /Users/jiawei/Desktop/373/build && $(MAKE) $(MAKESILENT) -f src/GameEngine/CMakeFiles/GameEngine.dir/build.make src/GameEngine/CMakeFiles/GameEngine.dir/Game.cpp.o
 .PHONY : Game.cpp.o
 
 Game.i: Game.cpp.i
@@ -218,7 +198,7 @@ Game.i: Game.cpp.i
 
 # target to preprocess a source file
 Game.cpp.i:
-	cd /Users/jiawei/Desktop/373-25-gamjajeon/build && $(MAKE) $(MAKESILENT) -f src/GameEngine/CMakeFiles/GameEngine.dir/build.make src/GameEngine/CMakeFiles/GameEngine.dir/Game.cpp.i
+	cd /Users/jiawei/Desktop/373/build && $(MAKE) $(MAKESILENT) -f src/GameEngine/CMakeFiles/GameEngine.dir/build.make src/GameEngine/CMakeFiles/GameEngine.dir/Game.cpp.i
 .PHONY : Game.cpp.i
 
 Game.s: Game.cpp.s
@@ -226,7 +206,7 @@ Game.s: Game.cpp.s
 
 # target to generate assembly for a file
 Game.cpp.s:
-	cd /Users/jiawei/Desktop/373-25-gamjajeon/build && $(MAKE) $(MAKESILENT) -f src/GameEngine/CMakeFiles/GameEngine.dir/build.make src/GameEngine/CMakeFiles/GameEngine.dir/Game.cpp.s
+	cd /Users/jiawei/Desktop/373/build && $(MAKE) $(MAKESILENT) -f src/GameEngine/CMakeFiles/GameEngine.dir/build.make src/GameEngine/CMakeFiles/GameEngine.dir/Game.cpp.s
 .PHONY : Game.cpp.s
 
 Rules.o: Rules.cpp.o
@@ -234,7 +214,7 @@ Rules.o: Rules.cpp.o
 
 # target to build an object file
 Rules.cpp.o:
-	cd /Users/jiawei/Desktop/373-25-gamjajeon/build && $(MAKE) $(MAKESILENT) -f src/GameEngine/CMakeFiles/GameEngine.dir/build.make src/GameEngine/CMakeFiles/GameEngine.dir/Rules.cpp.o
+	cd /Users/jiawei/Desktop/373/build && $(MAKE) $(MAKESILENT) -f src/GameEngine/CMakeFiles/GameEngine.dir/build.make src/GameEngine/CMakeFiles/GameEngine.dir/Rules.cpp.o
 .PHONY : Rules.cpp.o
 
 Rules.i: Rules.cpp.i
@@ -242,7 +222,7 @@ Rules.i: Rules.cpp.i
 
 # target to preprocess a source file
 Rules.cpp.i:
-	cd /Users/jiawei/Desktop/373-25-gamjajeon/build && $(MAKE) $(MAKESILENT) -f src/GameEngine/CMakeFiles/GameEngine.dir/build.make src/GameEngine/CMakeFiles/GameEngine.dir/Rules.cpp.i
+	cd /Users/jiawei/Desktop/373/build && $(MAKE) $(MAKESILENT) -f src/GameEngine/CMakeFiles/GameEngine.dir/build.make src/GameEngine/CMakeFiles/GameEngine.dir/Rules.cpp.i
 .PHONY : Rules.cpp.i
 
 Rules.s: Rules.cpp.s
@@ -250,7 +230,7 @@ Rules.s: Rules.cpp.s
 
 # target to generate assembly for a file
 Rules.cpp.s:
-	cd /Users/jiawei/Desktop/373-25-gamjajeon/build && $(MAKE) $(MAKESILENT) -f src/GameEngine/CMakeFiles/GameEngine.dir/build.make src/GameEngine/CMakeFiles/GameEngine.dir/Rules.cpp.s
+	cd /Users/jiawei/Desktop/373/build && $(MAKE) $(MAKESILENT) -f src/GameEngine/CMakeFiles/GameEngine.dir/build.make src/GameEngine/CMakeFiles/GameEngine.dir/Rules.cpp.s
 .PHONY : Rules.cpp.s
 
 # Help Target
@@ -264,8 +244,6 @@ help:
 	@echo "... install/local"
 	@echo "... install/strip"
 	@echo "... list_install_components"
-	@echo "... package"
-	@echo "... package_source"
 	@echo "... rebuild_cache"
 	@echo "... test"
 	@echo "... GameEngine"
@@ -286,6 +264,6 @@ help:
 # No rule that depends on this can have commands that come from listfiles
 # because they might be regenerated.
 cmake_check_build_system:
-	cd /Users/jiawei/Desktop/373-25-gamjajeon/build && $(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 0
+	cd /Users/jiawei/Desktop/373/build && $(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 0
 .PHONY : cmake_check_build_system
 

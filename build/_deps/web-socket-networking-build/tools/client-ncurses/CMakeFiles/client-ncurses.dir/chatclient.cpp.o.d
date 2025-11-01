@@ -1,6 +1,6 @@
 _deps/web-socket-networking-build/tools/client-ncurses/CMakeFiles/client-ncurses.dir/chatclient.cpp.o: \
   /Library/Developer/CommandLineTools/usr/lib/clang/14.0.0/share/asan_ignorelist.txt \
-  /Users/jiawei/Desktop/373-25-gamjajeon/build/_deps/web-socket-networking-src/tools/client-ncurses/chatclient.cpp \
+  /Users/jiawei/Desktop/373/build/_deps/web-socket-networking-src/tools/client-ncurses/chatclient.cpp \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/iostream \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/__config \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/__config_site \
@@ -423,5 +423,5 @@ _deps/web-socket-networking-build/tools/client-ncurses/CMakeFiles/client-ncurses
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/sys/_select.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/sys/_types/_uuid_t.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/gethostuuid.h \
-  /Users/jiawei/Desktop/373-25-gamjajeon/build/_deps/web-socket-networking-src/tools/client-ncurses/ChatWindow.h \
-  /Users/jiawei/Desktop/373-25-gamjajeon/build/_deps/web-socket-networking-src/lib/networking/include/Client.h
+  /Users/jiawei/Desktop/373/build/_deps/web-socket-networking-src/tools/client-ncurses/ChatWindow.h \
+  /Users/jiawei/Desktop/373/build/_deps/web-socket-networking-src/lib/networking/include/Client.h

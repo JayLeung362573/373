@@ -53,10 +53,10 @@ RM = /opt/homebrew/bin/cmake -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /Users/jiawei/Desktop/373-25-gamjajeon
+CMAKE_SOURCE_DIR = /Users/jiawei/Desktop/373
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /Users/jiawei/Desktop/373-25-gamjajeon/build
+CMAKE_BINARY_DIR = /Users/jiawei/Desktop/373/build
 
 # Include any dependencies generated for this target.
 include _deps/web-socket-networking-build/lib/networking/CMakeFiles/networking.dir/depend.make
@@ -75,30 +75,30 @@ _deps/web-socket-networking-build/lib/networking/CMakeFiles/networking.dir/codeg
 _deps/web-socket-networking-build/lib/networking/CMakeFiles/networking.dir/src/Server.cpp.o: _deps/web-socket-networking-build/lib/networking/CMakeFiles/networking.dir/flags.make
 _deps/web-socket-networking-build/lib/networking/CMakeFiles/networking.dir/src/Server.cpp.o: _deps/web-socket-networking-src/lib/networking/src/Server.cpp
 _deps/web-socket-networking-build/lib/networking/CMakeFiles/networking.dir/src/Server.cpp.o: _deps/web-socket-networking-build/lib/networking/CMakeFiles/networking.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/jiawei/Desktop/373-25-gamjajeon/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object _deps/web-socket-networking-build/lib/networking/CMakeFiles/networking.dir/src/Server.cpp.o"
-	cd /Users/jiawei/Desktop/373-25-gamjajeon/build/_deps/web-socket-networking-build/lib/networking && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT _deps/web-socket-networking-build/lib/networking/CMakeFiles/networking.dir/src/Server.cpp.o -MF CMakeFiles/networking.dir/src/Server.cpp.o.d -o CMakeFiles/networking.dir/src/Server.cpp.o -c /Users/jiawei/Desktop/373-25-gamjajeon/build/_deps/web-socket-networking-src/lib/networking/src/Server.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/jiawei/Desktop/373/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object _deps/web-socket-networking-build/lib/networking/CMakeFiles/networking.dir/src/Server.cpp.o"
+	cd /Users/jiawei/Desktop/373/build/_deps/web-socket-networking-build/lib/networking && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT _deps/web-socket-networking-build/lib/networking/CMakeFiles/networking.dir/src/Server.cpp.o -MF CMakeFiles/networking.dir/src/Server.cpp.o.d -o CMakeFiles/networking.dir/src/Server.cpp.o -c /Users/jiawei/Desktop/373/build/_deps/web-socket-networking-src/lib/networking/src/Server.cpp
 
 _deps/web-socket-networking-build/lib/networking/CMakeFiles/networking.dir/src/Server.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/networking.dir/src/Server.cpp.i"
-	cd /Users/jiawei/Desktop/373-25-gamjajeon/build/_deps/web-socket-networking-build/lib/networking && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/jiawei/Desktop/373-25-gamjajeon/build/_deps/web-socket-networking-src/lib/networking/src/Server.cpp > CMakeFiles/networking.dir/src/Server.cpp.i
+	cd /Users/jiawei/Desktop/373/build/_deps/web-socket-networking-build/lib/networking && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/jiawei/Desktop/373/build/_deps/web-socket-networking-src/lib/networking/src/Server.cpp > CMakeFiles/networking.dir/src/Server.cpp.i
 
 _deps/web-socket-networking-build/lib/networking/CMakeFiles/networking.dir/src/Server.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/networking.dir/src/Server.cpp.s"
-	cd /Users/jiawei/Desktop/373-25-gamjajeon/build/_deps/web-socket-networking-build/lib/networking && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/jiawei/Desktop/373-25-gamjajeon/build/_deps/web-socket-networking-src/lib/networking/src/Server.cpp -o CMakeFiles/networking.dir/src/Server.cpp.s
+	cd /Users/jiawei/Desktop/373/build/_deps/web-socket-networking-build/lib/networking && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/jiawei/Desktop/373/build/_deps/web-socket-networking-src/lib/networking/src/Server.cpp -o CMakeFiles/networking.dir/src/Server.cpp.s
 
 _deps/web-socket-networking-build/lib/networking/CMakeFiles/networking.dir/src/Client.cpp.o: _deps/web-socket-networking-build/lib/networking/CMakeFiles/networking.dir/flags.make
 _deps/web-socket-networking-build/lib/networking/CMakeFiles/networking.dir/src/Client.cpp.o: _deps/web-socket-networking-src/lib/networking/src/Client.cpp
 _deps/web-socket-networking-build/lib/networking/CMakeFiles/networking.dir/src/Client.cpp.o: _deps/web-socket-networking-build/lib/networking/CMakeFiles/networking.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/jiawei/Desktop/373-25-gamjajeon/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object _deps/web-socket-networking-build/lib/networking/CMakeFiles/networking.dir/src/Client.cpp.o"
-	cd /Users/jiawei/Desktop/373-25-gamjajeon/build/_deps/web-socket-networking-build/lib/networking && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT _deps/web-socket-networking-build/lib/networking/CMakeFiles/networking.dir/src/Client.cpp.o -MF CMakeFiles/networking.dir/src/Client.cpp.o.d -o CMakeFiles/networking.dir/src/Client.cpp.o -c /Users/jiawei/Desktop/373-25-gamjajeon/build/_deps/web-socket-networking-src/lib/networking/src/Client.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/jiawei/Desktop/373/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object _deps/web-socket-networking-build/lib/networking/CMakeFiles/networking.dir/src/Client.cpp.o"
+	cd /Users/jiawei/Desktop/373/build/_deps/web-socket-networking-build/lib/networking && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT _deps/web-socket-networking-build/lib/networking/CMakeFiles/networking.dir/src/Client.cpp.o -MF CMakeFiles/networking.dir/src/Client.cpp.o.d -o CMakeFiles/networking.dir/src/Client.cpp.o -c /Users/jiawei/Desktop/373/build/_deps/web-socket-networking-src/lib/networking/src/Client.cpp
 
 _deps/web-socket-networking-build/lib/networking/CMakeFiles/networking.dir/src/Client.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/networking.dir/src/Client.cpp.i"
-	cd /Users/jiawei/Desktop/373-25-gamjajeon/build/_deps/web-socket-networking-build/lib/networking && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/jiawei/Desktop/373-25-gamjajeon/build/_deps/web-socket-networking-src/lib/networking/src/Client.cpp > CMakeFiles/networking.dir/src/Client.cpp.i
+	cd /Users/jiawei/Desktop/373/build/_deps/web-socket-networking-build/lib/networking && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/jiawei/Desktop/373/build/_deps/web-socket-networking-src/lib/networking/src/Client.cpp > CMakeFiles/networking.dir/src/Client.cpp.i
 
 _deps/web-socket-networking-build/lib/networking/CMakeFiles/networking.dir/src/Client.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/networking.dir/src/Client.cpp.s"
-	cd /Users/jiawei/Desktop/373-25-gamjajeon/build/_deps/web-socket-networking-build/lib/networking && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/jiawei/Desktop/373-25-gamjajeon/build/_deps/web-socket-networking-src/lib/networking/src/Client.cpp -o CMakeFiles/networking.dir/src/Client.cpp.s
+	cd /Users/jiawei/Desktop/373/build/_deps/web-socket-networking-build/lib/networking && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/jiawei/Desktop/373/build/_deps/web-socket-networking-src/lib/networking/src/Client.cpp -o CMakeFiles/networking.dir/src/Client.cpp.s
 
 # Object files for target networking
 networking_OBJECTS = \
@@ -112,19 +112,19 @@ _deps/web-socket-networking-build/lib/libnetworking.a: _deps/web-socket-networki
 _deps/web-socket-networking-build/lib/libnetworking.a: _deps/web-socket-networking-build/lib/networking/CMakeFiles/networking.dir/src/Client.cpp.o
 _deps/web-socket-networking-build/lib/libnetworking.a: _deps/web-socket-networking-build/lib/networking/CMakeFiles/networking.dir/build.make
 _deps/web-socket-networking-build/lib/libnetworking.a: _deps/web-socket-networking-build/lib/networking/CMakeFiles/networking.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/Users/jiawei/Desktop/373-25-gamjajeon/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Linking CXX static library ../libnetworking.a"
-	cd /Users/jiawei/Desktop/373-25-gamjajeon/build/_deps/web-socket-networking-build/lib/networking && $(CMAKE_COMMAND) -P CMakeFiles/networking.dir/cmake_clean_target.cmake
-	cd /Users/jiawei/Desktop/373-25-gamjajeon/build/_deps/web-socket-networking-build/lib/networking && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/networking.dir/link.txt --verbose=$(VERBOSE)
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/Users/jiawei/Desktop/373/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Linking CXX static library ../libnetworking.a"
+	cd /Users/jiawei/Desktop/373/build/_deps/web-socket-networking-build/lib/networking && $(CMAKE_COMMAND) -P CMakeFiles/networking.dir/cmake_clean_target.cmake
+	cd /Users/jiawei/Desktop/373/build/_deps/web-socket-networking-build/lib/networking && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/networking.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
 _deps/web-socket-networking-build/lib/networking/CMakeFiles/networking.dir/build: _deps/web-socket-networking-build/lib/libnetworking.a
 .PHONY : _deps/web-socket-networking-build/lib/networking/CMakeFiles/networking.dir/build
 
 _deps/web-socket-networking-build/lib/networking/CMakeFiles/networking.dir/clean:
-	cd /Users/jiawei/Desktop/373-25-gamjajeon/build/_deps/web-socket-networking-build/lib/networking && $(CMAKE_COMMAND) -P CMakeFiles/networking.dir/cmake_clean.cmake
+	cd /Users/jiawei/Desktop/373/build/_deps/web-socket-networking-build/lib/networking && $(CMAKE_COMMAND) -P CMakeFiles/networking.dir/cmake_clean.cmake
 .PHONY : _deps/web-socket-networking-build/lib/networking/CMakeFiles/networking.dir/clean
 
 _deps/web-socket-networking-build/lib/networking/CMakeFiles/networking.dir/depend:
-	cd /Users/jiawei/Desktop/373-25-gamjajeon/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /Users/jiawei/Desktop/373-25-gamjajeon /Users/jiawei/Desktop/373-25-gamjajeon/build/_deps/web-socket-networking-src/lib/networking /Users/jiawei/Desktop/373-25-gamjajeon/build /Users/jiawei/Desktop/373-25-gamjajeon/build/_deps/web-socket-networking-build/lib/networking /Users/jiawei/Desktop/373-25-gamjajeon/build/_deps/web-socket-networking-build/lib/networking/CMakeFiles/networking.dir/DependInfo.cmake "--color=$(COLOR)"
+	cd /Users/jiawei/Desktop/373/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /Users/jiawei/Desktop/373 /Users/jiawei/Desktop/373/build/_deps/web-socket-networking-src/lib/networking /Users/jiawei/Desktop/373/build /Users/jiawei/Desktop/373/build/_deps/web-socket-networking-build/lib/networking /Users/jiawei/Desktop/373/build/_deps/web-socket-networking-build/lib/networking/CMakeFiles/networking.dir/DependInfo.cmake "--color=$(COLOR)"
 .PHONY : _deps/web-socket-networking-build/lib/networking/CMakeFiles/networking.dir/depend
 

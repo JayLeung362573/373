@@ -1,7 +1,7 @@
 src/CMakeFiles/core_lib.dir/MessageTranslator.cpp.o: \
   /Library/Developer/CommandLineTools/usr/lib/clang/14.0.0/share/asan_ignorelist.txt \
-  /Users/jiawei/Desktop/373-25-gamjajeon/src/MessageTranslator.cpp \
-  /Users/jiawei/Desktop/373-25-gamjajeon/src/MessageTranslator.h \
+  /Users/jiawei/Desktop/373/src/MessageTranslator.cpp \
+  /Users/jiawei/Desktop/373/src/MessageTranslator.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/string \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/__config \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/__config_site \
@@ -359,4 +359,4 @@ src/CMakeFiles/core_lib.dir/MessageTranslator.cpp.o: \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/wctype.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/wctype.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/_types/_wctrans_t.h \
-  /Users/jiawei/Desktop/373-25-gamjajeon/src/Message.h
+  /Users/jiawei/Desktop/373/src/Message.h

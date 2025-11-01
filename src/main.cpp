@@ -28,7 +28,7 @@ int main(int argc, char* argv[])
     
     if (useWebSocket) {
         auto networking = std::make_shared<WebSocketNetworking>(8080, "../test.html");
-        auto server = std::make_shared<GameServer>();
+        auto server = std::make_unique<GameServer>(networking);
 
         networking->startServer();
 
@@ -36,6 +36,7 @@ int main(int argc, char* argv[])
         auto last = std::chrono::steady_clock::now();
 
         while (true) {
+            networking->update();
             auto incomingMessages = networking->receiveFromClients();
 
             for(auto& [clientID, message] : incomingMessages){
@@ -58,7 +59,7 @@ int main(int argc, char* argv[])
     } else {
         // in-memory networking for test
         auto networking = std::make_shared<InMemoryNetworking>();
-        auto server  = std::make_shared<GameServer>();
+        auto server  = std::make_unique<GameServer>(networking);
 
         networking->addConnectedClient(CLIENT_1_ID);
         networking->addConnectedClient(CLIENT_2_ID);

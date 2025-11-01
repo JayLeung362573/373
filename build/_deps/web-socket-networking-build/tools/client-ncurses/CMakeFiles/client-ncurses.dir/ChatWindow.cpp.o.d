@@ -1,7 +1,7 @@
 _deps/web-socket-networking-build/tools/client-ncurses/CMakeFiles/client-ncurses.dir/ChatWindow.cpp.o: \
   /Library/Developer/CommandLineTools/usr/lib/clang/14.0.0/share/asan_ignorelist.txt \
-  /Users/jiawei/Desktop/373-25-gamjajeon/build/_deps/web-socket-networking-src/tools/client-ncurses/ChatWindow.cpp \
-  /Users/jiawei/Desktop/373-25-gamjajeon/build/_deps/web-socket-networking-src/tools/client-ncurses/ChatWindow.h \
+  /Users/jiawei/Desktop/373/build/_deps/web-socket-networking-src/tools/client-ncurses/ChatWindow.cpp \
+  /Users/jiawei/Desktop/373/build/_deps/web-socket-networking-src/tools/client-ncurses/ChatWindow.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/functional \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/__algorithm/search.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/__algorithm/comp.h \

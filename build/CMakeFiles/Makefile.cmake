@@ -7,7 +7,7 @@ set(CMAKE_DEPENDS_GENERATOR "Unix Makefiles")
 # The top level Makefile was generated from the following files:
 set(CMAKE_MAKEFILE_DEPENDS
   "CMakeCache.txt"
-  "/Users/jiawei/Desktop/373-25-gamjajeon/CMakeLists.txt"
+  "/Users/jiawei/Desktop/373/CMakeLists.txt"
   "CMakeFiles/4.1.2/CMakeCCompiler.cmake"
   "CMakeFiles/4.1.2/CMakeCXXCompiler.cmake"
   "CMakeFiles/4.1.2/CMakeSystem.cmake"
@@ -26,10 +26,10 @@ set(CMAKE_MAKEFILE_DEPENDS
   "_deps/web-socket-networking-src/tools/CMakeLists.txt"
   "_deps/web-socket-networking-src/tools/client-ncurses/CMakeLists.txt"
   "_deps/web-socket-networking-src/tools/server/CMakeLists.txt"
-  "/Users/jiawei/Desktop/373-25-gamjajeon/cmake/CPM.cmake"
-  "/Users/jiawei/Desktop/373-25-gamjajeon/src/CMakeLists.txt"
-  "/Users/jiawei/Desktop/373-25-gamjajeon/src/GameEngine/CMakeLists.txt"
-  "/Users/jiawei/Desktop/373-25-gamjajeon/tests/CMakeLists.txt"
+  "/Users/jiawei/Desktop/373/cmake/CPM.cmake"
+  "/Users/jiawei/Desktop/373/src/CMakeLists.txt"
+  "/Users/jiawei/Desktop/373/src/GameEngine/CMakeLists.txt"
+  "/Users/jiawei/Desktop/373/tests/CMakeLists.txt"
   "/opt/homebrew/lib/cmake/Boost-1.89.0/BoostConfig.cmake"
   "/opt/homebrew/lib/cmake/Boost-1.89.0/BoostConfigVersion.cmake"
   "/opt/homebrew/lib/cmake/boost_headers-1.89.0/boost_headers-config-version.cmake"

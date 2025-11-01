@@ -4,7 +4,7 @@
 # compile CXX with /usr/bin/c++
 CXX_DEFINES = 
 
-CXX_INCLUDES = -I/Users/jiawei/Desktop/373-25-gamjajeon/src/GameEngine
+CXX_INCLUDES = -I/Users/jiawei/Desktop/373/src/GameEngine
 
 CXX_FLAGSarm64 =  -Wall -fno-rtti -fsanitize=address,undefined -g -std=c++2b -arch arm64
 

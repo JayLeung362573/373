@@ -57,33 +57,13 @@ RM = /opt/homebrew/bin/cmake -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /Users/jiawei/Desktop/373-25-gamjajeon
+CMAKE_SOURCE_DIR = /Users/jiawei/Desktop/373
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /Users/jiawei/Desktop/373-25-gamjajeon/build
+CMAKE_BINARY_DIR = /Users/jiawei/Desktop/373/build
 
 #=============================================================================
 # Targets provided globally by CMake.
-
-# Special rule for the target package
-package: preinstall
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --cyan "Run CPack packaging tool..."
-	cd /Users/jiawei/Desktop/373-25-gamjajeon/build && /opt/homebrew/bin/cpack --config ./CPackConfig.cmake
-.PHONY : package
-
-# Special rule for the target package
-package/fast: package
-.PHONY : package/fast
-
-# Special rule for the target package_source
-package_source:
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --cyan "Run CPack packaging tool for source..."
-	cd /Users/jiawei/Desktop/373-25-gamjajeon/build && /opt/homebrew/bin/cpack --config ./CPackSourceConfig.cmake /Users/jiawei/Desktop/373-25-gamjajeon/build/CPackSourceConfig.cmake
-.PHONY : package_source
-
-# Special rule for the target package_source
-package_source/fast: package_source
-.PHONY : package_source/fast
 
 # Special rule for the target test
 test:
@@ -162,14 +142,14 @@ install/strip/fast: preinstall/fast
 
 # The main all target
 all: cmake_check_build_system
-	cd /Users/jiawei/Desktop/373-25-gamjajeon/build && $(CMAKE_COMMAND) -E cmake_progress_start /Users/jiawei/Desktop/373-25-gamjajeon/build/CMakeFiles /Users/jiawei/Desktop/373-25-gamjajeon/build/tests//CMakeFiles/progress.marks
-	cd /Users/jiawei/Desktop/373-25-gamjajeon/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 tests/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /Users/jiawei/Desktop/373-25-gamjajeon/build/CMakeFiles 0
+	cd /Users/jiawei/Desktop/373/build && $(CMAKE_COMMAND) -E cmake_progress_start /Users/jiawei/Desktop/373/build/CMakeFiles /Users/jiawei/Desktop/373/build/tests//CMakeFiles/progress.marks
+	cd /Users/jiawei/Desktop/373/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 tests/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /Users/jiawei/Desktop/373/build/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
 clean:
-	cd /Users/jiawei/Desktop/373-25-gamjajeon/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 tests/clean
+	cd /Users/jiawei/Desktop/373/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 tests/clean
 .PHONY : clean
 
 # The main clean target
@@ -178,22 +158,22 @@ clean/fast: clean
 
 # Prepare targets for installation.
 preinstall: all
-	cd /Users/jiawei/Desktop/373-25-gamjajeon/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 tests/preinstall
+	cd /Users/jiawei/Desktop/373/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 tests/preinstall
 .PHONY : preinstall
 
 # Prepare targets for installation.
 preinstall/fast:
-	cd /Users/jiawei/Desktop/373-25-gamjajeon/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 tests/preinstall
+	cd /Users/jiawei/Desktop/373/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 tests/preinstall
 .PHONY : preinstall/fast
 
 # clear depends
 depend:
-	cd /Users/jiawei/Desktop/373-25-gamjajeon/build && $(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
+	cd /Users/jiawei/Desktop/373/build && $(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
 .PHONY : depend
 
 # Convenience name for target.
 tests/CMakeFiles/unit_tests.dir/rule:
-	cd /Users/jiawei/Desktop/373-25-gamjajeon/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 tests/CMakeFiles/unit_tests.dir/rule
+	cd /Users/jiawei/Desktop/373/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 tests/CMakeFiles/unit_tests.dir/rule
 .PHONY : tests/CMakeFiles/unit_tests.dir/rule
 
 # Convenience name for target.
@@ -202,7 +182,7 @@ unit_tests: tests/CMakeFiles/unit_tests.dir/rule
 
 # fast build rule for target.
 unit_tests/fast:
-	cd /Users/jiawei/Desktop/373-25-gamjajeon/build && $(MAKE) $(MAKESILENT) -f tests/CMakeFiles/unit_tests.dir/build.make tests/CMakeFiles/unit_tests.dir/build
+	cd /Users/jiawei/Desktop/373/build && $(MAKE) $(MAKESILENT) -f tests/CMakeFiles/unit_tests.dir/build.make tests/CMakeFiles/unit_tests.dir/build
 .PHONY : unit_tests/fast
 
 ForLoopRuleTest.o: ForLoopRuleTest.cpp.o
@@ -210,7 +190,7 @@ ForLoopRuleTest.o: ForLoopRuleTest.cpp.o
 
 # target to build an object file
 ForLoopRuleTest.cpp.o:
-	cd /Users/jiawei/Desktop/373-25-gamjajeon/build && $(MAKE) $(MAKESILENT) -f tests/CMakeFiles/unit_tests.dir/build.make tests/CMakeFiles/unit_tests.dir/ForLoopRuleTest.cpp.o
+	cd /Users/jiawei/Desktop/373/build && $(MAKE) $(MAKESILENT) -f tests/CMakeFiles/unit_tests.dir/build.make tests/CMakeFiles/unit_tests.dir/ForLoopRuleTest.cpp.o
 .PHONY : ForLoopRuleTest.cpp.o
 
 ForLoopRuleTest.i: ForLoopRuleTest.cpp.i
@@ -218,7 +198,7 @@ ForLoopRuleTest.i: ForLoopRuleTest.cpp.i
 
 # target to preprocess a source file
 ForLoopRuleTest.cpp.i:
-	cd /Users/jiawei/Desktop/373-25-gamjajeon/build && $(MAKE) $(MAKESILENT) -f tests/CMakeFiles/unit_tests.dir/build.make tests/CMakeFiles/unit_tests.dir/ForLoopRuleTest.cpp.i
+	cd /Users/jiawei/Desktop/373/build && $(MAKE) $(MAKESILENT) -f tests/CMakeFiles/unit_tests.dir/build.make tests/CMakeFiles/unit_tests.dir/ForLoopRuleTest.cpp.i
 .PHONY : ForLoopRuleTest.cpp.i
 
 ForLoopRuleTest.s: ForLoopRuleTest.cpp.s
@@ -226,7 +206,7 @@ ForLoopRuleTest.s: ForLoopRuleTest.cpp.s
 
 # target to generate assembly for a file
 ForLoopRuleTest.cpp.s:
-	cd /Users/jiawei/Desktop/373-25-gamjajeon/build && $(MAKE) $(MAKESILENT) -f tests/CMakeFiles/unit_tests.dir/build.make tests/CMakeFiles/unit_tests.dir/ForLoopRuleTest.cpp.s
+	cd /Users/jiawei/Desktop/373/build && $(MAKE) $(MAKESILENT) -f tests/CMakeFiles/unit_tests.dir/build.make tests/CMakeFiles/unit_tests.dir/ForLoopRuleTest.cpp.s
 .PHONY : ForLoopRuleTest.cpp.s
 
 GameTest.o: GameTest.cpp.o
@@ -234,7 +214,7 @@ GameTest.o: GameTest.cpp.o
 
 # target to build an object file
 GameTest.cpp.o:
-	cd /Users/jiawei/Desktop/373-25-gamjajeon/build && $(MAKE) $(MAKESILENT) -f tests/CMakeFiles/unit_tests.dir/build.make tests/CMakeFiles/unit_tests.dir/GameTest.cpp.o
+	cd /Users/jiawei/Desktop/373/build && $(MAKE) $(MAKESILENT) -f tests/CMakeFiles/unit_tests.dir/build.make tests/CMakeFiles/unit_tests.dir/GameTest.cpp.o
 .PHONY : GameTest.cpp.o
 
 GameTest.i: GameTest.cpp.i
@@ -242,7 +222,7 @@ GameTest.i: GameTest.cpp.i
 
 # target to preprocess a source file
 GameTest.cpp.i:
-	cd /Users/jiawei/Desktop/373-25-gamjajeon/build && $(MAKE) $(MAKESILENT) -f tests/CMakeFiles/unit_tests.dir/build.make tests/CMakeFiles/unit_tests.dir/GameTest.cpp.i
+	cd /Users/jiawei/Desktop/373/build && $(MAKE) $(MAKESILENT) -f tests/CMakeFiles/unit_tests.dir/build.make tests/CMakeFiles/unit_tests.dir/GameTest.cpp.i
 .PHONY : GameTest.cpp.i
 
 GameTest.s: GameTest.cpp.s
@@ -250,8 +230,56 @@ GameTest.s: GameTest.cpp.s
 
 # target to generate assembly for a file
 GameTest.cpp.s:
-	cd /Users/jiawei/Desktop/373-25-gamjajeon/build && $(MAKE) $(MAKESILENT) -f tests/CMakeFiles/unit_tests.dir/build.make tests/CMakeFiles/unit_tests.dir/GameTest.cpp.s
+	cd /Users/jiawei/Desktop/373/build && $(MAKE) $(MAKESILENT) -f tests/CMakeFiles/unit_tests.dir/build.make tests/CMakeFiles/unit_tests.dir/GameTest.cpp.s
 .PHONY : GameTest.cpp.s
+
+InMemoryNetworkingTest.o: InMemoryNetworkingTest.cpp.o
+.PHONY : InMemoryNetworkingTest.o
+
+# target to build an object file
+InMemoryNetworkingTest.cpp.o:
+	cd /Users/jiawei/Desktop/373/build && $(MAKE) $(MAKESILENT) -f tests/CMakeFiles/unit_tests.dir/build.make tests/CMakeFiles/unit_tests.dir/InMemoryNetworkingTest.cpp.o
+.PHONY : InMemoryNetworkingTest.cpp.o
+
+InMemoryNetworkingTest.i: InMemoryNetworkingTest.cpp.i
+.PHONY : InMemoryNetworkingTest.i
+
+# target to preprocess a source file
+InMemoryNetworkingTest.cpp.i:
+	cd /Users/jiawei/Desktop/373/build && $(MAKE) $(MAKESILENT) -f tests/CMakeFiles/unit_tests.dir/build.make tests/CMakeFiles/unit_tests.dir/InMemoryNetworkingTest.cpp.i
+.PHONY : InMemoryNetworkingTest.cpp.i
+
+InMemoryNetworkingTest.s: InMemoryNetworkingTest.cpp.s
+.PHONY : InMemoryNetworkingTest.s
+
+# target to generate assembly for a file
+InMemoryNetworkingTest.cpp.s:
+	cd /Users/jiawei/Desktop/373/build && $(MAKE) $(MAKESILENT) -f tests/CMakeFiles/unit_tests.dir/build.make tests/CMakeFiles/unit_tests.dir/InMemoryNetworkingTest.cpp.s
+.PHONY : InMemoryNetworkingTest.cpp.s
+
+WebSocketNetworkingTest.o: WebSocketNetworkingTest.cpp.o
+.PHONY : WebSocketNetworkingTest.o
+
+# target to build an object file
+WebSocketNetworkingTest.cpp.o:
+	cd /Users/jiawei/Desktop/373/build && $(MAKE) $(MAKESILENT) -f tests/CMakeFiles/unit_tests.dir/build.make tests/CMakeFiles/unit_tests.dir/WebSocketNetworkingTest.cpp.o
+.PHONY : WebSocketNetworkingTest.cpp.o
+
+WebSocketNetworkingTest.i: WebSocketNetworkingTest.cpp.i
+.PHONY : WebSocketNetworkingTest.i
+
+# target to preprocess a source file
+WebSocketNetworkingTest.cpp.i:
+	cd /Users/jiawei/Desktop/373/build && $(MAKE) $(MAKESILENT) -f tests/CMakeFiles/unit_tests.dir/build.make tests/CMakeFiles/unit_tests.dir/WebSocketNetworkingTest.cpp.i
+.PHONY : WebSocketNetworkingTest.cpp.i
+
+WebSocketNetworkingTest.s: WebSocketNetworkingTest.cpp.s
+.PHONY : WebSocketNetworkingTest.s
+
+# target to generate assembly for a file
+WebSocketNetworkingTest.cpp.s:
+	cd /Users/jiawei/Desktop/373/build && $(MAKE) $(MAKESILENT) -f tests/CMakeFiles/unit_tests.dir/build.make tests/CMakeFiles/unit_tests.dir/WebSocketNetworkingTest.cpp.s
+.PHONY : WebSocketNetworkingTest.cpp.s
 
 # Help Target
 help:
@@ -264,8 +292,6 @@ help:
 	@echo "... install/local"
 	@echo "... install/strip"
 	@echo "... list_install_components"
-	@echo "... package"
-	@echo "... package_source"
 	@echo "... rebuild_cache"
 	@echo "... test"
 	@echo "... unit_tests"
@@ -275,6 +301,12 @@ help:
 	@echo "... GameTest.o"
 	@echo "... GameTest.i"
 	@echo "... GameTest.s"
+	@echo "... InMemoryNetworkingTest.o"
+	@echo "... InMemoryNetworkingTest.i"
+	@echo "... InMemoryNetworkingTest.s"
+	@echo "... WebSocketNetworkingTest.o"
+	@echo "... WebSocketNetworkingTest.i"
+	@echo "... WebSocketNetworkingTest.s"
 .PHONY : help
 
 
@@ -286,6 +318,6 @@ help:
 # No rule that depends on this can have commands that come from listfiles
 # because they might be regenerated.
 cmake_check_build_system:
-	cd /Users/jiawei/Desktop/373-25-gamjajeon/build && $(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 0
+	cd /Users/jiawei/Desktop/373/build && $(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 0
 .PHONY : cmake_check_build_system
 

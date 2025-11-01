@@ -53,10 +53,10 @@ RM = /opt/homebrew/bin/cmake -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /Users/jiawei/Desktop/373-25-gamjajeon
+CMAKE_SOURCE_DIR = /Users/jiawei/Desktop/373
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /Users/jiawei/Desktop/373-25-gamjajeon/build
+CMAKE_BINARY_DIR = /Users/jiawei/Desktop/373/build
 
 # Include any dependencies generated for this target.
 include src/GameEngine/CMakeFiles/GameEngine.dir/depend.make
@@ -73,32 +73,32 @@ src/GameEngine/CMakeFiles/GameEngine.dir/codegen:
 .PHONY : src/GameEngine/CMakeFiles/GameEngine.dir/codegen
 
 src/GameEngine/CMakeFiles/GameEngine.dir/Game.cpp.o: src/GameEngine/CMakeFiles/GameEngine.dir/flags.make
-src/GameEngine/CMakeFiles/GameEngine.dir/Game.cpp.o: /Users/jiawei/Desktop/373-25-gamjajeon/src/GameEngine/Game.cpp
+src/GameEngine/CMakeFiles/GameEngine.dir/Game.cpp.o: /Users/jiawei/Desktop/373/src/GameEngine/Game.cpp
 src/GameEngine/CMakeFiles/GameEngine.dir/Game.cpp.o: src/GameEngine/CMakeFiles/GameEngine.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/jiawei/Desktop/373-25-gamjajeon/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object src/GameEngine/CMakeFiles/GameEngine.dir/Game.cpp.o"
-	cd /Users/jiawei/Desktop/373-25-gamjajeon/build/src/GameEngine && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT src/GameEngine/CMakeFiles/GameEngine.dir/Game.cpp.o -MF CMakeFiles/GameEngine.dir/Game.cpp.o.d -o CMakeFiles/GameEngine.dir/Game.cpp.o -c /Users/jiawei/Desktop/373-25-gamjajeon/src/GameEngine/Game.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/jiawei/Desktop/373/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object src/GameEngine/CMakeFiles/GameEngine.dir/Game.cpp.o"
+	cd /Users/jiawei/Desktop/373/build/src/GameEngine && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT src/GameEngine/CMakeFiles/GameEngine.dir/Game.cpp.o -MF CMakeFiles/GameEngine.dir/Game.cpp.o.d -o CMakeFiles/GameEngine.dir/Game.cpp.o -c /Users/jiawei/Desktop/373/src/GameEngine/Game.cpp
 
 src/GameEngine/CMakeFiles/GameEngine.dir/Game.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/GameEngine.dir/Game.cpp.i"
-	cd /Users/jiawei/Desktop/373-25-gamjajeon/build/src/GameEngine && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/jiawei/Desktop/373-25-gamjajeon/src/GameEngine/Game.cpp > CMakeFiles/GameEngine.dir/Game.cpp.i
+	cd /Users/jiawei/Desktop/373/build/src/GameEngine && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/jiawei/Desktop/373/src/GameEngine/Game.cpp > CMakeFiles/GameEngine.dir/Game.cpp.i
 
 src/GameEngine/CMakeFiles/GameEngine.dir/Game.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/GameEngine.dir/Game.cpp.s"
-	cd /Users/jiawei/Desktop/373-25-gamjajeon/build/src/GameEngine && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/jiawei/Desktop/373-25-gamjajeon/src/GameEngine/Game.cpp -o CMakeFiles/GameEngine.dir/Game.cpp.s
+	cd /Users/jiawei/Desktop/373/build/src/GameEngine && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/jiawei/Desktop/373/src/GameEngine/Game.cpp -o CMakeFiles/GameEngine.dir/Game.cpp.s
 
 src/GameEngine/CMakeFiles/GameEngine.dir/Rules.cpp.o: src/GameEngine/CMakeFiles/GameEngine.dir/flags.make
-src/GameEngine/CMakeFiles/GameEngine.dir/Rules.cpp.o: /Users/jiawei/Desktop/373-25-gamjajeon/src/GameEngine/Rules.cpp
+src/GameEngine/CMakeFiles/GameEngine.dir/Rules.cpp.o: /Users/jiawei/Desktop/373/src/GameEngine/Rules.cpp
 src/GameEngine/CMakeFiles/GameEngine.dir/Rules.cpp.o: src/GameEngine/CMakeFiles/GameEngine.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/jiawei/Desktop/373-25-gamjajeon/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object src/GameEngine/CMakeFiles/GameEngine.dir/Rules.cpp.o"
-	cd /Users/jiawei/Desktop/373-25-gamjajeon/build/src/GameEngine && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT src/GameEngine/CMakeFiles/GameEngine.dir/Rules.cpp.o -MF CMakeFiles/GameEngine.dir/Rules.cpp.o.d -o CMakeFiles/GameEngine.dir/Rules.cpp.o -c /Users/jiawei/Desktop/373-25-gamjajeon/src/GameEngine/Rules.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/jiawei/Desktop/373/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object src/GameEngine/CMakeFiles/GameEngine.dir/Rules.cpp.o"
+	cd /Users/jiawei/Desktop/373/build/src/GameEngine && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT src/GameEngine/CMakeFiles/GameEngine.dir/Rules.cpp.o -MF CMakeFiles/GameEngine.dir/Rules.cpp.o.d -o CMakeFiles/GameEngine.dir/Rules.cpp.o -c /Users/jiawei/Desktop/373/src/GameEngine/Rules.cpp
 
 src/GameEngine/CMakeFiles/GameEngine.dir/Rules.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/GameEngine.dir/Rules.cpp.i"
-	cd /Users/jiawei/Desktop/373-25-gamjajeon/build/src/GameEngine && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/jiawei/Desktop/373-25-gamjajeon/src/GameEngine/Rules.cpp > CMakeFiles/GameEngine.dir/Rules.cpp.i
+	cd /Users/jiawei/Desktop/373/build/src/GameEngine && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/jiawei/Desktop/373/src/GameEngine/Rules.cpp > CMakeFiles/GameEngine.dir/Rules.cpp.i
 
 src/GameEngine/CMakeFiles/GameEngine.dir/Rules.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/GameEngine.dir/Rules.cpp.s"
-	cd /Users/jiawei/Desktop/373-25-gamjajeon/build/src/GameEngine && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/jiawei/Desktop/373-25-gamjajeon/src/GameEngine/Rules.cpp -o CMakeFiles/GameEngine.dir/Rules.cpp.s
+	cd /Users/jiawei/Desktop/373/build/src/GameEngine && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/jiawei/Desktop/373/src/GameEngine/Rules.cpp -o CMakeFiles/GameEngine.dir/Rules.cpp.s
 
 # Object files for target GameEngine
 GameEngine_OBJECTS = \
@@ -112,19 +112,19 @@ lib/libGameEngine.a: src/GameEngine/CMakeFiles/GameEngine.dir/Game.cpp.o
 lib/libGameEngine.a: src/GameEngine/CMakeFiles/GameEngine.dir/Rules.cpp.o
 lib/libGameEngine.a: src/GameEngine/CMakeFiles/GameEngine.dir/build.make
 lib/libGameEngine.a: src/GameEngine/CMakeFiles/GameEngine.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/Users/jiawei/Desktop/373-25-gamjajeon/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Linking CXX static library ../../lib/libGameEngine.a"
-	cd /Users/jiawei/Desktop/373-25-gamjajeon/build/src/GameEngine && $(CMAKE_COMMAND) -P CMakeFiles/GameEngine.dir/cmake_clean_target.cmake
-	cd /Users/jiawei/Desktop/373-25-gamjajeon/build/src/GameEngine && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/GameEngine.dir/link.txt --verbose=$(VERBOSE)
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/Users/jiawei/Desktop/373/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Linking CXX static library ../../lib/libGameEngine.a"
+	cd /Users/jiawei/Desktop/373/build/src/GameEngine && $(CMAKE_COMMAND) -P CMakeFiles/GameEngine.dir/cmake_clean_target.cmake
+	cd /Users/jiawei/Desktop/373/build/src/GameEngine && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/GameEngine.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
 src/GameEngine/CMakeFiles/GameEngine.dir/build: lib/libGameEngine.a
 .PHONY : src/GameEngine/CMakeFiles/GameEngine.dir/build
 
 src/GameEngine/CMakeFiles/GameEngine.dir/clean:
-	cd /Users/jiawei/Desktop/373-25-gamjajeon/build/src/GameEngine && $(CMAKE_COMMAND) -P CMakeFiles/GameEngine.dir/cmake_clean.cmake
+	cd /Users/jiawei/Desktop/373/build/src/GameEngine && $(CMAKE_COMMAND) -P CMakeFiles/GameEngine.dir/cmake_clean.cmake
 .PHONY : src/GameEngine/CMakeFiles/GameEngine.dir/clean
 
 src/GameEngine/CMakeFiles/GameEngine.dir/depend:
-	cd /Users/jiawei/Desktop/373-25-gamjajeon/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /Users/jiawei/Desktop/373-25-gamjajeon /Users/jiawei/Desktop/373-25-gamjajeon/src/GameEngine /Users/jiawei/Desktop/373-25-gamjajeon/build /Users/jiawei/Desktop/373-25-gamjajeon/build/src/GameEngine /Users/jiawei/Desktop/373-25-gamjajeon/build/src/GameEngine/CMakeFiles/GameEngine.dir/DependInfo.cmake "--color=$(COLOR)"
+	cd /Users/jiawei/Desktop/373/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /Users/jiawei/Desktop/373 /Users/jiawei/Desktop/373/src/GameEngine /Users/jiawei/Desktop/373/build /Users/jiawei/Desktop/373/build/src/GameEngine /Users/jiawei/Desktop/373/build/src/GameEngine/CMakeFiles/GameEngine.dir/DependInfo.cmake "--color=$(COLOR)"
 .PHONY : src/GameEngine/CMakeFiles/GameEngine.dir/depend
 

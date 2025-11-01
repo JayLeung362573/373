@@ -8,11 +8,11 @@ set(CMAKE_DEPENDS_LANGUAGES
 
 # The set of dependency files which are needed:
 set(CMAKE_DEPENDS_DEPENDENCY_FILES
-  "/Users/jiawei/Desktop/373-25-gamjajeon/src/GameClient.cpp" "src/CMakeFiles/core_lib.dir/GameClient.cpp.o" "gcc" "src/CMakeFiles/core_lib.dir/GameClient.cpp.o.d"
-  "/Users/jiawei/Desktop/373-25-gamjajeon/src/GameServer.cpp" "src/CMakeFiles/core_lib.dir/GameServer.cpp.o" "gcc" "src/CMakeFiles/core_lib.dir/GameServer.cpp.o.d"
-  "/Users/jiawei/Desktop/373-25-gamjajeon/src/MessageTranslator.cpp" "src/CMakeFiles/core_lib.dir/MessageTranslator.cpp.o" "gcc" "src/CMakeFiles/core_lib.dir/MessageTranslator.cpp.o.d"
-  "/Users/jiawei/Desktop/373-25-gamjajeon/src/Networking.cpp" "src/CMakeFiles/core_lib.dir/Networking.cpp.o" "gcc" "src/CMakeFiles/core_lib.dir/Networking.cpp.o.d"
-  "/Users/jiawei/Desktop/373-25-gamjajeon/src/WebsocketNetworking.cpp" "src/CMakeFiles/core_lib.dir/WebsocketNetworking.cpp.o" "gcc" "src/CMakeFiles/core_lib.dir/WebsocketNetworking.cpp.o.d"
+  "/Users/jiawei/Desktop/373/src/GameClient.cpp" "src/CMakeFiles/core_lib.dir/GameClient.cpp.o" "gcc" "src/CMakeFiles/core_lib.dir/GameClient.cpp.o.d"
+  "/Users/jiawei/Desktop/373/src/GameServer.cpp" "src/CMakeFiles/core_lib.dir/GameServer.cpp.o" "gcc" "src/CMakeFiles/core_lib.dir/GameServer.cpp.o.d"
+  "/Users/jiawei/Desktop/373/src/MessageTranslator.cpp" "src/CMakeFiles/core_lib.dir/MessageTranslator.cpp.o" "gcc" "src/CMakeFiles/core_lib.dir/MessageTranslator.cpp.o.d"
+  "/Users/jiawei/Desktop/373/src/Networking.cpp" "src/CMakeFiles/core_lib.dir/Networking.cpp.o" "gcc" "src/CMakeFiles/core_lib.dir/Networking.cpp.o.d"
+  "/Users/jiawei/Desktop/373/src/WebsocketNetworking.cpp" "src/CMakeFiles/core_lib.dir/WebsocketNetworking.cpp.o" "gcc" "src/CMakeFiles/core_lib.dir/WebsocketNetworking.cpp.o.d"
   )
 
 # Targets to which this target links which contain Fortran sources.

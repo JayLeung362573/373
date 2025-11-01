@@ -1,1 +1,0 @@
-/usr/bin/c++  -Wall -fno-rtti -fsanitize=address,undefined -g -arch arm64 -Wl,-search_paths_first -Wl,-headerpad_max_install_names CMakeFiles/server_main.dir/server_main.cpp.o -o bin/server_main  lib/libgame_logic.a _deps/web-socket-networking-build/lib/libnetworking.a

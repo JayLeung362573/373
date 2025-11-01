@@ -41,53 +41,30 @@ void WebSocketNetworking::startServer()
 
 std::vector<std::pair<int, Message>> WebSocketNetworking::receiveFromClients(){
     std::vector<std::pair<int, Message>> receivedMessages;
-    try{
-        net_server->update();
-        auto messages = net_server->receive();
-        for(auto& msg : messages){
-            std::cout << "[WebSocket] Received: " << msg.text
-                      << "from client " << msg.connection.id << "\n";
-            int fromClientID;
-            if(msg.connection.id){
-                fromClientID = msg.connection.id;
-            }else{
-                fromClientID = 0;
-            }
-            Message translatedMsg = MessageTranslator::deserialize(msg.text);
-            receivedMessages.emplace_back(fromClientID, translatedMsg);
-        }
-    }
-    catch(const std::exception& e){
-        std::cerr << "[WebSocket] Server error: " << e.what() << "\n";
-    }
+    receivedMessages.swap(m_incomingMessages);
     return receivedMessages;
 }
 
-std::vector<std::pair<int, std::string>> WebSocketNetworking::update()
+void WebSocketNetworking::update()
 {
     try {
         net_server->update();
 
         auto messages = net_server->receive();
 
-        std::vector<std::pair<int, std::string>> received;
-
         for (auto& msg : messages) {
-            std::cout << "[WebSocket] Received: " << msg.text << " from client " << msg.connection.id << "\n";
+            std::cout << "[WebSocket] Received: " 
+            << msg.text << " from client " << msg.connection.id << "\n";
 
             int fromClientID  = msg.connection.id ? msg.connection.id : 0;
 
-            received.emplace_back(fromClientID, msg.text);
+            Message translatedMsg = MessageTranslator::deserialize(msg.text);
+            m_incomingMessages.emplace_back(fromClientID, translatedMsg);
         }
-
-        return received;
     }
     catch (const std::exception& e) {
         std::cerr << "Server error: " << e.what() << "\n";
     }
-
-    // No messages, returning defaults
-    return {};
 }
 
 void WebSocketNetworking::sendToClient(int toClientID, const Message& message)

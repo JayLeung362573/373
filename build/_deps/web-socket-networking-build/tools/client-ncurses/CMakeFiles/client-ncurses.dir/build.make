@@ -53,10 +53,10 @@ RM = /opt/homebrew/bin/cmake -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /Users/jiawei/Desktop/373-25-gamjajeon
+CMAKE_SOURCE_DIR = /Users/jiawei/Desktop/373
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /Users/jiawei/Desktop/373-25-gamjajeon/build
+CMAKE_BINARY_DIR = /Users/jiawei/Desktop/373/build
 
 # Include any dependencies generated for this target.
 include _deps/web-socket-networking-build/tools/client-ncurses/CMakeFiles/client-ncurses.dir/depend.make
@@ -75,30 +75,30 @@ _deps/web-socket-networking-build/tools/client-ncurses/CMakeFiles/client-ncurses
 _deps/web-socket-networking-build/tools/client-ncurses/CMakeFiles/client-ncurses.dir/chatclient.cpp.o: _deps/web-socket-networking-build/tools/client-ncurses/CMakeFiles/client-ncurses.dir/flags.make
 _deps/web-socket-networking-build/tools/client-ncurses/CMakeFiles/client-ncurses.dir/chatclient.cpp.o: _deps/web-socket-networking-src/tools/client-ncurses/chatclient.cpp
 _deps/web-socket-networking-build/tools/client-ncurses/CMakeFiles/client-ncurses.dir/chatclient.cpp.o: _deps/web-socket-networking-build/tools/client-ncurses/CMakeFiles/client-ncurses.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/jiawei/Desktop/373-25-gamjajeon/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object _deps/web-socket-networking-build/tools/client-ncurses/CMakeFiles/client-ncurses.dir/chatclient.cpp.o"
-	cd /Users/jiawei/Desktop/373-25-gamjajeon/build/_deps/web-socket-networking-build/tools/client-ncurses && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT _deps/web-socket-networking-build/tools/client-ncurses/CMakeFiles/client-ncurses.dir/chatclient.cpp.o -MF CMakeFiles/client-ncurses.dir/chatclient.cpp.o.d -o CMakeFiles/client-ncurses.dir/chatclient.cpp.o -c /Users/jiawei/Desktop/373-25-gamjajeon/build/_deps/web-socket-networking-src/tools/client-ncurses/chatclient.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/jiawei/Desktop/373/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object _deps/web-socket-networking-build/tools/client-ncurses/CMakeFiles/client-ncurses.dir/chatclient.cpp.o"
+	cd /Users/jiawei/Desktop/373/build/_deps/web-socket-networking-build/tools/client-ncurses && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT _deps/web-socket-networking-build/tools/client-ncurses/CMakeFiles/client-ncurses.dir/chatclient.cpp.o -MF CMakeFiles/client-ncurses.dir/chatclient.cpp.o.d -o CMakeFiles/client-ncurses.dir/chatclient.cpp.o -c /Users/jiawei/Desktop/373/build/_deps/web-socket-networking-src/tools/client-ncurses/chatclient.cpp
 
 _deps/web-socket-networking-build/tools/client-ncurses/CMakeFiles/client-ncurses.dir/chatclient.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/client-ncurses.dir/chatclient.cpp.i"
-	cd /Users/jiawei/Desktop/373-25-gamjajeon/build/_deps/web-socket-networking-build/tools/client-ncurses && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/jiawei/Desktop/373-25-gamjajeon/build/_deps/web-socket-networking-src/tools/client-ncurses/chatclient.cpp > CMakeFiles/client-ncurses.dir/chatclient.cpp.i
+	cd /Users/jiawei/Desktop/373/build/_deps/web-socket-networking-build/tools/client-ncurses && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/jiawei/Desktop/373/build/_deps/web-socket-networking-src/tools/client-ncurses/chatclient.cpp > CMakeFiles/client-ncurses.dir/chatclient.cpp.i
 
 _deps/web-socket-networking-build/tools/client-ncurses/CMakeFiles/client-ncurses.dir/chatclient.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/client-ncurses.dir/chatclient.cpp.s"
-	cd /Users/jiawei/Desktop/373-25-gamjajeon/build/_deps/web-socket-networking-build/tools/client-ncurses && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/jiawei/Desktop/373-25-gamjajeon/build/_deps/web-socket-networking-src/tools/client-ncurses/chatclient.cpp -o CMakeFiles/client-ncurses.dir/chatclient.cpp.s
+	cd /Users/jiawei/Desktop/373/build/_deps/web-socket-networking-build/tools/client-ncurses && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/jiawei/Desktop/373/build/_deps/web-socket-networking-src/tools/client-ncurses/chatclient.cpp -o CMakeFiles/client-ncurses.dir/chatclient.cpp.s
 
 _deps/web-socket-networking-build/tools/client-ncurses/CMakeFiles/client-ncurses.dir/ChatWindow.cpp.o: _deps/web-socket-networking-build/tools/client-ncurses/CMakeFiles/client-ncurses.dir/flags.make
 _deps/web-socket-networking-build/tools/client-ncurses/CMakeFiles/client-ncurses.dir/ChatWindow.cpp.o: _deps/web-socket-networking-src/tools/client-ncurses/ChatWindow.cpp
 _deps/web-socket-networking-build/tools/client-ncurses/CMakeFiles/client-ncurses.dir/ChatWindow.cpp.o: _deps/web-socket-networking-build/tools/client-ncurses/CMakeFiles/client-ncurses.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/jiawei/Desktop/373-25-gamjajeon/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object _deps/web-socket-networking-build/tools/client-ncurses/CMakeFiles/client-ncurses.dir/ChatWindow.cpp.o"
-	cd /Users/jiawei/Desktop/373-25-gamjajeon/build/_deps/web-socket-networking-build/tools/client-ncurses && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT _deps/web-socket-networking-build/tools/client-ncurses/CMakeFiles/client-ncurses.dir/ChatWindow.cpp.o -MF CMakeFiles/client-ncurses.dir/ChatWindow.cpp.o.d -o CMakeFiles/client-ncurses.dir/ChatWindow.cpp.o -c /Users/jiawei/Desktop/373-25-gamjajeon/build/_deps/web-socket-networking-src/tools/client-ncurses/ChatWindow.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/jiawei/Desktop/373/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object _deps/web-socket-networking-build/tools/client-ncurses/CMakeFiles/client-ncurses.dir/ChatWindow.cpp.o"
+	cd /Users/jiawei/Desktop/373/build/_deps/web-socket-networking-build/tools/client-ncurses && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT _deps/web-socket-networking-build/tools/client-ncurses/CMakeFiles/client-ncurses.dir/ChatWindow.cpp.o -MF CMakeFiles/client-ncurses.dir/ChatWindow.cpp.o.d -o CMakeFiles/client-ncurses.dir/ChatWindow.cpp.o -c /Users/jiawei/Desktop/373/build/_deps/web-socket-networking-src/tools/client-ncurses/ChatWindow.cpp
 
 _deps/web-socket-networking-build/tools/client-ncurses/CMakeFiles/client-ncurses.dir/ChatWindow.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/client-ncurses.dir/ChatWindow.cpp.i"
-	cd /Users/jiawei/Desktop/373-25-gamjajeon/build/_deps/web-socket-networking-build/tools/client-ncurses && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/jiawei/Desktop/373-25-gamjajeon/build/_deps/web-socket-networking-src/tools/client-ncurses/ChatWindow.cpp > CMakeFiles/client-ncurses.dir/ChatWindow.cpp.i
+	cd /Users/jiawei/Desktop/373/build/_deps/web-socket-networking-build/tools/client-ncurses && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/jiawei/Desktop/373/build/_deps/web-socket-networking-src/tools/client-ncurses/ChatWindow.cpp > CMakeFiles/client-ncurses.dir/ChatWindow.cpp.i
 
 _deps/web-socket-networking-build/tools/client-ncurses/CMakeFiles/client-ncurses.dir/ChatWindow.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/client-ncurses.dir/ChatWindow.cpp.s"
-	cd /Users/jiawei/Desktop/373-25-gamjajeon/build/_deps/web-socket-networking-build/tools/client-ncurses && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/jiawei/Desktop/373-25-gamjajeon/build/_deps/web-socket-networking-src/tools/client-ncurses/ChatWindow.cpp -o CMakeFiles/client-ncurses.dir/ChatWindow.cpp.s
+	cd /Users/jiawei/Desktop/373/build/_deps/web-socket-networking-build/tools/client-ncurses && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/jiawei/Desktop/373/build/_deps/web-socket-networking-src/tools/client-ncurses/ChatWindow.cpp -o CMakeFiles/client-ncurses.dir/ChatWindow.cpp.s
 
 # Object files for target client-ncurses
 client__ncurses_OBJECTS = \
@@ -115,18 +115,18 @@ _deps/web-socket-networking-build/bin/client-ncurses: _deps/web-socket-networkin
 _deps/web-socket-networking-build/bin/client-ncurses: /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/lib/libcurses.tbd
 _deps/web-socket-networking-build/bin/client-ncurses: /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/lib/libform.tbd
 _deps/web-socket-networking-build/bin/client-ncurses: _deps/web-socket-networking-build/tools/client-ncurses/CMakeFiles/client-ncurses.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/Users/jiawei/Desktop/373-25-gamjajeon/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Linking CXX executable ../../bin/client-ncurses"
-	cd /Users/jiawei/Desktop/373-25-gamjajeon/build/_deps/web-socket-networking-build/tools/client-ncurses && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/client-ncurses.dir/link.txt --verbose=$(VERBOSE)
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/Users/jiawei/Desktop/373/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Linking CXX executable ../../bin/client-ncurses"
+	cd /Users/jiawei/Desktop/373/build/_deps/web-socket-networking-build/tools/client-ncurses && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/client-ncurses.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
 _deps/web-socket-networking-build/tools/client-ncurses/CMakeFiles/client-ncurses.dir/build: _deps/web-socket-networking-build/bin/client-ncurses
 .PHONY : _deps/web-socket-networking-build/tools/client-ncurses/CMakeFiles/client-ncurses.dir/build
 
 _deps/web-socket-networking-build/tools/client-ncurses/CMakeFiles/client-ncurses.dir/clean:
-	cd /Users/jiawei/Desktop/373-25-gamjajeon/build/_deps/web-socket-networking-build/tools/client-ncurses && $(CMAKE_COMMAND) -P CMakeFiles/client-ncurses.dir/cmake_clean.cmake
+	cd /Users/jiawei/Desktop/373/build/_deps/web-socket-networking-build/tools/client-ncurses && $(CMAKE_COMMAND) -P CMakeFiles/client-ncurses.dir/cmake_clean.cmake
 .PHONY : _deps/web-socket-networking-build/tools/client-ncurses/CMakeFiles/client-ncurses.dir/clean
 
 _deps/web-socket-networking-build/tools/client-ncurses/CMakeFiles/client-ncurses.dir/depend:
-	cd /Users/jiawei/Desktop/373-25-gamjajeon/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /Users/jiawei/Desktop/373-25-gamjajeon /Users/jiawei/Desktop/373-25-gamjajeon/build/_deps/web-socket-networking-src/tools/client-ncurses /Users/jiawei/Desktop/373-25-gamjajeon/build /Users/jiawei/Desktop/373-25-gamjajeon/build/_deps/web-socket-networking-build/tools/client-ncurses /Users/jiawei/Desktop/373-25-gamjajeon/build/_deps/web-socket-networking-build/tools/client-ncurses/CMakeFiles/client-ncurses.dir/DependInfo.cmake "--color=$(COLOR)"
+	cd /Users/jiawei/Desktop/373/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /Users/jiawei/Desktop/373 /Users/jiawei/Desktop/373/build/_deps/web-socket-networking-src/tools/client-ncurses /Users/jiawei/Desktop/373/build /Users/jiawei/Desktop/373/build/_deps/web-socket-networking-build/tools/client-ncurses /Users/jiawei/Desktop/373/build/_deps/web-socket-networking-build/tools/client-ncurses/CMakeFiles/client-ncurses.dir/DependInfo.cmake "--color=$(COLOR)"
 .PHONY : _deps/web-socket-networking-build/tools/client-ncurses/CMakeFiles/client-ncurses.dir/depend
 

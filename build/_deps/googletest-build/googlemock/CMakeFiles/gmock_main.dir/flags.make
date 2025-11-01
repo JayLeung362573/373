@@ -4,7 +4,7 @@
 # compile CXX with /usr/bin/c++
 CXX_DEFINES = 
 
-CXX_INCLUDES = -isystem /Users/jiawei/Desktop/373-25-gamjajeon/build/_deps/googletest-src/googlemock/include -isystem /Users/jiawei/Desktop/373-25-gamjajeon/build/_deps/googletest-src/googlemock -isystem /Users/jiawei/Desktop/373-25-gamjajeon/build/_deps/googletest-src/googletest/include -isystem /Users/jiawei/Desktop/373-25-gamjajeon/build/_deps/googletest-src/googletest
+CXX_INCLUDES = -isystem /Users/jiawei/Desktop/373/build/_deps/googletest-src/googlemock/include -isystem /Users/jiawei/Desktop/373/build/_deps/googletest-src/googlemock -isystem /Users/jiawei/Desktop/373/build/_deps/googletest-src/googletest/include -isystem /Users/jiawei/Desktop/373/build/_deps/googletest-src/googletest
 
 CXX_FLAGSarm64 =  -Wall -fno-rtti -fsanitize=address,undefined -g -std=c++2b -arch arm64  -DGTEST_HAS_PTHREAD=1  
 

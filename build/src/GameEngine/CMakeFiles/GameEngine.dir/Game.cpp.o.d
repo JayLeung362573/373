@@ -1,7 +1,7 @@
 src/GameEngine/CMakeFiles/GameEngine.dir/Game.cpp.o: \
   /Library/Developer/CommandLineTools/usr/lib/clang/14.0.0/share/asan_ignorelist.txt \
-  /Users/jiawei/Desktop/373-25-gamjajeon/src/GameEngine/Game.cpp \
-  /Users/jiawei/Desktop/373-25-gamjajeon/src/GameEngine/Game.h \
+  /Users/jiawei/Desktop/373/src/GameEngine/Game.cpp \
+  /Users/jiawei/Desktop/373/src/GameEngine/Game.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/memory \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/__config \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/__config_site \
@@ -371,5 +371,5 @@ src/GameEngine/CMakeFiles/GameEngine.dir/Game.cpp.o: \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/wctype.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/_types/_wctrans_t.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/deque \
-  /Users/jiawei/Desktop/373-25-gamjajeon/src/GameEngine/Player.h \
-  /Users/jiawei/Desktop/373-25-gamjajeon/src/GameEngine/Rules.h
+  /Users/jiawei/Desktop/373/src/GameEngine/Player.h \
+  /Users/jiawei/Desktop/373/src/GameEngine/Rules.h

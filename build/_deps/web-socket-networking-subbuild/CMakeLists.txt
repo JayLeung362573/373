@@ -28,8 +28,8 @@ set_property(GLOBAL PROPERTY _CMAKE_FindGit_GIT_EXECUTABLE_VERSION
 include(ExternalProject)
 ExternalProject_Add(web-socket-networking-populate
                      "UPDATE_DISCONNECTED" "False" "GIT_REPOSITORY" "https://github.com/nsumner/web-socket-networking.git" "EXTERNALPROJECT_INTERNAL_ARGUMENT_SEPARATOR" "GIT_TAG" "master"
-                    SOURCE_DIR          "/Users/jiawei/Desktop/373-25-gamjajeon/build/_deps/web-socket-networking-src"
-                    BINARY_DIR          "/Users/jiawei/Desktop/373-25-gamjajeon/build/_deps/web-socket-networking-build"
+                    SOURCE_DIR          "/Users/jiawei/Desktop/373/build/_deps/web-socket-networking-src"
+                    BINARY_DIR          "/Users/jiawei/Desktop/373/build/_deps/web-socket-networking-build"
                     CONFIGURE_COMMAND   ""
                     BUILD_COMMAND       ""
                     INSTALL_COMMAND     ""

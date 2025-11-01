@@ -4,7 +4,7 @@
 # compile CXX with /usr/bin/c++
 CXX_DEFINES = 
 
-CXX_INCLUDES = -I/Users/jiawei/Desktop/373-25-gamjajeon/build/_deps/web-socket-networking-src/lib/networking/include
+CXX_INCLUDES = -I/Users/jiawei/Desktop/373/build/_deps/web-socket-networking-src/lib/networking/include
 
 CXX_FLAGSarm64 =  -Wall -fno-rtti -fsanitize=address,undefined -Wall -fno-rtti -O0 -g -fsanitize=address,undefined -fno-omit-frame-pointer -std=gnu++17 -arch arm64
 

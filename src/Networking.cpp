@@ -4,16 +4,6 @@
 #include <iostream>
 #include <utility>
 
-// void InMemoryNetworking::setServer(std::shared_ptr<GameServer> server)
-// {
-//     m_server = server;
-// }
-
-// void InMemoryNetworking::addClient(std::shared_ptr<GameClient> client)
-// {
-//     m_clients[client->getClientID()] = client;
-// }
-
 void InMemoryNetworking::sendToClient(int toClientID, const Message &message)
 {
     std::cout << "[InMemory] Send message to client \n";

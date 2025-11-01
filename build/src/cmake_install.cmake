@@ -1,4 +1,4 @@
-# Install script for directory: /Users/jiawei/Desktop/373-25-gamjajeon/src
+# Install script for directory: /Users/jiawei/Desktop/373/src
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -39,12 +39,12 @@ endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for the subdirectory.
-  include("/Users/jiawei/Desktop/373-25-gamjajeon/build/src/GameEngine/cmake_install.cmake")
+  include("/Users/jiawei/Desktop/373/build/src/GameEngine/cmake_install.cmake")
 endif()
 
 string(REPLACE ";" "\n" CMAKE_INSTALL_MANIFEST_CONTENT
        "${CMAKE_INSTALL_MANIFEST_FILES}")
 if(CMAKE_INSTALL_LOCAL_ONLY)
-  file(WRITE "/Users/jiawei/Desktop/373-25-gamjajeon/build/src/install_local_manifest.txt"
+  file(WRITE "/Users/jiawei/Desktop/373/build/src/install_local_manifest.txt"
      "${CMAKE_INSTALL_MANIFEST_CONTENT}")
 endif()

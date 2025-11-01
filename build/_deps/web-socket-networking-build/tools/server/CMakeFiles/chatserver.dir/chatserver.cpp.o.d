@@ -1,7 +1,7 @@
 _deps/web-socket-networking-build/tools/server/CMakeFiles/chatserver.dir/chatserver.cpp.o: \
   /Library/Developer/CommandLineTools/usr/lib/clang/14.0.0/share/asan_ignorelist.txt \
-  /Users/jiawei/Desktop/373-25-gamjajeon/build/_deps/web-socket-networking-src/tools/server/chatserver.cpp \
-  /Users/jiawei/Desktop/373-25-gamjajeon/build/_deps/web-socket-networking-src/lib/networking/include/Server.h \
+  /Users/jiawei/Desktop/373/build/_deps/web-socket-networking-src/tools/server/chatserver.cpp \
+  /Users/jiawei/Desktop/373/build/_deps/web-socket-networking-src/lib/networking/include/Server.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/cstdint \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/__config \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/__config_site \

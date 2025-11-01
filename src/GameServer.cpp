@@ -3,6 +3,10 @@
 #include "Networking.h"
 #include "Message.h"
 
+GameServer::GameServer(std::shared_ptr<NetworkingInterface> networking)
+    : m_networking(networking)
+{}
+
 void GameServer::onMessageFromClient(int fromClientID, Message &message)
 {
     std::cout << "[server] Got message from client (id=" << fromClientID << ") : ";

@@ -21,15 +21,14 @@ public:
     ~WebSocketNetworking() = default;
 
     void startServer();
-    std::vector<std::pair<int, std::string>> update();
+    void update();
 
     void sendToClient(int toClientID, const Message& message) override;
     std::vector<std::pair<int, Message>> receiveFromClients() override;
-    // void sendMessageToServer(int fromClientID, Message& message) override;
-
     std::vector<int> getConnectedClientIDs() const override;
 private:
     std::unique_ptr<networking::Server> net_server;
     std::unordered_map<int, networking::Connection> m_connections;
     bool has_server_started = false;
+    std::vector<std::pair<int, Message> > m_incomingMessages;
 };

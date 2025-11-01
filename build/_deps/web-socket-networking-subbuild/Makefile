@@ -57,10 +57,10 @@ RM = /opt/homebrew/bin/cmake -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /Users/jiawei/Desktop/373-25-gamjajeon/build/_deps/web-socket-networking-subbuild
+CMAKE_SOURCE_DIR = /Users/jiawei/Desktop/373/build/_deps/web-socket-networking-subbuild
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /Users/jiawei/Desktop/373-25-gamjajeon/build/_deps/web-socket-networking-subbuild
+CMAKE_BINARY_DIR = /Users/jiawei/Desktop/373/build/_deps/web-socket-networking-subbuild
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -87,16 +87,16 @@ rebuild_cache/fast: rebuild_cache
 
 # The main all target
 all: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /Users/jiawei/Desktop/373-25-gamjajeon/build/_deps/web-socket-networking-subbuild/CMakeFiles /Users/jiawei/Desktop/373-25-gamjajeon/build/_deps/web-socket-networking-subbuild//CMakeFiles/progress.marks
+	$(CMAKE_COMMAND) -E cmake_progress_start /Users/jiawei/Desktop/373/build/_deps/web-socket-networking-subbuild/CMakeFiles /Users/jiawei/Desktop/373/build/_deps/web-socket-networking-subbuild//CMakeFiles/progress.marks
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 all
-	$(CMAKE_COMMAND) -E cmake_progress_start /Users/jiawei/Desktop/373-25-gamjajeon/build/_deps/web-socket-networking-subbuild/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /Users/jiawei/Desktop/373/build/_deps/web-socket-networking-subbuild/CMakeFiles 0
 .PHONY : all
 
 # The main codegen target
 codegen: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /Users/jiawei/Desktop/373-25-gamjajeon/build/_deps/web-socket-networking-subbuild/CMakeFiles /Users/jiawei/Desktop/373-25-gamjajeon/build/_deps/web-socket-networking-subbuild//CMakeFiles/progress.marks
+	$(CMAKE_COMMAND) -E cmake_progress_start /Users/jiawei/Desktop/373/build/_deps/web-socket-networking-subbuild/CMakeFiles /Users/jiawei/Desktop/373/build/_deps/web-socket-networking-subbuild//CMakeFiles/progress.marks
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 codegen
-	$(CMAKE_COMMAND) -E cmake_progress_start /Users/jiawei/Desktop/373-25-gamjajeon/build/_deps/web-socket-networking-subbuild/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /Users/jiawei/Desktop/373/build/_deps/web-socket-networking-subbuild/CMakeFiles 0
 .PHONY : codegen
 
 # The main clean target

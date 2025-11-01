@@ -57,33 +57,13 @@ RM = /opt/homebrew/bin/cmake -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /Users/jiawei/Desktop/373-25-gamjajeon
+CMAKE_SOURCE_DIR = /Users/jiawei/Desktop/373
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /Users/jiawei/Desktop/373-25-gamjajeon/build
+CMAKE_BINARY_DIR = /Users/jiawei/Desktop/373/build
 
 #=============================================================================
 # Targets provided globally by CMake.
-
-# Special rule for the target package
-package: preinstall
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --cyan "Run CPack packaging tool..."
-	cd /Users/jiawei/Desktop/373-25-gamjajeon/build && /opt/homebrew/bin/cpack --config ./CPackConfig.cmake
-.PHONY : package
-
-# Special rule for the target package
-package/fast: package
-.PHONY : package/fast
-
-# Special rule for the target package_source
-package_source:
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --cyan "Run CPack packaging tool for source..."
-	cd /Users/jiawei/Desktop/373-25-gamjajeon/build && /opt/homebrew/bin/cpack --config ./CPackSourceConfig.cmake /Users/jiawei/Desktop/373-25-gamjajeon/build/CPackSourceConfig.cmake
-.PHONY : package_source
-
-# Special rule for the target package_source
-package_source/fast: package_source
-.PHONY : package_source/fast
 
 # Special rule for the target test
 test:
@@ -162,14 +142,14 @@ install/strip/fast: preinstall/fast
 
 # The main all target
 all: cmake_check_build_system
-	cd /Users/jiawei/Desktop/373-25-gamjajeon/build && $(CMAKE_COMMAND) -E cmake_progress_start /Users/jiawei/Desktop/373-25-gamjajeon/build/CMakeFiles /Users/jiawei/Desktop/373-25-gamjajeon/build/src//CMakeFiles/progress.marks
-	cd /Users/jiawei/Desktop/373-25-gamjajeon/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 src/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /Users/jiawei/Desktop/373-25-gamjajeon/build/CMakeFiles 0
+	cd /Users/jiawei/Desktop/373/build && $(CMAKE_COMMAND) -E cmake_progress_start /Users/jiawei/Desktop/373/build/CMakeFiles /Users/jiawei/Desktop/373/build/src//CMakeFiles/progress.marks
+	cd /Users/jiawei/Desktop/373/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 src/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /Users/jiawei/Desktop/373/build/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
 clean:
-	cd /Users/jiawei/Desktop/373-25-gamjajeon/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 src/clean
+	cd /Users/jiawei/Desktop/373/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 src/clean
 .PHONY : clean
 
 # The main clean target
@@ -178,22 +158,22 @@ clean/fast: clean
 
 # Prepare targets for installation.
 preinstall: all
-	cd /Users/jiawei/Desktop/373-25-gamjajeon/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 src/preinstall
+	cd /Users/jiawei/Desktop/373/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 src/preinstall
 .PHONY : preinstall
 
 # Prepare targets for installation.
 preinstall/fast:
-	cd /Users/jiawei/Desktop/373-25-gamjajeon/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 src/preinstall
+	cd /Users/jiawei/Desktop/373/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 src/preinstall
 .PHONY : preinstall/fast
 
 # clear depends
 depend:
-	cd /Users/jiawei/Desktop/373-25-gamjajeon/build && $(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
+	cd /Users/jiawei/Desktop/373/build && $(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
 .PHONY : depend
 
 # Convenience name for target.
 src/CMakeFiles/core_lib.dir/rule:
-	cd /Users/jiawei/Desktop/373-25-gamjajeon/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 src/CMakeFiles/core_lib.dir/rule
+	cd /Users/jiawei/Desktop/373/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 src/CMakeFiles/core_lib.dir/rule
 .PHONY : src/CMakeFiles/core_lib.dir/rule
 
 # Convenience name for target.
@@ -202,12 +182,12 @@ core_lib: src/CMakeFiles/core_lib.dir/rule
 
 # fast build rule for target.
 core_lib/fast:
-	cd /Users/jiawei/Desktop/373-25-gamjajeon/build && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/core_lib.dir/build.make src/CMakeFiles/core_lib.dir/build
+	cd /Users/jiawei/Desktop/373/build && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/core_lib.dir/build.make src/CMakeFiles/core_lib.dir/build
 .PHONY : core_lib/fast
 
 # Convenience name for target.
 src/CMakeFiles/main.dir/rule:
-	cd /Users/jiawei/Desktop/373-25-gamjajeon/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 src/CMakeFiles/main.dir/rule
+	cd /Users/jiawei/Desktop/373/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 src/CMakeFiles/main.dir/rule
 .PHONY : src/CMakeFiles/main.dir/rule
 
 # Convenience name for target.
@@ -216,7 +196,7 @@ main: src/CMakeFiles/main.dir/rule
 
 # fast build rule for target.
 main/fast:
-	cd /Users/jiawei/Desktop/373-25-gamjajeon/build && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/main.dir/build.make src/CMakeFiles/main.dir/build
+	cd /Users/jiawei/Desktop/373/build && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/main.dir/build.make src/CMakeFiles/main.dir/build
 .PHONY : main/fast
 
 GameClient.o: GameClient.cpp.o
@@ -224,7 +204,7 @@ GameClient.o: GameClient.cpp.o
 
 # target to build an object file
 GameClient.cpp.o:
-	cd /Users/jiawei/Desktop/373-25-gamjajeon/build && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/core_lib.dir/build.make src/CMakeFiles/core_lib.dir/GameClient.cpp.o
+	cd /Users/jiawei/Desktop/373/build && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/core_lib.dir/build.make src/CMakeFiles/core_lib.dir/GameClient.cpp.o
 .PHONY : GameClient.cpp.o
 
 GameClient.i: GameClient.cpp.i
@@ -232,7 +212,7 @@ GameClient.i: GameClient.cpp.i
 
 # target to preprocess a source file
 GameClient.cpp.i:
-	cd /Users/jiawei/Desktop/373-25-gamjajeon/build && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/core_lib.dir/build.make src/CMakeFiles/core_lib.dir/GameClient.cpp.i
+	cd /Users/jiawei/Desktop/373/build && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/core_lib.dir/build.make src/CMakeFiles/core_lib.dir/GameClient.cpp.i
 .PHONY : GameClient.cpp.i
 
 GameClient.s: GameClient.cpp.s
@@ -240,7 +220,7 @@ GameClient.s: GameClient.cpp.s
 
 # target to generate assembly for a file
 GameClient.cpp.s:
-	cd /Users/jiawei/Desktop/373-25-gamjajeon/build && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/core_lib.dir/build.make src/CMakeFiles/core_lib.dir/GameClient.cpp.s
+	cd /Users/jiawei/Desktop/373/build && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/core_lib.dir/build.make src/CMakeFiles/core_lib.dir/GameClient.cpp.s
 .PHONY : GameClient.cpp.s
 
 GameServer.o: GameServer.cpp.o
@@ -248,7 +228,7 @@ GameServer.o: GameServer.cpp.o
 
 # target to build an object file
 GameServer.cpp.o:
-	cd /Users/jiawei/Desktop/373-25-gamjajeon/build && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/core_lib.dir/build.make src/CMakeFiles/core_lib.dir/GameServer.cpp.o
+	cd /Users/jiawei/Desktop/373/build && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/core_lib.dir/build.make src/CMakeFiles/core_lib.dir/GameServer.cpp.o
 .PHONY : GameServer.cpp.o
 
 GameServer.i: GameServer.cpp.i
@@ -256,7 +236,7 @@ GameServer.i: GameServer.cpp.i
 
 # target to preprocess a source file
 GameServer.cpp.i:
-	cd /Users/jiawei/Desktop/373-25-gamjajeon/build && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/core_lib.dir/build.make src/CMakeFiles/core_lib.dir/GameServer.cpp.i
+	cd /Users/jiawei/Desktop/373/build && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/core_lib.dir/build.make src/CMakeFiles/core_lib.dir/GameServer.cpp.i
 .PHONY : GameServer.cpp.i
 
 GameServer.s: GameServer.cpp.s
@@ -264,7 +244,7 @@ GameServer.s: GameServer.cpp.s
 
 # target to generate assembly for a file
 GameServer.cpp.s:
-	cd /Users/jiawei/Desktop/373-25-gamjajeon/build && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/core_lib.dir/build.make src/CMakeFiles/core_lib.dir/GameServer.cpp.s
+	cd /Users/jiawei/Desktop/373/build && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/core_lib.dir/build.make src/CMakeFiles/core_lib.dir/GameServer.cpp.s
 .PHONY : GameServer.cpp.s
 
 MessageTranslator.o: MessageTranslator.cpp.o
@@ -272,7 +252,7 @@ MessageTranslator.o: MessageTranslator.cpp.o
 
 # target to build an object file
 MessageTranslator.cpp.o:
-	cd /Users/jiawei/Desktop/373-25-gamjajeon/build && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/core_lib.dir/build.make src/CMakeFiles/core_lib.dir/MessageTranslator.cpp.o
+	cd /Users/jiawei/Desktop/373/build && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/core_lib.dir/build.make src/CMakeFiles/core_lib.dir/MessageTranslator.cpp.o
 .PHONY : MessageTranslator.cpp.o
 
 MessageTranslator.i: MessageTranslator.cpp.i
@@ -280,7 +260,7 @@ MessageTranslator.i: MessageTranslator.cpp.i
 
 # target to preprocess a source file
 MessageTranslator.cpp.i:
-	cd /Users/jiawei/Desktop/373-25-gamjajeon/build && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/core_lib.dir/build.make src/CMakeFiles/core_lib.dir/MessageTranslator.cpp.i
+	cd /Users/jiawei/Desktop/373/build && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/core_lib.dir/build.make src/CMakeFiles/core_lib.dir/MessageTranslator.cpp.i
 .PHONY : MessageTranslator.cpp.i
 
 MessageTranslator.s: MessageTranslator.cpp.s
@@ -288,7 +268,7 @@ MessageTranslator.s: MessageTranslator.cpp.s
 
 # target to generate assembly for a file
 MessageTranslator.cpp.s:
-	cd /Users/jiawei/Desktop/373-25-gamjajeon/build && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/core_lib.dir/build.make src/CMakeFiles/core_lib.dir/MessageTranslator.cpp.s
+	cd /Users/jiawei/Desktop/373/build && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/core_lib.dir/build.make src/CMakeFiles/core_lib.dir/MessageTranslator.cpp.s
 .PHONY : MessageTranslator.cpp.s
 
 Networking.o: Networking.cpp.o
@@ -296,7 +276,7 @@ Networking.o: Networking.cpp.o
 
 # target to build an object file
 Networking.cpp.o:
-	cd /Users/jiawei/Desktop/373-25-gamjajeon/build && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/core_lib.dir/build.make src/CMakeFiles/core_lib.dir/Networking.cpp.o
+	cd /Users/jiawei/Desktop/373/build && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/core_lib.dir/build.make src/CMakeFiles/core_lib.dir/Networking.cpp.o
 .PHONY : Networking.cpp.o
 
 Networking.i: Networking.cpp.i
@@ -304,7 +284,7 @@ Networking.i: Networking.cpp.i
 
 # target to preprocess a source file
 Networking.cpp.i:
-	cd /Users/jiawei/Desktop/373-25-gamjajeon/build && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/core_lib.dir/build.make src/CMakeFiles/core_lib.dir/Networking.cpp.i
+	cd /Users/jiawei/Desktop/373/build && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/core_lib.dir/build.make src/CMakeFiles/core_lib.dir/Networking.cpp.i
 .PHONY : Networking.cpp.i
 
 Networking.s: Networking.cpp.s
@@ -312,7 +292,7 @@ Networking.s: Networking.cpp.s
 
 # target to generate assembly for a file
 Networking.cpp.s:
-	cd /Users/jiawei/Desktop/373-25-gamjajeon/build && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/core_lib.dir/build.make src/CMakeFiles/core_lib.dir/Networking.cpp.s
+	cd /Users/jiawei/Desktop/373/build && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/core_lib.dir/build.make src/CMakeFiles/core_lib.dir/Networking.cpp.s
 .PHONY : Networking.cpp.s
 
 WebsocketNetworking.o: WebsocketNetworking.cpp.o
@@ -320,7 +300,7 @@ WebsocketNetworking.o: WebsocketNetworking.cpp.o
 
 # target to build an object file
 WebsocketNetworking.cpp.o:
-	cd /Users/jiawei/Desktop/373-25-gamjajeon/build && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/core_lib.dir/build.make src/CMakeFiles/core_lib.dir/WebsocketNetworking.cpp.o
+	cd /Users/jiawei/Desktop/373/build && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/core_lib.dir/build.make src/CMakeFiles/core_lib.dir/WebsocketNetworking.cpp.o
 .PHONY : WebsocketNetworking.cpp.o
 
 WebsocketNetworking.i: WebsocketNetworking.cpp.i
@@ -328,7 +308,7 @@ WebsocketNetworking.i: WebsocketNetworking.cpp.i
 
 # target to preprocess a source file
 WebsocketNetworking.cpp.i:
-	cd /Users/jiawei/Desktop/373-25-gamjajeon/build && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/core_lib.dir/build.make src/CMakeFiles/core_lib.dir/WebsocketNetworking.cpp.i
+	cd /Users/jiawei/Desktop/373/build && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/core_lib.dir/build.make src/CMakeFiles/core_lib.dir/WebsocketNetworking.cpp.i
 .PHONY : WebsocketNetworking.cpp.i
 
 WebsocketNetworking.s: WebsocketNetworking.cpp.s
@@ -336,7 +316,7 @@ WebsocketNetworking.s: WebsocketNetworking.cpp.s
 
 # target to generate assembly for a file
 WebsocketNetworking.cpp.s:
-	cd /Users/jiawei/Desktop/373-25-gamjajeon/build && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/core_lib.dir/build.make src/CMakeFiles/core_lib.dir/WebsocketNetworking.cpp.s
+	cd /Users/jiawei/Desktop/373/build && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/core_lib.dir/build.make src/CMakeFiles/core_lib.dir/WebsocketNetworking.cpp.s
 .PHONY : WebsocketNetworking.cpp.s
 
 main.o: main.cpp.o
@@ -344,7 +324,7 @@ main.o: main.cpp.o
 
 # target to build an object file
 main.cpp.o:
-	cd /Users/jiawei/Desktop/373-25-gamjajeon/build && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/main.dir/build.make src/CMakeFiles/main.dir/main.cpp.o
+	cd /Users/jiawei/Desktop/373/build && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/main.dir/build.make src/CMakeFiles/main.dir/main.cpp.o
 .PHONY : main.cpp.o
 
 main.i: main.cpp.i
@@ -352,7 +332,7 @@ main.i: main.cpp.i
 
 # target to preprocess a source file
 main.cpp.i:
-	cd /Users/jiawei/Desktop/373-25-gamjajeon/build && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/main.dir/build.make src/CMakeFiles/main.dir/main.cpp.i
+	cd /Users/jiawei/Desktop/373/build && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/main.dir/build.make src/CMakeFiles/main.dir/main.cpp.i
 .PHONY : main.cpp.i
 
 main.s: main.cpp.s
@@ -360,7 +340,7 @@ main.s: main.cpp.s
 
 # target to generate assembly for a file
 main.cpp.s:
-	cd /Users/jiawei/Desktop/373-25-gamjajeon/build && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/main.dir/build.make src/CMakeFiles/main.dir/main.cpp.s
+	cd /Users/jiawei/Desktop/373/build && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/main.dir/build.make src/CMakeFiles/main.dir/main.cpp.s
 .PHONY : main.cpp.s
 
 # Help Target
@@ -374,8 +354,6 @@ help:
 	@echo "... install/local"
 	@echo "... install/strip"
 	@echo "... list_install_components"
-	@echo "... package"
-	@echo "... package_source"
 	@echo "... rebuild_cache"
 	@echo "... test"
 	@echo "... core_lib"
@@ -409,6 +387,6 @@ help:
 # No rule that depends on this can have commands that come from listfiles
 # because they might be regenerated.
 cmake_check_build_system:
-	cd /Users/jiawei/Desktop/373-25-gamjajeon/build && $(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 0
+	cd /Users/jiawei/Desktop/373/build && $(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 0
 .PHONY : cmake_check_build_system
 

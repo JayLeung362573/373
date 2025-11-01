@@ -1,6 +1,6 @@
 # CMake generated Testfile for 
-# Source directory: /Users/jiawei/Desktop/373-25-gamjajeon/src
-# Build directory: /Users/jiawei/Desktop/373-25-gamjajeon/build/src
+# Source directory: /Users/jiawei/Desktop/373/src
+# Build directory: /Users/jiawei/Desktop/373/build/src
 # 
 # This file includes the relevant testing commands required for 
 # testing this directory and lists subdirectories to be tested as well.

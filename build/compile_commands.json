@@ -1,32 +1,32 @@
 [
 {
-  "directory": "/Users/jiawei/Desktop/373-25-gamjajeon/build/_deps/web-socket-networking-build/lib/networking",
-  "command": "/usr/bin/c++  -I/Users/jiawei/Desktop/373-25-gamjajeon/build/_deps/web-socket-networking-src/lib/networking/include -I/Users/jiawei/Desktop/373-25-gamjajeon/build/_deps/web-socket-networking-src/lib/networking/src -isystem /opt/homebrew/include  -Wall -fno-rtti -fsanitize=address,undefined -Wall -fno-rtti -O0 -g -fsanitize=address,undefined -fno-omit-frame-pointer -std=gnu++17 -arch arm64 -o CMakeFiles/networking.dir/src/Server.cpp.o -c /Users/jiawei/Desktop/373-25-gamjajeon/build/_deps/web-socket-networking-src/lib/networking/src/Server.cpp",
-  "file": "/Users/jiawei/Desktop/373-25-gamjajeon/build/_deps/web-socket-networking-src/lib/networking/src/Server.cpp",
+  "directory": "/Users/jiawei/Desktop/373/build/_deps/web-socket-networking-build/lib/networking",
+  "command": "/usr/bin/c++  -I/Users/jiawei/Desktop/373/build/_deps/web-socket-networking-src/lib/networking/include -I/Users/jiawei/Desktop/373/build/_deps/web-socket-networking-src/lib/networking/src -isystem /opt/homebrew/include  -Wall -fno-rtti -fsanitize=address,undefined -Wall -fno-rtti -O0 -g -fsanitize=address,undefined -fno-omit-frame-pointer -std=gnu++17 -arch arm64 -o CMakeFiles/networking.dir/src/Server.cpp.o -c /Users/jiawei/Desktop/373/build/_deps/web-socket-networking-src/lib/networking/src/Server.cpp",
+  "file": "/Users/jiawei/Desktop/373/build/_deps/web-socket-networking-src/lib/networking/src/Server.cpp",
   "output": "_deps/web-socket-networking-build/lib/networking/CMakeFiles/networking.dir/src/Server.cpp.o"
 },
 {
-  "directory": "/Users/jiawei/Desktop/373-25-gamjajeon/build/_deps/web-socket-networking-build/lib/networking",
-  "command": "/usr/bin/c++  -I/Users/jiawei/Desktop/373-25-gamjajeon/build/_deps/web-socket-networking-src/lib/networking/include -I/Users/jiawei/Desktop/373-25-gamjajeon/build/_deps/web-socket-networking-src/lib/networking/src -isystem /opt/homebrew/include  -Wall -fno-rtti -fsanitize=address,undefined -Wall -fno-rtti -O0 -g -fsanitize=address,undefined -fno-omit-frame-pointer -std=gnu++17 -arch arm64 -o CMakeFiles/networking.dir/src/Client.cpp.o -c /Users/jiawei/Desktop/373-25-gamjajeon/build/_deps/web-socket-networking-src/lib/networking/src/Client.cpp",
-  "file": "/Users/jiawei/Desktop/373-25-gamjajeon/build/_deps/web-socket-networking-src/lib/networking/src/Client.cpp",
+  "directory": "/Users/jiawei/Desktop/373/build/_deps/web-socket-networking-build/lib/networking",
+  "command": "/usr/bin/c++  -I/Users/jiawei/Desktop/373/build/_deps/web-socket-networking-src/lib/networking/include -I/Users/jiawei/Desktop/373/build/_deps/web-socket-networking-src/lib/networking/src -isystem /opt/homebrew/include  -Wall -fno-rtti -fsanitize=address,undefined -Wall -fno-rtti -O0 -g -fsanitize=address,undefined -fno-omit-frame-pointer -std=gnu++17 -arch arm64 -o CMakeFiles/networking.dir/src/Client.cpp.o -c /Users/jiawei/Desktop/373/build/_deps/web-socket-networking-src/lib/networking/src/Client.cpp",
+  "file": "/Users/jiawei/Desktop/373/build/_deps/web-socket-networking-src/lib/networking/src/Client.cpp",
   "output": "_deps/web-socket-networking-build/lib/networking/CMakeFiles/networking.dir/src/Client.cpp.o"
 },
 {
-  "directory": "/Users/jiawei/Desktop/373-25-gamjajeon/build/_deps/web-socket-networking-build/tools/server",
-  "command": "/usr/bin/c++  -I/Users/jiawei/Desktop/373-25-gamjajeon/build/_deps/web-socket-networking-src/lib/networking/include  -Wall -fno-rtti -fsanitize=address,undefined -Wall -fno-rtti -O0 -g -fsanitize=address,undefined -fno-omit-frame-pointer -std=gnu++17 -arch arm64 -o CMakeFiles/chatserver.dir/chatserver.cpp.o -c /Users/jiawei/Desktop/373-25-gamjajeon/build/_deps/web-socket-networking-src/tools/server/chatserver.cpp",
-  "file": "/Users/jiawei/Desktop/373-25-gamjajeon/build/_deps/web-socket-networking-src/tools/server/chatserver.cpp",
+  "directory": "/Users/jiawei/Desktop/373/build/_deps/web-socket-networking-build/tools/server",
+  "command": "/usr/bin/c++  -I/Users/jiawei/Desktop/373/build/_deps/web-socket-networking-src/lib/networking/include  -Wall -fno-rtti -fsanitize=address,undefined -Wall -fno-rtti -O0 -g -fsanitize=address,undefined -fno-omit-frame-pointer -std=gnu++17 -arch arm64 -o CMakeFiles/chatserver.dir/chatserver.cpp.o -c /Users/jiawei/Desktop/373/build/_deps/web-socket-networking-src/tools/server/chatserver.cpp",
+  "file": "/Users/jiawei/Desktop/373/build/_deps/web-socket-networking-src/tools/server/chatserver.cpp",
   "output": "_deps/web-socket-networking-build/tools/server/CMakeFiles/chatserver.dir/chatserver.cpp.o"
 },
 {
-  "directory": "/Users/jiawei/Desktop/373-25-gamjajeon/build/_deps/web-socket-networking-build/tools/client-ncurses",
-  "command": "/usr/bin/c++  -I/Users/jiawei/Desktop/373-25-gamjajeon/build/_deps/web-socket-networking-src/lib/networking/include  -Wall -fno-rtti -fsanitize=address,undefined -Wall -fno-rtti -O0 -g -fsanitize=address,undefined -fno-omit-frame-pointer -std=gnu++17 -arch arm64 -o CMakeFiles/client-ncurses.dir/chatclient.cpp.o -c /Users/jiawei/Desktop/373-25-gamjajeon/build/_deps/web-socket-networking-src/tools/client-ncurses/chatclient.cpp",
-  "file": "/Users/jiawei/Desktop/373-25-gamjajeon/build/_deps/web-socket-networking-src/tools/client-ncurses/chatclient.cpp",
+  "directory": "/Users/jiawei/Desktop/373/build/_deps/web-socket-networking-build/tools/client-ncurses",
+  "command": "/usr/bin/c++  -I/Users/jiawei/Desktop/373/build/_deps/web-socket-networking-src/lib/networking/include  -Wall -fno-rtti -fsanitize=address,undefined -Wall -fno-rtti -O0 -g -fsanitize=address,undefined -fno-omit-frame-pointer -std=gnu++17 -arch arm64 -o CMakeFiles/client-ncurses.dir/chatclient.cpp.o -c /Users/jiawei/Desktop/373/build/_deps/web-socket-networking-src/tools/client-ncurses/chatclient.cpp",
+  "file": "/Users/jiawei/Desktop/373/build/_deps/web-socket-networking-src/tools/client-ncurses/chatclient.cpp",
   "output": "_deps/web-socket-networking-build/tools/client-ncurses/CMakeFiles/client-ncurses.dir/chatclient.cpp.o"
 },
 {
-  "directory": "/Users/jiawei/Desktop/373-25-gamjajeon/build/_deps/web-socket-networking-build/tools/client-ncurses",
-  "command": "/usr/bin/c++  -I/Users/jiawei/Desktop/373-25-gamjajeon/build/_deps/web-socket-networking-src/lib/networking/include  -Wall -fno-rtti -fsanitize=address,undefined -Wall -fno-rtti -O0 -g -fsanitize=address,undefined -fno-omit-frame-pointer -std=gnu++17 -arch arm64 -o CMakeFiles/client-ncurses.dir/ChatWindow.cpp.o -c /Users/jiawei/Desktop/373-25-gamjajeon/build/_deps/web-socket-networking-src/tools/client-ncurses/ChatWindow.cpp",
-  "file": "/Users/jiawei/Desktop/373-25-gamjajeon/build/_deps/web-socket-networking-src/tools/client-ncurses/ChatWindow.cpp",
+  "directory": "/Users/jiawei/Desktop/373/build/_deps/web-socket-networking-build/tools/client-ncurses",
+  "command": "/usr/bin/c++  -I/Users/jiawei/Desktop/373/build/_deps/web-socket-networking-src/lib/networking/include  -Wall -fno-rtti -fsanitize=address,undefined -Wall -fno-rtti -O0 -g -fsanitize=address,undefined -fno-omit-frame-pointer -std=gnu++17 -arch arm64 -o CMakeFiles/client-ncurses.dir/ChatWindow.cpp.o -c /Users/jiawei/Desktop/373/build/_deps/web-socket-networking-src/tools/client-ncurses/ChatWindow.cpp",
+  "file": "/Users/jiawei/Desktop/373/build/_deps/web-socket-networking-src/tools/client-ncurses/ChatWindow.cpp",
   "output": "_deps/web-socket-networking-build/tools/client-ncurses/CMakeFiles/client-ncurses.dir/ChatWindow.cpp.o"
 }
 ]

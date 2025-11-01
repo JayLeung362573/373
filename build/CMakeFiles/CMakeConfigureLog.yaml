@@ -21,8 +21,6 @@ events:
       - "uname"
     candidate_directories:
       - "/Users/jiawei/.juliaup/bin/"
-      - "/Users/jiawei/.cabal/bin/"
-      - "/Users/jiawei/.ghcup/bin/"
       - "/Users/jiawei/Documents/Documents - Jiawei\u2019s MacBook Pro/SchoolDocuments/CMPT213/apache-maven-3.9.9/bin/"
       - "/Library/Java/JavaVirtualMachines/jdk-21.jdk/Contents/Home/bin/"
       - "/Users/jiawei/opt/anaconda3/bin/"
@@ -40,11 +38,12 @@ events:
       - "/usr/local/share/dotnet/"
       - "/opt/X11/bin/"
       - "/Users/jiawei/.dotnet/tools/"
+      - "/Users/jiawei/.cabal/bin/"
+      - "/Users/jiawei/.ghcup/bin/"
       - "/Users/jiawei/.cargo/bin/"
+      - "/Users/jiawei/Library/Application Support/Code/User/globalStorage/github.copilot-chat/debugCommand/"
     searched_directories:
       - "/Users/jiawei/.juliaup/bin/uname"
-      - "/Users/jiawei/.cabal/bin/uname"
-      - "/Users/jiawei/.ghcup/bin/uname"
       - "/Users/jiawei/Documents/Documents - Jiawei\u2019s MacBook Pro/SchoolDocuments/CMPT213/apache-maven-3.9.9/bin/uname"
       - "/Library/Java/JavaVirtualMachines/jdk-21.jdk/Contents/Home/bin/uname"
       - "/Users/jiawei/opt/anaconda3/bin/uname"
@@ -60,8 +59,6 @@ events:
       ENV{PATH}:
         - "/Users/jiawei/.juliaup/bin"
         - "/Users/jiawei/.juliaup/bin"
-        - "/Users/jiawei/.cabal/bin"
-        - "/Users/jiawei/.ghcup/bin"
         - "/Users/jiawei/Documents/Documents - Jiawei\u2019s MacBook Pro/SchoolDocuments/CMPT213/apache-maven-3.9.9/bin"
         - "/Users/jiawei/Documents/Documents - Jiawei\u2019s MacBook Pro/SchoolDocuments/CMPT213/apache-maven-3.9.9/bin"
         - "/Library/Java/JavaVirtualMachines/jdk-21.jdk/Contents/Home/bin"
@@ -80,7 +77,20 @@ events:
         - "/usr/local/share/dotnet"
         - "/opt/X11/bin"
         - "~/.dotnet/tools"
+        - "/Users/jiawei/.juliaup/bin"
+        - "/Users/jiawei/.cabal/bin"
+        - "/Users/jiawei/.ghcup/bin"
+        - "/Users/jiawei/Documents/Documents - Jiawei\u2019s MacBook Pro/SchoolDocuments/CMPT213/apache-maven-3.9.9/bin"
+        - "/Library/Java/JavaVirtualMachines/jdk-21.jdk/Contents/Home/bin"
+        - "/Users/jiawei/opt/anaconda3/bin"
+        - "/Library/Frameworks/Python.framework/Versions/3.12/bin"
+        - "/opt/local/bin"
+        - "/opt/local/sbin"
+        - "/opt/homebrew/bin"
+        - "/opt/homebrew/sbin"
+        - "/Library/Frameworks/Python.framework/Versions/3.10/bin"
         - "/Users/jiawei/.cargo/bin"
+        - "/Users/jiawei/Library/Application Support/Code/User/globalStorage/github.copilot-chat/debugCommand"
   -
     kind: "message-v1"
     backtrace:
@@ -110,8 +120,6 @@ events:
       - "smake"
     candidate_directories:
       - "/Users/jiawei/.juliaup/bin/"
-      - "/Users/jiawei/.cabal/bin/"
-      - "/Users/jiawei/.ghcup/bin/"
       - "/Users/jiawei/Documents/Documents - Jiawei\u2019s MacBook Pro/SchoolDocuments/CMPT213/apache-maven-3.9.9/bin/"
       - "/Library/Java/JavaVirtualMachines/jdk-21.jdk/Contents/Home/bin/"
       - "/Users/jiawei/opt/anaconda3/bin/"
@@ -129,11 +137,12 @@ events:
       - "/usr/local/share/dotnet/"
       - "/opt/X11/bin/"
       - "/Users/jiawei/.dotnet/tools/"
+      - "/Users/jiawei/.cabal/bin/"
+      - "/Users/jiawei/.ghcup/bin/"
       - "/Users/jiawei/.cargo/bin/"
+      - "/Users/jiawei/Library/Application Support/Code/User/globalStorage/github.copilot-chat/debugCommand/"
     searched_directories:
       - "/Users/jiawei/.juliaup/bin/gmake"
-      - "/Users/jiawei/.cabal/bin/gmake"
-      - "/Users/jiawei/.ghcup/bin/gmake"
       - "/Users/jiawei/Documents/Documents - Jiawei\u2019s MacBook Pro/SchoolDocuments/CMPT213/apache-maven-3.9.9/bin/gmake"
       - "/Library/Java/JavaVirtualMachines/jdk-21.jdk/Contents/Home/bin/gmake"
       - "/Users/jiawei/opt/anaconda3/bin/gmake"
@@ -151,10 +160,11 @@ events:
       - "/usr/local/share/dotnet/gmake"
       - "/opt/X11/bin/gmake"
       - "/Users/jiawei/.dotnet/tools/gmake"
+      - "/Users/jiawei/.cabal/bin/gmake"
+      - "/Users/jiawei/.ghcup/bin/gmake"
       - "/Users/jiawei/.cargo/bin/gmake"
+      - "/Users/jiawei/Library/Application Support/Code/User/globalStorage/github.copilot-chat/debugCommand/gmake"
       - "/Users/jiawei/.juliaup/bin/make"
-      - "/Users/jiawei/.cabal/bin/make"
-      - "/Users/jiawei/.ghcup/bin/make"
       - "/Users/jiawei/Documents/Documents - Jiawei\u2019s MacBook Pro/SchoolDocuments/CMPT213/apache-maven-3.9.9/bin/make"
       - "/Library/Java/JavaVirtualMachines/jdk-21.jdk/Contents/Home/bin/make"
       - "/Users/jiawei/opt/anaconda3/bin/make"
@@ -170,8 +180,6 @@ events:
       ENV{PATH}:
         - "/Users/jiawei/.juliaup/bin"
         - "/Users/jiawei/.juliaup/bin"
-        - "/Users/jiawei/.cabal/bin"
-        - "/Users/jiawei/.ghcup/bin"
         - "/Users/jiawei/Documents/Documents - Jiawei\u2019s MacBook Pro/SchoolDocuments/CMPT213/apache-maven-3.9.9/bin"
         - "/Users/jiawei/Documents/Documents - Jiawei\u2019s MacBook Pro/SchoolDocuments/CMPT213/apache-maven-3.9.9/bin"
         - "/Library/Java/JavaVirtualMachines/jdk-21.jdk/Contents/Home/bin"
@@ -190,7 +198,20 @@ events:
         - "/usr/local/share/dotnet"
         - "/opt/X11/bin"
         - "~/.dotnet/tools"
+        - "/Users/jiawei/.juliaup/bin"
+        - "/Users/jiawei/.cabal/bin"
+        - "/Users/jiawei/.ghcup/bin"
+        - "/Users/jiawei/Documents/Documents - Jiawei\u2019s MacBook Pro/SchoolDocuments/CMPT213/apache-maven-3.9.9/bin"
+        - "/Library/Java/JavaVirtualMachines/jdk-21.jdk/Contents/Home/bin"
+        - "/Users/jiawei/opt/anaconda3/bin"
+        - "/Library/Frameworks/Python.framework/Versions/3.12/bin"
+        - "/opt/local/bin"
+        - "/opt/local/sbin"
+        - "/opt/homebrew/bin"
+        - "/opt/homebrew/sbin"
+        - "/Library/Frameworks/Python.framework/Versions/3.10/bin"
         - "/Users/jiawei/.cargo/bin"
+        - "/Users/jiawei/Library/Application Support/Code/User/globalStorage/github.copilot-chat/debugCommand"
   -
     kind: "find-v1"
     backtrace:
@@ -218,8 +239,6 @@ events:
       - "clang"
     candidate_directories:
       - "/Users/jiawei/.juliaup/bin/"
-      - "/Users/jiawei/.cabal/bin/"
-      - "/Users/jiawei/.ghcup/bin/"
       - "/Users/jiawei/Documents/Documents - Jiawei\u2019s MacBook Pro/SchoolDocuments/CMPT213/apache-maven-3.9.9/bin/"
       - "/Library/Java/JavaVirtualMachines/jdk-21.jdk/Contents/Home/bin/"
       - "/Users/jiawei/opt/anaconda3/bin/"
@@ -237,11 +256,12 @@ events:
       - "/usr/local/share/dotnet/"
       - "/opt/X11/bin/"
       - "/Users/jiawei/.dotnet/tools/"
+      - "/Users/jiawei/.cabal/bin/"
+      - "/Users/jiawei/.ghcup/bin/"
       - "/Users/jiawei/.cargo/bin/"
+      - "/Users/jiawei/Library/Application Support/Code/User/globalStorage/github.copilot-chat/debugCommand/"
     searched_directories:
       - "/Users/jiawei/.juliaup/bin/cc"
-      - "/Users/jiawei/.cabal/bin/cc"
-      - "/Users/jiawei/.ghcup/bin/cc"
       - "/Users/jiawei/Documents/Documents - Jiawei\u2019s MacBook Pro/SchoolDocuments/CMPT213/apache-maven-3.9.9/bin/cc"
       - "/Library/Java/JavaVirtualMachines/jdk-21.jdk/Contents/Home/bin/cc"
       - "/Users/jiawei/opt/anaconda3/bin/cc"
@@ -257,8 +277,6 @@ events:
       ENV{PATH}:
         - "/Users/jiawei/.juliaup/bin"
         - "/Users/jiawei/.juliaup/bin"
-        - "/Users/jiawei/.cabal/bin"
-        - "/Users/jiawei/.ghcup/bin"
         - "/Users/jiawei/Documents/Documents - Jiawei\u2019s MacBook Pro/SchoolDocuments/CMPT213/apache-maven-3.9.9/bin"
         - "/Users/jiawei/Documents/Documents - Jiawei\u2019s MacBook Pro/SchoolDocuments/CMPT213/apache-maven-3.9.9/bin"
         - "/Library/Java/JavaVirtualMachines/jdk-21.jdk/Contents/Home/bin"
@@ -277,7 +295,20 @@ events:
         - "/usr/local/share/dotnet"
         - "/opt/X11/bin"
         - "~/.dotnet/tools"
+        - "/Users/jiawei/.juliaup/bin"
+        - "/Users/jiawei/.cabal/bin"
+        - "/Users/jiawei/.ghcup/bin"
+        - "/Users/jiawei/Documents/Documents - Jiawei\u2019s MacBook Pro/SchoolDocuments/CMPT213/apache-maven-3.9.9/bin"
+        - "/Library/Java/JavaVirtualMachines/jdk-21.jdk/Contents/Home/bin"
+        - "/Users/jiawei/opt/anaconda3/bin"
+        - "/Library/Frameworks/Python.framework/Versions/3.12/bin"
+        - "/opt/local/bin"
+        - "/opt/local/sbin"
+        - "/opt/homebrew/bin"
+        - "/opt/homebrew/sbin"
+        - "/Library/Frameworks/Python.framework/Versions/3.10/bin"
         - "/Users/jiawei/.cargo/bin"
+        - "/Users/jiawei/Library/Application Support/Code/User/globalStorage/github.copilot-chat/debugCommand"
   -
     kind: "find-v1"
     backtrace:
@@ -307,8 +338,6 @@ events:
       ENV{PATH}:
         - "/Users/jiawei/.juliaup/bin"
         - "/Users/jiawei/.juliaup/bin"
-        - "/Users/jiawei/.cabal/bin"
-        - "/Users/jiawei/.ghcup/bin"
         - "/Users/jiawei/Documents/Documents - Jiawei\u2019s MacBook Pro/SchoolDocuments/CMPT213/apache-maven-3.9.9/bin"
         - "/Users/jiawei/Documents/Documents - Jiawei\u2019s MacBook Pro/SchoolDocuments/CMPT213/apache-maven-3.9.9/bin"
         - "/Library/Java/JavaVirtualMachines/jdk-21.jdk/Contents/Home/bin"
@@ -327,7 +356,20 @@ events:
         - "/usr/local/share/dotnet"
         - "/opt/X11/bin"
         - "~/.dotnet/tools"
+        - "/Users/jiawei/.juliaup/bin"
+        - "/Users/jiawei/.cabal/bin"
+        - "/Users/jiawei/.ghcup/bin"
+        - "/Users/jiawei/Documents/Documents - Jiawei\u2019s MacBook Pro/SchoolDocuments/CMPT213/apache-maven-3.9.9/bin"
+        - "/Library/Java/JavaVirtualMachines/jdk-21.jdk/Contents/Home/bin"
+        - "/Users/jiawei/opt/anaconda3/bin"
+        - "/Library/Frameworks/Python.framework/Versions/3.12/bin"
+        - "/opt/local/bin"
+        - "/opt/local/sbin"
+        - "/opt/homebrew/bin"
+        - "/opt/homebrew/sbin"
+        - "/Library/Frameworks/Python.framework/Versions/3.10/bin"
         - "/Users/jiawei/.cargo/bin"
+        - "/Users/jiawei/Library/Application Support/Code/User/globalStorage/github.copilot-chat/debugCommand"
   -
     kind: "message-v1"
     backtrace:
@@ -348,7 +390,7 @@ events:
       Compilation of the C compiler identification source "CMakeCCompilerId.c" produced "a.out"
       
       The C compiler identification is AppleClang, found in:
-        /Users/jiawei/Desktop/373-25-gamjajeon/build/CMakeFiles/4.1.2/CompilerIdC/a.out
+        /Users/jiawei/Desktop/373/build/CMakeFiles/4.1.2/CompilerIdC/a.out
       
   -
     kind: "message-v1"
@@ -400,8 +442,6 @@ events:
     candidate_directories:
       - "/usr/bin/"
       - "/Users/jiawei/.juliaup/bin/"
-      - "/Users/jiawei/.cabal/bin/"
-      - "/Users/jiawei/.ghcup/bin/"
       - "/Users/jiawei/Documents/Documents - Jiawei\u2019s MacBook Pro/SchoolDocuments/CMPT213/apache-maven-3.9.9/bin/"
       - "/Library/Java/JavaVirtualMachines/jdk-21.jdk/Contents/Home/bin/"
       - "/Users/jiawei/opt/anaconda3/bin/"
@@ -418,14 +458,15 @@ events:
       - "/usr/local/share/dotnet/"
       - "/opt/X11/bin/"
       - "/Users/jiawei/.dotnet/tools/"
+      - "/Users/jiawei/.cabal/bin/"
+      - "/Users/jiawei/.ghcup/bin/"
       - "/Users/jiawei/.cargo/bin/"
+      - "/Users/jiawei/Library/Application Support/Code/User/globalStorage/github.copilot-chat/debugCommand/"
     found: "/usr/bin/ar"
     search_context:
       ENV{PATH}:
         - "/Users/jiawei/.juliaup/bin"
         - "/Users/jiawei/.juliaup/bin"
-        - "/Users/jiawei/.cabal/bin"
-        - "/Users/jiawei/.ghcup/bin"
         - "/Users/jiawei/Documents/Documents - Jiawei\u2019s MacBook Pro/SchoolDocuments/CMPT213/apache-maven-3.9.9/bin"
         - "/Users/jiawei/Documents/Documents - Jiawei\u2019s MacBook Pro/SchoolDocuments/CMPT213/apache-maven-3.9.9/bin"
         - "/Library/Java/JavaVirtualMachines/jdk-21.jdk/Contents/Home/bin"
@@ -444,7 +485,20 @@ events:
         - "/usr/local/share/dotnet"
         - "/opt/X11/bin"
         - "~/.dotnet/tools"
+        - "/Users/jiawei/.juliaup/bin"
+        - "/Users/jiawei/.cabal/bin"
+        - "/Users/jiawei/.ghcup/bin"
+        - "/Users/jiawei/Documents/Documents - Jiawei\u2019s MacBook Pro/SchoolDocuments/CMPT213/apache-maven-3.9.9/bin"
+        - "/Library/Java/JavaVirtualMachines/jdk-21.jdk/Contents/Home/bin"
+        - "/Users/jiawei/opt/anaconda3/bin"
+        - "/Library/Frameworks/Python.framework/Versions/3.12/bin"
+        - "/opt/local/bin"
+        - "/opt/local/sbin"
+        - "/opt/homebrew/bin"
+        - "/opt/homebrew/sbin"
+        - "/Library/Frameworks/Python.framework/Versions/3.10/bin"
         - "/Users/jiawei/.cargo/bin"
+        - "/Users/jiawei/Library/Application Support/Code/User/globalStorage/github.copilot-chat/debugCommand"
   -
     kind: "find-v1"
     backtrace:
@@ -467,8 +521,6 @@ events:
     candidate_directories:
       - "/usr/bin/"
       - "/Users/jiawei/.juliaup/bin/"
-      - "/Users/jiawei/.cabal/bin/"
-      - "/Users/jiawei/.ghcup/bin/"
       - "/Users/jiawei/Documents/Documents - Jiawei\u2019s MacBook Pro/SchoolDocuments/CMPT213/apache-maven-3.9.9/bin/"
       - "/Library/Java/JavaVirtualMachines/jdk-21.jdk/Contents/Home/bin/"
       - "/Users/jiawei/opt/anaconda3/bin/"
@@ -485,14 +537,15 @@ events:
       - "/usr/local/share/dotnet/"
       - "/opt/X11/bin/"
       - "/Users/jiawei/.dotnet/tools/"
+      - "/Users/jiawei/.cabal/bin/"
+      - "/Users/jiawei/.ghcup/bin/"
       - "/Users/jiawei/.cargo/bin/"
+      - "/Users/jiawei/Library/Application Support/Code/User/globalStorage/github.copilot-chat/debugCommand/"
     found: "/usr/bin/ranlib"
     search_context:
       ENV{PATH}:
         - "/Users/jiawei/.juliaup/bin"
         - "/Users/jiawei/.juliaup/bin"
-        - "/Users/jiawei/.cabal/bin"
-        - "/Users/jiawei/.ghcup/bin"
         - "/Users/jiawei/Documents/Documents - Jiawei\u2019s MacBook Pro/SchoolDocuments/CMPT213/apache-maven-3.9.9/bin"
         - "/Users/jiawei/Documents/Documents - Jiawei\u2019s MacBook Pro/SchoolDocuments/CMPT213/apache-maven-3.9.9/bin"
         - "/Library/Java/JavaVirtualMachines/jdk-21.jdk/Contents/Home/bin"
@@ -511,7 +564,20 @@ events:
         - "/usr/local/share/dotnet"
         - "/opt/X11/bin"
         - "~/.dotnet/tools"
+        - "/Users/jiawei/.juliaup/bin"
+        - "/Users/jiawei/.cabal/bin"
+        - "/Users/jiawei/.ghcup/bin"
+        - "/Users/jiawei/Documents/Documents - Jiawei\u2019s MacBook Pro/SchoolDocuments/CMPT213/apache-maven-3.9.9/bin"
+        - "/Library/Java/JavaVirtualMachines/jdk-21.jdk/Contents/Home/bin"
+        - "/Users/jiawei/opt/anaconda3/bin"
+        - "/Library/Frameworks/Python.framework/Versions/3.12/bin"
+        - "/opt/local/bin"
+        - "/opt/local/sbin"
+        - "/opt/homebrew/bin"
+        - "/opt/homebrew/sbin"
+        - "/Library/Frameworks/Python.framework/Versions/3.10/bin"
         - "/Users/jiawei/.cargo/bin"
+        - "/Users/jiawei/Library/Application Support/Code/User/globalStorage/github.copilot-chat/debugCommand"
   -
     kind: "find-v1"
     backtrace:
@@ -534,8 +600,6 @@ events:
     candidate_directories:
       - "/usr/bin/"
       - "/Users/jiawei/.juliaup/bin/"
-      - "/Users/jiawei/.cabal/bin/"
-      - "/Users/jiawei/.ghcup/bin/"
       - "/Users/jiawei/Documents/Documents - Jiawei\u2019s MacBook Pro/SchoolDocuments/CMPT213/apache-maven-3.9.9/bin/"
       - "/Library/Java/JavaVirtualMachines/jdk-21.jdk/Contents/Home/bin/"
       - "/Users/jiawei/opt/anaconda3/bin/"
@@ -552,14 +616,15 @@ events:
       - "/usr/local/share/dotnet/"
       - "/opt/X11/bin/"
       - "/Users/jiawei/.dotnet/tools/"
+      - "/Users/jiawei/.cabal/bin/"
+      - "/Users/jiawei/.ghcup/bin/"
       - "/Users/jiawei/.cargo/bin/"
+      - "/Users/jiawei/Library/Application Support/Code/User/globalStorage/github.copilot-chat/debugCommand/"
     found: "/usr/bin/strip"
     search_context:
       ENV{PATH}:
         - "/Users/jiawei/.juliaup/bin"
         - "/Users/jiawei/.juliaup/bin"
-        - "/Users/jiawei/.cabal/bin"
-        - "/Users/jiawei/.ghcup/bin"
         - "/Users/jiawei/Documents/Documents - Jiawei\u2019s MacBook Pro/SchoolDocuments/CMPT213/apache-maven-3.9.9/bin"
         - "/Users/jiawei/Documents/Documents - Jiawei\u2019s MacBook Pro/SchoolDocuments/CMPT213/apache-maven-3.9.9/bin"
         - "/Library/Java/JavaVirtualMachines/jdk-21.jdk/Contents/Home/bin"
@@ -578,7 +643,20 @@ events:
         - "/usr/local/share/dotnet"
         - "/opt/X11/bin"
         - "~/.dotnet/tools"
+        - "/Users/jiawei/.juliaup/bin"
+        - "/Users/jiawei/.cabal/bin"
+        - "/Users/jiawei/.ghcup/bin"
+        - "/Users/jiawei/Documents/Documents - Jiawei\u2019s MacBook Pro/SchoolDocuments/CMPT213/apache-maven-3.9.9/bin"
+        - "/Library/Java/JavaVirtualMachines/jdk-21.jdk/Contents/Home/bin"
+        - "/Users/jiawei/opt/anaconda3/bin"
+        - "/Library/Frameworks/Python.framework/Versions/3.12/bin"
+        - "/opt/local/bin"
+        - "/opt/local/sbin"
+        - "/opt/homebrew/bin"
+        - "/opt/homebrew/sbin"
+        - "/Library/Frameworks/Python.framework/Versions/3.10/bin"
         - "/Users/jiawei/.cargo/bin"
+        - "/Users/jiawei/Library/Application Support/Code/User/globalStorage/github.copilot-chat/debugCommand"
   -
     kind: "find-v1"
     backtrace:
@@ -601,8 +679,6 @@ events:
     candidate_directories:
       - "/usr/bin/"
       - "/Users/jiawei/.juliaup/bin/"
-      - "/Users/jiawei/.cabal/bin/"
-      - "/Users/jiawei/.ghcup/bin/"
       - "/Users/jiawei/Documents/Documents - Jiawei\u2019s MacBook Pro/SchoolDocuments/CMPT213/apache-maven-3.9.9/bin/"
       - "/Library/Java/JavaVirtualMachines/jdk-21.jdk/Contents/Home/bin/"
       - "/Users/jiawei/opt/anaconda3/bin/"
@@ -619,14 +695,15 @@ events:
       - "/usr/local/share/dotnet/"
       - "/opt/X11/bin/"
       - "/Users/jiawei/.dotnet/tools/"
+      - "/Users/jiawei/.cabal/bin/"
+      - "/Users/jiawei/.ghcup/bin/"
       - "/Users/jiawei/.cargo/bin/"
+      - "/Users/jiawei/Library/Application Support/Code/User/globalStorage/github.copilot-chat/debugCommand/"
     found: "/usr/bin/ld"
     search_context:
       ENV{PATH}:
         - "/Users/jiawei/.juliaup/bin"
         - "/Users/jiawei/.juliaup/bin"
-        - "/Users/jiawei/.cabal/bin"
-        - "/Users/jiawei/.ghcup/bin"
         - "/Users/jiawei/Documents/Documents - Jiawei\u2019s MacBook Pro/SchoolDocuments/CMPT213/apache-maven-3.9.9/bin"
         - "/Users/jiawei/Documents/Documents - Jiawei\u2019s MacBook Pro/SchoolDocuments/CMPT213/apache-maven-3.9.9/bin"
         - "/Library/Java/JavaVirtualMachines/jdk-21.jdk/Contents/Home/bin"
@@ -645,7 +722,20 @@ events:
         - "/usr/local/share/dotnet"
         - "/opt/X11/bin"
         - "~/.dotnet/tools"
+        - "/Users/jiawei/.juliaup/bin"
+        - "/Users/jiawei/.cabal/bin"
+        - "/Users/jiawei/.ghcup/bin"
+        - "/Users/jiawei/Documents/Documents - Jiawei\u2019s MacBook Pro/SchoolDocuments/CMPT213/apache-maven-3.9.9/bin"
+        - "/Library/Java/JavaVirtualMachines/jdk-21.jdk/Contents/Home/bin"
+        - "/Users/jiawei/opt/anaconda3/bin"
+        - "/Library/Frameworks/Python.framework/Versions/3.12/bin"
+        - "/opt/local/bin"
+        - "/opt/local/sbin"
+        - "/opt/homebrew/bin"
+        - "/opt/homebrew/sbin"
+        - "/Library/Frameworks/Python.framework/Versions/3.10/bin"
         - "/Users/jiawei/.cargo/bin"
+        - "/Users/jiawei/Library/Application Support/Code/User/globalStorage/github.copilot-chat/debugCommand"
   -
     kind: "find-v1"
     backtrace:
@@ -668,8 +758,6 @@ events:
     candidate_directories:
       - "/usr/bin/"
       - "/Users/jiawei/.juliaup/bin/"
-      - "/Users/jiawei/.cabal/bin/"
-      - "/Users/jiawei/.ghcup/bin/"
       - "/Users/jiawei/Documents/Documents - Jiawei\u2019s MacBook Pro/SchoolDocuments/CMPT213/apache-maven-3.9.9/bin/"
       - "/Library/Java/JavaVirtualMachines/jdk-21.jdk/Contents/Home/bin/"
       - "/Users/jiawei/opt/anaconda3/bin/"
@@ -686,14 +774,15 @@ events:
       - "/usr/local/share/dotnet/"
       - "/opt/X11/bin/"
       - "/Users/jiawei/.dotnet/tools/"
+      - "/Users/jiawei/.cabal/bin/"
+      - "/Users/jiawei/.ghcup/bin/"
       - "/Users/jiawei/.cargo/bin/"
+      - "/Users/jiawei/Library/Application Support/Code/User/globalStorage/github.copilot-chat/debugCommand/"
     found: "/usr/bin/nm"
     search_context:
       ENV{PATH}:
         - "/Users/jiawei/.juliaup/bin"
         - "/Users/jiawei/.juliaup/bin"
-        - "/Users/jiawei/.cabal/bin"
-        - "/Users/jiawei/.ghcup/bin"
         - "/Users/jiawei/Documents/Documents - Jiawei\u2019s MacBook Pro/SchoolDocuments/CMPT213/apache-maven-3.9.9/bin"
         - "/Users/jiawei/Documents/Documents - Jiawei\u2019s MacBook Pro/SchoolDocuments/CMPT213/apache-maven-3.9.9/bin"
         - "/Library/Java/JavaVirtualMachines/jdk-21.jdk/Contents/Home/bin"
@@ -712,7 +801,20 @@ events:
         - "/usr/local/share/dotnet"
         - "/opt/X11/bin"
         - "~/.dotnet/tools"
+        - "/Users/jiawei/.juliaup/bin"
+        - "/Users/jiawei/.cabal/bin"
+        - "/Users/jiawei/.ghcup/bin"
+        - "/Users/jiawei/Documents/Documents - Jiawei\u2019s MacBook Pro/SchoolDocuments/CMPT213/apache-maven-3.9.9/bin"
+        - "/Library/Java/JavaVirtualMachines/jdk-21.jdk/Contents/Home/bin"
+        - "/Users/jiawei/opt/anaconda3/bin"
+        - "/Library/Frameworks/Python.framework/Versions/3.12/bin"
+        - "/opt/local/bin"
+        - "/opt/local/sbin"
+        - "/opt/homebrew/bin"
+        - "/opt/homebrew/sbin"
+        - "/Library/Frameworks/Python.framework/Versions/3.10/bin"
         - "/Users/jiawei/.cargo/bin"
+        - "/Users/jiawei/Library/Application Support/Code/User/globalStorage/github.copilot-chat/debugCommand"
   -
     kind: "find-v1"
     backtrace:
@@ -735,8 +837,6 @@ events:
     candidate_directories:
       - "/usr/bin/"
       - "/Users/jiawei/.juliaup/bin/"
-      - "/Users/jiawei/.cabal/bin/"
-      - "/Users/jiawei/.ghcup/bin/"
       - "/Users/jiawei/Documents/Documents - Jiawei\u2019s MacBook Pro/SchoolDocuments/CMPT213/apache-maven-3.9.9/bin/"
       - "/Library/Java/JavaVirtualMachines/jdk-21.jdk/Contents/Home/bin/"
       - "/Users/jiawei/opt/anaconda3/bin/"
@@ -753,14 +853,15 @@ events:
       - "/usr/local/share/dotnet/"
       - "/opt/X11/bin/"
       - "/Users/jiawei/.dotnet/tools/"
+      - "/Users/jiawei/.cabal/bin/"
+      - "/Users/jiawei/.ghcup/bin/"
       - "/Users/jiawei/.cargo/bin/"
+      - "/Users/jiawei/Library/Application Support/Code/User/globalStorage/github.copilot-chat/debugCommand/"
     found: "/usr/bin/objdump"
     search_context:
       ENV{PATH}:
         - "/Users/jiawei/.juliaup/bin"
         - "/Users/jiawei/.juliaup/bin"
-        - "/Users/jiawei/.cabal/bin"
-        - "/Users/jiawei/.ghcup/bin"
         - "/Users/jiawei/Documents/Documents - Jiawei\u2019s MacBook Pro/SchoolDocuments/CMPT213/apache-maven-3.9.9/bin"
         - "/Users/jiawei/Documents/Documents - Jiawei\u2019s MacBook Pro/SchoolDocuments/CMPT213/apache-maven-3.9.9/bin"
         - "/Library/Java/JavaVirtualMachines/jdk-21.jdk/Contents/Home/bin"
@@ -779,7 +880,20 @@ events:
         - "/usr/local/share/dotnet"
         - "/opt/X11/bin"
         - "~/.dotnet/tools"
+        - "/Users/jiawei/.juliaup/bin"
+        - "/Users/jiawei/.cabal/bin"
+        - "/Users/jiawei/.ghcup/bin"
+        - "/Users/jiawei/Documents/Documents - Jiawei\u2019s MacBook Pro/SchoolDocuments/CMPT213/apache-maven-3.9.9/bin"
+        - "/Library/Java/JavaVirtualMachines/jdk-21.jdk/Contents/Home/bin"
+        - "/Users/jiawei/opt/anaconda3/bin"
+        - "/Library/Frameworks/Python.framework/Versions/3.12/bin"
+        - "/opt/local/bin"
+        - "/opt/local/sbin"
+        - "/opt/homebrew/bin"
+        - "/opt/homebrew/sbin"
+        - "/Library/Frameworks/Python.framework/Versions/3.10/bin"
         - "/Users/jiawei/.cargo/bin"
+        - "/Users/jiawei/Library/Application Support/Code/User/globalStorage/github.copilot-chat/debugCommand"
   -
     kind: "find-v1"
     backtrace:
@@ -802,8 +916,6 @@ events:
     candidate_directories:
       - "/usr/bin/"
       - "/Users/jiawei/.juliaup/bin/"
-      - "/Users/jiawei/.cabal/bin/"
-      - "/Users/jiawei/.ghcup/bin/"
       - "/Users/jiawei/Documents/Documents - Jiawei\u2019s MacBook Pro/SchoolDocuments/CMPT213/apache-maven-3.9.9/bin/"
       - "/Library/Java/JavaVirtualMachines/jdk-21.jdk/Contents/Home/bin/"
       - "/Users/jiawei/opt/anaconda3/bin/"
@@ -820,12 +932,13 @@ events:
       - "/usr/local/share/dotnet/"
       - "/opt/X11/bin/"
       - "/Users/jiawei/.dotnet/tools/"
+      - "/Users/jiawei/.cabal/bin/"
+      - "/Users/jiawei/.ghcup/bin/"
       - "/Users/jiawei/.cargo/bin/"
+      - "/Users/jiawei/Library/Application Support/Code/User/globalStorage/github.copilot-chat/debugCommand/"
     searched_directories:
       - "/usr/bin/objcopy"
       - "/Users/jiawei/.juliaup/bin/objcopy"
-      - "/Users/jiawei/.cabal/bin/objcopy"
-      - "/Users/jiawei/.ghcup/bin/objcopy"
       - "/Users/jiawei/Documents/Documents - Jiawei\u2019s MacBook Pro/SchoolDocuments/CMPT213/apache-maven-3.9.9/bin/objcopy"
       - "/Library/Java/JavaVirtualMachines/jdk-21.jdk/Contents/Home/bin/objcopy"
       - "/Users/jiawei/opt/anaconda3/bin/objcopy"
@@ -842,14 +955,15 @@ events:
       - "/usr/local/share/dotnet/objcopy"
       - "/opt/X11/bin/objcopy"
       - "/Users/jiawei/.dotnet/tools/objcopy"
+      - "/Users/jiawei/.cabal/bin/objcopy"
+      - "/Users/jiawei/.ghcup/bin/objcopy"
       - "/Users/jiawei/.cargo/bin/objcopy"
+      - "/Users/jiawei/Library/Application Support/Code/User/globalStorage/github.copilot-chat/debugCommand/objcopy"
     found: false
     search_context:
       ENV{PATH}:
         - "/Users/jiawei/.juliaup/bin"
         - "/Users/jiawei/.juliaup/bin"
-        - "/Users/jiawei/.cabal/bin"
-        - "/Users/jiawei/.ghcup/bin"
         - "/Users/jiawei/Documents/Documents - Jiawei\u2019s MacBook Pro/SchoolDocuments/CMPT213/apache-maven-3.9.9/bin"
         - "/Users/jiawei/Documents/Documents - Jiawei\u2019s MacBook Pro/SchoolDocuments/CMPT213/apache-maven-3.9.9/bin"
         - "/Library/Java/JavaVirtualMachines/jdk-21.jdk/Contents/Home/bin"
@@ -868,7 +982,20 @@ events:
         - "/usr/local/share/dotnet"
         - "/opt/X11/bin"
         - "~/.dotnet/tools"
+        - "/Users/jiawei/.juliaup/bin"
+        - "/Users/jiawei/.cabal/bin"
+        - "/Users/jiawei/.ghcup/bin"
+        - "/Users/jiawei/Documents/Documents - Jiawei\u2019s MacBook Pro/SchoolDocuments/CMPT213/apache-maven-3.9.9/bin"
+        - "/Library/Java/JavaVirtualMachines/jdk-21.jdk/Contents/Home/bin"
+        - "/Users/jiawei/opt/anaconda3/bin"
+        - "/Library/Frameworks/Python.framework/Versions/3.12/bin"
+        - "/opt/local/bin"
+        - "/opt/local/sbin"
+        - "/opt/homebrew/bin"
+        - "/opt/homebrew/sbin"
+        - "/Library/Frameworks/Python.framework/Versions/3.10/bin"
         - "/Users/jiawei/.cargo/bin"
+        - "/Users/jiawei/Library/Application Support/Code/User/globalStorage/github.copilot-chat/debugCommand"
   -
     kind: "find-v1"
     backtrace:
@@ -891,8 +1018,6 @@ events:
     candidate_directories:
       - "/usr/bin/"
       - "/Users/jiawei/.juliaup/bin/"
-      - "/Users/jiawei/.cabal/bin/"
-      - "/Users/jiawei/.ghcup/bin/"
       - "/Users/jiawei/Documents/Documents - Jiawei\u2019s MacBook Pro/SchoolDocuments/CMPT213/apache-maven-3.9.9/bin/"
       - "/Library/Java/JavaVirtualMachines/jdk-21.jdk/Contents/Home/bin/"
       - "/Users/jiawei/opt/anaconda3/bin/"
@@ -909,12 +1034,13 @@ events:
       - "/usr/local/share/dotnet/"
       - "/opt/X11/bin/"
       - "/Users/jiawei/.dotnet/tools/"
+      - "/Users/jiawei/.cabal/bin/"
+      - "/Users/jiawei/.ghcup/bin/"
       - "/Users/jiawei/.cargo/bin/"
+      - "/Users/jiawei/Library/Application Support/Code/User/globalStorage/github.copilot-chat/debugCommand/"
     searched_directories:
       - "/usr/bin/readelf"
       - "/Users/jiawei/.juliaup/bin/readelf"
-      - "/Users/jiawei/.cabal/bin/readelf"
-      - "/Users/jiawei/.ghcup/bin/readelf"
       - "/Users/jiawei/Documents/Documents - Jiawei\u2019s MacBook Pro/SchoolDocuments/CMPT213/apache-maven-3.9.9/bin/readelf"
       - "/Library/Java/JavaVirtualMachines/jdk-21.jdk/Contents/Home/bin/readelf"
       - "/Users/jiawei/opt/anaconda3/bin/readelf"
@@ -931,14 +1057,15 @@ events:
       - "/usr/local/share/dotnet/readelf"
       - "/opt/X11/bin/readelf"
       - "/Users/jiawei/.dotnet/tools/readelf"
+      - "/Users/jiawei/.cabal/bin/readelf"
+      - "/Users/jiawei/.ghcup/bin/readelf"
       - "/Users/jiawei/.cargo/bin/readelf"
+      - "/Users/jiawei/Library/Application Support/Code/User/globalStorage/github.copilot-chat/debugCommand/readelf"
     found: false
     search_context:
       ENV{PATH}:
         - "/Users/jiawei/.juliaup/bin"
         - "/Users/jiawei/.juliaup/bin"
-        - "/Users/jiawei/.cabal/bin"
-        - "/Users/jiawei/.ghcup/bin"
         - "/Users/jiawei/Documents/Documents - Jiawei\u2019s MacBook Pro/SchoolDocuments/CMPT213/apache-maven-3.9.9/bin"
         - "/Users/jiawei/Documents/Documents - Jiawei\u2019s MacBook Pro/SchoolDocuments/CMPT213/apache-maven-3.9.9/bin"
         - "/Library/Java/JavaVirtualMachines/jdk-21.jdk/Contents/Home/bin"
@@ -957,7 +1084,20 @@ events:
         - "/usr/local/share/dotnet"
         - "/opt/X11/bin"
         - "~/.dotnet/tools"
+        - "/Users/jiawei/.juliaup/bin"
+        - "/Users/jiawei/.cabal/bin"
+        - "/Users/jiawei/.ghcup/bin"
+        - "/Users/jiawei/Documents/Documents - Jiawei\u2019s MacBook Pro/SchoolDocuments/CMPT213/apache-maven-3.9.9/bin"
+        - "/Library/Java/JavaVirtualMachines/jdk-21.jdk/Contents/Home/bin"
+        - "/Users/jiawei/opt/anaconda3/bin"
+        - "/Library/Frameworks/Python.framework/Versions/3.12/bin"
+        - "/opt/local/bin"
+        - "/opt/local/sbin"
+        - "/opt/homebrew/bin"
+        - "/opt/homebrew/sbin"
+        - "/Library/Frameworks/Python.framework/Versions/3.10/bin"
         - "/Users/jiawei/.cargo/bin"
+        - "/Users/jiawei/Library/Application Support/Code/User/globalStorage/github.copilot-chat/debugCommand"
   -
     kind: "find-v1"
     backtrace:
@@ -980,8 +1120,6 @@ events:
     candidate_directories:
       - "/usr/bin/"
       - "/Users/jiawei/.juliaup/bin/"
-      - "/Users/jiawei/.cabal/bin/"
-      - "/Users/jiawei/.ghcup/bin/"
       - "/Users/jiawei/Documents/Documents - Jiawei\u2019s MacBook Pro/SchoolDocuments/CMPT213/apache-maven-3.9.9/bin/"
       - "/Library/Java/JavaVirtualMachines/jdk-21.jdk/Contents/Home/bin/"
       - "/Users/jiawei/opt/anaconda3/bin/"
@@ -998,12 +1136,13 @@ events:
       - "/usr/local/share/dotnet/"
       - "/opt/X11/bin/"
       - "/Users/jiawei/.dotnet/tools/"
+      - "/Users/jiawei/.cabal/bin/"
+      - "/Users/jiawei/.ghcup/bin/"
       - "/Users/jiawei/.cargo/bin/"
+      - "/Users/jiawei/Library/Application Support/Code/User/globalStorage/github.copilot-chat/debugCommand/"
     searched_directories:
       - "/usr/bin/dlltool"
       - "/Users/jiawei/.juliaup/bin/dlltool"
-      - "/Users/jiawei/.cabal/bin/dlltool"
-      - "/Users/jiawei/.ghcup/bin/dlltool"
       - "/Users/jiawei/Documents/Documents - Jiawei\u2019s MacBook Pro/SchoolDocuments/CMPT213/apache-maven-3.9.9/bin/dlltool"
       - "/Library/Java/JavaVirtualMachines/jdk-21.jdk/Contents/Home/bin/dlltool"
       - "/Users/jiawei/opt/anaconda3/bin/dlltool"
@@ -1020,14 +1159,15 @@ events:
       - "/usr/local/share/dotnet/dlltool"
       - "/opt/X11/bin/dlltool"
       - "/Users/jiawei/.dotnet/tools/dlltool"
+      - "/Users/jiawei/.cabal/bin/dlltool"
+      - "/Users/jiawei/.ghcup/bin/dlltool"
       - "/Users/jiawei/.cargo/bin/dlltool"
+      - "/Users/jiawei/Library/Application Support/Code/User/globalStorage/github.copilot-chat/debugCommand/dlltool"
     found: false
     search_context:
       ENV{PATH}:
         - "/Users/jiawei/.juliaup/bin"
         - "/Users/jiawei/.juliaup/bin"
-        - "/Users/jiawei/.cabal/bin"
-        - "/Users/jiawei/.ghcup/bin"
         - "/Users/jiawei/Documents/Documents - Jiawei\u2019s MacBook Pro/SchoolDocuments/CMPT213/apache-maven-3.9.9/bin"
         - "/Users/jiawei/Documents/Documents - Jiawei\u2019s MacBook Pro/SchoolDocuments/CMPT213/apache-maven-3.9.9/bin"
         - "/Library/Java/JavaVirtualMachines/jdk-21.jdk/Contents/Home/bin"
@@ -1046,7 +1186,20 @@ events:
         - "/usr/local/share/dotnet"
         - "/opt/X11/bin"
         - "~/.dotnet/tools"
+        - "/Users/jiawei/.juliaup/bin"
+        - "/Users/jiawei/.cabal/bin"
+        - "/Users/jiawei/.ghcup/bin"
+        - "/Users/jiawei/Documents/Documents - Jiawei\u2019s MacBook Pro/SchoolDocuments/CMPT213/apache-maven-3.9.9/bin"
+        - "/Library/Java/JavaVirtualMachines/jdk-21.jdk/Contents/Home/bin"
+        - "/Users/jiawei/opt/anaconda3/bin"
+        - "/Library/Frameworks/Python.framework/Versions/3.12/bin"
+        - "/opt/local/bin"
+        - "/opt/local/sbin"
+        - "/opt/homebrew/bin"
+        - "/opt/homebrew/sbin"
+        - "/Library/Frameworks/Python.framework/Versions/3.10/bin"
         - "/Users/jiawei/.cargo/bin"
+        - "/Users/jiawei/Library/Application Support/Code/User/globalStorage/github.copilot-chat/debugCommand"
   -
     kind: "find-v1"
     backtrace:
@@ -1069,8 +1222,6 @@ events:
     candidate_directories:
       - "/usr/bin/"
       - "/Users/jiawei/.juliaup/bin/"
-      - "/Users/jiawei/.cabal/bin/"
-      - "/Users/jiawei/.ghcup/bin/"
       - "/Users/jiawei/Documents/Documents - Jiawei\u2019s MacBook Pro/SchoolDocuments/CMPT213/apache-maven-3.9.9/bin/"
       - "/Library/Java/JavaVirtualMachines/jdk-21.jdk/Contents/Home/bin/"
       - "/Users/jiawei/opt/anaconda3/bin/"
@@ -1087,12 +1238,13 @@ events:
       - "/usr/local/share/dotnet/"
       - "/opt/X11/bin/"
       - "/Users/jiawei/.dotnet/tools/"
+      - "/Users/jiawei/.cabal/bin/"
+      - "/Users/jiawei/.ghcup/bin/"
       - "/Users/jiawei/.cargo/bin/"
+      - "/Users/jiawei/Library/Application Support/Code/User/globalStorage/github.copilot-chat/debugCommand/"
     searched_directories:
       - "/usr/bin/addr2line"
       - "/Users/jiawei/.juliaup/bin/addr2line"
-      - "/Users/jiawei/.cabal/bin/addr2line"
-      - "/Users/jiawei/.ghcup/bin/addr2line"
       - "/Users/jiawei/Documents/Documents - Jiawei\u2019s MacBook Pro/SchoolDocuments/CMPT213/apache-maven-3.9.9/bin/addr2line"
       - "/Library/Java/JavaVirtualMachines/jdk-21.jdk/Contents/Home/bin/addr2line"
       - "/Users/jiawei/opt/anaconda3/bin/addr2line"
@@ -1109,14 +1261,15 @@ events:
       - "/usr/local/share/dotnet/addr2line"
       - "/opt/X11/bin/addr2line"
       - "/Users/jiawei/.dotnet/tools/addr2line"
+      - "/Users/jiawei/.cabal/bin/addr2line"
+      - "/Users/jiawei/.ghcup/bin/addr2line"
       - "/Users/jiawei/.cargo/bin/addr2line"
+      - "/Users/jiawei/Library/Application Support/Code/User/globalStorage/github.copilot-chat/debugCommand/addr2line"
     found: false
     search_context:
       ENV{PATH}:
         - "/Users/jiawei/.juliaup/bin"
         - "/Users/jiawei/.juliaup/bin"
-        - "/Users/jiawei/.cabal/bin"
-        - "/Users/jiawei/.ghcup/bin"
         - "/Users/jiawei/Documents/Documents - Jiawei\u2019s MacBook Pro/SchoolDocuments/CMPT213/apache-maven-3.9.9/bin"
         - "/Users/jiawei/Documents/Documents - Jiawei\u2019s MacBook Pro/SchoolDocuments/CMPT213/apache-maven-3.9.9/bin"
         - "/Library/Java/JavaVirtualMachines/jdk-21.jdk/Contents/Home/bin"
@@ -1135,7 +1288,20 @@ events:
         - "/usr/local/share/dotnet"
         - "/opt/X11/bin"
         - "~/.dotnet/tools"
+        - "/Users/jiawei/.juliaup/bin"
+        - "/Users/jiawei/.cabal/bin"
+        - "/Users/jiawei/.ghcup/bin"
+        - "/Users/jiawei/Documents/Documents - Jiawei\u2019s MacBook Pro/SchoolDocuments/CMPT213/apache-maven-3.9.9/bin"
+        - "/Library/Java/JavaVirtualMachines/jdk-21.jdk/Contents/Home/bin"
+        - "/Users/jiawei/opt/anaconda3/bin"
+        - "/Library/Frameworks/Python.framework/Versions/3.12/bin"
+        - "/opt/local/bin"
+        - "/opt/local/sbin"
+        - "/opt/homebrew/bin"
+        - "/opt/homebrew/sbin"
+        - "/Library/Frameworks/Python.framework/Versions/3.10/bin"
         - "/Users/jiawei/.cargo/bin"
+        - "/Users/jiawei/Library/Application Support/Code/User/globalStorage/github.copilot-chat/debugCommand"
   -
     kind: "find-v1"
     backtrace:
@@ -1158,8 +1324,6 @@ events:
     candidate_directories:
       - "/usr/bin/"
       - "/Users/jiawei/.juliaup/bin/"
-      - "/Users/jiawei/.cabal/bin/"
-      - "/Users/jiawei/.ghcup/bin/"
       - "/Users/jiawei/Documents/Documents - Jiawei\u2019s MacBook Pro/SchoolDocuments/CMPT213/apache-maven-3.9.9/bin/"
       - "/Library/Java/JavaVirtualMachines/jdk-21.jdk/Contents/Home/bin/"
       - "/Users/jiawei/opt/anaconda3/bin/"
@@ -1176,12 +1340,13 @@ events:
       - "/usr/local/share/dotnet/"
       - "/opt/X11/bin/"
       - "/Users/jiawei/.dotnet/tools/"
+      - "/Users/jiawei/.cabal/bin/"
+      - "/Users/jiawei/.ghcup/bin/"
       - "/Users/jiawei/.cargo/bin/"
+      - "/Users/jiawei/Library/Application Support/Code/User/globalStorage/github.copilot-chat/debugCommand/"
     searched_directories:
       - "/usr/bin/tapi"
       - "/Users/jiawei/.juliaup/bin/tapi"
-      - "/Users/jiawei/.cabal/bin/tapi"
-      - "/Users/jiawei/.ghcup/bin/tapi"
       - "/Users/jiawei/Documents/Documents - Jiawei\u2019s MacBook Pro/SchoolDocuments/CMPT213/apache-maven-3.9.9/bin/tapi"
       - "/Library/Java/JavaVirtualMachines/jdk-21.jdk/Contents/Home/bin/tapi"
       - "/Users/jiawei/opt/anaconda3/bin/tapi"
@@ -1198,14 +1363,15 @@ events:
       - "/usr/local/share/dotnet/tapi"
       - "/opt/X11/bin/tapi"
       - "/Users/jiawei/.dotnet/tools/tapi"
+      - "/Users/jiawei/.cabal/bin/tapi"
+      - "/Users/jiawei/.ghcup/bin/tapi"
       - "/Users/jiawei/.cargo/bin/tapi"
+      - "/Users/jiawei/Library/Application Support/Code/User/globalStorage/github.copilot-chat/debugCommand/tapi"
     found: false
     search_context:
       ENV{PATH}:
         - "/Users/jiawei/.juliaup/bin"
         - "/Users/jiawei/.juliaup/bin"
-        - "/Users/jiawei/.cabal/bin"
-        - "/Users/jiawei/.ghcup/bin"
         - "/Users/jiawei/Documents/Documents - Jiawei\u2019s MacBook Pro/SchoolDocuments/CMPT213/apache-maven-3.9.9/bin"
         - "/Users/jiawei/Documents/Documents - Jiawei\u2019s MacBook Pro/SchoolDocuments/CMPT213/apache-maven-3.9.9/bin"
         - "/Library/Java/JavaVirtualMachines/jdk-21.jdk/Contents/Home/bin"
@@ -1224,7 +1390,20 @@ events:
         - "/usr/local/share/dotnet"
         - "/opt/X11/bin"
         - "~/.dotnet/tools"
+        - "/Users/jiawei/.juliaup/bin"
+        - "/Users/jiawei/.cabal/bin"
+        - "/Users/jiawei/.ghcup/bin"
+        - "/Users/jiawei/Documents/Documents - Jiawei\u2019s MacBook Pro/SchoolDocuments/CMPT213/apache-maven-3.9.9/bin"
+        - "/Library/Java/JavaVirtualMachines/jdk-21.jdk/Contents/Home/bin"
+        - "/Users/jiawei/opt/anaconda3/bin"
+        - "/Library/Frameworks/Python.framework/Versions/3.12/bin"
+        - "/opt/local/bin"
+        - "/opt/local/sbin"
+        - "/opt/homebrew/bin"
+        - "/opt/homebrew/sbin"
+        - "/Library/Frameworks/Python.framework/Versions/3.10/bin"
         - "/Users/jiawei/.cargo/bin"
+        - "/Users/jiawei/Library/Application Support/Code/User/globalStorage/github.copilot-chat/debugCommand"
   -
     kind: "find-v1"
     backtrace:
@@ -1257,8 +1436,6 @@ events:
       ENV{PATH}:
         - "/Users/jiawei/.juliaup/bin"
         - "/Users/jiawei/.juliaup/bin"
-        - "/Users/jiawei/.cabal/bin"
-        - "/Users/jiawei/.ghcup/bin"
         - "/Users/jiawei/Documents/Documents - Jiawei\u2019s MacBook Pro/SchoolDocuments/CMPT213/apache-maven-3.9.9/bin"
         - "/Users/jiawei/Documents/Documents - Jiawei\u2019s MacBook Pro/SchoolDocuments/CMPT213/apache-maven-3.9.9/bin"
         - "/Library/Java/JavaVirtualMachines/jdk-21.jdk/Contents/Home/bin"
@@ -1277,7 +1454,20 @@ events:
         - "/usr/local/share/dotnet"
         - "/opt/X11/bin"
         - "~/.dotnet/tools"
+        - "/Users/jiawei/.juliaup/bin"
+        - "/Users/jiawei/.cabal/bin"
+        - "/Users/jiawei/.ghcup/bin"
+        - "/Users/jiawei/Documents/Documents - Jiawei\u2019s MacBook Pro/SchoolDocuments/CMPT213/apache-maven-3.9.9/bin"
+        - "/Library/Java/JavaVirtualMachines/jdk-21.jdk/Contents/Home/bin"
+        - "/Users/jiawei/opt/anaconda3/bin"
+        - "/Library/Frameworks/Python.framework/Versions/3.12/bin"
+        - "/opt/local/bin"
+        - "/opt/local/sbin"
+        - "/opt/homebrew/bin"
+        - "/opt/homebrew/sbin"
+        - "/Library/Frameworks/Python.framework/Versions/3.10/bin"
         - "/Users/jiawei/.cargo/bin"
+        - "/Users/jiawei/Library/Application Support/Code/User/globalStorage/github.copilot-chat/debugCommand"
   -
     kind: "find-v1"
     backtrace:
@@ -1307,8 +1497,6 @@ events:
       ENV{PATH}:
         - "/Users/jiawei/.juliaup/bin"
         - "/Users/jiawei/.juliaup/bin"
-        - "/Users/jiawei/.cabal/bin"
-        - "/Users/jiawei/.ghcup/bin"
         - "/Users/jiawei/Documents/Documents - Jiawei\u2019s MacBook Pro/SchoolDocuments/CMPT213/apache-maven-3.9.9/bin"
         - "/Users/jiawei/Documents/Documents - Jiawei\u2019s MacBook Pro/SchoolDocuments/CMPT213/apache-maven-3.9.9/bin"
         - "/Library/Java/JavaVirtualMachines/jdk-21.jdk/Contents/Home/bin"
@@ -1327,7 +1515,20 @@ events:
         - "/usr/local/share/dotnet"
         - "/opt/X11/bin"
         - "~/.dotnet/tools"
+        - "/Users/jiawei/.juliaup/bin"
+        - "/Users/jiawei/.cabal/bin"
+        - "/Users/jiawei/.ghcup/bin"
+        - "/Users/jiawei/Documents/Documents - Jiawei\u2019s MacBook Pro/SchoolDocuments/CMPT213/apache-maven-3.9.9/bin"
+        - "/Library/Java/JavaVirtualMachines/jdk-21.jdk/Contents/Home/bin"
+        - "/Users/jiawei/opt/anaconda3/bin"
+        - "/Library/Frameworks/Python.framework/Versions/3.12/bin"
+        - "/opt/local/bin"
+        - "/opt/local/sbin"
+        - "/opt/homebrew/bin"
+        - "/opt/homebrew/sbin"
+        - "/Library/Frameworks/Python.framework/Versions/3.10/bin"
         - "/Users/jiawei/.cargo/bin"
+        - "/Users/jiawei/Library/Application Support/Code/User/globalStorage/github.copilot-chat/debugCommand"
   -
     kind: "message-v1"
     backtrace:
@@ -1348,7 +1549,7 @@ events:
       Compilation of the CXX compiler identification source "CMakeCXXCompilerId.cpp" produced "a.out"
       
       The CXX compiler identification is AppleClang, found in:
-        /Users/jiawei/Desktop/373-25-gamjajeon/build/CMakeFiles/4.1.2/CompilerIdCXX/a.out
+        /Users/jiawei/Desktop/373/build/CMakeFiles/4.1.2/CompilerIdCXX/a.out
       
   -
     kind: "message-v1"
@@ -1399,8 +1600,6 @@ events:
       - "install_name_tool"
     candidate_directories:
       - "/Users/jiawei/.juliaup/bin/"
-      - "/Users/jiawei/.cabal/bin/"
-      - "/Users/jiawei/.ghcup/bin/"
       - "/Users/jiawei/Documents/Documents - Jiawei\u2019s MacBook Pro/SchoolDocuments/CMPT213/apache-maven-3.9.9/bin/"
       - "/Library/Java/JavaVirtualMachines/jdk-21.jdk/Contents/Home/bin/"
       - "/Users/jiawei/opt/anaconda3/bin/"
@@ -1418,11 +1617,12 @@ events:
       - "/usr/local/share/dotnet/"
       - "/opt/X11/bin/"
       - "/Users/jiawei/.dotnet/tools/"
+      - "/Users/jiawei/.cabal/bin/"
+      - "/Users/jiawei/.ghcup/bin/"
       - "/Users/jiawei/.cargo/bin/"
+      - "/Users/jiawei/Library/Application Support/Code/User/globalStorage/github.copilot-chat/debugCommand/"
     searched_directories:
       - "/Users/jiawei/.juliaup/bin/install_name_tool"
-      - "/Users/jiawei/.cabal/bin/install_name_tool"
-      - "/Users/jiawei/.ghcup/bin/install_name_tool"
       - "/Users/jiawei/Documents/Documents - Jiawei\u2019s MacBook Pro/SchoolDocuments/CMPT213/apache-maven-3.9.9/bin/install_name_tool"
       - "/Library/Java/JavaVirtualMachines/jdk-21.jdk/Contents/Home/bin/install_name_tool"
       - "/Users/jiawei/opt/anaconda3/bin/install_name_tool"
@@ -1438,8 +1638,6 @@ events:
       ENV{PATH}:
         - "/Users/jiawei/.juliaup/bin"
         - "/Users/jiawei/.juliaup/bin"
-        - "/Users/jiawei/.cabal/bin"
-        - "/Users/jiawei/.ghcup/bin"
         - "/Users/jiawei/Documents/Documents - Jiawei\u2019s MacBook Pro/SchoolDocuments/CMPT213/apache-maven-3.9.9/bin"
         - "/Users/jiawei/Documents/Documents - Jiawei\u2019s MacBook Pro/SchoolDocuments/CMPT213/apache-maven-3.9.9/bin"
         - "/Library/Java/JavaVirtualMachines/jdk-21.jdk/Contents/Home/bin"
@@ -1458,7 +1656,20 @@ events:
         - "/usr/local/share/dotnet"
         - "/opt/X11/bin"
         - "~/.dotnet/tools"
+        - "/Users/jiawei/.juliaup/bin"
+        - "/Users/jiawei/.cabal/bin"
+        - "/Users/jiawei/.ghcup/bin"
+        - "/Users/jiawei/Documents/Documents - Jiawei\u2019s MacBook Pro/SchoolDocuments/CMPT213/apache-maven-3.9.9/bin"
+        - "/Library/Java/JavaVirtualMachines/jdk-21.jdk/Contents/Home/bin"
+        - "/Users/jiawei/opt/anaconda3/bin"
+        - "/Library/Frameworks/Python.framework/Versions/3.12/bin"
+        - "/opt/local/bin"
+        - "/opt/local/sbin"
+        - "/opt/homebrew/bin"
+        - "/opt/homebrew/sbin"
+        - "/Library/Frameworks/Python.framework/Versions/3.10/bin"
         - "/Users/jiawei/.cargo/bin"
+        - "/Users/jiawei/Library/Application Support/Code/User/globalStorage/github.copilot-chat/debugCommand"
       CMAKE_INSTALL_PREFIX: "/usr/local"
   -
     kind: "try_compile-v1"
@@ -1469,8 +1680,8 @@ events:
     checks:
       - "Detecting C compiler ABI info"
     directories:
-      source: "/Users/jiawei/Desktop/373-25-gamjajeon/build/CMakeFiles/CMakeScratch/TryCompile-VT9d1s"
-      binary: "/Users/jiawei/Desktop/373-25-gamjajeon/build/CMakeFiles/CMakeScratch/TryCompile-VT9d1s"
+      source: "/Users/jiawei/Desktop/373/build/CMakeFiles/CMakeScratch/TryCompile-nwgBDv"
+      binary: "/Users/jiawei/Desktop/373/build/CMakeFiles/CMakeScratch/TryCompile-nwgBDv"
     cmakeVariables:
       CMAKE_C_FLAGS: ""
       CMAKE_C_FLAGS_DEBUG: "-g"
@@ -1482,18 +1693,18 @@ events:
       variable: "CMAKE_C_ABI_COMPILED"
       cached: true
       stdout: |
-        Change Dir: '/Users/jiawei/Desktop/373-25-gamjajeon/build/CMakeFiles/CMakeScratch/TryCompile-VT9d1s'
+        Change Dir: '/Users/jiawei/Desktop/373/build/CMakeFiles/CMakeScratch/TryCompile-nwgBDv'
         
-        Run Build Command(s): /opt/homebrew/bin/cmake -E env VERBOSE=1 /usr/bin/make -f Makefile cmTC_92a61/fast
-        /Library/Developer/CommandLineTools/usr/bin/make  -f CMakeFiles/cmTC_92a61.dir/build.make CMakeFiles/cmTC_92a61.dir/build
-        Building C object CMakeFiles/cmTC_92a61.dir/CMakeCCompilerABI.c.o
-        /usr/bin/cc   -arch arm64   -v -Wl,-v -MD -MT CMakeFiles/cmTC_92a61.dir/CMakeCCompilerABI.c.o -MF CMakeFiles/cmTC_92a61.dir/CMakeCCompilerABI.c.o.d -o CMakeFiles/cmTC_92a61.dir/CMakeCCompilerABI.c.o -c /opt/homebrew/share/cmake/Modules/CMakeCCompilerABI.c
+        Run Build Command(s): /opt/homebrew/bin/cmake -E env VERBOSE=1 /usr/bin/make -f Makefile cmTC_9c626/fast
+        /Library/Developer/CommandLineTools/usr/bin/make  -f CMakeFiles/cmTC_9c626.dir/build.make CMakeFiles/cmTC_9c626.dir/build
+        Building C object CMakeFiles/cmTC_9c626.dir/CMakeCCompilerABI.c.o
+        /usr/bin/cc   -arch arm64   -v -Wl,-v -MD -MT CMakeFiles/cmTC_9c626.dir/CMakeCCompilerABI.c.o -MF CMakeFiles/cmTC_9c626.dir/CMakeCCompilerABI.c.o.d -o CMakeFiles/cmTC_9c626.dir/CMakeCCompilerABI.c.o -c /opt/homebrew/share/cmake/Modules/CMakeCCompilerABI.c
         Apple clang version 14.0.0 (clang-1400.0.29.202)
         Target: arm64-apple-darwin21.6.0
         Thread model: posix
         InstalledDir: /Library/Developer/CommandLineTools/usr/bin
         clang: warning: -Wl,-v: 'linker' input unused [-Wunused-command-line-argument]
-         "/Library/Developer/CommandLineTools/usr/bin/clang" -cc1 -triple arm64-apple-macosx12.0.0 -Wundef-prefix=TARGET_OS_ -Wdeprecated-objc-isa-usage -Werror=deprecated-objc-isa-usage -Werror=implicit-function-declaration -emit-obj -mrelax-all --mrelax-relocations -disable-free -clear-ast-before-backend -disable-llvm-verifier -discard-value-names -main-file-name CMakeCCompilerABI.c -mrelocation-model pic -pic-level 2 -mframe-pointer=non-leaf -fno-strict-return -fno-rounding-math -funwind-tables=2 -fobjc-msgsend-selector-stubs -target-sdk-version=13.1 -fvisibility-inlines-hidden-static-local-var -target-cpu apple-m1 -target-feature +v8.5a -target-feature +fp-armv8 -target-feature +neon -target-feature +crc -target-feature +crypto -target-feature +dotprod -target-feature +fp16fml -target-feature +ras -target-feature +lse -target-feature +rdm -target-feature +rcpc -target-feature +zcm -target-feature +zcz -target-feature +fullfp16 -target-feature +sm4 -target-feature +sha3 -target-feature +sha2 -target-feature +aes -target-abi darwinpcs -fallow-half-arguments-and-returns -debugger-tuning=lldb -target-linker-version 820.1 -v -resource-dir /Library/Developer/CommandLineTools/usr/lib/clang/14.0.0 -dependency-file CMakeFiles/cmTC_92a61.dir/CMakeCCompilerABI.c.o.d -skip-unused-modulemap-deps -MT CMakeFiles/cmTC_92a61.dir/CMakeCCompilerABI.c.o -sys-header-deps -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk -I/usr/local/include -internal-isystem /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/local/include -internal-isystem /Library/Developer/CommandLineTools/usr/lib/clang/14.0.0/include -internal-externc-isystem /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include -internal-externc-isystem /Library/Developer/CommandLineTools/usr/include -Wno-reorder-init-list -Wno-implicit-int-float-conversion -Wno-c99-designator -Wno-final-dtor-non-final-class -Wno-extra-semi-stmt -Wno-misleading-indentation -Wno-quoted-include-in-framework-header -Wno-implicit-fallthrough -Wno-enum-enum-conversion -Wno-enum-float-conversion -Wno-elaborated-enum-base -Wno-reserved-identifier -Wno-gnu-folding-constant -Wno-cast-function-type -Wno-bitwise-instead-of-logical -fdebug-compilation-dir=/Users/jiawei/Desktop/373-25-gamjajeon/build/CMakeFiles/CMakeScratch/TryCompile-VT9d1s -ferror-limit 19 -stack-protector 1 -fstack-check -mdarwin-stkchk-strong-link -fblocks -fencode-extended-block-signature -fregister-global-dtors-with-atexit -fgnuc-version=4.2.1 -fmax-type-align=16 -fcommon -clang-vendor-feature=+messageToSelfInClassMethodIdReturnType -clang-vendor-feature=+disableInferNewAvailabilityFromInit -clang-vendor-feature=+disableNonDependentMemberExprInCurrentInstantiation -fno-odr-hash-protocols -clang-vendor-feature=+enableAggressiveVLAFolding -clang-vendor-feature=+revert09abecef7bbf -clang-vendor-feature=+thisNoAlignAttr -clang-vendor-feature=+thisNoNullAttr -mllvm -disable-aligned-alloc-awareness=1 -D__GCC_HAVE_DWARF2_CFI_ASM=1 -o CMakeFiles/cmTC_92a61.dir/CMakeCCompilerABI.c.o -x c /opt/homebrew/share/cmake/Modules/CMakeCCompilerABI.c
+         "/Library/Developer/CommandLineTools/usr/bin/clang" -cc1 -triple arm64-apple-macosx12.0.0 -Wundef-prefix=TARGET_OS_ -Wdeprecated-objc-isa-usage -Werror=deprecated-objc-isa-usage -Werror=implicit-function-declaration -emit-obj -mrelax-all --mrelax-relocations -disable-free -clear-ast-before-backend -disable-llvm-verifier -discard-value-names -main-file-name CMakeCCompilerABI.c -mrelocation-model pic -pic-level 2 -mframe-pointer=non-leaf -fno-strict-return -fno-rounding-math -funwind-tables=2 -fobjc-msgsend-selector-stubs -target-sdk-version=13.1 -fvisibility-inlines-hidden-static-local-var -target-cpu apple-m1 -target-feature +v8.5a -target-feature +fp-armv8 -target-feature +neon -target-feature +crc -target-feature +crypto -target-feature +dotprod -target-feature +fp16fml -target-feature +ras -target-feature +lse -target-feature +rdm -target-feature +rcpc -target-feature +zcm -target-feature +zcz -target-feature +fullfp16 -target-feature +sm4 -target-feature +sha3 -target-feature +sha2 -target-feature +aes -target-abi darwinpcs -fallow-half-arguments-and-returns -debugger-tuning=lldb -target-linker-version 820.1 -v -resource-dir /Library/Developer/CommandLineTools/usr/lib/clang/14.0.0 -dependency-file CMakeFiles/cmTC_9c626.dir/CMakeCCompilerABI.c.o.d -skip-unused-modulemap-deps -MT CMakeFiles/cmTC_9c626.dir/CMakeCCompilerABI.c.o -sys-header-deps -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk -I/usr/local/include -internal-isystem /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/local/include -internal-isystem /Library/Developer/CommandLineTools/usr/lib/clang/14.0.0/include -internal-externc-isystem /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include -internal-externc-isystem /Library/Developer/CommandLineTools/usr/include -Wno-reorder-init-list -Wno-implicit-int-float-conversion -Wno-c99-designator -Wno-final-dtor-non-final-class -Wno-extra-semi-stmt -Wno-misleading-indentation -Wno-quoted-include-in-framework-header -Wno-implicit-fallthrough -Wno-enum-enum-conversion -Wno-enum-float-conversion -Wno-elaborated-enum-base -Wno-reserved-identifier -Wno-gnu-folding-constant -Wno-cast-function-type -Wno-bitwise-instead-of-logical -fdebug-compilation-dir=/Users/jiawei/Desktop/373/build/CMakeFiles/CMakeScratch/TryCompile-nwgBDv -ferror-limit 19 -stack-protector 1 -fstack-check -mdarwin-stkchk-strong-link -fblocks -fencode-extended-block-signature -fregister-global-dtors-with-atexit -fgnuc-version=4.2.1 -fmax-type-align=16 -fcommon -clang-vendor-feature=+messageToSelfInClassMethodIdReturnType -clang-vendor-feature=+disableInferNewAvailabilityFromInit -clang-vendor-feature=+disableNonDependentMemberExprInCurrentInstantiation -fno-odr-hash-protocols -clang-vendor-feature=+enableAggressiveVLAFolding -clang-vendor-feature=+revert09abecef7bbf -clang-vendor-feature=+thisNoAlignAttr -clang-vendor-feature=+thisNoNullAttr -mllvm -disable-aligned-alloc-awareness=1 -D__GCC_HAVE_DWARF2_CFI_ASM=1 -o CMakeFiles/cmTC_9c626.dir/CMakeCCompilerABI.c.o -x c /opt/homebrew/share/cmake/Modules/CMakeCCompilerABI.c
         clang -cc1 version 14.0.0 (clang-1400.0.29.202) default target arm64-apple-darwin21.6.0
         ignoring nonexistent directory "/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/local/include"
         ignoring nonexistent directory "/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/Library/Frameworks"
@@ -1505,13 +1716,13 @@ events:
          /Library/Developer/CommandLineTools/usr/include
          /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/System/Library/Frameworks (framework directory)
         End of search list.
-        Linking C executable cmTC_92a61
-        /opt/homebrew/bin/cmake -E cmake_link_script CMakeFiles/cmTC_92a61.dir/link.txt --verbose=1
+        Linking C executable cmTC_9c626
+        /opt/homebrew/bin/cmake -E cmake_link_script CMakeFiles/cmTC_9c626.dir/link.txt --verbose=1
         Apple clang version 14.0.0 (clang-1400.0.29.202)
         Target: arm64-apple-darwin21.6.0
         Thread model: posix
         InstalledDir: /Library/Developer/CommandLineTools/usr/bin
-         "/Library/Developer/CommandLineTools/usr/bin/ld" -demangle -lto_library /Library/Developer/CommandLineTools/usr/lib/libLTO.dylib -dynamic -arch arm64 -platform_version macos 12.0.0 13.1 -syslibroot /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk -o cmTC_92a61 -L/usr/local/lib -search_paths_first -headerpad_max_install_names -v CMakeFiles/cmTC_92a61.dir/CMakeCCompilerABI.c.o -lSystem /Library/Developer/CommandLineTools/usr/lib/clang/14.0.0/lib/darwin/libclang_rt.osx.a
+         "/Library/Developer/CommandLineTools/usr/bin/ld" -demangle -lto_library /Library/Developer/CommandLineTools/usr/lib/libLTO.dylib -dynamic -arch arm64 -platform_version macos 12.0.0 13.1 -syslibroot /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk -o cmTC_9c626 -L/usr/local/lib -search_paths_first -headerpad_max_install_names -v CMakeFiles/cmTC_9c626.dir/CMakeCCompilerABI.c.o -lSystem /Library/Developer/CommandLineTools/usr/lib/clang/14.0.0/lib/darwin/libclang_rt.osx.a
         @(#)PROGRAM:ld  PROJECT:ld64-820.1
         BUILD 20:07:05 Nov  7 2022
         configured to support archs: armv6 armv7 armv7s arm64 arm64e arm64_32 i386 x86_64 x86_64h armv6m armv7k armv7m armv7em
@@ -1520,7 +1731,7 @@ events:
         	/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/lib
         Framework search paths:
         	/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/System/Library/Frameworks/
-        /usr/bin/cc  -arch arm64 -Wl,-search_paths_first -Wl,-headerpad_max_install_names  -v -Wl,-v CMakeFiles/cmTC_92a61.dir/CMakeCCompilerABI.c.o -o cmTC_92a61
+        /usr/bin/cc  -arch arm64 -Wl,-search_paths_first -Wl,-headerpad_max_install_names  -v -Wl,-v CMakeFiles/cmTC_9c626.dir/CMakeCCompilerABI.c.o -o cmTC_9c626
         
       exitCode: 0
   -
@@ -1564,18 +1775,18 @@ events:
       Parsed C implicit link information:
         link line regex: [^( *|.*[/\\])(ld[0-9]*(|\\.[a-rt-z][a-z]*|\\.s[a-np-z][a-z]*|\\.so[a-z]+)|CMAKE_LINK_STARTFILE-NOTFOUND|([^/\\]+-)?ld|collect2)[^/\\]*( |$)]
         linker tool regex: [^[ 	]*(->|")?[ 	]*(([^"]*[/\\])?(ld[0-9]*(|\\.[a-rt-z][a-z]*|\\.s[a-np-z][a-z]*|\\.so[a-z]+)))("|,| |$)]
-        ignore line: [Change Dir: '/Users/jiawei/Desktop/373-25-gamjajeon/build/CMakeFiles/CMakeScratch/TryCompile-VT9d1s']
+        ignore line: [Change Dir: '/Users/jiawei/Desktop/373/build/CMakeFiles/CMakeScratch/TryCompile-nwgBDv']
         ignore line: []
-        ignore line: [Run Build Command(s): /opt/homebrew/bin/cmake -E env VERBOSE=1 /usr/bin/make -f Makefile cmTC_92a61/fast]
-        ignore line: [/Library/Developer/CommandLineTools/usr/bin/make  -f CMakeFiles/cmTC_92a61.dir/build.make CMakeFiles/cmTC_92a61.dir/build]
-        ignore line: [Building C object CMakeFiles/cmTC_92a61.dir/CMakeCCompilerABI.c.o]
-        ignore line: [/usr/bin/cc   -arch arm64   -v -Wl -v -MD -MT CMakeFiles/cmTC_92a61.dir/CMakeCCompilerABI.c.o -MF CMakeFiles/cmTC_92a61.dir/CMakeCCompilerABI.c.o.d -o CMakeFiles/cmTC_92a61.dir/CMakeCCompilerABI.c.o -c /opt/homebrew/share/cmake/Modules/CMakeCCompilerABI.c]
+        ignore line: [Run Build Command(s): /opt/homebrew/bin/cmake -E env VERBOSE=1 /usr/bin/make -f Makefile cmTC_9c626/fast]
+        ignore line: [/Library/Developer/CommandLineTools/usr/bin/make  -f CMakeFiles/cmTC_9c626.dir/build.make CMakeFiles/cmTC_9c626.dir/build]
+        ignore line: [Building C object CMakeFiles/cmTC_9c626.dir/CMakeCCompilerABI.c.o]
+        ignore line: [/usr/bin/cc   -arch arm64   -v -Wl -v -MD -MT CMakeFiles/cmTC_9c626.dir/CMakeCCompilerABI.c.o -MF CMakeFiles/cmTC_9c626.dir/CMakeCCompilerABI.c.o.d -o CMakeFiles/cmTC_9c626.dir/CMakeCCompilerABI.c.o -c /opt/homebrew/share/cmake/Modules/CMakeCCompilerABI.c]
         ignore line: [Apple clang version 14.0.0 (clang-1400.0.29.202)]
         ignore line: [Target: arm64-apple-darwin21.6.0]
         ignore line: [Thread model: posix]
         ignore line: [InstalledDir: /Library/Developer/CommandLineTools/usr/bin]
         ignore line: [clang: warning: -Wl -v: 'linker' input unused [-Wunused-command-line-argument]]
-        ignore line: [ "/Library/Developer/CommandLineTools/usr/bin/clang" -cc1 -triple arm64-apple-macosx12.0.0 -Wundef-prefix=TARGET_OS_ -Wdeprecated-objc-isa-usage -Werror=deprecated-objc-isa-usage -Werror=implicit-function-declaration -emit-obj -mrelax-all --mrelax-relocations -disable-free -clear-ast-before-backend -disable-llvm-verifier -discard-value-names -main-file-name CMakeCCompilerABI.c -mrelocation-model pic -pic-level 2 -mframe-pointer=non-leaf -fno-strict-return -fno-rounding-math -funwind-tables=2 -fobjc-msgsend-selector-stubs -target-sdk-version=13.1 -fvisibility-inlines-hidden-static-local-var -target-cpu apple-m1 -target-feature +v8.5a -target-feature +fp-armv8 -target-feature +neon -target-feature +crc -target-feature +crypto -target-feature +dotprod -target-feature +fp16fml -target-feature +ras -target-feature +lse -target-feature +rdm -target-feature +rcpc -target-feature +zcm -target-feature +zcz -target-feature +fullfp16 -target-feature +sm4 -target-feature +sha3 -target-feature +sha2 -target-feature +aes -target-abi darwinpcs -fallow-half-arguments-and-returns -debugger-tuning=lldb -target-linker-version 820.1 -v -resource-dir /Library/Developer/CommandLineTools/usr/lib/clang/14.0.0 -dependency-file CMakeFiles/cmTC_92a61.dir/CMakeCCompilerABI.c.o.d -skip-unused-modulemap-deps -MT CMakeFiles/cmTC_92a61.dir/CMakeCCompilerABI.c.o -sys-header-deps -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk -I/usr/local/include -internal-isystem /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/local/include -internal-isystem /Library/Developer/CommandLineTools/usr/lib/clang/14.0.0/include -internal-externc-isystem /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include -internal-externc-isystem /Library/Developer/CommandLineTools/usr/include -Wno-reorder-init-list -Wno-implicit-int-float-conversion -Wno-c99-designator -Wno-final-dtor-non-final-class -Wno-extra-semi-stmt -Wno-misleading-indentation -Wno-quoted-include-in-framework-header -Wno-implicit-fallthrough -Wno-enum-enum-conversion -Wno-enum-float-conversion -Wno-elaborated-enum-base -Wno-reserved-identifier -Wno-gnu-folding-constant -Wno-cast-function-type -Wno-bitwise-instead-of-logical -fdebug-compilation-dir=/Users/jiawei/Desktop/373-25-gamjajeon/build/CMakeFiles/CMakeScratch/TryCompile-VT9d1s -ferror-limit 19 -stack-protector 1 -fstack-check -mdarwin-stkchk-strong-link -fblocks -fencode-extended-block-signature -fregister-global-dtors-with-atexit -fgnuc-version=4.2.1 -fmax-type-align=16 -fcommon -clang-vendor-feature=+messageToSelfInClassMethodIdReturnType -clang-vendor-feature=+disableInferNewAvailabilityFromInit -clang-vendor-feature=+disableNonDependentMemberExprInCurrentInstantiation -fno-odr-hash-protocols -clang-vendor-feature=+enableAggressiveVLAFolding -clang-vendor-feature=+revert09abecef7bbf -clang-vendor-feature=+thisNoAlignAttr -clang-vendor-feature=+thisNoNullAttr -mllvm -disable-aligned-alloc-awareness=1 -D__GCC_HAVE_DWARF2_CFI_ASM=1 -o CMakeFiles/cmTC_92a61.dir/CMakeCCompilerABI.c.o -x c /opt/homebrew/share/cmake/Modules/CMakeCCompilerABI.c]
+        ignore line: [ "/Library/Developer/CommandLineTools/usr/bin/clang" -cc1 -triple arm64-apple-macosx12.0.0 -Wundef-prefix=TARGET_OS_ -Wdeprecated-objc-isa-usage -Werror=deprecated-objc-isa-usage -Werror=implicit-function-declaration -emit-obj -mrelax-all --mrelax-relocations -disable-free -clear-ast-before-backend -disable-llvm-verifier -discard-value-names -main-file-name CMakeCCompilerABI.c -mrelocation-model pic -pic-level 2 -mframe-pointer=non-leaf -fno-strict-return -fno-rounding-math -funwind-tables=2 -fobjc-msgsend-selector-stubs -target-sdk-version=13.1 -fvisibility-inlines-hidden-static-local-var -target-cpu apple-m1 -target-feature +v8.5a -target-feature +fp-armv8 -target-feature +neon -target-feature +crc -target-feature +crypto -target-feature +dotprod -target-feature +fp16fml -target-feature +ras -target-feature +lse -target-feature +rdm -target-feature +rcpc -target-feature +zcm -target-feature +zcz -target-feature +fullfp16 -target-feature +sm4 -target-feature +sha3 -target-feature +sha2 -target-feature +aes -target-abi darwinpcs -fallow-half-arguments-and-returns -debugger-tuning=lldb -target-linker-version 820.1 -v -resource-dir /Library/Developer/CommandLineTools/usr/lib/clang/14.0.0 -dependency-file CMakeFiles/cmTC_9c626.dir/CMakeCCompilerABI.c.o.d -skip-unused-modulemap-deps -MT CMakeFiles/cmTC_9c626.dir/CMakeCCompilerABI.c.o -sys-header-deps -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk -I/usr/local/include -internal-isystem /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/local/include -internal-isystem /Library/Developer/CommandLineTools/usr/lib/clang/14.0.0/include -internal-externc-isystem /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include -internal-externc-isystem /Library/Developer/CommandLineTools/usr/include -Wno-reorder-init-list -Wno-implicit-int-float-conversion -Wno-c99-designator -Wno-final-dtor-non-final-class -Wno-extra-semi-stmt -Wno-misleading-indentation -Wno-quoted-include-in-framework-header -Wno-implicit-fallthrough -Wno-enum-enum-conversion -Wno-enum-float-conversion -Wno-elaborated-enum-base -Wno-reserved-identifier -Wno-gnu-folding-constant -Wno-cast-function-type -Wno-bitwise-instead-of-logical -fdebug-compilation-dir=/Users/jiawei/Desktop/373/build/CMakeFiles/CMakeScratch/TryCompile-nwgBDv -ferror-limit 19 -stack-protector 1 -fstack-check -mdarwin-stkchk-strong-link -fblocks -fencode-extended-block-signature -fregister-global-dtors-with-atexit -fgnuc-version=4.2.1 -fmax-type-align=16 -fcommon -clang-vendor-feature=+messageToSelfInClassMethodIdReturnType -clang-vendor-feature=+disableInferNewAvailabilityFromInit -clang-vendor-feature=+disableNonDependentMemberExprInCurrentInstantiation -fno-odr-hash-protocols -clang-vendor-feature=+enableAggressiveVLAFolding -clang-vendor-feature=+revert09abecef7bbf -clang-vendor-feature=+thisNoAlignAttr -clang-vendor-feature=+thisNoNullAttr -mllvm -disable-aligned-alloc-awareness=1 -D__GCC_HAVE_DWARF2_CFI_ASM=1 -o CMakeFiles/cmTC_9c626.dir/CMakeCCompilerABI.c.o -x c /opt/homebrew/share/cmake/Modules/CMakeCCompilerABI.c]
         ignore line: [clang -cc1 version 14.0.0 (clang-1400.0.29.202) default target arm64-apple-darwin21.6.0]
         ignore line: [ignoring nonexistent directory "/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/local/include"]
         ignore line: [ignoring nonexistent directory "/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/Library/Frameworks"]
@@ -1587,13 +1798,13 @@ events:
         ignore line: [ /Library/Developer/CommandLineTools/usr/include]
         ignore line: [ /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/System/Library/Frameworks (framework directory)]
         ignore line: [End of search list.]
-        ignore line: [Linking C executable cmTC_92a61]
-        ignore line: [/opt/homebrew/bin/cmake -E cmake_link_script CMakeFiles/cmTC_92a61.dir/link.txt --verbose=1]
+        ignore line: [Linking C executable cmTC_9c626]
+        ignore line: [/opt/homebrew/bin/cmake -E cmake_link_script CMakeFiles/cmTC_9c626.dir/link.txt --verbose=1]
         ignore line: [Apple clang version 14.0.0 (clang-1400.0.29.202)]
         ignore line: [Target: arm64-apple-darwin21.6.0]
         ignore line: [Thread model: posix]
         ignore line: [InstalledDir: /Library/Developer/CommandLineTools/usr/bin]
-        link line: [ "/Library/Developer/CommandLineTools/usr/bin/ld" -demangle -lto_library /Library/Developer/CommandLineTools/usr/lib/libLTO.dylib -dynamic -arch arm64 -platform_version macos 12.0.0 13.1 -syslibroot /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk -o cmTC_92a61 -L/usr/local/lib -search_paths_first -headerpad_max_install_names -v CMakeFiles/cmTC_92a61.dir/CMakeCCompilerABI.c.o -lSystem /Library/Developer/CommandLineTools/usr/lib/clang/14.0.0/lib/darwin/libclang_rt.osx.a]
+        link line: [ "/Library/Developer/CommandLineTools/usr/bin/ld" -demangle -lto_library /Library/Developer/CommandLineTools/usr/lib/libLTO.dylib -dynamic -arch arm64 -platform_version macos 12.0.0 13.1 -syslibroot /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk -o cmTC_9c626 -L/usr/local/lib -search_paths_first -headerpad_max_install_names -v CMakeFiles/cmTC_9c626.dir/CMakeCCompilerABI.c.o -lSystem /Library/Developer/CommandLineTools/usr/lib/clang/14.0.0/lib/darwin/libclang_rt.osx.a]
           arg [/Library/Developer/CommandLineTools/usr/bin/ld] ==> ignore
           arg [-demangle] ==> ignore
           arg [-lto_library] ==> ignore, skip following value
@@ -1608,12 +1819,12 @@ events:
           arg [-syslibroot] ==> ignore
           arg [/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk] ==> ignore
           arg [-o] ==> ignore
-          arg [cmTC_92a61] ==> ignore
+          arg [cmTC_9c626] ==> ignore
           arg [-L/usr/local/lib] ==> dir [/usr/local/lib]
           arg [-search_paths_first] ==> ignore
           arg [-headerpad_max_install_names] ==> ignore
           arg [-v] ==> ignore
-          arg [CMakeFiles/cmTC_92a61.dir/CMakeCCompilerABI.c.o] ==> ignore
+          arg [CMakeFiles/cmTC_9c626.dir/CMakeCCompilerABI.c.o] ==> ignore
           arg [-lSystem] ==> lib [System]
           arg [/Library/Developer/CommandLineTools/usr/lib/clang/14.0.0/lib/darwin/libclang_rt.osx.a] ==> lib [/Library/Developer/CommandLineTools/usr/lib/clang/14.0.0/lib/darwin/libclang_rt.osx.a]
         linker tool for 'C': /Library/Developer/CommandLineTools/usr/bin/ld
@@ -1654,8 +1865,8 @@ events:
     checks:
       - "Detecting CXX compiler ABI info"
     directories:
-      source: "/Users/jiawei/Desktop/373-25-gamjajeon/build/CMakeFiles/CMakeScratch/TryCompile-ea6EuS"
-      binary: "/Users/jiawei/Desktop/373-25-gamjajeon/build/CMakeFiles/CMakeScratch/TryCompile-ea6EuS"
+      source: "/Users/jiawei/Desktop/373/build/CMakeFiles/CMakeScratch/TryCompile-HK5Wy4"
+      binary: "/Users/jiawei/Desktop/373/build/CMakeFiles/CMakeScratch/TryCompile-HK5Wy4"
     cmakeVariables:
       CMAKE_CXX_FLAGS: ""
       CMAKE_CXX_FLAGS_DEBUG: "-g"
@@ -1668,18 +1879,18 @@ events:
       variable: "CMAKE_CXX_ABI_COMPILED"
       cached: true
       stdout: |
-        Change Dir: '/Users/jiawei/Desktop/373-25-gamjajeon/build/CMakeFiles/CMakeScratch/TryCompile-ea6EuS'
+        Change Dir: '/Users/jiawei/Desktop/373/build/CMakeFiles/CMakeScratch/TryCompile-HK5Wy4'
         
-        Run Build Command(s): /opt/homebrew/bin/cmake -E env VERBOSE=1 /usr/bin/make -f Makefile cmTC_6622b/fast
-        /Library/Developer/CommandLineTools/usr/bin/make  -f CMakeFiles/cmTC_6622b.dir/build.make CMakeFiles/cmTC_6622b.dir/build
-        Building CXX object CMakeFiles/cmTC_6622b.dir/CMakeCXXCompilerABI.cpp.o
-        /usr/bin/c++   -arch arm64   -v -Wl,-v -MD -MT CMakeFiles/cmTC_6622b.dir/CMakeCXXCompilerABI.cpp.o -MF CMakeFiles/cmTC_6622b.dir/CMakeCXXCompilerABI.cpp.o.d -o CMakeFiles/cmTC_6622b.dir/CMakeCXXCompilerABI.cpp.o -c /opt/homebrew/share/cmake/Modules/CMakeCXXCompilerABI.cpp
+        Run Build Command(s): /opt/homebrew/bin/cmake -E env VERBOSE=1 /usr/bin/make -f Makefile cmTC_7ab6f/fast
+        /Library/Developer/CommandLineTools/usr/bin/make  -f CMakeFiles/cmTC_7ab6f.dir/build.make CMakeFiles/cmTC_7ab6f.dir/build
+        Building CXX object CMakeFiles/cmTC_7ab6f.dir/CMakeCXXCompilerABI.cpp.o
+        /usr/bin/c++   -arch arm64   -v -Wl,-v -MD -MT CMakeFiles/cmTC_7ab6f.dir/CMakeCXXCompilerABI.cpp.o -MF CMakeFiles/cmTC_7ab6f.dir/CMakeCXXCompilerABI.cpp.o.d -o CMakeFiles/cmTC_7ab6f.dir/CMakeCXXCompilerABI.cpp.o -c /opt/homebrew/share/cmake/Modules/CMakeCXXCompilerABI.cpp
         Apple clang version 14.0.0 (clang-1400.0.29.202)
         Target: arm64-apple-darwin21.6.0
         Thread model: posix
         InstalledDir: /Library/Developer/CommandLineTools/usr/bin
         clang: warning: -Wl,-v: 'linker' input unused [-Wunused-command-line-argument]
-         "/Library/Developer/CommandLineTools/usr/bin/clang" -cc1 -triple arm64-apple-macosx12.0.0 -Wundef-prefix=TARGET_OS_ -Wdeprecated-objc-isa-usage -Werror=deprecated-objc-isa-usage -Werror=implicit-function-declaration -emit-obj -mrelax-all --mrelax-relocations -disable-free -clear-ast-before-backend -disable-llvm-verifier -discard-value-names -main-file-name CMakeCXXCompilerABI.cpp -mrelocation-model pic -pic-level 2 -mframe-pointer=non-leaf -fno-strict-return -fno-rounding-math -funwind-tables=2 -fobjc-msgsend-selector-stubs -target-sdk-version=13.1 -fvisibility-inlines-hidden-static-local-var -target-cpu apple-m1 -target-feature +v8.5a -target-feature +fp-armv8 -target-feature +neon -target-feature +crc -target-feature +crypto -target-feature +dotprod -target-feature +fp16fml -target-feature +ras -target-feature +lse -target-feature +rdm -target-feature +rcpc -target-feature +zcm -target-feature +zcz -target-feature +fullfp16 -target-feature +sm4 -target-feature +sha3 -target-feature +sha2 -target-feature +aes -target-abi darwinpcs -fallow-half-arguments-and-returns -debugger-tuning=lldb -target-linker-version 820.1 -v -resource-dir /Library/Developer/CommandLineTools/usr/lib/clang/14.0.0 -dependency-file CMakeFiles/cmTC_6622b.dir/CMakeCXXCompilerABI.cpp.o.d -skip-unused-modulemap-deps -MT CMakeFiles/cmTC_6622b.dir/CMakeCXXCompilerABI.cpp.o -sys-header-deps -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk -I/usr/local/include -stdlib=libc++ -internal-isystem /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1 -internal-isystem /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/local/include -internal-isystem /Library/Developer/CommandLineTools/usr/lib/clang/14.0.0/include -internal-externc-isystem /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include -internal-externc-isystem /Library/Developer/CommandLineTools/usr/include -Wno-reorder-init-list -Wno-implicit-int-float-conversion -Wno-c99-designator -Wno-final-dtor-non-final-class -Wno-extra-semi-stmt -Wno-misleading-indentation -Wno-quoted-include-in-framework-header -Wno-implicit-fallthrough -Wno-enum-enum-conversion -Wno-enum-float-conversion -Wno-elaborated-enum-base -Wno-reserved-identifier -Wno-gnu-folding-constant -Wno-cast-function-type -Wno-bitwise-instead-of-logical -fdeprecated-macro -fdebug-compilation-dir=/Users/jiawei/Desktop/373-25-gamjajeon/build/CMakeFiles/CMakeScratch/TryCompile-ea6EuS -ferror-limit 19 -stack-protector 1 -fstack-check -mdarwin-stkchk-strong-link -fblocks -fencode-extended-block-signature -fregister-global-dtors-with-atexit -fgnuc-version=4.2.1 -fno-cxx-modules -fcxx-exceptions -fexceptions -fmax-type-align=16 -fcommon -clang-vendor-feature=+messageToSelfInClassMethodIdReturnType -clang-vendor-feature=+disableInferNewAvailabilityFromInit -clang-vendor-feature=+disableNonDependentMemberExprInCurrentInstantiation -fno-odr-hash-protocols -clang-vendor-feature=+enableAggressiveVLAFolding -clang-vendor-feature=+revert09abecef7bbf -clang-vendor-feature=+thisNoAlignAttr -clang-vendor-feature=+thisNoNullAttr -mllvm -disable-aligned-alloc-awareness=1 -D__GCC_HAVE_DWARF2_CFI_ASM=1 -o CMakeFiles/cmTC_6622b.dir/CMakeCXXCompilerABI.cpp.o -x c++ /opt/homebrew/share/cmake/Modules/CMakeCXXCompilerABI.cpp
+         "/Library/Developer/CommandLineTools/usr/bin/clang" -cc1 -triple arm64-apple-macosx12.0.0 -Wundef-prefix=TARGET_OS_ -Wdeprecated-objc-isa-usage -Werror=deprecated-objc-isa-usage -Werror=implicit-function-declaration -emit-obj -mrelax-all --mrelax-relocations -disable-free -clear-ast-before-backend -disable-llvm-verifier -discard-value-names -main-file-name CMakeCXXCompilerABI.cpp -mrelocation-model pic -pic-level 2 -mframe-pointer=non-leaf -fno-strict-return -fno-rounding-math -funwind-tables=2 -fobjc-msgsend-selector-stubs -target-sdk-version=13.1 -fvisibility-inlines-hidden-static-local-var -target-cpu apple-m1 -target-feature +v8.5a -target-feature +fp-armv8 -target-feature +neon -target-feature +crc -target-feature +crypto -target-feature +dotprod -target-feature +fp16fml -target-feature +ras -target-feature +lse -target-feature +rdm -target-feature +rcpc -target-feature +zcm -target-feature +zcz -target-feature +fullfp16 -target-feature +sm4 -target-feature +sha3 -target-feature +sha2 -target-feature +aes -target-abi darwinpcs -fallow-half-arguments-and-returns -debugger-tuning=lldb -target-linker-version 820.1 -v -resource-dir /Library/Developer/CommandLineTools/usr/lib/clang/14.0.0 -dependency-file CMakeFiles/cmTC_7ab6f.dir/CMakeCXXCompilerABI.cpp.o.d -skip-unused-modulemap-deps -MT CMakeFiles/cmTC_7ab6f.dir/CMakeCXXCompilerABI.cpp.o -sys-header-deps -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk -I/usr/local/include -stdlib=libc++ -internal-isystem /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1 -internal-isystem /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/local/include -internal-isystem /Library/Developer/CommandLineTools/usr/lib/clang/14.0.0/include -internal-externc-isystem /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include -internal-externc-isystem /Library/Developer/CommandLineTools/usr/include -Wno-reorder-init-list -Wno-implicit-int-float-conversion -Wno-c99-designator -Wno-final-dtor-non-final-class -Wno-extra-semi-stmt -Wno-misleading-indentation -Wno-quoted-include-in-framework-header -Wno-implicit-fallthrough -Wno-enum-enum-conversion -Wno-enum-float-conversion -Wno-elaborated-enum-base -Wno-reserved-identifier -Wno-gnu-folding-constant -Wno-cast-function-type -Wno-bitwise-instead-of-logical -fdeprecated-macro -fdebug-compilation-dir=/Users/jiawei/Desktop/373/build/CMakeFiles/CMakeScratch/TryCompile-HK5Wy4 -ferror-limit 19 -stack-protector 1 -fstack-check -mdarwin-stkchk-strong-link -fblocks -fencode-extended-block-signature -fregister-global-dtors-with-atexit -fgnuc-version=4.2.1 -fno-cxx-modules -fcxx-exceptions -fexceptions -fmax-type-align=16 -fcommon -clang-vendor-feature=+messageToSelfInClassMethodIdReturnType -clang-vendor-feature=+disableInferNewAvailabilityFromInit -clang-vendor-feature=+disableNonDependentMemberExprInCurrentInstantiation -fno-odr-hash-protocols -clang-vendor-feature=+enableAggressiveVLAFolding -clang-vendor-feature=+revert09abecef7bbf -clang-vendor-feature=+thisNoAlignAttr -clang-vendor-feature=+thisNoNullAttr -mllvm -disable-aligned-alloc-awareness=1 -D__GCC_HAVE_DWARF2_CFI_ASM=1 -o CMakeFiles/cmTC_7ab6f.dir/CMakeCXXCompilerABI.cpp.o -x c++ /opt/homebrew/share/cmake/Modules/CMakeCXXCompilerABI.cpp
         clang -cc1 version 14.0.0 (clang-1400.0.29.202) default target arm64-apple-darwin21.6.0
         ignoring nonexistent directory "/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/local/include"
         ignoring nonexistent directory "/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/Library/Frameworks"
@@ -1692,13 +1903,13 @@ events:
          /Library/Developer/CommandLineTools/usr/include
          /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/System/Library/Frameworks (framework directory)
         End of search list.
-        Linking CXX executable cmTC_6622b
-        /opt/homebrew/bin/cmake -E cmake_link_script CMakeFiles/cmTC_6622b.dir/link.txt --verbose=1
+        Linking CXX executable cmTC_7ab6f
+        /opt/homebrew/bin/cmake -E cmake_link_script CMakeFiles/cmTC_7ab6f.dir/link.txt --verbose=1
         Apple clang version 14.0.0 (clang-1400.0.29.202)
         Target: arm64-apple-darwin21.6.0
         Thread model: posix
         InstalledDir: /Library/Developer/CommandLineTools/usr/bin
-         "/Library/Developer/CommandLineTools/usr/bin/ld" -demangle -lto_library /Library/Developer/CommandLineTools/usr/lib/libLTO.dylib -dynamic -arch arm64 -platform_version macos 12.0.0 13.1 -syslibroot /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk -o cmTC_6622b -L/usr/local/lib -search_paths_first -headerpad_max_install_names -v CMakeFiles/cmTC_6622b.dir/CMakeCXXCompilerABI.cpp.o -lc++ -lSystem /Library/Developer/CommandLineTools/usr/lib/clang/14.0.0/lib/darwin/libclang_rt.osx.a
+         "/Library/Developer/CommandLineTools/usr/bin/ld" -demangle -lto_library /Library/Developer/CommandLineTools/usr/lib/libLTO.dylib -dynamic -arch arm64 -platform_version macos 12.0.0 13.1 -syslibroot /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk -o cmTC_7ab6f -L/usr/local/lib -search_paths_first -headerpad_max_install_names -v CMakeFiles/cmTC_7ab6f.dir/CMakeCXXCompilerABI.cpp.o -lc++ -lSystem /Library/Developer/CommandLineTools/usr/lib/clang/14.0.0/lib/darwin/libclang_rt.osx.a
         @(#)PROGRAM:ld  PROJECT:ld64-820.1
         BUILD 20:07:05 Nov  7 2022
         configured to support archs: armv6 armv7 armv7s arm64 arm64e arm64_32 i386 x86_64 x86_64h armv6m armv7k armv7m armv7em
@@ -1707,7 +1918,7 @@ events:
         	/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/lib
         Framework search paths:
         	/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/System/Library/Frameworks/
-        /usr/bin/c++  -arch arm64 -Wl,-search_paths_first -Wl,-headerpad_max_install_names  -v -Wl,-v CMakeFiles/cmTC_6622b.dir/CMakeCXXCompilerABI.cpp.o -o cmTC_6622b
+        /usr/bin/c++  -arch arm64 -Wl,-search_paths_first -Wl,-headerpad_max_install_names  -v -Wl,-v CMakeFiles/cmTC_7ab6f.dir/CMakeCXXCompilerABI.cpp.o -o cmTC_7ab6f
         
       exitCode: 0
   -
@@ -1753,18 +1964,18 @@ events:
       Parsed CXX implicit link information:
         link line regex: [^( *|.*[/\\])(ld[0-9]*(|\\.[a-rt-z][a-z]*|\\.s[a-np-z][a-z]*|\\.so[a-z]+)|CMAKE_LINK_STARTFILE-NOTFOUND|([^/\\]+-)?ld|collect2)[^/\\]*( |$)]
         linker tool regex: [^[ 	]*(->|")?[ 	]*(([^"]*[/\\])?(ld[0-9]*(|\\.[a-rt-z][a-z]*|\\.s[a-np-z][a-z]*|\\.so[a-z]+)))("|,| |$)]
-        ignore line: [Change Dir: '/Users/jiawei/Desktop/373-25-gamjajeon/build/CMakeFiles/CMakeScratch/TryCompile-ea6EuS']
+        ignore line: [Change Dir: '/Users/jiawei/Desktop/373/build/CMakeFiles/CMakeScratch/TryCompile-HK5Wy4']
         ignore line: []
-        ignore line: [Run Build Command(s): /opt/homebrew/bin/cmake -E env VERBOSE=1 /usr/bin/make -f Makefile cmTC_6622b/fast]
-        ignore line: [/Library/Developer/CommandLineTools/usr/bin/make  -f CMakeFiles/cmTC_6622b.dir/build.make CMakeFiles/cmTC_6622b.dir/build]
-        ignore line: [Building CXX object CMakeFiles/cmTC_6622b.dir/CMakeCXXCompilerABI.cpp.o]
-        ignore line: [/usr/bin/c++   -arch arm64   -v -Wl -v -MD -MT CMakeFiles/cmTC_6622b.dir/CMakeCXXCompilerABI.cpp.o -MF CMakeFiles/cmTC_6622b.dir/CMakeCXXCompilerABI.cpp.o.d -o CMakeFiles/cmTC_6622b.dir/CMakeCXXCompilerABI.cpp.o -c /opt/homebrew/share/cmake/Modules/CMakeCXXCompilerABI.cpp]
+        ignore line: [Run Build Command(s): /opt/homebrew/bin/cmake -E env VERBOSE=1 /usr/bin/make -f Makefile cmTC_7ab6f/fast]
+        ignore line: [/Library/Developer/CommandLineTools/usr/bin/make  -f CMakeFiles/cmTC_7ab6f.dir/build.make CMakeFiles/cmTC_7ab6f.dir/build]
+        ignore line: [Building CXX object CMakeFiles/cmTC_7ab6f.dir/CMakeCXXCompilerABI.cpp.o]
+        ignore line: [/usr/bin/c++   -arch arm64   -v -Wl -v -MD -MT CMakeFiles/cmTC_7ab6f.dir/CMakeCXXCompilerABI.cpp.o -MF CMakeFiles/cmTC_7ab6f.dir/CMakeCXXCompilerABI.cpp.o.d -o CMakeFiles/cmTC_7ab6f.dir/CMakeCXXCompilerABI.cpp.o -c /opt/homebrew/share/cmake/Modules/CMakeCXXCompilerABI.cpp]
         ignore line: [Apple clang version 14.0.0 (clang-1400.0.29.202)]
         ignore line: [Target: arm64-apple-darwin21.6.0]
         ignore line: [Thread model: posix]
         ignore line: [InstalledDir: /Library/Developer/CommandLineTools/usr/bin]
         ignore line: [clang: warning: -Wl -v: 'linker' input unused [-Wunused-command-line-argument]]
-        ignore line: [ "/Library/Developer/CommandLineTools/usr/bin/clang" -cc1 -triple arm64-apple-macosx12.0.0 -Wundef-prefix=TARGET_OS_ -Wdeprecated-objc-isa-usage -Werror=deprecated-objc-isa-usage -Werror=implicit-function-declaration -emit-obj -mrelax-all --mrelax-relocations -disable-free -clear-ast-before-backend -disable-llvm-verifier -discard-value-names -main-file-name CMakeCXXCompilerABI.cpp -mrelocation-model pic -pic-level 2 -mframe-pointer=non-leaf -fno-strict-return -fno-rounding-math -funwind-tables=2 -fobjc-msgsend-selector-stubs -target-sdk-version=13.1 -fvisibility-inlines-hidden-static-local-var -target-cpu apple-m1 -target-feature +v8.5a -target-feature +fp-armv8 -target-feature +neon -target-feature +crc -target-feature +crypto -target-feature +dotprod -target-feature +fp16fml -target-feature +ras -target-feature +lse -target-feature +rdm -target-feature +rcpc -target-feature +zcm -target-feature +zcz -target-feature +fullfp16 -target-feature +sm4 -target-feature +sha3 -target-feature +sha2 -target-feature +aes -target-abi darwinpcs -fallow-half-arguments-and-returns -debugger-tuning=lldb -target-linker-version 820.1 -v -resource-dir /Library/Developer/CommandLineTools/usr/lib/clang/14.0.0 -dependency-file CMakeFiles/cmTC_6622b.dir/CMakeCXXCompilerABI.cpp.o.d -skip-unused-modulemap-deps -MT CMakeFiles/cmTC_6622b.dir/CMakeCXXCompilerABI.cpp.o -sys-header-deps -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk -I/usr/local/include -stdlib=libc++ -internal-isystem /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1 -internal-isystem /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/local/include -internal-isystem /Library/Developer/CommandLineTools/usr/lib/clang/14.0.0/include -internal-externc-isystem /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include -internal-externc-isystem /Library/Developer/CommandLineTools/usr/include -Wno-reorder-init-list -Wno-implicit-int-float-conversion -Wno-c99-designator -Wno-final-dtor-non-final-class -Wno-extra-semi-stmt -Wno-misleading-indentation -Wno-quoted-include-in-framework-header -Wno-implicit-fallthrough -Wno-enum-enum-conversion -Wno-enum-float-conversion -Wno-elaborated-enum-base -Wno-reserved-identifier -Wno-gnu-folding-constant -Wno-cast-function-type -Wno-bitwise-instead-of-logical -fdeprecated-macro -fdebug-compilation-dir=/Users/jiawei/Desktop/373-25-gamjajeon/build/CMakeFiles/CMakeScratch/TryCompile-ea6EuS -ferror-limit 19 -stack-protector 1 -fstack-check -mdarwin-stkchk-strong-link -fblocks -fencode-extended-block-signature -fregister-global-dtors-with-atexit -fgnuc-version=4.2.1 -fno-cxx-modules -fcxx-exceptions -fexceptions -fmax-type-align=16 -fcommon -clang-vendor-feature=+messageToSelfInClassMethodIdReturnType -clang-vendor-feature=+disableInferNewAvailabilityFromInit -clang-vendor-feature=+disableNonDependentMemberExprInCurrentInstantiation -fno-odr-hash-protocols -clang-vendor-feature=+enableAggressiveVLAFolding -clang-vendor-feature=+revert09abecef7bbf -clang-vendor-feature=+thisNoAlignAttr -clang-vendor-feature=+thisNoNullAttr -mllvm -disable-aligned-alloc-awareness=1 -D__GCC_HAVE_DWARF2_CFI_ASM=1 -o CMakeFiles/cmTC_6622b.dir/CMakeCXXCompilerABI.cpp.o -x c++ /opt/homebrew/share/cmake/Modules/CMakeCXXCompilerABI.cpp]
+        ignore line: [ "/Library/Developer/CommandLineTools/usr/bin/clang" -cc1 -triple arm64-apple-macosx12.0.0 -Wundef-prefix=TARGET_OS_ -Wdeprecated-objc-isa-usage -Werror=deprecated-objc-isa-usage -Werror=implicit-function-declaration -emit-obj -mrelax-all --mrelax-relocations -disable-free -clear-ast-before-backend -disable-llvm-verifier -discard-value-names -main-file-name CMakeCXXCompilerABI.cpp -mrelocation-model pic -pic-level 2 -mframe-pointer=non-leaf -fno-strict-return -fno-rounding-math -funwind-tables=2 -fobjc-msgsend-selector-stubs -target-sdk-version=13.1 -fvisibility-inlines-hidden-static-local-var -target-cpu apple-m1 -target-feature +v8.5a -target-feature +fp-armv8 -target-feature +neon -target-feature +crc -target-feature +crypto -target-feature +dotprod -target-feature +fp16fml -target-feature +ras -target-feature +lse -target-feature +rdm -target-feature +rcpc -target-feature +zcm -target-feature +zcz -target-feature +fullfp16 -target-feature +sm4 -target-feature +sha3 -target-feature +sha2 -target-feature +aes -target-abi darwinpcs -fallow-half-arguments-and-returns -debugger-tuning=lldb -target-linker-version 820.1 -v -resource-dir /Library/Developer/CommandLineTools/usr/lib/clang/14.0.0 -dependency-file CMakeFiles/cmTC_7ab6f.dir/CMakeCXXCompilerABI.cpp.o.d -skip-unused-modulemap-deps -MT CMakeFiles/cmTC_7ab6f.dir/CMakeCXXCompilerABI.cpp.o -sys-header-deps -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk -I/usr/local/include -stdlib=libc++ -internal-isystem /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1 -internal-isystem /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/local/include -internal-isystem /Library/Developer/CommandLineTools/usr/lib/clang/14.0.0/include -internal-externc-isystem /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include -internal-externc-isystem /Library/Developer/CommandLineTools/usr/include -Wno-reorder-init-list -Wno-implicit-int-float-conversion -Wno-c99-designator -Wno-final-dtor-non-final-class -Wno-extra-semi-stmt -Wno-misleading-indentation -Wno-quoted-include-in-framework-header -Wno-implicit-fallthrough -Wno-enum-enum-conversion -Wno-enum-float-conversion -Wno-elaborated-enum-base -Wno-reserved-identifier -Wno-gnu-folding-constant -Wno-cast-function-type -Wno-bitwise-instead-of-logical -fdeprecated-macro -fdebug-compilation-dir=/Users/jiawei/Desktop/373/build/CMakeFiles/CMakeScratch/TryCompile-HK5Wy4 -ferror-limit 19 -stack-protector 1 -fstack-check -mdarwin-stkchk-strong-link -fblocks -fencode-extended-block-signature -fregister-global-dtors-with-atexit -fgnuc-version=4.2.1 -fno-cxx-modules -fcxx-exceptions -fexceptions -fmax-type-align=16 -fcommon -clang-vendor-feature=+messageToSelfInClassMethodIdReturnType -clang-vendor-feature=+disableInferNewAvailabilityFromInit -clang-vendor-feature=+disableNonDependentMemberExprInCurrentInstantiation -fno-odr-hash-protocols -clang-vendor-feature=+enableAggressiveVLAFolding -clang-vendor-feature=+revert09abecef7bbf -clang-vendor-feature=+thisNoAlignAttr -clang-vendor-feature=+thisNoNullAttr -mllvm -disable-aligned-alloc-awareness=1 -D__GCC_HAVE_DWARF2_CFI_ASM=1 -o CMakeFiles/cmTC_7ab6f.dir/CMakeCXXCompilerABI.cpp.o -x c++ /opt/homebrew/share/cmake/Modules/CMakeCXXCompilerABI.cpp]
         ignore line: [clang -cc1 version 14.0.0 (clang-1400.0.29.202) default target arm64-apple-darwin21.6.0]
         ignore line: [ignoring nonexistent directory "/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/local/include"]
         ignore line: [ignoring nonexistent directory "/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/Library/Frameworks"]
@@ -1777,13 +1988,13 @@ events:
         ignore line: [ /Library/Developer/CommandLineTools/usr/include]
         ignore line: [ /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/System/Library/Frameworks (framework directory)]
         ignore line: [End of search list.]
-        ignore line: [Linking CXX executable cmTC_6622b]
-        ignore line: [/opt/homebrew/bin/cmake -E cmake_link_script CMakeFiles/cmTC_6622b.dir/link.txt --verbose=1]
+        ignore line: [Linking CXX executable cmTC_7ab6f]
+        ignore line: [/opt/homebrew/bin/cmake -E cmake_link_script CMakeFiles/cmTC_7ab6f.dir/link.txt --verbose=1]
         ignore line: [Apple clang version 14.0.0 (clang-1400.0.29.202)]
         ignore line: [Target: arm64-apple-darwin21.6.0]
         ignore line: [Thread model: posix]
         ignore line: [InstalledDir: /Library/Developer/CommandLineTools/usr/bin]
-        link line: [ "/Library/Developer/CommandLineTools/usr/bin/ld" -demangle -lto_library /Library/Developer/CommandLineTools/usr/lib/libLTO.dylib -dynamic -arch arm64 -platform_version macos 12.0.0 13.1 -syslibroot /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk -o cmTC_6622b -L/usr/local/lib -search_paths_first -headerpad_max_install_names -v CMakeFiles/cmTC_6622b.dir/CMakeCXXCompilerABI.cpp.o -lc++ -lSystem /Library/Developer/CommandLineTools/usr/lib/clang/14.0.0/lib/darwin/libclang_rt.osx.a]
+        link line: [ "/Library/Developer/CommandLineTools/usr/bin/ld" -demangle -lto_library /Library/Developer/CommandLineTools/usr/lib/libLTO.dylib -dynamic -arch arm64 -platform_version macos 12.0.0 13.1 -syslibroot /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk -o cmTC_7ab6f -L/usr/local/lib -search_paths_first -headerpad_max_install_names -v CMakeFiles/cmTC_7ab6f.dir/CMakeCXXCompilerABI.cpp.o -lc++ -lSystem /Library/Developer/CommandLineTools/usr/lib/clang/14.0.0/lib/darwin/libclang_rt.osx.a]
           arg [/Library/Developer/CommandLineTools/usr/bin/ld] ==> ignore
           arg [-demangle] ==> ignore
           arg [-lto_library] ==> ignore, skip following value
@@ -1798,12 +2009,12 @@ events:
           arg [-syslibroot] ==> ignore
           arg [/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk] ==> ignore
           arg [-o] ==> ignore
-          arg [cmTC_6622b] ==> ignore
+          arg [cmTC_7ab6f] ==> ignore
           arg [-L/usr/local/lib] ==> dir [/usr/local/lib]
           arg [-search_paths_first] ==> ignore
           arg [-headerpad_max_install_names] ==> ignore
           arg [-v] ==> ignore
-          arg [CMakeFiles/cmTC_6622b.dir/CMakeCXXCompilerABI.cpp.o] ==> ignore
+          arg [CMakeFiles/cmTC_7ab6f.dir/CMakeCXXCompilerABI.cpp.o] ==> ignore
           arg [-lc++] ==> lib [c++]
           arg [-lSystem] ==> lib [System]
           arg [/Library/Developer/CommandLineTools/usr/lib/clang/14.0.0/lib/darwin/libclang_rt.osx.a] ==> lib [/Library/Developer/CommandLineTools/usr/lib/clang/14.0.0/lib/darwin/libclang_rt.osx.a]
@@ -1863,8 +2074,6 @@ events:
       - "git"
     candidate_directories:
       - "/Users/jiawei/.juliaup/bin/"
-      - "/Users/jiawei/.cabal/bin/"
-      - "/Users/jiawei/.ghcup/bin/"
       - "/Users/jiawei/Documents/Documents - Jiawei\u2019s MacBook Pro/SchoolDocuments/CMPT213/apache-maven-3.9.9/bin/"
       - "/Library/Java/JavaVirtualMachines/jdk-21.jdk/Contents/Home/bin/"
       - "/Users/jiawei/opt/anaconda3/bin/"
@@ -1882,7 +2091,10 @@ events:
       - "/usr/local/share/dotnet/"
       - "/opt/X11/bin/"
       - "/Users/jiawei/.dotnet/tools/"
+      - "/Users/jiawei/.cabal/bin/"
+      - "/Users/jiawei/.ghcup/bin/"
       - "/Users/jiawei/.cargo/bin/"
+      - "/Users/jiawei/Library/Application Support/Code/User/globalStorage/github.copilot-chat/debugCommand/"
       - "/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/bin/"
       - "/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/sbin/"
       - "/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/"
@@ -1916,8 +2128,6 @@ events:
       - "/Applications/"
     searched_directories:
       - "/Users/jiawei/.juliaup/bin/git"
-      - "/Users/jiawei/.cabal/bin/git"
-      - "/Users/jiawei/.ghcup/bin/git"
       - "/Users/jiawei/Documents/Documents - Jiawei\u2019s MacBook Pro/SchoolDocuments/CMPT213/apache-maven-3.9.9/bin/git"
       - "/Library/Java/JavaVirtualMachines/jdk-21.jdk/Contents/Home/bin/git"
       - "/Users/jiawei/opt/anaconda3/bin/git"
@@ -1927,8 +2137,6 @@ events:
       ENV{PATH}:
         - "/Users/jiawei/.juliaup/bin"
         - "/Users/jiawei/.juliaup/bin"
-        - "/Users/jiawei/.cabal/bin"
-        - "/Users/jiawei/.ghcup/bin"
         - "/Users/jiawei/Documents/Documents - Jiawei\u2019s MacBook Pro/SchoolDocuments/CMPT213/apache-maven-3.9.9/bin"
         - "/Users/jiawei/Documents/Documents - Jiawei\u2019s MacBook Pro/SchoolDocuments/CMPT213/apache-maven-3.9.9/bin"
         - "/Library/Java/JavaVirtualMachines/jdk-21.jdk/Contents/Home/bin"
@@ -1947,7 +2155,20 @@ events:
         - "/usr/local/share/dotnet"
         - "/opt/X11/bin"
         - "~/.dotnet/tools"
+        - "/Users/jiawei/.juliaup/bin"
+        - "/Users/jiawei/.cabal/bin"
+        - "/Users/jiawei/.ghcup/bin"
+        - "/Users/jiawei/Documents/Documents - Jiawei\u2019s MacBook Pro/SchoolDocuments/CMPT213/apache-maven-3.9.9/bin"
+        - "/Library/Java/JavaVirtualMachines/jdk-21.jdk/Contents/Home/bin"
+        - "/Users/jiawei/opt/anaconda3/bin"
+        - "/Library/Frameworks/Python.framework/Versions/3.12/bin"
+        - "/opt/local/bin"
+        - "/opt/local/sbin"
+        - "/opt/homebrew/bin"
+        - "/opt/homebrew/sbin"
+        - "/Library/Frameworks/Python.framework/Versions/3.10/bin"
         - "/Users/jiawei/.cargo/bin"
+        - "/Users/jiawei/Library/Application Support/Code/User/globalStorage/github.copilot-chat/debugCommand"
       CMAKE_INSTALL_PREFIX: "/usr/local"
       CMAKE_SYSTEM_PREFIX_PATH:
         - "/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr"
@@ -2007,11 +2228,11 @@ events:
         CMAKE_FIND_ROOT_PATH_MODE: "BOTH"
     candidates:
       -
-        path: "/Users/jiawei/Desktop/373-25-gamjajeon/build/CMakeFiles/pkgRedirects/boost_headersConfig.cmake"
+        path: "/Users/jiawei/Desktop/373/build/CMakeFiles/pkgRedirects/boost_headersConfig.cmake"
         mode: "config"
         reason: "no_exist"
       -
-        path: "/Users/jiawei/Desktop/373-25-gamjajeon/build/CMakeFiles/pkgRedirects/boost_headers-config.cmake"
+        path: "/Users/jiawei/Desktop/373/build/CMakeFiles/pkgRedirects/boost_headers-config.cmake"
         mode: "config"
         reason: "no_exist"
       -
@@ -2034,8 +2255,6 @@ events:
       ENV{PATH}:
         - "/Users/jiawei/.juliaup/bin"
         - "/Users/jiawei/.juliaup/bin"
-        - "/Users/jiawei/.cabal/bin"
-        - "/Users/jiawei/.ghcup/bin"
         - "/Users/jiawei/Documents/Documents - Jiawei\u2019s MacBook Pro/SchoolDocuments/CMPT213/apache-maven-3.9.9/bin"
         - "/Users/jiawei/Documents/Documents - Jiawei\u2019s MacBook Pro/SchoolDocuments/CMPT213/apache-maven-3.9.9/bin"
         - "/Library/Java/JavaVirtualMachines/jdk-21.jdk/Contents/Home/bin"
@@ -2054,7 +2273,20 @@ events:
         - "/usr/local/share/dotnet"
         - "/opt/X11/bin"
         - "~/.dotnet/tools"
+        - "/Users/jiawei/.juliaup/bin"
+        - "/Users/jiawei/.cabal/bin"
+        - "/Users/jiawei/.ghcup/bin"
+        - "/Users/jiawei/Documents/Documents - Jiawei\u2019s MacBook Pro/SchoolDocuments/CMPT213/apache-maven-3.9.9/bin"
+        - "/Library/Java/JavaVirtualMachines/jdk-21.jdk/Contents/Home/bin"
+        - "/Users/jiawei/opt/anaconda3/bin"
+        - "/Library/Frameworks/Python.framework/Versions/3.12/bin"
+        - "/opt/local/bin"
+        - "/opt/local/sbin"
+        - "/opt/homebrew/bin"
+        - "/opt/homebrew/sbin"
+        - "/Library/Frameworks/Python.framework/Versions/3.10/bin"
         - "/Users/jiawei/.cargo/bin"
+        - "/Users/jiawei/Library/Application Support/Code/User/globalStorage/github.copilot-chat/debugCommand"
       CMAKE_INSTALL_PREFIX: "/usr/local"
       CMAKE_SYSTEM_PREFIX_PATH:
         - "/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr"
@@ -2117,11 +2349,11 @@ events:
         CMAKE_FIND_ROOT_PATH_MODE: "BOTH"
     candidates:
       -
-        path: "/Users/jiawei/Desktop/373-25-gamjajeon/build/CMakeFiles/pkgRedirects/BoostConfig.cmake"
+        path: "/Users/jiawei/Desktop/373/build/CMakeFiles/pkgRedirects/BoostConfig.cmake"
         mode: "config"
         reason: "no_exist"
       -
-        path: "/Users/jiawei/Desktop/373-25-gamjajeon/build/CMakeFiles/pkgRedirects/boost-config.cmake"
+        path: "/Users/jiawei/Desktop/373/build/CMakeFiles/pkgRedirects/boost-config.cmake"
         mode: "config"
         reason: "no_exist"
       -
@@ -2130,22 +2362,6 @@ events:
         reason: "no_exist"
       -
         path: "/Users/jiawei/.juliaup/boost-config.cmake"
-        mode: "config"
-        reason: "no_exist"
-      -
-        path: "/Users/jiawei/.cabal/BoostConfig.cmake"
-        mode: "config"
-        reason: "no_exist"
-      -
-        path: "/Users/jiawei/.cabal/boost-config.cmake"
-        mode: "config"
-        reason: "no_exist"
-      -
-        path: "/Users/jiawei/.ghcup/BoostConfig.cmake"
-        mode: "config"
-        reason: "no_exist"
-      -
-        path: "/Users/jiawei/.ghcup/boost-config.cmake"
         mode: "config"
         reason: "no_exist"
       -
@@ -2396,8 +2612,6 @@ events:
       ENV{PATH}:
         - "/Users/jiawei/.juliaup/bin"
         - "/Users/jiawei/.juliaup/bin"
-        - "/Users/jiawei/.cabal/bin"
-        - "/Users/jiawei/.ghcup/bin"
         - "/Users/jiawei/Documents/Documents - Jiawei\u2019s MacBook Pro/SchoolDocuments/CMPT213/apache-maven-3.9.9/bin"
         - "/Users/jiawei/Documents/Documents - Jiawei\u2019s MacBook Pro/SchoolDocuments/CMPT213/apache-maven-3.9.9/bin"
         - "/Library/Java/JavaVirtualMachines/jdk-21.jdk/Contents/Home/bin"
@@ -2416,7 +2630,20 @@ events:
         - "/usr/local/share/dotnet"
         - "/opt/X11/bin"
         - "~/.dotnet/tools"
+        - "/Users/jiawei/.juliaup/bin"
+        - "/Users/jiawei/.cabal/bin"
+        - "/Users/jiawei/.ghcup/bin"
+        - "/Users/jiawei/Documents/Documents - Jiawei\u2019s MacBook Pro/SchoolDocuments/CMPT213/apache-maven-3.9.9/bin"
+        - "/Library/Java/JavaVirtualMachines/jdk-21.jdk/Contents/Home/bin"
+        - "/Users/jiawei/opt/anaconda3/bin"
+        - "/Library/Frameworks/Python.framework/Versions/3.12/bin"
+        - "/opt/local/bin"
+        - "/opt/local/sbin"
+        - "/opt/homebrew/bin"
+        - "/opt/homebrew/sbin"
+        - "/Library/Frameworks/Python.framework/Versions/3.10/bin"
         - "/Users/jiawei/.cargo/bin"
+        - "/Users/jiawei/Library/Application Support/Code/User/globalStorage/github.copilot-chat/debugCommand"
       CMAKE_INSTALL_PREFIX: "/usr/local"
       CMAKE_SYSTEM_PREFIX_PATH:
         - "/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr"
@@ -2452,8 +2679,8 @@ events:
     checks:
       - "Performing Test CMAKE_HAVE_LIBC_PTHREAD"
     directories:
-      source: "/Users/jiawei/Desktop/373-25-gamjajeon/build/CMakeFiles/CMakeScratch/TryCompile-DhxQIo"
-      binary: "/Users/jiawei/Desktop/373-25-gamjajeon/build/CMakeFiles/CMakeScratch/TryCompile-DhxQIo"
+      source: "/Users/jiawei/Desktop/373/build/CMakeFiles/CMakeScratch/TryCompile-3QLfWv"
+      binary: "/Users/jiawei/Desktop/373/build/CMakeFiles/CMakeScratch/TryCompile-3QLfWv"
     cmakeVariables:
       CMAKE_C_FLAGS: ""
       CMAKE_C_FLAGS_DEBUG: "-g"
@@ -2465,15 +2692,15 @@ events:
       variable: "CMAKE_HAVE_LIBC_PTHREAD"
       cached: true
       stdout: |
-        Change Dir: '/Users/jiawei/Desktop/373-25-gamjajeon/build/CMakeFiles/CMakeScratch/TryCompile-DhxQIo'
+        Change Dir: '/Users/jiawei/Desktop/373/build/CMakeFiles/CMakeScratch/TryCompile-3QLfWv'
         
-        Run Build Command(s): /opt/homebrew/bin/cmake -E env VERBOSE=1 /usr/bin/make -f Makefile cmTC_262d5/fast
-        /Library/Developer/CommandLineTools/usr/bin/make  -f CMakeFiles/cmTC_262d5.dir/build.make CMakeFiles/cmTC_262d5.dir/build
-        Building C object CMakeFiles/cmTC_262d5.dir/src.c.o
-        /usr/bin/cc -DCMAKE_HAVE_LIBC_PTHREAD  -arch arm64 -MD -MT CMakeFiles/cmTC_262d5.dir/src.c.o -MF CMakeFiles/cmTC_262d5.dir/src.c.o.d -o CMakeFiles/cmTC_262d5.dir/src.c.o -c /Users/jiawei/Desktop/373-25-gamjajeon/build/CMakeFiles/CMakeScratch/TryCompile-DhxQIo/src.c
-        Linking C executable cmTC_262d5
-        /opt/homebrew/bin/cmake -E cmake_link_script CMakeFiles/cmTC_262d5.dir/link.txt --verbose=1
-        /usr/bin/cc  -arch arm64 -Wl,-search_paths_first -Wl,-headerpad_max_install_names CMakeFiles/cmTC_262d5.dir/src.c.o -o cmTC_262d5
+        Run Build Command(s): /opt/homebrew/bin/cmake -E env VERBOSE=1 /usr/bin/make -f Makefile cmTC_9d209/fast
+        /Library/Developer/CommandLineTools/usr/bin/make  -f CMakeFiles/cmTC_9d209.dir/build.make CMakeFiles/cmTC_9d209.dir/build
+        Building C object CMakeFiles/cmTC_9d209.dir/src.c.o
+        /usr/bin/cc -DCMAKE_HAVE_LIBC_PTHREAD  -arch arm64 -MD -MT CMakeFiles/cmTC_9d209.dir/src.c.o -MF CMakeFiles/cmTC_9d209.dir/src.c.o.d -o CMakeFiles/cmTC_9d209.dir/src.c.o -c /Users/jiawei/Desktop/373/build/CMakeFiles/CMakeScratch/TryCompile-3QLfWv/src.c
+        Linking C executable cmTC_9d209
+        /opt/homebrew/bin/cmake -E cmake_link_script CMakeFiles/cmTC_9d209.dir/link.txt --verbose=1
+        /usr/bin/cc  -arch arm64 -Wl,-search_paths_first -Wl,-headerpad_max_install_names CMakeFiles/cmTC_9d209.dir/src.c.o -o cmTC_9d209
         
       exitCode: 0
   -
@@ -2496,8 +2723,6 @@ events:
       - "curses"
     candidate_directories:
       - "/Users/jiawei/.juliaup/bin/"
-      - "/Users/jiawei/.cabal/bin/"
-      - "/Users/jiawei/.ghcup/bin/"
       - "/Library/Java/JavaVirtualMachines/jdk-21.jdk/Contents/Home/bin/"
       - "/Library/Frameworks/Python.framework/Versions/3.12/bin/"
       - "/opt/local/bin/"
@@ -2512,7 +2737,10 @@ events:
       - "/sbin/"
       - "/usr/local/share/dotnet/"
       - "/opt/X11/bin/"
+      - "/Users/jiawei/.cabal/bin/"
+      - "/Users/jiawei/.ghcup/bin/"
       - "/Users/jiawei/.cargo/bin/"
+      - "/Users/jiawei/Library/Application Support/Code/User/globalStorage/github.copilot-chat/debugCommand/"
       - "/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/lib/"
       - "/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/"
       - "/opt/homebrew/lib/"
@@ -2532,8 +2760,6 @@ events:
       - "/System/Library/Frameworks/"
     searched_directories:
       - "/Users/jiawei/.juliaup/bin/"
-      - "/Users/jiawei/.cabal/bin/"
-      - "/Users/jiawei/.ghcup/bin/"
       - "/Library/Java/JavaVirtualMachines/jdk-21.jdk/Contents/Home/bin/"
       - "/Library/Frameworks/Python.framework/Versions/3.12/bin/"
       - "/opt/local/bin/"
@@ -2548,14 +2774,15 @@ events:
       - "/sbin/"
       - "/usr/local/share/dotnet/"
       - "/opt/X11/bin/"
+      - "/Users/jiawei/.cabal/bin/"
+      - "/Users/jiawei/.ghcup/bin/"
       - "/Users/jiawei/.cargo/bin/"
+      - "/Users/jiawei/Library/Application Support/Code/User/globalStorage/github.copilot-chat/debugCommand/"
     found: "/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/lib/libcurses.tbd"
     search_context:
       ENV{PATH}:
         - "/Users/jiawei/.juliaup/bin"
         - "/Users/jiawei/.juliaup/bin"
-        - "/Users/jiawei/.cabal/bin"
-        - "/Users/jiawei/.ghcup/bin"
         - "/Users/jiawei/Documents/Documents - Jiawei\u2019s MacBook Pro/SchoolDocuments/CMPT213/apache-maven-3.9.9/bin"
         - "/Users/jiawei/Documents/Documents - Jiawei\u2019s MacBook Pro/SchoolDocuments/CMPT213/apache-maven-3.9.9/bin"
         - "/Library/Java/JavaVirtualMachines/jdk-21.jdk/Contents/Home/bin"
@@ -2574,7 +2801,20 @@ events:
         - "/usr/local/share/dotnet"
         - "/opt/X11/bin"
         - "~/.dotnet/tools"
+        - "/Users/jiawei/.juliaup/bin"
+        - "/Users/jiawei/.cabal/bin"
+        - "/Users/jiawei/.ghcup/bin"
+        - "/Users/jiawei/Documents/Documents - Jiawei\u2019s MacBook Pro/SchoolDocuments/CMPT213/apache-maven-3.9.9/bin"
+        - "/Library/Java/JavaVirtualMachines/jdk-21.jdk/Contents/Home/bin"
+        - "/Users/jiawei/opt/anaconda3/bin"
+        - "/Library/Frameworks/Python.framework/Versions/3.12/bin"
+        - "/opt/local/bin"
+        - "/opt/local/sbin"
+        - "/opt/homebrew/bin"
+        - "/opt/homebrew/sbin"
+        - "/Library/Frameworks/Python.framework/Versions/3.10/bin"
         - "/Users/jiawei/.cargo/bin"
+        - "/Users/jiawei/Library/Application Support/Code/User/globalStorage/github.copilot-chat/debugCommand"
       CMAKE_INSTALL_PREFIX: "/usr/local"
       CMAKE_SYSTEM_PREFIX_PATH:
         - "/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr"
@@ -2621,8 +2861,6 @@ events:
       - "ncurses"
     candidate_directories:
       - "/Users/jiawei/.juliaup/bin/"
-      - "/Users/jiawei/.cabal/bin/"
-      - "/Users/jiawei/.ghcup/bin/"
       - "/Library/Java/JavaVirtualMachines/jdk-21.jdk/Contents/Home/bin/"
       - "/Library/Frameworks/Python.framework/Versions/3.12/bin/"
       - "/opt/local/bin/"
@@ -2637,7 +2875,10 @@ events:
       - "/sbin/"
       - "/usr/local/share/dotnet/"
       - "/opt/X11/bin/"
+      - "/Users/jiawei/.cabal/bin/"
+      - "/Users/jiawei/.ghcup/bin/"
       - "/Users/jiawei/.cargo/bin/"
+      - "/Users/jiawei/Library/Application Support/Code/User/globalStorage/github.copilot-chat/debugCommand/"
       - "/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/lib/"
       - "/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/"
       - "/opt/homebrew/lib/"
@@ -2657,8 +2898,6 @@ events:
       - "/System/Library/Frameworks/"
     searched_directories:
       - "/Users/jiawei/.juliaup/bin/"
-      - "/Users/jiawei/.cabal/bin/"
-      - "/Users/jiawei/.ghcup/bin/"
       - "/Library/Java/JavaVirtualMachines/jdk-21.jdk/Contents/Home/bin/"
       - "/Library/Frameworks/Python.framework/Versions/3.12/bin/"
       - "/opt/local/bin/"
@@ -2673,14 +2912,15 @@ events:
       - "/sbin/"
       - "/usr/local/share/dotnet/"
       - "/opt/X11/bin/"
+      - "/Users/jiawei/.cabal/bin/"
+      - "/Users/jiawei/.ghcup/bin/"
       - "/Users/jiawei/.cargo/bin/"
+      - "/Users/jiawei/Library/Application Support/Code/User/globalStorage/github.copilot-chat/debugCommand/"
     found: "/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/lib/libncurses.tbd"
     search_context:
       ENV{PATH}:
         - "/Users/jiawei/.juliaup/bin"
         - "/Users/jiawei/.juliaup/bin"
-        - "/Users/jiawei/.cabal/bin"
-        - "/Users/jiawei/.ghcup/bin"
         - "/Users/jiawei/Documents/Documents - Jiawei\u2019s MacBook Pro/SchoolDocuments/CMPT213/apache-maven-3.9.9/bin"
         - "/Users/jiawei/Documents/Documents - Jiawei\u2019s MacBook Pro/SchoolDocuments/CMPT213/apache-maven-3.9.9/bin"
         - "/Library/Java/JavaVirtualMachines/jdk-21.jdk/Contents/Home/bin"
@@ -2699,7 +2939,20 @@ events:
         - "/usr/local/share/dotnet"
         - "/opt/X11/bin"
         - "~/.dotnet/tools"
+        - "/Users/jiawei/.juliaup/bin"
+        - "/Users/jiawei/.cabal/bin"
+        - "/Users/jiawei/.ghcup/bin"
+        - "/Users/jiawei/Documents/Documents - Jiawei\u2019s MacBook Pro/SchoolDocuments/CMPT213/apache-maven-3.9.9/bin"
+        - "/Library/Java/JavaVirtualMachines/jdk-21.jdk/Contents/Home/bin"
+        - "/Users/jiawei/opt/anaconda3/bin"
+        - "/Library/Frameworks/Python.framework/Versions/3.12/bin"
+        - "/opt/local/bin"
+        - "/opt/local/sbin"
+        - "/opt/homebrew/bin"
+        - "/opt/homebrew/sbin"
+        - "/Library/Frameworks/Python.framework/Versions/3.10/bin"
         - "/Users/jiawei/.cargo/bin"
+        - "/Users/jiawei/Library/Application Support/Code/User/globalStorage/github.copilot-chat/debugCommand"
       CMAKE_INSTALL_PREFIX: "/usr/local"
       CMAKE_SYSTEM_PREFIX_PATH:
         - "/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr"
@@ -2747,8 +3000,6 @@ events:
     candidate_directories:
       - "/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/"
       - "/Users/jiawei/.juliaup/bin/"
-      - "/Users/jiawei/.cabal/bin/"
-      - "/Users/jiawei/.ghcup/bin/"
       - "/Users/jiawei/Documents/Documents - Jiawei\u2019s MacBook Pro/SchoolDocuments/CMPT213/apache-maven-3.9.9/bin/"
       - "/Library/Java/JavaVirtualMachines/jdk-21.jdk/Contents/Home/bin/"
       - "/Users/jiawei/opt/anaconda3/bin/"
@@ -2766,7 +3017,10 @@ events:
       - "/usr/local/share/dotnet/"
       - "/opt/X11/bin/"
       - "/Users/jiawei/.dotnet/tools/"
+      - "/Users/jiawei/.cabal/bin/"
+      - "/Users/jiawei/.ghcup/bin/"
       - "/Users/jiawei/.cargo/bin/"
+      - "/Users/jiawei/Library/Application Support/Code/User/globalStorage/github.copilot-chat/debugCommand/"
       - "/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/"
       - "/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/"
       - "/opt/homebrew/include/"
@@ -2800,8 +3054,6 @@ events:
       ENV{PATH}:
         - "/Users/jiawei/.juliaup/bin"
         - "/Users/jiawei/.juliaup/bin"
-        - "/Users/jiawei/.cabal/bin"
-        - "/Users/jiawei/.ghcup/bin"
         - "/Users/jiawei/Documents/Documents - Jiawei\u2019s MacBook Pro/SchoolDocuments/CMPT213/apache-maven-3.9.9/bin"
         - "/Users/jiawei/Documents/Documents - Jiawei\u2019s MacBook Pro/SchoolDocuments/CMPT213/apache-maven-3.9.9/bin"
         - "/Library/Java/JavaVirtualMachines/jdk-21.jdk/Contents/Home/bin"
@@ -2820,7 +3072,20 @@ events:
         - "/usr/local/share/dotnet"
         - "/opt/X11/bin"
         - "~/.dotnet/tools"
+        - "/Users/jiawei/.juliaup/bin"
+        - "/Users/jiawei/.cabal/bin"
+        - "/Users/jiawei/.ghcup/bin"
+        - "/Users/jiawei/Documents/Documents - Jiawei\u2019s MacBook Pro/SchoolDocuments/CMPT213/apache-maven-3.9.9/bin"
+        - "/Library/Java/JavaVirtualMachines/jdk-21.jdk/Contents/Home/bin"
+        - "/Users/jiawei/opt/anaconda3/bin"
+        - "/Library/Frameworks/Python.framework/Versions/3.12/bin"
+        - "/opt/local/bin"
+        - "/opt/local/sbin"
+        - "/opt/homebrew/bin"
+        - "/opt/homebrew/sbin"
+        - "/Library/Frameworks/Python.framework/Versions/3.10/bin"
         - "/Users/jiawei/.cargo/bin"
+        - "/Users/jiawei/Library/Application Support/Code/User/globalStorage/github.copilot-chat/debugCommand"
       CMAKE_INSTALL_PREFIX: "/usr/local"
       CMAKE_SYSTEM_PREFIX_PATH:
         - "/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr"
@@ -2868,8 +3133,6 @@ events:
     candidate_directories:
       - "/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/lib/"
       - "/Users/jiawei/.juliaup/bin/"
-      - "/Users/jiawei/.cabal/bin/"
-      - "/Users/jiawei/.ghcup/bin/"
       - "/Library/Java/JavaVirtualMachines/jdk-21.jdk/Contents/Home/bin/"
       - "/Library/Frameworks/Python.framework/Versions/3.12/bin/"
       - "/opt/local/bin/"
@@ -2884,7 +3147,10 @@ events:
       - "/sbin/"
       - "/usr/local/share/dotnet/"
       - "/opt/X11/bin/"
+      - "/Users/jiawei/.cabal/bin/"
+      - "/Users/jiawei/.ghcup/bin/"
       - "/Users/jiawei/.cargo/bin/"
+      - "/Users/jiawei/Library/Application Support/Code/User/globalStorage/github.copilot-chat/debugCommand/"
       - "/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/lib/"
       - "/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/"
       - "/opt/homebrew/lib/"
@@ -2907,8 +3173,6 @@ events:
       ENV{PATH}:
         - "/Users/jiawei/.juliaup/bin"
         - "/Users/jiawei/.juliaup/bin"
-        - "/Users/jiawei/.cabal/bin"
-        - "/Users/jiawei/.ghcup/bin"
         - "/Users/jiawei/Documents/Documents - Jiawei\u2019s MacBook Pro/SchoolDocuments/CMPT213/apache-maven-3.9.9/bin"
         - "/Users/jiawei/Documents/Documents - Jiawei\u2019s MacBook Pro/SchoolDocuments/CMPT213/apache-maven-3.9.9/bin"
         - "/Library/Java/JavaVirtualMachines/jdk-21.jdk/Contents/Home/bin"
@@ -2927,7 +3191,20 @@ events:
         - "/usr/local/share/dotnet"
         - "/opt/X11/bin"
         - "~/.dotnet/tools"
+        - "/Users/jiawei/.juliaup/bin"
+        - "/Users/jiawei/.cabal/bin"
+        - "/Users/jiawei/.ghcup/bin"
+        - "/Users/jiawei/Documents/Documents - Jiawei\u2019s MacBook Pro/SchoolDocuments/CMPT213/apache-maven-3.9.9/bin"
+        - "/Library/Java/JavaVirtualMachines/jdk-21.jdk/Contents/Home/bin"
+        - "/Users/jiawei/opt/anaconda3/bin"
+        - "/Library/Frameworks/Python.framework/Versions/3.12/bin"
+        - "/opt/local/bin"
+        - "/opt/local/sbin"
+        - "/opt/homebrew/bin"
+        - "/opt/homebrew/sbin"
+        - "/Library/Frameworks/Python.framework/Versions/3.10/bin"
         - "/Users/jiawei/.cargo/bin"
+        - "/Users/jiawei/Library/Application Support/Code/User/globalStorage/github.copilot-chat/debugCommand"
       CMAKE_INSTALL_PREFIX: "/usr/local"
       CMAKE_SYSTEM_PREFIX_PATH:
         - "/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr"
@@ -2976,8 +3253,6 @@ events:
       - "pkgconf"
     candidate_directories:
       - "/Users/jiawei/.juliaup/bin/"
-      - "/Users/jiawei/.cabal/bin/"
-      - "/Users/jiawei/.ghcup/bin/"
       - "/Users/jiawei/Documents/Documents - Jiawei\u2019s MacBook Pro/SchoolDocuments/CMPT213/apache-maven-3.9.9/bin/"
       - "/Library/Java/JavaVirtualMachines/jdk-21.jdk/Contents/Home/bin/"
       - "/Users/jiawei/opt/anaconda3/bin/"
@@ -2995,7 +3270,10 @@ events:
       - "/usr/local/share/dotnet/"
       - "/opt/X11/bin/"
       - "/Users/jiawei/.dotnet/tools/"
+      - "/Users/jiawei/.cabal/bin/"
+      - "/Users/jiawei/.ghcup/bin/"
       - "/Users/jiawei/.cargo/bin/"
+      - "/Users/jiawei/Library/Application Support/Code/User/globalStorage/github.copilot-chat/debugCommand/"
       - "/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/bin/"
       - "/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/sbin/"
       - "/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/"
@@ -3030,10 +3308,6 @@ events:
     searched_directories:
       - "/Users/jiawei/.juliaup/bin/pkg-config"
       - "/Users/jiawei/.juliaup/bin/pkgconf"
-      - "/Users/jiawei/.cabal/bin/pkg-config"
-      - "/Users/jiawei/.cabal/bin/pkgconf"
-      - "/Users/jiawei/.ghcup/bin/pkg-config"
-      - "/Users/jiawei/.ghcup/bin/pkgconf"
       - "/Users/jiawei/Documents/Documents - Jiawei\u2019s MacBook Pro/SchoolDocuments/CMPT213/apache-maven-3.9.9/bin/pkg-config"
       - "/Users/jiawei/Documents/Documents - Jiawei\u2019s MacBook Pro/SchoolDocuments/CMPT213/apache-maven-3.9.9/bin/pkgconf"
       - "/Library/Java/JavaVirtualMachines/jdk-21.jdk/Contents/Home/bin/pkg-config"
@@ -3051,8 +3325,6 @@ events:
       ENV{PATH}:
         - "/Users/jiawei/.juliaup/bin"
         - "/Users/jiawei/.juliaup/bin"
-        - "/Users/jiawei/.cabal/bin"
-        - "/Users/jiawei/.ghcup/bin"
         - "/Users/jiawei/Documents/Documents - Jiawei\u2019s MacBook Pro/SchoolDocuments/CMPT213/apache-maven-3.9.9/bin"
         - "/Users/jiawei/Documents/Documents - Jiawei\u2019s MacBook Pro/SchoolDocuments/CMPT213/apache-maven-3.9.9/bin"
         - "/Library/Java/JavaVirtualMachines/jdk-21.jdk/Contents/Home/bin"
@@ -3071,7 +3343,20 @@ events:
         - "/usr/local/share/dotnet"
         - "/opt/X11/bin"
         - "~/.dotnet/tools"
+        - "/Users/jiawei/.juliaup/bin"
+        - "/Users/jiawei/.cabal/bin"
+        - "/Users/jiawei/.ghcup/bin"
+        - "/Users/jiawei/Documents/Documents - Jiawei\u2019s MacBook Pro/SchoolDocuments/CMPT213/apache-maven-3.9.9/bin"
+        - "/Library/Java/JavaVirtualMachines/jdk-21.jdk/Contents/Home/bin"
+        - "/Users/jiawei/opt/anaconda3/bin"
+        - "/Library/Frameworks/Python.framework/Versions/3.12/bin"
+        - "/opt/local/bin"
+        - "/opt/local/sbin"
+        - "/opt/homebrew/bin"
+        - "/opt/homebrew/sbin"
+        - "/Library/Frameworks/Python.framework/Versions/3.10/bin"
         - "/Users/jiawei/.cargo/bin"
+        - "/Users/jiawei/Library/Application Support/Code/User/globalStorage/github.copilot-chat/debugCommand"
       CMAKE_INSTALL_PREFIX: "/usr/local"
       CMAKE_SYSTEM_PREFIX_PATH:
         - "/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr"
@@ -3120,8 +3405,6 @@ events:
       ENV{PATH}:
         - "/Users/jiawei/.juliaup/bin"
         - "/Users/jiawei/.juliaup/bin"
-        - "/Users/jiawei/.cabal/bin"
-        - "/Users/jiawei/.ghcup/bin"
         - "/Users/jiawei/Documents/Documents - Jiawei\u2019s MacBook Pro/SchoolDocuments/CMPT213/apache-maven-3.9.9/bin"
         - "/Users/jiawei/Documents/Documents - Jiawei\u2019s MacBook Pro/SchoolDocuments/CMPT213/apache-maven-3.9.9/bin"
         - "/Library/Java/JavaVirtualMachines/jdk-21.jdk/Contents/Home/bin"
@@ -3140,7 +3423,20 @@ events:
         - "/usr/local/share/dotnet"
         - "/opt/X11/bin"
         - "~/.dotnet/tools"
+        - "/Users/jiawei/.juliaup/bin"
+        - "/Users/jiawei/.cabal/bin"
+        - "/Users/jiawei/.ghcup/bin"
+        - "/Users/jiawei/Documents/Documents - Jiawei\u2019s MacBook Pro/SchoolDocuments/CMPT213/apache-maven-3.9.9/bin"
+        - "/Library/Java/JavaVirtualMachines/jdk-21.jdk/Contents/Home/bin"
+        - "/Users/jiawei/opt/anaconda3/bin"
+        - "/Library/Frameworks/Python.framework/Versions/3.12/bin"
+        - "/opt/local/bin"
+        - "/opt/local/sbin"
+        - "/opt/homebrew/bin"
+        - "/opt/homebrew/sbin"
+        - "/Library/Frameworks/Python.framework/Versions/3.10/bin"
         - "/Users/jiawei/.cargo/bin"
+        - "/Users/jiawei/Library/Application Support/Code/User/globalStorage/github.copilot-chat/debugCommand"
       CMAKE_INSTALL_PREFIX: "/usr/local"
       CMAKE_SYSTEM_PREFIX_PATH:
         - "/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr"
@@ -3191,8 +3487,6 @@ events:
       - "ncurses"
     candidate_directories:
       - "/Users/jiawei/.juliaup/bin/"
-      - "/Users/jiawei/.cabal/bin/"
-      - "/Users/jiawei/.ghcup/bin/"
       - "/Library/Java/JavaVirtualMachines/jdk-21.jdk/Contents/Home/bin/"
       - "/Library/Frameworks/Python.framework/Versions/3.12/bin/"
       - "/opt/local/bin/"
@@ -3207,7 +3501,10 @@ events:
       - "/sbin/"
       - "/usr/local/share/dotnet/"
       - "/opt/X11/bin/"
+      - "/Users/jiawei/.cabal/bin/"
+      - "/Users/jiawei/.ghcup/bin/"
       - "/Users/jiawei/.cargo/bin/"
+      - "/Users/jiawei/Library/Application Support/Code/User/globalStorage/github.copilot-chat/debugCommand/"
       - "/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/lib/"
       - "/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/"
       - "/opt/homebrew/lib/"
@@ -3227,8 +3524,6 @@ events:
       - "/System/Library/Frameworks/"
     searched_directories:
       - "/Users/jiawei/.juliaup/bin/"
-      - "/Users/jiawei/.cabal/bin/"
-      - "/Users/jiawei/.ghcup/bin/"
       - "/Library/Java/JavaVirtualMachines/jdk-21.jdk/Contents/Home/bin/"
       - "/Library/Frameworks/Python.framework/Versions/3.12/bin/"
       - "/opt/local/bin/"
@@ -3243,14 +3538,15 @@ events:
       - "/sbin/"
       - "/usr/local/share/dotnet/"
       - "/opt/X11/bin/"
+      - "/Users/jiawei/.cabal/bin/"
+      - "/Users/jiawei/.ghcup/bin/"
       - "/Users/jiawei/.cargo/bin/"
+      - "/Users/jiawei/Library/Application Support/Code/User/globalStorage/github.copilot-chat/debugCommand/"
     found: "/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/lib/libncurses.tbd"
     search_context:
       ENV{PATH}:
         - "/Users/jiawei/.juliaup/bin"
         - "/Users/jiawei/.juliaup/bin"
-        - "/Users/jiawei/.cabal/bin"
-        - "/Users/jiawei/.ghcup/bin"
         - "/Users/jiawei/Documents/Documents - Jiawei\u2019s MacBook Pro/SchoolDocuments/CMPT213/apache-maven-3.9.9/bin"
         - "/Users/jiawei/Documents/Documents - Jiawei\u2019s MacBook Pro/SchoolDocuments/CMPT213/apache-maven-3.9.9/bin"
         - "/Library/Java/JavaVirtualMachines/jdk-21.jdk/Contents/Home/bin"
@@ -3269,7 +3565,20 @@ events:
         - "/usr/local/share/dotnet"
         - "/opt/X11/bin"
         - "~/.dotnet/tools"
+        - "/Users/jiawei/.juliaup/bin"
+        - "/Users/jiawei/.cabal/bin"
+        - "/Users/jiawei/.ghcup/bin"
+        - "/Users/jiawei/Documents/Documents - Jiawei\u2019s MacBook Pro/SchoolDocuments/CMPT213/apache-maven-3.9.9/bin"
+        - "/Library/Java/JavaVirtualMachines/jdk-21.jdk/Contents/Home/bin"
+        - "/Users/jiawei/opt/anaconda3/bin"
+        - "/Library/Frameworks/Python.framework/Versions/3.12/bin"
+        - "/opt/local/bin"
+        - "/opt/local/sbin"
+        - "/opt/homebrew/bin"
+        - "/opt/homebrew/sbin"
+        - "/Library/Frameworks/Python.framework/Versions/3.10/bin"
         - "/Users/jiawei/.cargo/bin"
+        - "/Users/jiawei/Library/Application Support/Code/User/globalStorage/github.copilot-chat/debugCommand"
       CMAKE_INSTALL_PREFIX: "/usr/local"
       CMAKE_SYSTEM_PREFIX_PATH:
         - "/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr"
@@ -3296,557 +3605,4 @@ events:
         - "/Library/Frameworks"
         - "/Network/Library/Frameworks"
         - "/System/Library/Frameworks"
-  -
-    kind: "find-v1"
-    backtrace:
-      - "build/_deps/web-socket-networking-src/tools/client_flutter/CMakeLists.txt:2 (find_program)"
-    mode: "program"
-    variable: "FLUTTER_CMD"
-    description: "Path to a program."
-    settings:
-      SearchFramework: "FIRST"
-      SearchAppBundle: "FIRST"
-      CMAKE_FIND_USE_CMAKE_PATH: true
-      CMAKE_FIND_USE_CMAKE_ENVIRONMENT_PATH: true
-      CMAKE_FIND_USE_SYSTEM_ENVIRONMENT_PATH: true
-      CMAKE_FIND_USE_CMAKE_SYSTEM_PATH: true
-      CMAKE_FIND_USE_INSTALL_PREFIX: true
-    names:
-      - "flutter"
-    candidate_directories:
-      - "/Users/jiawei/.juliaup/bin/"
-      - "/Users/jiawei/.cabal/bin/"
-      - "/Users/jiawei/.ghcup/bin/"
-      - "/Users/jiawei/Documents/Documents - Jiawei\u2019s MacBook Pro/SchoolDocuments/CMPT213/apache-maven-3.9.9/bin/"
-      - "/Library/Java/JavaVirtualMachines/jdk-21.jdk/Contents/Home/bin/"
-      - "/Users/jiawei/opt/anaconda3/bin/"
-      - "/Library/Frameworks/Python.framework/Versions/3.12/bin/"
-      - "/opt/local/bin/"
-      - "/opt/local/sbin/"
-      - "/opt/homebrew/bin/"
-      - "/opt/homebrew/sbin/"
-      - "/Library/Frameworks/Python.framework/Versions/3.10/bin/"
-      - "/usr/local/bin/"
-      - "/usr/bin/"
-      - "/bin/"
-      - "/usr/sbin/"
-      - "/sbin/"
-      - "/usr/local/share/dotnet/"
-      - "/opt/X11/bin/"
-      - "/Users/jiawei/.dotnet/tools/"
-      - "/Users/jiawei/.cargo/bin/"
-      - "/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/bin/"
-      - "/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/sbin/"
-      - "/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/"
-      - "/opt/homebrew/bin/"
-      - "/opt/homebrew/sbin/"
-      - "/opt/homebrew/"
-      - "/usr/local/bin/"
-      - "/usr/local/sbin/"
-      - "/usr/local/"
-      - "/usr/bin/"
-      - "/usr/sbin/"
-      - "/usr/"
-      - "/bin/"
-      - "/sbin/"
-      - "/usr/X11R6/bin/"
-      - "/usr/X11R6/sbin/"
-      - "/usr/X11R6/"
-      - "/usr/pkg/bin/"
-      - "/usr/pkg/sbin/"
-      - "/usr/pkg/"
-      - "/opt/bin/"
-      - "/opt/sbin/"
-      - "/opt/"
-      - "/sw/bin/"
-      - "/sw/sbin/"
-      - "/sw/"
-      - "/opt/local/bin/"
-      - "/opt/local/sbin/"
-      - "/opt/local/"
-      - "/Users/jiawei/Applications/"
-      - "/Applications/"
-    searched_directories:
-      - "/Users/jiawei/.juliaup/bin/flutter"
-      - "/Users/jiawei/.cabal/bin/flutter"
-      - "/Users/jiawei/.ghcup/bin/flutter"
-      - "/Users/jiawei/Documents/Documents - Jiawei\u2019s MacBook Pro/SchoolDocuments/CMPT213/apache-maven-3.9.9/bin/flutter"
-      - "/Library/Java/JavaVirtualMachines/jdk-21.jdk/Contents/Home/bin/flutter"
-      - "/Users/jiawei/opt/anaconda3/bin/flutter"
-      - "/Library/Frameworks/Python.framework/Versions/3.12/bin/flutter"
-      - "/opt/local/bin/flutter"
-      - "/opt/local/sbin/flutter"
-      - "/opt/homebrew/bin/flutter"
-      - "/opt/homebrew/sbin/flutter"
-      - "/Library/Frameworks/Python.framework/Versions/3.10/bin/flutter"
-      - "/usr/local/bin/flutter"
-      - "/usr/bin/flutter"
-      - "/bin/flutter"
-      - "/usr/sbin/flutter"
-      - "/sbin/flutter"
-      - "/usr/local/share/dotnet/flutter"
-      - "/opt/X11/bin/flutter"
-      - "/Users/jiawei/.dotnet/tools/flutter"
-      - "/Users/jiawei/.cargo/bin/flutter"
-      - "/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/bin/flutter"
-      - "/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/sbin/flutter"
-      - "/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/flutter"
-      - "/opt/homebrew/bin/flutter"
-      - "/opt/homebrew/sbin/flutter"
-      - "/opt/homebrew/flutter"
-      - "/usr/local/bin/flutter"
-      - "/usr/local/sbin/flutter"
-      - "/usr/local/flutter"
-      - "/usr/bin/flutter"
-      - "/usr/sbin/flutter"
-      - "/usr/flutter"
-      - "/bin/flutter"
-      - "/sbin/flutter"
-      - "/usr/X11R6/bin/flutter"
-      - "/usr/X11R6/sbin/flutter"
-      - "/usr/X11R6/flutter"
-      - "/usr/pkg/bin/flutter"
-      - "/usr/pkg/sbin/flutter"
-      - "/usr/pkg/flutter"
-      - "/opt/bin/flutter"
-      - "/opt/sbin/flutter"
-      - "/opt/flutter"
-      - "/sw/bin/flutter"
-      - "/sw/sbin/flutter"
-      - "/sw/flutter"
-      - "/opt/local/bin/flutter"
-      - "/opt/local/sbin/flutter"
-      - "/opt/local/flutter"
-      - "/Users/jiawei/Applications/flutter"
-      - "/Applications/flutter"
-    found: false
-    search_context:
-      ENV{PATH}:
-        - "/Users/jiawei/.juliaup/bin"
-        - "/Users/jiawei/.juliaup/bin"
-        - "/Users/jiawei/.cabal/bin"
-        - "/Users/jiawei/.ghcup/bin"
-        - "/Users/jiawei/Documents/Documents - Jiawei\u2019s MacBook Pro/SchoolDocuments/CMPT213/apache-maven-3.9.9/bin"
-        - "/Users/jiawei/Documents/Documents - Jiawei\u2019s MacBook Pro/SchoolDocuments/CMPT213/apache-maven-3.9.9/bin"
-        - "/Library/Java/JavaVirtualMachines/jdk-21.jdk/Contents/Home/bin"
-        - "/Users/jiawei/opt/anaconda3/bin"
-        - "/Library/Frameworks/Python.framework/Versions/3.12/bin"
-        - "/opt/local/bin"
-        - "/opt/local/sbin"
-        - "/opt/homebrew/bin"
-        - "/opt/homebrew/sbin"
-        - "/Library/Frameworks/Python.framework/Versions/3.10/bin"
-        - "/usr/local/bin"
-        - "/usr/bin"
-        - "/bin"
-        - "/usr/sbin"
-        - "/sbin"
-        - "/usr/local/share/dotnet"
-        - "/opt/X11/bin"
-        - "~/.dotnet/tools"
-        - "/Users/jiawei/.cargo/bin"
-      CMAKE_INSTALL_PREFIX: "/usr/local"
-      CMAKE_SYSTEM_PREFIX_PATH:
-        - "/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr"
-        - "/opt/homebrew"
-        - "/usr/local"
-        - "/usr"
-        - "/"
-        - "/opt/homebrew"
-        - "/usr/local"
-        - "/usr/X11R6"
-        - "/usr/pkg"
-        - "/opt"
-        - "/sw"
-        - "/opt/local"
-      CMAKE_SYSTEM_APPBUNDLE_PATH:
-        - "/Users/jiawei/Applications"
-        - "/Applications"
-  -
-    kind: "find-v1"
-    backtrace:
-      - "build/_deps/ftxui-src/cmake/ftxui_set_options.cmake:1 (find_program)"
-      - "build/_deps/ftxui-src/CMakeLists.txt:162 (include)"
-    mode: "program"
-    variable: "CLANG_TIDY_EXE"
-    description: "Path to clang-tidy executable"
-    settings:
-      SearchFramework: "FIRST"
-      SearchAppBundle: "FIRST"
-      CMAKE_FIND_USE_CMAKE_PATH: true
-      CMAKE_FIND_USE_CMAKE_ENVIRONMENT_PATH: true
-      CMAKE_FIND_USE_SYSTEM_ENVIRONMENT_PATH: true
-      CMAKE_FIND_USE_CMAKE_SYSTEM_PATH: true
-      CMAKE_FIND_USE_INSTALL_PREFIX: true
-    names:
-      - "clang-tidy"
-    candidate_directories:
-      - "/Users/jiawei/.juliaup/bin/"
-      - "/Users/jiawei/.cabal/bin/"
-      - "/Users/jiawei/.ghcup/bin/"
-      - "/Users/jiawei/Documents/Documents - Jiawei\u2019s MacBook Pro/SchoolDocuments/CMPT213/apache-maven-3.9.9/bin/"
-      - "/Library/Java/JavaVirtualMachines/jdk-21.jdk/Contents/Home/bin/"
-      - "/Users/jiawei/opt/anaconda3/bin/"
-      - "/Library/Frameworks/Python.framework/Versions/3.12/bin/"
-      - "/opt/local/bin/"
-      - "/opt/local/sbin/"
-      - "/opt/homebrew/bin/"
-      - "/opt/homebrew/sbin/"
-      - "/Library/Frameworks/Python.framework/Versions/3.10/bin/"
-      - "/usr/local/bin/"
-      - "/usr/bin/"
-      - "/bin/"
-      - "/usr/sbin/"
-      - "/sbin/"
-      - "/usr/local/share/dotnet/"
-      - "/opt/X11/bin/"
-      - "/Users/jiawei/.dotnet/tools/"
-      - "/Users/jiawei/.cargo/bin/"
-      - "/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/bin/"
-      - "/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/sbin/"
-      - "/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/"
-      - "/opt/homebrew/bin/"
-      - "/opt/homebrew/sbin/"
-      - "/opt/homebrew/"
-      - "/usr/local/bin/"
-      - "/usr/local/sbin/"
-      - "/usr/local/"
-      - "/usr/bin/"
-      - "/usr/sbin/"
-      - "/usr/"
-      - "/bin/"
-      - "/sbin/"
-      - "/usr/X11R6/bin/"
-      - "/usr/X11R6/sbin/"
-      - "/usr/X11R6/"
-      - "/usr/pkg/bin/"
-      - "/usr/pkg/sbin/"
-      - "/usr/pkg/"
-      - "/opt/bin/"
-      - "/opt/sbin/"
-      - "/opt/"
-      - "/sw/bin/"
-      - "/sw/sbin/"
-      - "/sw/"
-      - "/opt/local/bin/"
-      - "/opt/local/sbin/"
-      - "/opt/local/"
-      - "/Users/jiawei/Applications/"
-      - "/Applications/"
-    searched_directories:
-      - "/Users/jiawei/.juliaup/bin/clang-tidy"
-      - "/Users/jiawei/.cabal/bin/clang-tidy"
-      - "/Users/jiawei/.ghcup/bin/clang-tidy"
-      - "/Users/jiawei/Documents/Documents - Jiawei\u2019s MacBook Pro/SchoolDocuments/CMPT213/apache-maven-3.9.9/bin/clang-tidy"
-      - "/Library/Java/JavaVirtualMachines/jdk-21.jdk/Contents/Home/bin/clang-tidy"
-      - "/Users/jiawei/opt/anaconda3/bin/clang-tidy"
-      - "/Library/Frameworks/Python.framework/Versions/3.12/bin/clang-tidy"
-      - "/opt/local/bin/clang-tidy"
-      - "/opt/local/sbin/clang-tidy"
-      - "/opt/homebrew/bin/clang-tidy"
-      - "/opt/homebrew/sbin/clang-tidy"
-      - "/Library/Frameworks/Python.framework/Versions/3.10/bin/clang-tidy"
-      - "/usr/local/bin/clang-tidy"
-      - "/usr/bin/clang-tidy"
-      - "/bin/clang-tidy"
-      - "/usr/sbin/clang-tidy"
-      - "/sbin/clang-tidy"
-      - "/usr/local/share/dotnet/clang-tidy"
-      - "/opt/X11/bin/clang-tidy"
-      - "/Users/jiawei/.dotnet/tools/clang-tidy"
-      - "/Users/jiawei/.cargo/bin/clang-tidy"
-      - "/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/bin/clang-tidy"
-      - "/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/sbin/clang-tidy"
-      - "/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/clang-tidy"
-      - "/opt/homebrew/bin/clang-tidy"
-      - "/opt/homebrew/sbin/clang-tidy"
-      - "/opt/homebrew/clang-tidy"
-      - "/usr/local/bin/clang-tidy"
-      - "/usr/local/sbin/clang-tidy"
-      - "/usr/local/clang-tidy"
-      - "/usr/bin/clang-tidy"
-      - "/usr/sbin/clang-tidy"
-      - "/usr/clang-tidy"
-      - "/bin/clang-tidy"
-      - "/sbin/clang-tidy"
-      - "/usr/X11R6/bin/clang-tidy"
-      - "/usr/X11R6/sbin/clang-tidy"
-      - "/usr/X11R6/clang-tidy"
-      - "/usr/pkg/bin/clang-tidy"
-      - "/usr/pkg/sbin/clang-tidy"
-      - "/usr/pkg/clang-tidy"
-      - "/opt/bin/clang-tidy"
-      - "/opt/sbin/clang-tidy"
-      - "/opt/clang-tidy"
-      - "/sw/bin/clang-tidy"
-      - "/sw/sbin/clang-tidy"
-      - "/sw/clang-tidy"
-      - "/opt/local/bin/clang-tidy"
-      - "/opt/local/sbin/clang-tidy"
-      - "/opt/local/clang-tidy"
-      - "/Users/jiawei/Applications/clang-tidy"
-      - "/Applications/clang-tidy"
-    found: false
-    search_context:
-      ENV{PATH}:
-        - "/Users/jiawei/.juliaup/bin"
-        - "/Users/jiawei/.juliaup/bin"
-        - "/Users/jiawei/.cabal/bin"
-        - "/Users/jiawei/.ghcup/bin"
-        - "/Users/jiawei/Documents/Documents - Jiawei\u2019s MacBook Pro/SchoolDocuments/CMPT213/apache-maven-3.9.9/bin"
-        - "/Users/jiawei/Documents/Documents - Jiawei\u2019s MacBook Pro/SchoolDocuments/CMPT213/apache-maven-3.9.9/bin"
-        - "/Library/Java/JavaVirtualMachines/jdk-21.jdk/Contents/Home/bin"
-        - "/Users/jiawei/opt/anaconda3/bin"
-        - "/Library/Frameworks/Python.framework/Versions/3.12/bin"
-        - "/opt/local/bin"
-        - "/opt/local/sbin"
-        - "/opt/homebrew/bin"
-        - "/opt/homebrew/sbin"
-        - "/Library/Frameworks/Python.framework/Versions/3.10/bin"
-        - "/usr/local/bin"
-        - "/usr/bin"
-        - "/bin"
-        - "/usr/sbin"
-        - "/sbin"
-        - "/usr/local/share/dotnet"
-        - "/opt/X11/bin"
-        - "~/.dotnet/tools"
-        - "/Users/jiawei/.cargo/bin"
-      CMAKE_INSTALL_PREFIX: "/usr/local"
-      CMAKE_SYSTEM_PREFIX_PATH:
-        - "/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr"
-        - "/opt/homebrew"
-        - "/usr/local"
-        - "/usr"
-        - "/"
-        - "/opt/homebrew"
-        - "/usr/local"
-        - "/usr/X11R6"
-        - "/usr/pkg"
-        - "/opt"
-        - "/sw"
-        - "/opt/local"
-      CMAKE_SYSTEM_APPBUNDLE_PATH:
-        - "/Users/jiawei/Applications"
-        - "/Applications"
-  -
-    kind: "find-v1"
-    backtrace:
-      - "build/_deps/ftxui-src/cmake/iwyu.cmake:1 (find_program)"
-      - "build/_deps/ftxui-src/CMakeLists.txt:175 (include)"
-    mode: "program"
-    variable: "iwyu_path"
-    description: "Path to a program."
-    settings:
-      SearchFramework: "FIRST"
-      SearchAppBundle: "FIRST"
-      CMAKE_FIND_USE_CMAKE_PATH: true
-      CMAKE_FIND_USE_CMAKE_ENVIRONMENT_PATH: true
-      CMAKE_FIND_USE_SYSTEM_ENVIRONMENT_PATH: true
-      CMAKE_FIND_USE_CMAKE_SYSTEM_PATH: true
-      CMAKE_FIND_USE_INSTALL_PREFIX: true
-    names:
-      - "include-what-you-use"
-      - "iwyu"
-    candidate_directories:
-      - "/Users/jiawei/.juliaup/bin/"
-      - "/Users/jiawei/.cabal/bin/"
-      - "/Users/jiawei/.ghcup/bin/"
-      - "/Users/jiawei/Documents/Documents - Jiawei\u2019s MacBook Pro/SchoolDocuments/CMPT213/apache-maven-3.9.9/bin/"
-      - "/Library/Java/JavaVirtualMachines/jdk-21.jdk/Contents/Home/bin/"
-      - "/Users/jiawei/opt/anaconda3/bin/"
-      - "/Library/Frameworks/Python.framework/Versions/3.12/bin/"
-      - "/opt/local/bin/"
-      - "/opt/local/sbin/"
-      - "/opt/homebrew/bin/"
-      - "/opt/homebrew/sbin/"
-      - "/Library/Frameworks/Python.framework/Versions/3.10/bin/"
-      - "/usr/local/bin/"
-      - "/usr/bin/"
-      - "/bin/"
-      - "/usr/sbin/"
-      - "/sbin/"
-      - "/usr/local/share/dotnet/"
-      - "/opt/X11/bin/"
-      - "/Users/jiawei/.dotnet/tools/"
-      - "/Users/jiawei/.cargo/bin/"
-      - "/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/bin/"
-      - "/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/sbin/"
-      - "/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/"
-      - "/opt/homebrew/bin/"
-      - "/opt/homebrew/sbin/"
-      - "/opt/homebrew/"
-      - "/usr/local/bin/"
-      - "/usr/local/sbin/"
-      - "/usr/local/"
-      - "/usr/bin/"
-      - "/usr/sbin/"
-      - "/usr/"
-      - "/bin/"
-      - "/sbin/"
-      - "/usr/X11R6/bin/"
-      - "/usr/X11R6/sbin/"
-      - "/usr/X11R6/"
-      - "/usr/pkg/bin/"
-      - "/usr/pkg/sbin/"
-      - "/usr/pkg/"
-      - "/opt/bin/"
-      - "/opt/sbin/"
-      - "/opt/"
-      - "/sw/bin/"
-      - "/sw/sbin/"
-      - "/sw/"
-      - "/opt/local/bin/"
-      - "/opt/local/sbin/"
-      - "/opt/local/"
-      - "/Users/jiawei/Applications/"
-      - "/Applications/"
-    searched_directories:
-      - "/Users/jiawei/.juliaup/bin/include-what-you-use"
-      - "/Users/jiawei/.cabal/bin/include-what-you-use"
-      - "/Users/jiawei/.ghcup/bin/include-what-you-use"
-      - "/Users/jiawei/Documents/Documents - Jiawei\u2019s MacBook Pro/SchoolDocuments/CMPT213/apache-maven-3.9.9/bin/include-what-you-use"
-      - "/Library/Java/JavaVirtualMachines/jdk-21.jdk/Contents/Home/bin/include-what-you-use"
-      - "/Users/jiawei/opt/anaconda3/bin/include-what-you-use"
-      - "/Library/Frameworks/Python.framework/Versions/3.12/bin/include-what-you-use"
-      - "/opt/local/bin/include-what-you-use"
-      - "/opt/local/sbin/include-what-you-use"
-      - "/opt/homebrew/bin/include-what-you-use"
-      - "/opt/homebrew/sbin/include-what-you-use"
-      - "/Library/Frameworks/Python.framework/Versions/3.10/bin/include-what-you-use"
-      - "/usr/local/bin/include-what-you-use"
-      - "/usr/bin/include-what-you-use"
-      - "/bin/include-what-you-use"
-      - "/usr/sbin/include-what-you-use"
-      - "/sbin/include-what-you-use"
-      - "/usr/local/share/dotnet/include-what-you-use"
-      - "/opt/X11/bin/include-what-you-use"
-      - "/Users/jiawei/.dotnet/tools/include-what-you-use"
-      - "/Users/jiawei/.cargo/bin/include-what-you-use"
-      - "/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/bin/include-what-you-use"
-      - "/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/sbin/include-what-you-use"
-      - "/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include-what-you-use"
-      - "/opt/homebrew/bin/include-what-you-use"
-      - "/opt/homebrew/sbin/include-what-you-use"
-      - "/opt/homebrew/include-what-you-use"
-      - "/usr/local/bin/include-what-you-use"
-      - "/usr/local/sbin/include-what-you-use"
-      - "/usr/local/include-what-you-use"
-      - "/usr/bin/include-what-you-use"
-      - "/usr/sbin/include-what-you-use"
-      - "/usr/include-what-you-use"
-      - "/bin/include-what-you-use"
-      - "/sbin/include-what-you-use"
-      - "/usr/X11R6/bin/include-what-you-use"
-      - "/usr/X11R6/sbin/include-what-you-use"
-      - "/usr/X11R6/include-what-you-use"
-      - "/usr/pkg/bin/include-what-you-use"
-      - "/usr/pkg/sbin/include-what-you-use"
-      - "/usr/pkg/include-what-you-use"
-      - "/opt/bin/include-what-you-use"
-      - "/opt/sbin/include-what-you-use"
-      - "/opt/include-what-you-use"
-      - "/sw/bin/include-what-you-use"
-      - "/sw/sbin/include-what-you-use"
-      - "/sw/include-what-you-use"
-      - "/opt/local/bin/include-what-you-use"
-      - "/opt/local/sbin/include-what-you-use"
-      - "/opt/local/include-what-you-use"
-      - "/Users/jiawei/Applications/include-what-you-use"
-      - "/Applications/include-what-you-use"
-      - "/Users/jiawei/.juliaup/bin/iwyu"
-      - "/Users/jiawei/.cabal/bin/iwyu"
-      - "/Users/jiawei/.ghcup/bin/iwyu"
-      - "/Users/jiawei/Documents/Documents - Jiawei\u2019s MacBook Pro/SchoolDocuments/CMPT213/apache-maven-3.9.9/bin/iwyu"
-      - "/Library/Java/JavaVirtualMachines/jdk-21.jdk/Contents/Home/bin/iwyu"
-      - "/Users/jiawei/opt/anaconda3/bin/iwyu"
-      - "/Library/Frameworks/Python.framework/Versions/3.12/bin/iwyu"
-      - "/opt/local/bin/iwyu"
-      - "/opt/local/sbin/iwyu"
-      - "/opt/homebrew/bin/iwyu"
-      - "/opt/homebrew/sbin/iwyu"
-      - "/Library/Frameworks/Python.framework/Versions/3.10/bin/iwyu"
-      - "/usr/local/bin/iwyu"
-      - "/usr/bin/iwyu"
-      - "/bin/iwyu"
-      - "/usr/sbin/iwyu"
-      - "/sbin/iwyu"
-      - "/usr/local/share/dotnet/iwyu"
-      - "/opt/X11/bin/iwyu"
-      - "/Users/jiawei/.dotnet/tools/iwyu"
-      - "/Users/jiawei/.cargo/bin/iwyu"
-      - "/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/bin/iwyu"
-      - "/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/sbin/iwyu"
-      - "/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/iwyu"
-      - "/opt/homebrew/bin/iwyu"
-      - "/opt/homebrew/sbin/iwyu"
-      - "/opt/homebrew/iwyu"
-      - "/usr/local/bin/iwyu"
-      - "/usr/local/sbin/iwyu"
-      - "/usr/local/iwyu"
-      - "/usr/bin/iwyu"
-      - "/usr/sbin/iwyu"
-      - "/usr/iwyu"
-      - "/bin/iwyu"
-      - "/sbin/iwyu"
-      - "/usr/X11R6/bin/iwyu"
-      - "/usr/X11R6/sbin/iwyu"
-      - "/usr/X11R6/iwyu"
-      - "/usr/pkg/bin/iwyu"
-      - "/usr/pkg/sbin/iwyu"
-      - "/usr/pkg/iwyu"
-      - "/opt/bin/iwyu"
-      - "/opt/sbin/iwyu"
-      - "/opt/iwyu"
-      - "/sw/bin/iwyu"
-      - "/sw/sbin/iwyu"
-      - "/sw/iwyu"
-      - "/opt/local/bin/iwyu"
-      - "/opt/local/sbin/iwyu"
-      - "/opt/local/iwyu"
-      - "/Users/jiawei/Applications/iwyu"
-      - "/Applications/iwyu"
-    found: false
-    search_context:
-      ENV{PATH}:
-        - "/Users/jiawei/.juliaup/bin"
-        - "/Users/jiawei/.juliaup/bin"
-        - "/Users/jiawei/.cabal/bin"
-        - "/Users/jiawei/.ghcup/bin"
-        - "/Users/jiawei/Documents/Documents - Jiawei\u2019s MacBook Pro/SchoolDocuments/CMPT213/apache-maven-3.9.9/bin"
-        - "/Users/jiawei/Documents/Documents - Jiawei\u2019s MacBook Pro/SchoolDocuments/CMPT213/apache-maven-3.9.9/bin"
-        - "/Library/Java/JavaVirtualMachines/jdk-21.jdk/Contents/Home/bin"
-        - "/Users/jiawei/opt/anaconda3/bin"
-        - "/Library/Frameworks/Python.framework/Versions/3.12/bin"
-        - "/opt/local/bin"
-        - "/opt/local/sbin"
-        - "/opt/homebrew/bin"
-        - "/opt/homebrew/sbin"
-        - "/Library/Frameworks/Python.framework/Versions/3.10/bin"
-        - "/usr/local/bin"
-        - "/usr/bin"
-        - "/bin"
-        - "/usr/sbin"
-        - "/sbin"
-        - "/usr/local/share/dotnet"
-        - "/opt/X11/bin"
-        - "~/.dotnet/tools"
-        - "/Users/jiawei/.cargo/bin"
-      CMAKE_INSTALL_PREFIX: "/usr/local"
-      CMAKE_SYSTEM_PREFIX_PATH:
-        - "/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr"
-        - "/opt/homebrew"
-        - "/usr/local"
-        - "/usr"
-        - "/"
-        - "/opt/homebrew"
-        - "/usr/local"
-        - "/usr/X11R6"
-        - "/usr/pkg"
-        - "/opt"
-        - "/sw"
-        - "/opt/local"
-      CMAKE_SYSTEM_APPBUNDLE_PATH:
-        - "/Users/jiawei/Applications"
-        - "/Applications"
 ...

@@ -1,4 +1,4 @@
-# Install script for directory: /Users/jiawei/Desktop/373-25-gamjajeon/build/_deps/web-socket-networking-src/tools/client-ncurses
+# Install script for directory: /Users/jiawei/Desktop/373/build/_deps/web-socket-networking-src/tools/client-ncurses
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -38,7 +38,7 @@ if(NOT DEFINED CMAKE_OBJDUMP)
 endif()
 
 if(CMAKE_INSTALL_COMPONENT STREQUAL "Unspecified" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/bin" TYPE EXECUTABLE FILES "/Users/jiawei/Desktop/373-25-gamjajeon/build/_deps/web-socket-networking-build/bin/client-ncurses")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/bin" TYPE EXECUTABLE FILES "/Users/jiawei/Desktop/373/build/_deps/web-socket-networking-build/bin/client-ncurses")
   if(EXISTS "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/bin/client-ncurses" AND
      NOT IS_SYMLINK "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/bin/client-ncurses")
     if(CMAKE_INSTALL_DO_STRIP)
@@ -50,6 +50,6 @@ endif()
 string(REPLACE ";" "\n" CMAKE_INSTALL_MANIFEST_CONTENT
        "${CMAKE_INSTALL_MANIFEST_FILES}")
 if(CMAKE_INSTALL_LOCAL_ONLY)
-  file(WRITE "/Users/jiawei/Desktop/373-25-gamjajeon/build/_deps/web-socket-networking-build/tools/client-ncurses/install_local_manifest.txt"
+  file(WRITE "/Users/jiawei/Desktop/373/build/_deps/web-socket-networking-build/tools/client-ncurses/install_local_manifest.txt"
      "${CMAKE_INSTALL_MANIFEST_CONTENT}")
 endif()

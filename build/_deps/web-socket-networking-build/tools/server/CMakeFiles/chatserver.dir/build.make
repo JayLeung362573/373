@@ -53,10 +53,10 @@ RM = /opt/homebrew/bin/cmake -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /Users/jiawei/Desktop/373-25-gamjajeon
+CMAKE_SOURCE_DIR = /Users/jiawei/Desktop/373
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /Users/jiawei/Desktop/373-25-gamjajeon/build
+CMAKE_BINARY_DIR = /Users/jiawei/Desktop/373/build
 
 # Include any dependencies generated for this target.
 include _deps/web-socket-networking-build/tools/server/CMakeFiles/chatserver.dir/depend.make
@@ -75,16 +75,16 @@ _deps/web-socket-networking-build/tools/server/CMakeFiles/chatserver.dir/codegen
 _deps/web-socket-networking-build/tools/server/CMakeFiles/chatserver.dir/chatserver.cpp.o: _deps/web-socket-networking-build/tools/server/CMakeFiles/chatserver.dir/flags.make
 _deps/web-socket-networking-build/tools/server/CMakeFiles/chatserver.dir/chatserver.cpp.o: _deps/web-socket-networking-src/tools/server/chatserver.cpp
 _deps/web-socket-networking-build/tools/server/CMakeFiles/chatserver.dir/chatserver.cpp.o: _deps/web-socket-networking-build/tools/server/CMakeFiles/chatserver.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/jiawei/Desktop/373-25-gamjajeon/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object _deps/web-socket-networking-build/tools/server/CMakeFiles/chatserver.dir/chatserver.cpp.o"
-	cd /Users/jiawei/Desktop/373-25-gamjajeon/build/_deps/web-socket-networking-build/tools/server && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT _deps/web-socket-networking-build/tools/server/CMakeFiles/chatserver.dir/chatserver.cpp.o -MF CMakeFiles/chatserver.dir/chatserver.cpp.o.d -o CMakeFiles/chatserver.dir/chatserver.cpp.o -c /Users/jiawei/Desktop/373-25-gamjajeon/build/_deps/web-socket-networking-src/tools/server/chatserver.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/jiawei/Desktop/373/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object _deps/web-socket-networking-build/tools/server/CMakeFiles/chatserver.dir/chatserver.cpp.o"
+	cd /Users/jiawei/Desktop/373/build/_deps/web-socket-networking-build/tools/server && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT _deps/web-socket-networking-build/tools/server/CMakeFiles/chatserver.dir/chatserver.cpp.o -MF CMakeFiles/chatserver.dir/chatserver.cpp.o.d -o CMakeFiles/chatserver.dir/chatserver.cpp.o -c /Users/jiawei/Desktop/373/build/_deps/web-socket-networking-src/tools/server/chatserver.cpp
 
 _deps/web-socket-networking-build/tools/server/CMakeFiles/chatserver.dir/chatserver.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/chatserver.dir/chatserver.cpp.i"
-	cd /Users/jiawei/Desktop/373-25-gamjajeon/build/_deps/web-socket-networking-build/tools/server && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/jiawei/Desktop/373-25-gamjajeon/build/_deps/web-socket-networking-src/tools/server/chatserver.cpp > CMakeFiles/chatserver.dir/chatserver.cpp.i
+	cd /Users/jiawei/Desktop/373/build/_deps/web-socket-networking-build/tools/server && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/jiawei/Desktop/373/build/_deps/web-socket-networking-src/tools/server/chatserver.cpp > CMakeFiles/chatserver.dir/chatserver.cpp.i
 
 _deps/web-socket-networking-build/tools/server/CMakeFiles/chatserver.dir/chatserver.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/chatserver.dir/chatserver.cpp.s"
-	cd /Users/jiawei/Desktop/373-25-gamjajeon/build/_deps/web-socket-networking-build/tools/server && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/jiawei/Desktop/373-25-gamjajeon/build/_deps/web-socket-networking-src/tools/server/chatserver.cpp -o CMakeFiles/chatserver.dir/chatserver.cpp.s
+	cd /Users/jiawei/Desktop/373/build/_deps/web-socket-networking-build/tools/server && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/jiawei/Desktop/373/build/_deps/web-socket-networking-src/tools/server/chatserver.cpp -o CMakeFiles/chatserver.dir/chatserver.cpp.s
 
 # Object files for target chatserver
 chatserver_OBJECTS = \
@@ -97,18 +97,18 @@ _deps/web-socket-networking-build/bin/chatserver: _deps/web-socket-networking-bu
 _deps/web-socket-networking-build/bin/chatserver: _deps/web-socket-networking-build/tools/server/CMakeFiles/chatserver.dir/build.make
 _deps/web-socket-networking-build/bin/chatserver: _deps/web-socket-networking-build/lib/libnetworking.a
 _deps/web-socket-networking-build/bin/chatserver: _deps/web-socket-networking-build/tools/server/CMakeFiles/chatserver.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/Users/jiawei/Desktop/373-25-gamjajeon/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Linking CXX executable ../../bin/chatserver"
-	cd /Users/jiawei/Desktop/373-25-gamjajeon/build/_deps/web-socket-networking-build/tools/server && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/chatserver.dir/link.txt --verbose=$(VERBOSE)
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/Users/jiawei/Desktop/373/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Linking CXX executable ../../bin/chatserver"
+	cd /Users/jiawei/Desktop/373/build/_deps/web-socket-networking-build/tools/server && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/chatserver.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
 _deps/web-socket-networking-build/tools/server/CMakeFiles/chatserver.dir/build: _deps/web-socket-networking-build/bin/chatserver
 .PHONY : _deps/web-socket-networking-build/tools/server/CMakeFiles/chatserver.dir/build
 
 _deps/web-socket-networking-build/tools/server/CMakeFiles/chatserver.dir/clean:
-	cd /Users/jiawei/Desktop/373-25-gamjajeon/build/_deps/web-socket-networking-build/tools/server && $(CMAKE_COMMAND) -P CMakeFiles/chatserver.dir/cmake_clean.cmake
+	cd /Users/jiawei/Desktop/373/build/_deps/web-socket-networking-build/tools/server && $(CMAKE_COMMAND) -P CMakeFiles/chatserver.dir/cmake_clean.cmake
 .PHONY : _deps/web-socket-networking-build/tools/server/CMakeFiles/chatserver.dir/clean
 
 _deps/web-socket-networking-build/tools/server/CMakeFiles/chatserver.dir/depend:
-	cd /Users/jiawei/Desktop/373-25-gamjajeon/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /Users/jiawei/Desktop/373-25-gamjajeon /Users/jiawei/Desktop/373-25-gamjajeon/build/_deps/web-socket-networking-src/tools/server /Users/jiawei/Desktop/373-25-gamjajeon/build /Users/jiawei/Desktop/373-25-gamjajeon/build/_deps/web-socket-networking-build/tools/server /Users/jiawei/Desktop/373-25-gamjajeon/build/_deps/web-socket-networking-build/tools/server/CMakeFiles/chatserver.dir/DependInfo.cmake "--color=$(COLOR)"
+	cd /Users/jiawei/Desktop/373/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /Users/jiawei/Desktop/373 /Users/jiawei/Desktop/373/build/_deps/web-socket-networking-src/tools/server /Users/jiawei/Desktop/373/build /Users/jiawei/Desktop/373/build/_deps/web-socket-networking-build/tools/server /Users/jiawei/Desktop/373/build/_deps/web-socket-networking-build/tools/server/CMakeFiles/chatserver.dir/DependInfo.cmake "--color=$(COLOR)"
 .PHONY : _deps/web-socket-networking-build/tools/server/CMakeFiles/chatserver.dir/depend
 
