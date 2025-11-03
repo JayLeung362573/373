@@ -53,13 +53,9 @@ void WebSocketNetworking::update()
         auto messages = net_server->receive();
 
         for (auto& msg : messages) {
-            std::cout << "[WebSocket] Received: " 
-            << msg.text << " from client " << msg.connection.id << "\n";
+            std::cout << "[WebSocket] Received: " << msg.text << " from client " << msg.connection.id << "\n";
 
             uintptr_t fromClientID  = msg.connection.id;
-            std::cout << "[DEBUG WebSocket] Original msg.connection.id: " << msg.connection.id << "\n";
-            std::cout << "[DEBUG WebSocket] After assignment: " << fromClientID << "\n";
-            std::cout << "[DEBUG WebSocket] sizeof(fromClientID): " << sizeof(fromClientID) << "\n";
             Message translatedMsg = MessageTranslator::deserialize(msg.text);
             m_incomingMessages.emplace_back(fromClientID, translatedMsg);
         }
@@ -74,7 +70,7 @@ void WebSocketNetworking::sendToClient(uintptr_t toClientID, const Message& mess
     std::string payload = MessageTranslator::serialize(message); // This is temporarily, hopefully I can decouple this further
     std::cout << "[WebSocket] Sending to client " << toClientID << ": " << payload << "\n";
     // Convert our message into network::Message compatible with the web-socket format to send over the network
-    
+
     auto connectedClient = m_connections.find(toClientID);
     if(connectedClient == m_connections.end()){
         std::cerr << "[WebSocket] ERROR: Client " << toClientID << " not found in connections.\n";
@@ -82,8 +78,7 @@ void WebSocketNetworking::sendToClient(uintptr_t toClientID, const Message& mess
     }
 
     std::deque<networking::Message> out{
-        networking::Message{connectedClient->second, payload}
-            // networking::Message{networking::Connection{toClientID}, payload}
+            networking::Message{connectedClient->second, payload}
     };
 
     net_server->send(out);
