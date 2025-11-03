@@ -5,14 +5,11 @@
 TEST(GameServerTest, SingleClientJoinGame){
     GameServer server;
 
-    Message joinMsg{MessageType::JoinGame,
-                    JoinGameMessage{{"player 1"}}
+    std::vector<ClientMessage> incoming = {
+            {1, {MessageType::JoinGame, JoinGameMessage{"player 1"}}}
     };
-    server.getClientMessages(1, joinMsg);
 
-    server.tick();
-
-    std::vector<ClientMessage> outgoingMsg = server.getOutgoingMessages();
+    std::vector<ClientMessage> outgoingMsg = server.tick(incoming);
 
     ASSERT_GT(outgoingMsg.size(), 0);
     ASSERT_EQ(outgoingMsg[0].clientID, 1);
@@ -25,16 +22,18 @@ TEST(GameServerTest, SingleClientJoinGame){
 
 TEST(GameServerTest, MultipleClientsJoinGame){
     GameServer server;
-    server.getClientMessages(1, {MessageType::JoinGame, JoinGameMessage{"player 1"}});
-    server.getClientMessages(2, {MessageType::JoinGame, JoinGameMessage{"player 2"}});
-    server.getClientMessages(3, {MessageType::JoinGame, JoinGameMessage{"player 3"}});
 
-    server.tick();
+    std::vector<ClientMessage> incoming = {
+            {1, {MessageType::JoinGame, JoinGameMessage{"player 1"}}},
+            {2, {MessageType::JoinGame, JoinGameMessage{"player 2"}}},
+            {3, {MessageType::JoinGame, JoinGameMessage{"player 3"}}},
 
-    std::vector<ClientMessage> outgoingMsg = server.getOutgoingMessages();
+    };
+
+    std::vector<ClientMessage> outgoingMsg = server.tick(incoming);
 
     ASSERT_EQ(outgoingMsg.size(), 3);
-    bool foundClient1, foundClient2, foundClient3 = false;
+    bool foundClient1 = false, foundClient2 = false, foundClient3 = false;
     for(const auto& msg : outgoingMsg){
         if(msg.clientID == 1) foundClient1 = true;
         if(msg.clientID == 2) foundClient2 = true;

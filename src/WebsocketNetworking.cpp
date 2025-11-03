@@ -39,8 +39,8 @@ void WebSocketNetworking::startServer()
     has_server_started = true;
 }
 
-std::vector<std::pair<uintptr_t, Message>> WebSocketNetworking::receiveFromClients(){
-    std::vector<std::pair<uintptr_t, Message>> receivedMessages;
+std::vector<ClientMessage> WebSocketNetworking::receiveFromClients(){
+    std::vector<ClientMessage> receivedMessages;
     receivedMessages.swap(m_incomingMessages);
     return receivedMessages;
 }
@@ -57,7 +57,7 @@ void WebSocketNetworking::update()
 
             uintptr_t fromClientID  = msg.connection.id;
             Message translatedMsg = MessageTranslator::deserialize(msg.text);
-            m_incomingMessages.emplace_back(fromClientID, translatedMsg);
+            m_incomingMessages.emplace_back(ClientMessage{fromClientID, translatedMsg});
         }
     }
     catch (const std::exception& e) {

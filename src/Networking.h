@@ -11,13 +11,13 @@ class GameClient;
 // Handles passing messages between clients and server
 class NetworkingInterface
 {
-    public:
-        virtual ~NetworkingInterface() = default;
+public:
+    virtual ~NetworkingInterface() = default;
 
-        virtual void sendToClient(uintptr_t toClientID, const Message &message) = 0;
-        // virtual void sendMessageToServer(int toClientID, const Message &message) = 0;
-        virtual std::vector<std::pair<uintptr_t, Message> > receiveFromClients() = 0;
-        virtual std::vector<uintptr_t> getConnectedClientIDs() const = 0;
+    virtual void sendToClient(uintptr_t toClientID, const Message &message) = 0;
+    // virtual void sendMessageToServer(int toClientID, const Message &message) = 0;
+    virtual std::vector<ClientMessage> receiveFromClients() = 0;
+    virtual std::vector<uintptr_t> getConnectedClientIDs() const = 0;
 };
 
 // TODO (if interface makes sense):

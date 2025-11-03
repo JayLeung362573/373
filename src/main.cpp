@@ -40,16 +40,17 @@ int main(int argc, char* argv[])
 
             // pass incoming network messages to game server
             auto incomingMessages = networking->receiveFromClients();
+
+            std::vector<ClientMessage> clientMessages;
             for(auto& [clientID, message] : incomingMessages){
                 std::cout << "[Network] Processing incoming messages" << '\n';
-                server->getClientMessages(clientID, message);
+                clientMessages.push_back({clientID, message});
             }
 
             // process game logic in game server
-            server->tick();
+            auto outgoingMessages = server->tick(clientMessages);
 
             // send outgoing processed gameServer messages
-            auto outgoingMessages = server->getOutgoingMessages();
             for(const auto& clientMsg : outgoingMessages){
                 networking->sendToClient(clientMsg.clientID, clientMsg.message);
             }

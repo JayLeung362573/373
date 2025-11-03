@@ -27,3 +27,8 @@ struct Message
     MessageType type = MessageType::Empty;
     MessageData data;
 };
+
+struct ClientMessage{
+    uintptr_t clientID = 0;
+    Message message;
+};

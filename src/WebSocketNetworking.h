@@ -5,11 +5,11 @@
 #include "Client.h" // From nsumner/web-socket-networking
 
 #include <string>
-
 #include <memory>
 #include <unordered_map>
 #include <deque>
 #include <iostream>
+#include "Message.h"
 
 class GameServer;
 class GameClient;
@@ -24,11 +24,11 @@ public:
     void update();
 
     void sendToClient(uintptr_t toClientID, const Message& message) override;
-    std::vector<std::pair<uintptr_t, Message>> receiveFromClients() override;
+    std::vector<ClientMessage> receiveFromClients() override;
     std::vector<uintptr_t> getConnectedClientIDs() const override;
 private:
     std::unique_ptr<networking::Server> net_server;
     std::unordered_map<uintptr_t, networking::Connection> m_connections;
     bool has_server_started = false;
-    std::vector<std::pair<uintptr_t, Message> > m_incomingMessages;
+    std::vector<ClientMessage> m_incomingMessages;
 };
