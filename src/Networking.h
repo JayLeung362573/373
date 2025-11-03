@@ -20,23 +20,5 @@ class NetworkingInterface
         virtual std::vector<int> getConnectedClientIDs() const = 0;
 };
 
-// Networking interface that passes messages between clients and server in memory
-class InMemoryNetworking : public NetworkingInterface
-{
-    public:
-        void sendToClient(int toClientID, const Message &message) override;
-        std::vector<std::pair<int, Message> > receiveFromClients() override;
-        std::vector<int> getConnectedClientIDs() const override;
-        
-        void simulateClientMessage(int fromClientID, const Message& message);
-        void addConnectedClient(int clientID);
-        void removeConnectedClient(int clientID);
-        std::vector<Message> getMessagesForClient(int clientID);
-    private:
-        std::vector<int> m_connectedClientsIDs;
-        std::vector<std::pair<int, Message> > m_incomingMessages;
-        std::unordered_map<int, std::vector<Message> > m_outgoingMessages;
-};
-
 // TODO (if interface makes sense):
 // class WebSocketNetworking : public NetworkingInterface {}

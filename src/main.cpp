@@ -56,21 +56,6 @@ int main(int argc, char* argv[])
             }
             std::this_thread::sleep_for(std::chrono::milliseconds(100));
         }
-    } else {
-        // in-memory networking for test
-        auto networking = std::make_shared<InMemoryNetworking>();
-        auto server  = std::make_unique<GameServer>(networking);
-
-        networking->addConnectedClient(CLIENT_1_ID);
-        networking->addConnectedClient(CLIENT_2_ID);
-
-        networking->simulateClientMessage(CLIENT_1_ID, msg1);
-        networking->simulateClientMessage(CLIENT_2_ID, msg2);
-
-        auto incomingMessages = networking->receiveFromClients();
-        for(auto& [clientID, message] : incomingMessages) {
-            server->onMessageFromClient(clientID, message);
-        }
     }
     return 0;
 }
