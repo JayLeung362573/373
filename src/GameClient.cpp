@@ -19,7 +19,7 @@ void GameClient::onMessageFromServer(Message& message)
 }
 
 
-int GameClient::getClientID()
+uintptr_t GameClient::getClientID()
 {
     return m_clientID;
 }

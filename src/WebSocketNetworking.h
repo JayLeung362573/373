@@ -23,12 +23,12 @@ public:
     void startServer();
     void update();
 
-    void sendToClient(int toClientID, const Message& message) override;
-    std::vector<std::pair<int, Message>> receiveFromClients() override;
-    std::vector<int> getConnectedClientIDs() const override;
+    void sendToClient(uintptr_t toClientID, const Message& message) override;
+    std::vector<std::pair<uintptr_t, Message>> receiveFromClients() override;
+    std::vector<uintptr_t> getConnectedClientIDs() const override;
 private:
     std::unique_ptr<networking::Server> net_server;
-    std::unordered_map<int, networking::Connection> m_connections;
+    std::unordered_map<uintptr_t, networking::Connection> m_connections;
     bool has_server_started = false;
-    std::vector<std::pair<int, Message> > m_incomingMessages;
+    std::vector<std::pair<uintptr_t, Message> > m_incomingMessages;
 };

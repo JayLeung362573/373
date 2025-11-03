@@ -10,11 +10,11 @@ class NetworkingInterface;
 class GameClient
 {
     public:
-        GameClient(int clientID);
+        GameClient(uintptr_t clientID);
         Message prepareMessageToServer(const Message& message) const;
         void onMessageFromServer(Message& message);
-        int getClientID();
+        uintptr_t getClientID();
 
     private:
-        int m_clientID;
+        uintptr_t m_clientID;
 };

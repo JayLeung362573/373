@@ -2,7 +2,7 @@
 #include "GameServer.h"
 #include "Message.h"
 
-void GameServer::getClientMessages(int fromClientID, const Message &message) {
+void GameServer::getClientMessages(uintptr_t fromClientID, const Message &message) {
     std::cout << "[server] Got message from client (id=" << fromClientID << ") : ";
     switch (message.type)
     {
@@ -26,20 +26,20 @@ void GameServer::getClientMessages(int fromClientID, const Message &message) {
     }
 }
 
-std::vector<std::pair<int, Message> > GameServer::getOutgoingMessages() {
-    std::vector<std::pair<int, Message> > messages = std::move(m_outgoingMessages);
+std::vector<ClientMessage> GameServer::getOutgoingMessages() {
+    std::vector<ClientMessage> messages = std::move(m_outgoingMessages);
     m_outgoingMessages = {};
     return messages;
 }
 
 void GameServer::tick() {
-    for(const auto& [clientID, message] : m_incomingMessages){
-        if(message.type == MessageType::JoinGame){ /// example of process JoinGame message
+    for(const auto& clientMsg : m_incomingMessages){
+        if(clientMsg.message.type == MessageType::JoinGame){ /// example of process JoinGame message
             Message response;
             /// setup response for each message type
 //            response.type =
 //            response.data =
-            m_outgoingMessages.push_back({clientID, response});
+            m_outgoingMessages.push_back({clientMsg.clientID, response});
         }
     }
     m_incomingMessages.clear();
