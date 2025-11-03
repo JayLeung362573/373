@@ -24,6 +24,7 @@ void GameServer::getClientMessages(uintptr_t fromClientID, const Message &messag
             break;
         }
     }
+    m_incomingMessages.push_back({fromClientID, message});
 }
 
 std::vector<ClientMessage> GameServer::getOutgoingMessages() {
@@ -35,10 +36,12 @@ std::vector<ClientMessage> GameServer::getOutgoingMessages() {
 void GameServer::tick() {
     for(const auto& clientMsg : m_incomingMessages){
         if(clientMsg.message.type == MessageType::JoinGame){ /// example of process JoinGame message
+            auto& joinData = std::get<JoinGameMessage>(clientMsg.message.data);
+
             Message response;
-            /// setup response for each message type
-//            response.type =
-//            response.data =
+            response.type = MessageType::JoinGame;
+            response.data = JoinGameMessage{joinData.playerName};
+
             m_outgoingMessages.push_back({clientMsg.clientID, response});
         }
     }
