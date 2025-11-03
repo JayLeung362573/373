@@ -427,5 +427,4 @@ src/CMakeFiles/core_lib.dir/GameServer.cpp.o: \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/optional \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/vector \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/__split_buffer \
-  /Users/jiawei/Desktop/373/src/Message.h \
-  /Users/jiawei/Desktop/373/src/Networking.h
+  /Users/jiawei/Desktop/373/src/Message.h

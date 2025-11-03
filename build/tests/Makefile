@@ -209,6 +209,30 @@ ForLoopRuleTest.cpp.s:
 	cd /Users/jiawei/Desktop/373/build && $(MAKE) $(MAKESILENT) -f tests/CMakeFiles/unit_tests.dir/build.make tests/CMakeFiles/unit_tests.dir/ForLoopRuleTest.cpp.s
 .PHONY : ForLoopRuleTest.cpp.s
 
+GameServerTest.o: GameServerTest.cpp.o
+.PHONY : GameServerTest.o
+
+# target to build an object file
+GameServerTest.cpp.o:
+	cd /Users/jiawei/Desktop/373/build && $(MAKE) $(MAKESILENT) -f tests/CMakeFiles/unit_tests.dir/build.make tests/CMakeFiles/unit_tests.dir/GameServerTest.cpp.o
+.PHONY : GameServerTest.cpp.o
+
+GameServerTest.i: GameServerTest.cpp.i
+.PHONY : GameServerTest.i
+
+# target to preprocess a source file
+GameServerTest.cpp.i:
+	cd /Users/jiawei/Desktop/373/build && $(MAKE) $(MAKESILENT) -f tests/CMakeFiles/unit_tests.dir/build.make tests/CMakeFiles/unit_tests.dir/GameServerTest.cpp.i
+.PHONY : GameServerTest.cpp.i
+
+GameServerTest.s: GameServerTest.cpp.s
+.PHONY : GameServerTest.s
+
+# target to generate assembly for a file
+GameServerTest.cpp.s:
+	cd /Users/jiawei/Desktop/373/build && $(MAKE) $(MAKESILENT) -f tests/CMakeFiles/unit_tests.dir/build.make tests/CMakeFiles/unit_tests.dir/GameServerTest.cpp.s
+.PHONY : GameServerTest.cpp.s
+
 GameTest.o: GameTest.cpp.o
 .PHONY : GameTest.o
 
@@ -232,30 +256,6 @@ GameTest.s: GameTest.cpp.s
 GameTest.cpp.s:
 	cd /Users/jiawei/Desktop/373/build && $(MAKE) $(MAKESILENT) -f tests/CMakeFiles/unit_tests.dir/build.make tests/CMakeFiles/unit_tests.dir/GameTest.cpp.s
 .PHONY : GameTest.cpp.s
-
-InMemoryNetworkingTest.o: InMemoryNetworkingTest.cpp.o
-.PHONY : InMemoryNetworkingTest.o
-
-# target to build an object file
-InMemoryNetworkingTest.cpp.o:
-	cd /Users/jiawei/Desktop/373/build && $(MAKE) $(MAKESILENT) -f tests/CMakeFiles/unit_tests.dir/build.make tests/CMakeFiles/unit_tests.dir/InMemoryNetworkingTest.cpp.o
-.PHONY : InMemoryNetworkingTest.cpp.o
-
-InMemoryNetworkingTest.i: InMemoryNetworkingTest.cpp.i
-.PHONY : InMemoryNetworkingTest.i
-
-# target to preprocess a source file
-InMemoryNetworkingTest.cpp.i:
-	cd /Users/jiawei/Desktop/373/build && $(MAKE) $(MAKESILENT) -f tests/CMakeFiles/unit_tests.dir/build.make tests/CMakeFiles/unit_tests.dir/InMemoryNetworkingTest.cpp.i
-.PHONY : InMemoryNetworkingTest.cpp.i
-
-InMemoryNetworkingTest.s: InMemoryNetworkingTest.cpp.s
-.PHONY : InMemoryNetworkingTest.s
-
-# target to generate assembly for a file
-InMemoryNetworkingTest.cpp.s:
-	cd /Users/jiawei/Desktop/373/build && $(MAKE) $(MAKESILENT) -f tests/CMakeFiles/unit_tests.dir/build.make tests/CMakeFiles/unit_tests.dir/InMemoryNetworkingTest.cpp.s
-.PHONY : InMemoryNetworkingTest.cpp.s
 
 WebSocketNetworkingTest.o: WebSocketNetworkingTest.cpp.o
 .PHONY : WebSocketNetworkingTest.o
@@ -298,12 +298,12 @@ help:
 	@echo "... ForLoopRuleTest.o"
 	@echo "... ForLoopRuleTest.i"
 	@echo "... ForLoopRuleTest.s"
+	@echo "... GameServerTest.o"
+	@echo "... GameServerTest.i"
+	@echo "... GameServerTest.s"
 	@echo "... GameTest.o"
 	@echo "... GameTest.i"
 	@echo "... GameTest.s"
-	@echo "... InMemoryNetworkingTest.o"
-	@echo "... InMemoryNetworkingTest.i"
-	@echo "... InMemoryNetworkingTest.s"
 	@echo "... WebSocketNetworkingTest.o"
 	@echo "... WebSocketNetworkingTest.i"
 	@echo "... WebSocketNetworkingTest.s"

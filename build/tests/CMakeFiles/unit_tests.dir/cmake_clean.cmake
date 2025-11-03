@@ -1,10 +1,10 @@
 file(REMOVE_RECURSE
   "CMakeFiles/unit_tests.dir/ForLoopRuleTest.cpp.o"
   "CMakeFiles/unit_tests.dir/ForLoopRuleTest.cpp.o.d"
+  "CMakeFiles/unit_tests.dir/GameServerTest.cpp.o"
+  "CMakeFiles/unit_tests.dir/GameServerTest.cpp.o.d"
   "CMakeFiles/unit_tests.dir/GameTest.cpp.o"
   "CMakeFiles/unit_tests.dir/GameTest.cpp.o.d"
-  "CMakeFiles/unit_tests.dir/InMemoryNetworkingTest.cpp.o"
-  "CMakeFiles/unit_tests.dir/InMemoryNetworkingTest.cpp.o.d"
   "CMakeFiles/unit_tests.dir/WebSocketNetworkingTest.cpp.o"
   "CMakeFiles/unit_tests.dir/WebSocketNetworkingTest.cpp.o.d"
   "unit_tests"

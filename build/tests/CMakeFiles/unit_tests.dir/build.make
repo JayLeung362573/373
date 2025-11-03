@@ -100,24 +100,10 @@ tests/CMakeFiles/unit_tests.dir/ForLoopRuleTest.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/unit_tests.dir/ForLoopRuleTest.cpp.s"
 	cd /Users/jiawei/Desktop/373/build/tests && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/jiawei/Desktop/373/tests/ForLoopRuleTest.cpp -o CMakeFiles/unit_tests.dir/ForLoopRuleTest.cpp.s
 
-tests/CMakeFiles/unit_tests.dir/InMemoryNetworkingTest.cpp.o: tests/CMakeFiles/unit_tests.dir/flags.make
-tests/CMakeFiles/unit_tests.dir/InMemoryNetworkingTest.cpp.o: /Users/jiawei/Desktop/373/tests/InMemoryNetworkingTest.cpp
-tests/CMakeFiles/unit_tests.dir/InMemoryNetworkingTest.cpp.o: tests/CMakeFiles/unit_tests.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/jiawei/Desktop/373/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object tests/CMakeFiles/unit_tests.dir/InMemoryNetworkingTest.cpp.o"
-	cd /Users/jiawei/Desktop/373/build/tests && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT tests/CMakeFiles/unit_tests.dir/InMemoryNetworkingTest.cpp.o -MF CMakeFiles/unit_tests.dir/InMemoryNetworkingTest.cpp.o.d -o CMakeFiles/unit_tests.dir/InMemoryNetworkingTest.cpp.o -c /Users/jiawei/Desktop/373/tests/InMemoryNetworkingTest.cpp
-
-tests/CMakeFiles/unit_tests.dir/InMemoryNetworkingTest.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/unit_tests.dir/InMemoryNetworkingTest.cpp.i"
-	cd /Users/jiawei/Desktop/373/build/tests && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/jiawei/Desktop/373/tests/InMemoryNetworkingTest.cpp > CMakeFiles/unit_tests.dir/InMemoryNetworkingTest.cpp.i
-
-tests/CMakeFiles/unit_tests.dir/InMemoryNetworkingTest.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/unit_tests.dir/InMemoryNetworkingTest.cpp.s"
-	cd /Users/jiawei/Desktop/373/build/tests && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/jiawei/Desktop/373/tests/InMemoryNetworkingTest.cpp -o CMakeFiles/unit_tests.dir/InMemoryNetworkingTest.cpp.s
-
 tests/CMakeFiles/unit_tests.dir/WebSocketNetworkingTest.cpp.o: tests/CMakeFiles/unit_tests.dir/flags.make
 tests/CMakeFiles/unit_tests.dir/WebSocketNetworkingTest.cpp.o: /Users/jiawei/Desktop/373/tests/WebSocketNetworkingTest.cpp
 tests/CMakeFiles/unit_tests.dir/WebSocketNetworkingTest.cpp.o: tests/CMakeFiles/unit_tests.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/jiawei/Desktop/373/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object tests/CMakeFiles/unit_tests.dir/WebSocketNetworkingTest.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/jiawei/Desktop/373/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object tests/CMakeFiles/unit_tests.dir/WebSocketNetworkingTest.cpp.o"
 	cd /Users/jiawei/Desktop/373/build/tests && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT tests/CMakeFiles/unit_tests.dir/WebSocketNetworkingTest.cpp.o -MF CMakeFiles/unit_tests.dir/WebSocketNetworkingTest.cpp.o.d -o CMakeFiles/unit_tests.dir/WebSocketNetworkingTest.cpp.o -c /Users/jiawei/Desktop/373/tests/WebSocketNetworkingTest.cpp
 
 tests/CMakeFiles/unit_tests.dir/WebSocketNetworkingTest.cpp.i: cmake_force
@@ -128,20 +114,34 @@ tests/CMakeFiles/unit_tests.dir/WebSocketNetworkingTest.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/unit_tests.dir/WebSocketNetworkingTest.cpp.s"
 	cd /Users/jiawei/Desktop/373/build/tests && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/jiawei/Desktop/373/tests/WebSocketNetworkingTest.cpp -o CMakeFiles/unit_tests.dir/WebSocketNetworkingTest.cpp.s
 
+tests/CMakeFiles/unit_tests.dir/GameServerTest.cpp.o: tests/CMakeFiles/unit_tests.dir/flags.make
+tests/CMakeFiles/unit_tests.dir/GameServerTest.cpp.o: /Users/jiawei/Desktop/373/tests/GameServerTest.cpp
+tests/CMakeFiles/unit_tests.dir/GameServerTest.cpp.o: tests/CMakeFiles/unit_tests.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/jiawei/Desktop/373/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object tests/CMakeFiles/unit_tests.dir/GameServerTest.cpp.o"
+	cd /Users/jiawei/Desktop/373/build/tests && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT tests/CMakeFiles/unit_tests.dir/GameServerTest.cpp.o -MF CMakeFiles/unit_tests.dir/GameServerTest.cpp.o.d -o CMakeFiles/unit_tests.dir/GameServerTest.cpp.o -c /Users/jiawei/Desktop/373/tests/GameServerTest.cpp
+
+tests/CMakeFiles/unit_tests.dir/GameServerTest.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/unit_tests.dir/GameServerTest.cpp.i"
+	cd /Users/jiawei/Desktop/373/build/tests && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/jiawei/Desktop/373/tests/GameServerTest.cpp > CMakeFiles/unit_tests.dir/GameServerTest.cpp.i
+
+tests/CMakeFiles/unit_tests.dir/GameServerTest.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/unit_tests.dir/GameServerTest.cpp.s"
+	cd /Users/jiawei/Desktop/373/build/tests && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/jiawei/Desktop/373/tests/GameServerTest.cpp -o CMakeFiles/unit_tests.dir/GameServerTest.cpp.s
+
 # Object files for target unit_tests
 unit_tests_OBJECTS = \
 "CMakeFiles/unit_tests.dir/GameTest.cpp.o" \
 "CMakeFiles/unit_tests.dir/ForLoopRuleTest.cpp.o" \
-"CMakeFiles/unit_tests.dir/InMemoryNetworkingTest.cpp.o" \
-"CMakeFiles/unit_tests.dir/WebSocketNetworkingTest.cpp.o"
+"CMakeFiles/unit_tests.dir/WebSocketNetworkingTest.cpp.o" \
+"CMakeFiles/unit_tests.dir/GameServerTest.cpp.o"
 
 # External object files for target unit_tests
 unit_tests_EXTERNAL_OBJECTS =
 
 tests/unit_tests: tests/CMakeFiles/unit_tests.dir/GameTest.cpp.o
 tests/unit_tests: tests/CMakeFiles/unit_tests.dir/ForLoopRuleTest.cpp.o
-tests/unit_tests: tests/CMakeFiles/unit_tests.dir/InMemoryNetworkingTest.cpp.o
 tests/unit_tests: tests/CMakeFiles/unit_tests.dir/WebSocketNetworkingTest.cpp.o
+tests/unit_tests: tests/CMakeFiles/unit_tests.dir/GameServerTest.cpp.o
 tests/unit_tests: tests/CMakeFiles/unit_tests.dir/build.make
 tests/unit_tests: lib/libgtest_main.a
 tests/unit_tests: lib/libcore_lib.a

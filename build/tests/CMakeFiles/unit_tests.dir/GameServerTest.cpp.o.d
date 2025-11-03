@@ -474,4 +474,7 @@ tests/CMakeFiles/unit_tests.dir/GameServerTest.cpp.o: \
   /Users/jiawei/Desktop/373/build/_deps/googletest-src/googletest/include/gtest/gtest-test-part.h \
   /Users/jiawei/Desktop/373/build/_deps/googletest-src/googletest/include/gtest/gtest-typed-test.h \
   /Users/jiawei/Desktop/373/build/_deps/googletest-src/googletest/include/gtest/gtest_pred_impl.h \
-  /Users/jiawei/Desktop/373/build/_deps/googletest-src/googletest/include/gtest/gtest_prod.h
+  /Users/jiawei/Desktop/373/build/_deps/googletest-src/googletest/include/gtest/gtest_prod.h \
+  /Users/jiawei/Desktop/373/src/GameServer.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/memory.h \
+  /Users/jiawei/Desktop/373/src/Message.h
