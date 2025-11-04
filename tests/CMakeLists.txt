@@ -15,10 +15,11 @@ set(CMAKE_RUNTIME_OUTPUT_DIRECTORY "${PROJECT_BINARY_DIR}/tests")
 FetchContent_MakeAvailable(googletest)
 
 add_executable(unit_tests
-  GameTest.cpp
-  ForLoopRuleTest.cpp
   WebSocketNetworkingTest.cpp
-  GameServerTest.cpp)
+  GameServerTest.cpp
+  GameInterpreterTest.cpp
+  RulesTest.cpp
+)
 
 # Link with gtest (the Quickstart uses GTest::gtest_main)
 target_link_libraries(unit_tests PRIVATE GTest::gtest_main core_lib)
