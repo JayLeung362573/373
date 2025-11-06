@@ -8,7 +8,7 @@ set(CMAKE_DEPENDS_LANGUAGES
 
 # The set of dependency files which are needed:
 set(CMAKE_DEPENDS_DEPENDENCY_FILES
-  "/Users/jiawei/Desktop/373/src/GameEngine/Game.cpp" "src/GameEngine/CMakeFiles/GameEngine.dir/Game.cpp.o" "gcc" "src/GameEngine/CMakeFiles/GameEngine.dir/Game.cpp.o.d"
+  "/Users/jiawei/Desktop/373/src/GameEngine/GameInterpreter.cpp" "src/GameEngine/CMakeFiles/GameEngine.dir/GameInterpreter.cpp.o" "gcc" "src/GameEngine/CMakeFiles/GameEngine.dir/GameInterpreter.cpp.o.d"
   "/Users/jiawei/Desktop/373/src/GameEngine/Rules.cpp" "src/GameEngine/CMakeFiles/GameEngine.dir/Rules.cpp.o" "gcc" "src/GameEngine/CMakeFiles/GameEngine.dir/Rules.cpp.o.d"
   )
 

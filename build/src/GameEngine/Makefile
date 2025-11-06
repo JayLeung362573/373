@@ -185,29 +185,29 @@ GameEngine/fast:
 	cd /Users/jiawei/Desktop/373/build && $(MAKE) $(MAKESILENT) -f src/GameEngine/CMakeFiles/GameEngine.dir/build.make src/GameEngine/CMakeFiles/GameEngine.dir/build
 .PHONY : GameEngine/fast
 
-Game.o: Game.cpp.o
-.PHONY : Game.o
+GameInterpreter.o: GameInterpreter.cpp.o
+.PHONY : GameInterpreter.o
 
 # target to build an object file
-Game.cpp.o:
-	cd /Users/jiawei/Desktop/373/build && $(MAKE) $(MAKESILENT) -f src/GameEngine/CMakeFiles/GameEngine.dir/build.make src/GameEngine/CMakeFiles/GameEngine.dir/Game.cpp.o
-.PHONY : Game.cpp.o
+GameInterpreter.cpp.o:
+	cd /Users/jiawei/Desktop/373/build && $(MAKE) $(MAKESILENT) -f src/GameEngine/CMakeFiles/GameEngine.dir/build.make src/GameEngine/CMakeFiles/GameEngine.dir/GameInterpreter.cpp.o
+.PHONY : GameInterpreter.cpp.o
 
-Game.i: Game.cpp.i
-.PHONY : Game.i
+GameInterpreter.i: GameInterpreter.cpp.i
+.PHONY : GameInterpreter.i
 
 # target to preprocess a source file
-Game.cpp.i:
-	cd /Users/jiawei/Desktop/373/build && $(MAKE) $(MAKESILENT) -f src/GameEngine/CMakeFiles/GameEngine.dir/build.make src/GameEngine/CMakeFiles/GameEngine.dir/Game.cpp.i
-.PHONY : Game.cpp.i
+GameInterpreter.cpp.i:
+	cd /Users/jiawei/Desktop/373/build && $(MAKE) $(MAKESILENT) -f src/GameEngine/CMakeFiles/GameEngine.dir/build.make src/GameEngine/CMakeFiles/GameEngine.dir/GameInterpreter.cpp.i
+.PHONY : GameInterpreter.cpp.i
 
-Game.s: Game.cpp.s
-.PHONY : Game.s
+GameInterpreter.s: GameInterpreter.cpp.s
+.PHONY : GameInterpreter.s
 
 # target to generate assembly for a file
-Game.cpp.s:
-	cd /Users/jiawei/Desktop/373/build && $(MAKE) $(MAKESILENT) -f src/GameEngine/CMakeFiles/GameEngine.dir/build.make src/GameEngine/CMakeFiles/GameEngine.dir/Game.cpp.s
-.PHONY : Game.cpp.s
+GameInterpreter.cpp.s:
+	cd /Users/jiawei/Desktop/373/build && $(MAKE) $(MAKESILENT) -f src/GameEngine/CMakeFiles/GameEngine.dir/build.make src/GameEngine/CMakeFiles/GameEngine.dir/GameInterpreter.cpp.s
+.PHONY : GameInterpreter.cpp.s
 
 Rules.o: Rules.cpp.o
 .PHONY : Rules.o
@@ -247,9 +247,9 @@ help:
 	@echo "... rebuild_cache"
 	@echo "... test"
 	@echo "... GameEngine"
-	@echo "... Game.o"
-	@echo "... Game.i"
-	@echo "... Game.s"
+	@echo "... GameInterpreter.o"
+	@echo "... GameInterpreter.i"
+	@echo "... GameInterpreter.s"
 	@echo "... Rules.o"
 	@echo "... Rules.i"
 	@echo "... Rules.s"

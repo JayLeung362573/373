@@ -271,30 +271,6 @@ MessageTranslator.cpp.s:
 	cd /Users/jiawei/Desktop/373/build && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/core_lib.dir/build.make src/CMakeFiles/core_lib.dir/MessageTranslator.cpp.s
 .PHONY : MessageTranslator.cpp.s
 
-Networking.o: Networking.cpp.o
-.PHONY : Networking.o
-
-# target to build an object file
-Networking.cpp.o:
-	cd /Users/jiawei/Desktop/373/build && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/core_lib.dir/build.make src/CMakeFiles/core_lib.dir/Networking.cpp.o
-.PHONY : Networking.cpp.o
-
-Networking.i: Networking.cpp.i
-.PHONY : Networking.i
-
-# target to preprocess a source file
-Networking.cpp.i:
-	cd /Users/jiawei/Desktop/373/build && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/core_lib.dir/build.make src/CMakeFiles/core_lib.dir/Networking.cpp.i
-.PHONY : Networking.cpp.i
-
-Networking.s: Networking.cpp.s
-.PHONY : Networking.s
-
-# target to generate assembly for a file
-Networking.cpp.s:
-	cd /Users/jiawei/Desktop/373/build && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/core_lib.dir/build.make src/CMakeFiles/core_lib.dir/Networking.cpp.s
-.PHONY : Networking.cpp.s
-
 WebsocketNetworking.o: WebsocketNetworking.cpp.o
 .PHONY : WebsocketNetworking.o
 
@@ -367,9 +343,6 @@ help:
 	@echo "... MessageTranslator.o"
 	@echo "... MessageTranslator.i"
 	@echo "... MessageTranslator.s"
-	@echo "... Networking.o"
-	@echo "... Networking.i"
-	@echo "... Networking.s"
 	@echo "... WebsocketNetworking.o"
 	@echo "... WebsocketNetworking.i"
 	@echo "... WebsocketNetworking.s"

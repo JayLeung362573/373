@@ -1,2 +1,2 @@
-/usr/bin/ar qc ../../lib/libGameEngine.a CMakeFiles/GameEngine.dir/Game.cpp.o CMakeFiles/GameEngine.dir/Rules.cpp.o
+/usr/bin/ar qc ../../lib/libGameEngine.a CMakeFiles/GameEngine.dir/GameInterpreter.cpp.o CMakeFiles/GameEngine.dir/Rules.cpp.o
 /usr/bin/ranlib ../../lib/libGameEngine.a

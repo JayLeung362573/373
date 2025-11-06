@@ -100,24 +100,10 @@ src/CMakeFiles/core_lib.dir/GameServer.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/core_lib.dir/GameServer.cpp.s"
 	cd /Users/jiawei/Desktop/373/build/src && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/jiawei/Desktop/373/src/GameServer.cpp -o CMakeFiles/core_lib.dir/GameServer.cpp.s
 
-src/CMakeFiles/core_lib.dir/Networking.cpp.o: src/CMakeFiles/core_lib.dir/flags.make
-src/CMakeFiles/core_lib.dir/Networking.cpp.o: /Users/jiawei/Desktop/373/src/Networking.cpp
-src/CMakeFiles/core_lib.dir/Networking.cpp.o: src/CMakeFiles/core_lib.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/jiawei/Desktop/373/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object src/CMakeFiles/core_lib.dir/Networking.cpp.o"
-	cd /Users/jiawei/Desktop/373/build/src && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT src/CMakeFiles/core_lib.dir/Networking.cpp.o -MF CMakeFiles/core_lib.dir/Networking.cpp.o.d -o CMakeFiles/core_lib.dir/Networking.cpp.o -c /Users/jiawei/Desktop/373/src/Networking.cpp
-
-src/CMakeFiles/core_lib.dir/Networking.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/core_lib.dir/Networking.cpp.i"
-	cd /Users/jiawei/Desktop/373/build/src && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/jiawei/Desktop/373/src/Networking.cpp > CMakeFiles/core_lib.dir/Networking.cpp.i
-
-src/CMakeFiles/core_lib.dir/Networking.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/core_lib.dir/Networking.cpp.s"
-	cd /Users/jiawei/Desktop/373/build/src && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/jiawei/Desktop/373/src/Networking.cpp -o CMakeFiles/core_lib.dir/Networking.cpp.s
-
 src/CMakeFiles/core_lib.dir/WebsocketNetworking.cpp.o: src/CMakeFiles/core_lib.dir/flags.make
 src/CMakeFiles/core_lib.dir/WebsocketNetworking.cpp.o: /Users/jiawei/Desktop/373/src/WebsocketNetworking.cpp
 src/CMakeFiles/core_lib.dir/WebsocketNetworking.cpp.o: src/CMakeFiles/core_lib.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/jiawei/Desktop/373/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object src/CMakeFiles/core_lib.dir/WebsocketNetworking.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/jiawei/Desktop/373/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object src/CMakeFiles/core_lib.dir/WebsocketNetworking.cpp.o"
 	cd /Users/jiawei/Desktop/373/build/src && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT src/CMakeFiles/core_lib.dir/WebsocketNetworking.cpp.o -MF CMakeFiles/core_lib.dir/WebsocketNetworking.cpp.o.d -o CMakeFiles/core_lib.dir/WebsocketNetworking.cpp.o -c /Users/jiawei/Desktop/373/src/WebsocketNetworking.cpp
 
 src/CMakeFiles/core_lib.dir/WebsocketNetworking.cpp.i: cmake_force
@@ -131,7 +117,7 @@ src/CMakeFiles/core_lib.dir/WebsocketNetworking.cpp.s: cmake_force
 src/CMakeFiles/core_lib.dir/MessageTranslator.cpp.o: src/CMakeFiles/core_lib.dir/flags.make
 src/CMakeFiles/core_lib.dir/MessageTranslator.cpp.o: /Users/jiawei/Desktop/373/src/MessageTranslator.cpp
 src/CMakeFiles/core_lib.dir/MessageTranslator.cpp.o: src/CMakeFiles/core_lib.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/jiawei/Desktop/373/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object src/CMakeFiles/core_lib.dir/MessageTranslator.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/jiawei/Desktop/373/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object src/CMakeFiles/core_lib.dir/MessageTranslator.cpp.o"
 	cd /Users/jiawei/Desktop/373/build/src && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT src/CMakeFiles/core_lib.dir/MessageTranslator.cpp.o -MF CMakeFiles/core_lib.dir/MessageTranslator.cpp.o.d -o CMakeFiles/core_lib.dir/MessageTranslator.cpp.o -c /Users/jiawei/Desktop/373/src/MessageTranslator.cpp
 
 src/CMakeFiles/core_lib.dir/MessageTranslator.cpp.i: cmake_force
@@ -146,7 +132,6 @@ src/CMakeFiles/core_lib.dir/MessageTranslator.cpp.s: cmake_force
 core_lib_OBJECTS = \
 "CMakeFiles/core_lib.dir/GameClient.cpp.o" \
 "CMakeFiles/core_lib.dir/GameServer.cpp.o" \
-"CMakeFiles/core_lib.dir/Networking.cpp.o" \
 "CMakeFiles/core_lib.dir/WebsocketNetworking.cpp.o" \
 "CMakeFiles/core_lib.dir/MessageTranslator.cpp.o"
 
@@ -155,12 +140,11 @@ core_lib_EXTERNAL_OBJECTS =
 
 lib/libcore_lib.a: src/CMakeFiles/core_lib.dir/GameClient.cpp.o
 lib/libcore_lib.a: src/CMakeFiles/core_lib.dir/GameServer.cpp.o
-lib/libcore_lib.a: src/CMakeFiles/core_lib.dir/Networking.cpp.o
 lib/libcore_lib.a: src/CMakeFiles/core_lib.dir/WebsocketNetworking.cpp.o
 lib/libcore_lib.a: src/CMakeFiles/core_lib.dir/MessageTranslator.cpp.o
 lib/libcore_lib.a: src/CMakeFiles/core_lib.dir/build.make
 lib/libcore_lib.a: src/CMakeFiles/core_lib.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/Users/jiawei/Desktop/373/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Linking CXX static library ../lib/libcore_lib.a"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/Users/jiawei/Desktop/373/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Linking CXX static library ../lib/libcore_lib.a"
 	cd /Users/jiawei/Desktop/373/build/src && $(CMAKE_COMMAND) -P CMakeFiles/core_lib.dir/cmake_clean_target.cmake
 	cd /Users/jiawei/Desktop/373/build/src && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/core_lib.dir/link.txt --verbose=$(VERBOSE)
 

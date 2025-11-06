@@ -72,38 +72,10 @@ include tests/CMakeFiles/unit_tests.dir/flags.make
 tests/CMakeFiles/unit_tests.dir/codegen:
 .PHONY : tests/CMakeFiles/unit_tests.dir/codegen
 
-tests/CMakeFiles/unit_tests.dir/GameTest.cpp.o: tests/CMakeFiles/unit_tests.dir/flags.make
-tests/CMakeFiles/unit_tests.dir/GameTest.cpp.o: /Users/jiawei/Desktop/373/tests/GameTest.cpp
-tests/CMakeFiles/unit_tests.dir/GameTest.cpp.o: tests/CMakeFiles/unit_tests.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/jiawei/Desktop/373/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object tests/CMakeFiles/unit_tests.dir/GameTest.cpp.o"
-	cd /Users/jiawei/Desktop/373/build/tests && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT tests/CMakeFiles/unit_tests.dir/GameTest.cpp.o -MF CMakeFiles/unit_tests.dir/GameTest.cpp.o.d -o CMakeFiles/unit_tests.dir/GameTest.cpp.o -c /Users/jiawei/Desktop/373/tests/GameTest.cpp
-
-tests/CMakeFiles/unit_tests.dir/GameTest.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/unit_tests.dir/GameTest.cpp.i"
-	cd /Users/jiawei/Desktop/373/build/tests && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/jiawei/Desktop/373/tests/GameTest.cpp > CMakeFiles/unit_tests.dir/GameTest.cpp.i
-
-tests/CMakeFiles/unit_tests.dir/GameTest.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/unit_tests.dir/GameTest.cpp.s"
-	cd /Users/jiawei/Desktop/373/build/tests && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/jiawei/Desktop/373/tests/GameTest.cpp -o CMakeFiles/unit_tests.dir/GameTest.cpp.s
-
-tests/CMakeFiles/unit_tests.dir/ForLoopRuleTest.cpp.o: tests/CMakeFiles/unit_tests.dir/flags.make
-tests/CMakeFiles/unit_tests.dir/ForLoopRuleTest.cpp.o: /Users/jiawei/Desktop/373/tests/ForLoopRuleTest.cpp
-tests/CMakeFiles/unit_tests.dir/ForLoopRuleTest.cpp.o: tests/CMakeFiles/unit_tests.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/jiawei/Desktop/373/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object tests/CMakeFiles/unit_tests.dir/ForLoopRuleTest.cpp.o"
-	cd /Users/jiawei/Desktop/373/build/tests && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT tests/CMakeFiles/unit_tests.dir/ForLoopRuleTest.cpp.o -MF CMakeFiles/unit_tests.dir/ForLoopRuleTest.cpp.o.d -o CMakeFiles/unit_tests.dir/ForLoopRuleTest.cpp.o -c /Users/jiawei/Desktop/373/tests/ForLoopRuleTest.cpp
-
-tests/CMakeFiles/unit_tests.dir/ForLoopRuleTest.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/unit_tests.dir/ForLoopRuleTest.cpp.i"
-	cd /Users/jiawei/Desktop/373/build/tests && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/jiawei/Desktop/373/tests/ForLoopRuleTest.cpp > CMakeFiles/unit_tests.dir/ForLoopRuleTest.cpp.i
-
-tests/CMakeFiles/unit_tests.dir/ForLoopRuleTest.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/unit_tests.dir/ForLoopRuleTest.cpp.s"
-	cd /Users/jiawei/Desktop/373/build/tests && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/jiawei/Desktop/373/tests/ForLoopRuleTest.cpp -o CMakeFiles/unit_tests.dir/ForLoopRuleTest.cpp.s
-
 tests/CMakeFiles/unit_tests.dir/WebSocketNetworkingTest.cpp.o: tests/CMakeFiles/unit_tests.dir/flags.make
 tests/CMakeFiles/unit_tests.dir/WebSocketNetworkingTest.cpp.o: /Users/jiawei/Desktop/373/tests/WebSocketNetworkingTest.cpp
 tests/CMakeFiles/unit_tests.dir/WebSocketNetworkingTest.cpp.o: tests/CMakeFiles/unit_tests.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/jiawei/Desktop/373/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object tests/CMakeFiles/unit_tests.dir/WebSocketNetworkingTest.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/jiawei/Desktop/373/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object tests/CMakeFiles/unit_tests.dir/WebSocketNetworkingTest.cpp.o"
 	cd /Users/jiawei/Desktop/373/build/tests && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT tests/CMakeFiles/unit_tests.dir/WebSocketNetworkingTest.cpp.o -MF CMakeFiles/unit_tests.dir/WebSocketNetworkingTest.cpp.o.d -o CMakeFiles/unit_tests.dir/WebSocketNetworkingTest.cpp.o -c /Users/jiawei/Desktop/373/tests/WebSocketNetworkingTest.cpp
 
 tests/CMakeFiles/unit_tests.dir/WebSocketNetworkingTest.cpp.i: cmake_force
@@ -117,7 +89,7 @@ tests/CMakeFiles/unit_tests.dir/WebSocketNetworkingTest.cpp.s: cmake_force
 tests/CMakeFiles/unit_tests.dir/GameServerTest.cpp.o: tests/CMakeFiles/unit_tests.dir/flags.make
 tests/CMakeFiles/unit_tests.dir/GameServerTest.cpp.o: /Users/jiawei/Desktop/373/tests/GameServerTest.cpp
 tests/CMakeFiles/unit_tests.dir/GameServerTest.cpp.o: tests/CMakeFiles/unit_tests.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/jiawei/Desktop/373/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object tests/CMakeFiles/unit_tests.dir/GameServerTest.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/jiawei/Desktop/373/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object tests/CMakeFiles/unit_tests.dir/GameServerTest.cpp.o"
 	cd /Users/jiawei/Desktop/373/build/tests && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT tests/CMakeFiles/unit_tests.dir/GameServerTest.cpp.o -MF CMakeFiles/unit_tests.dir/GameServerTest.cpp.o.d -o CMakeFiles/unit_tests.dir/GameServerTest.cpp.o -c /Users/jiawei/Desktop/373/tests/GameServerTest.cpp
 
 tests/CMakeFiles/unit_tests.dir/GameServerTest.cpp.i: cmake_force
@@ -128,28 +100,73 @@ tests/CMakeFiles/unit_tests.dir/GameServerTest.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/unit_tests.dir/GameServerTest.cpp.s"
 	cd /Users/jiawei/Desktop/373/build/tests && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/jiawei/Desktop/373/tests/GameServerTest.cpp -o CMakeFiles/unit_tests.dir/GameServerTest.cpp.s
 
+tests/CMakeFiles/unit_tests.dir/GameInterpreterTest.cpp.o: tests/CMakeFiles/unit_tests.dir/flags.make
+tests/CMakeFiles/unit_tests.dir/GameInterpreterTest.cpp.o: /Users/jiawei/Desktop/373/tests/GameInterpreterTest.cpp
+tests/CMakeFiles/unit_tests.dir/GameInterpreterTest.cpp.o: tests/CMakeFiles/unit_tests.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/jiawei/Desktop/373/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object tests/CMakeFiles/unit_tests.dir/GameInterpreterTest.cpp.o"
+	cd /Users/jiawei/Desktop/373/build/tests && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT tests/CMakeFiles/unit_tests.dir/GameInterpreterTest.cpp.o -MF CMakeFiles/unit_tests.dir/GameInterpreterTest.cpp.o.d -o CMakeFiles/unit_tests.dir/GameInterpreterTest.cpp.o -c /Users/jiawei/Desktop/373/tests/GameInterpreterTest.cpp
+
+tests/CMakeFiles/unit_tests.dir/GameInterpreterTest.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/unit_tests.dir/GameInterpreterTest.cpp.i"
+	cd /Users/jiawei/Desktop/373/build/tests && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/jiawei/Desktop/373/tests/GameInterpreterTest.cpp > CMakeFiles/unit_tests.dir/GameInterpreterTest.cpp.i
+
+tests/CMakeFiles/unit_tests.dir/GameInterpreterTest.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/unit_tests.dir/GameInterpreterTest.cpp.s"
+	cd /Users/jiawei/Desktop/373/build/tests && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/jiawei/Desktop/373/tests/GameInterpreterTest.cpp -o CMakeFiles/unit_tests.dir/GameInterpreterTest.cpp.s
+
+tests/CMakeFiles/unit_tests.dir/RulesTest.cpp.o: tests/CMakeFiles/unit_tests.dir/flags.make
+tests/CMakeFiles/unit_tests.dir/RulesTest.cpp.o: /Users/jiawei/Desktop/373/tests/RulesTest.cpp
+tests/CMakeFiles/unit_tests.dir/RulesTest.cpp.o: tests/CMakeFiles/unit_tests.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/jiawei/Desktop/373/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object tests/CMakeFiles/unit_tests.dir/RulesTest.cpp.o"
+	cd /Users/jiawei/Desktop/373/build/tests && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT tests/CMakeFiles/unit_tests.dir/RulesTest.cpp.o -MF CMakeFiles/unit_tests.dir/RulesTest.cpp.o.d -o CMakeFiles/unit_tests.dir/RulesTest.cpp.o -c /Users/jiawei/Desktop/373/tests/RulesTest.cpp
+
+tests/CMakeFiles/unit_tests.dir/RulesTest.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/unit_tests.dir/RulesTest.cpp.i"
+	cd /Users/jiawei/Desktop/373/build/tests && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/jiawei/Desktop/373/tests/RulesTest.cpp > CMakeFiles/unit_tests.dir/RulesTest.cpp.i
+
+tests/CMakeFiles/unit_tests.dir/RulesTest.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/unit_tests.dir/RulesTest.cpp.s"
+	cd /Users/jiawei/Desktop/373/build/tests && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/jiawei/Desktop/373/tests/RulesTest.cpp -o CMakeFiles/unit_tests.dir/RulesTest.cpp.s
+
+tests/CMakeFiles/unit_tests.dir/GameSpecLoaderTest.cpp.o: tests/CMakeFiles/unit_tests.dir/flags.make
+tests/CMakeFiles/unit_tests.dir/GameSpecLoaderTest.cpp.o: /Users/jiawei/Desktop/373/tests/GameSpecLoaderTest.cpp
+tests/CMakeFiles/unit_tests.dir/GameSpecLoaderTest.cpp.o: tests/CMakeFiles/unit_tests.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/jiawei/Desktop/373/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object tests/CMakeFiles/unit_tests.dir/GameSpecLoaderTest.cpp.o"
+	cd /Users/jiawei/Desktop/373/build/tests && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT tests/CMakeFiles/unit_tests.dir/GameSpecLoaderTest.cpp.o -MF CMakeFiles/unit_tests.dir/GameSpecLoaderTest.cpp.o.d -o CMakeFiles/unit_tests.dir/GameSpecLoaderTest.cpp.o -c /Users/jiawei/Desktop/373/tests/GameSpecLoaderTest.cpp
+
+tests/CMakeFiles/unit_tests.dir/GameSpecLoaderTest.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/unit_tests.dir/GameSpecLoaderTest.cpp.i"
+	cd /Users/jiawei/Desktop/373/build/tests && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/jiawei/Desktop/373/tests/GameSpecLoaderTest.cpp > CMakeFiles/unit_tests.dir/GameSpecLoaderTest.cpp.i
+
+tests/CMakeFiles/unit_tests.dir/GameSpecLoaderTest.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/unit_tests.dir/GameSpecLoaderTest.cpp.s"
+	cd /Users/jiawei/Desktop/373/build/tests && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/jiawei/Desktop/373/tests/GameSpecLoaderTest.cpp -o CMakeFiles/unit_tests.dir/GameSpecLoaderTest.cpp.s
+
 # Object files for target unit_tests
 unit_tests_OBJECTS = \
-"CMakeFiles/unit_tests.dir/GameTest.cpp.o" \
-"CMakeFiles/unit_tests.dir/ForLoopRuleTest.cpp.o" \
 "CMakeFiles/unit_tests.dir/WebSocketNetworkingTest.cpp.o" \
-"CMakeFiles/unit_tests.dir/GameServerTest.cpp.o"
+"CMakeFiles/unit_tests.dir/GameServerTest.cpp.o" \
+"CMakeFiles/unit_tests.dir/GameInterpreterTest.cpp.o" \
+"CMakeFiles/unit_tests.dir/RulesTest.cpp.o" \
+"CMakeFiles/unit_tests.dir/GameSpecLoaderTest.cpp.o"
 
 # External object files for target unit_tests
 unit_tests_EXTERNAL_OBJECTS =
 
-tests/unit_tests: tests/CMakeFiles/unit_tests.dir/GameTest.cpp.o
-tests/unit_tests: tests/CMakeFiles/unit_tests.dir/ForLoopRuleTest.cpp.o
 tests/unit_tests: tests/CMakeFiles/unit_tests.dir/WebSocketNetworkingTest.cpp.o
 tests/unit_tests: tests/CMakeFiles/unit_tests.dir/GameServerTest.cpp.o
+tests/unit_tests: tests/CMakeFiles/unit_tests.dir/GameInterpreterTest.cpp.o
+tests/unit_tests: tests/CMakeFiles/unit_tests.dir/RulesTest.cpp.o
+tests/unit_tests: tests/CMakeFiles/unit_tests.dir/GameSpecLoaderTest.cpp.o
 tests/unit_tests: tests/CMakeFiles/unit_tests.dir/build.make
 tests/unit_tests: lib/libgtest_main.a
 tests/unit_tests: lib/libcore_lib.a
 tests/unit_tests: lib/libgtest.a
 tests/unit_tests: lib/libGameEngine.a
 tests/unit_tests: _deps/web-socket-networking-build/lib/libnetworking.a
+tests/unit_tests: lib/libLobby.a
 tests/unit_tests: tests/CMakeFiles/unit_tests.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/Users/jiawei/Desktop/373/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Linking CXX executable unit_tests"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/Users/jiawei/Desktop/373/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Linking CXX executable unit_tests"
 	cd /Users/jiawei/Desktop/373/build/tests && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/unit_tests.dir/link.txt --verbose=$(VERBOSE)
 	cd /Users/jiawei/Desktop/373/build/tests && /opt/homebrew/bin/cmake -D TEST_TARGET=unit_tests -D TEST_EXECUTABLE=/Users/jiawei/Desktop/373/build/tests/unit_tests -D TEST_EXECUTOR= -D TEST_WORKING_DIR=/Users/jiawei/Desktop/373/build/tests -D TEST_EXTRA_ARGS= -D TEST_PROPERTIES= -D TEST_PREFIX= -D TEST_SUFFIX= -D TEST_FILTER= -D NO_PRETTY_TYPES=FALSE -D NO_PRETTY_VALUES=FALSE -D TEST_LIST=unit_tests_TESTS -D CTEST_FILE=/Users/jiawei/Desktop/373/build/tests/unit_tests[1]_tests.cmake -D TEST_DISCOVERY_TIMEOUT=5 -D TEST_DISCOVERY_EXTRA_ARGS= -D TEST_XML_OUTPUT_DIR= -P /opt/homebrew/share/cmake/Modules/GoogleTestAddTests.cmake
 

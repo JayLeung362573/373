@@ -185,29 +185,29 @@ unit_tests/fast:
 	cd /Users/jiawei/Desktop/373/build && $(MAKE) $(MAKESILENT) -f tests/CMakeFiles/unit_tests.dir/build.make tests/CMakeFiles/unit_tests.dir/build
 .PHONY : unit_tests/fast
 
-ForLoopRuleTest.o: ForLoopRuleTest.cpp.o
-.PHONY : ForLoopRuleTest.o
+GameInterpreterTest.o: GameInterpreterTest.cpp.o
+.PHONY : GameInterpreterTest.o
 
 # target to build an object file
-ForLoopRuleTest.cpp.o:
-	cd /Users/jiawei/Desktop/373/build && $(MAKE) $(MAKESILENT) -f tests/CMakeFiles/unit_tests.dir/build.make tests/CMakeFiles/unit_tests.dir/ForLoopRuleTest.cpp.o
-.PHONY : ForLoopRuleTest.cpp.o
+GameInterpreterTest.cpp.o:
+	cd /Users/jiawei/Desktop/373/build && $(MAKE) $(MAKESILENT) -f tests/CMakeFiles/unit_tests.dir/build.make tests/CMakeFiles/unit_tests.dir/GameInterpreterTest.cpp.o
+.PHONY : GameInterpreterTest.cpp.o
 
-ForLoopRuleTest.i: ForLoopRuleTest.cpp.i
-.PHONY : ForLoopRuleTest.i
+GameInterpreterTest.i: GameInterpreterTest.cpp.i
+.PHONY : GameInterpreterTest.i
 
 # target to preprocess a source file
-ForLoopRuleTest.cpp.i:
-	cd /Users/jiawei/Desktop/373/build && $(MAKE) $(MAKESILENT) -f tests/CMakeFiles/unit_tests.dir/build.make tests/CMakeFiles/unit_tests.dir/ForLoopRuleTest.cpp.i
-.PHONY : ForLoopRuleTest.cpp.i
+GameInterpreterTest.cpp.i:
+	cd /Users/jiawei/Desktop/373/build && $(MAKE) $(MAKESILENT) -f tests/CMakeFiles/unit_tests.dir/build.make tests/CMakeFiles/unit_tests.dir/GameInterpreterTest.cpp.i
+.PHONY : GameInterpreterTest.cpp.i
 
-ForLoopRuleTest.s: ForLoopRuleTest.cpp.s
-.PHONY : ForLoopRuleTest.s
+GameInterpreterTest.s: GameInterpreterTest.cpp.s
+.PHONY : GameInterpreterTest.s
 
 # target to generate assembly for a file
-ForLoopRuleTest.cpp.s:
-	cd /Users/jiawei/Desktop/373/build && $(MAKE) $(MAKESILENT) -f tests/CMakeFiles/unit_tests.dir/build.make tests/CMakeFiles/unit_tests.dir/ForLoopRuleTest.cpp.s
-.PHONY : ForLoopRuleTest.cpp.s
+GameInterpreterTest.cpp.s:
+	cd /Users/jiawei/Desktop/373/build && $(MAKE) $(MAKESILENT) -f tests/CMakeFiles/unit_tests.dir/build.make tests/CMakeFiles/unit_tests.dir/GameInterpreterTest.cpp.s
+.PHONY : GameInterpreterTest.cpp.s
 
 GameServerTest.o: GameServerTest.cpp.o
 .PHONY : GameServerTest.o
@@ -233,29 +233,53 @@ GameServerTest.cpp.s:
 	cd /Users/jiawei/Desktop/373/build && $(MAKE) $(MAKESILENT) -f tests/CMakeFiles/unit_tests.dir/build.make tests/CMakeFiles/unit_tests.dir/GameServerTest.cpp.s
 .PHONY : GameServerTest.cpp.s
 
-GameTest.o: GameTest.cpp.o
-.PHONY : GameTest.o
+GameSpecLoaderTest.o: GameSpecLoaderTest.cpp.o
+.PHONY : GameSpecLoaderTest.o
 
 # target to build an object file
-GameTest.cpp.o:
-	cd /Users/jiawei/Desktop/373/build && $(MAKE) $(MAKESILENT) -f tests/CMakeFiles/unit_tests.dir/build.make tests/CMakeFiles/unit_tests.dir/GameTest.cpp.o
-.PHONY : GameTest.cpp.o
+GameSpecLoaderTest.cpp.o:
+	cd /Users/jiawei/Desktop/373/build && $(MAKE) $(MAKESILENT) -f tests/CMakeFiles/unit_tests.dir/build.make tests/CMakeFiles/unit_tests.dir/GameSpecLoaderTest.cpp.o
+.PHONY : GameSpecLoaderTest.cpp.o
 
-GameTest.i: GameTest.cpp.i
-.PHONY : GameTest.i
+GameSpecLoaderTest.i: GameSpecLoaderTest.cpp.i
+.PHONY : GameSpecLoaderTest.i
 
 # target to preprocess a source file
-GameTest.cpp.i:
-	cd /Users/jiawei/Desktop/373/build && $(MAKE) $(MAKESILENT) -f tests/CMakeFiles/unit_tests.dir/build.make tests/CMakeFiles/unit_tests.dir/GameTest.cpp.i
-.PHONY : GameTest.cpp.i
+GameSpecLoaderTest.cpp.i:
+	cd /Users/jiawei/Desktop/373/build && $(MAKE) $(MAKESILENT) -f tests/CMakeFiles/unit_tests.dir/build.make tests/CMakeFiles/unit_tests.dir/GameSpecLoaderTest.cpp.i
+.PHONY : GameSpecLoaderTest.cpp.i
 
-GameTest.s: GameTest.cpp.s
-.PHONY : GameTest.s
+GameSpecLoaderTest.s: GameSpecLoaderTest.cpp.s
+.PHONY : GameSpecLoaderTest.s
 
 # target to generate assembly for a file
-GameTest.cpp.s:
-	cd /Users/jiawei/Desktop/373/build && $(MAKE) $(MAKESILENT) -f tests/CMakeFiles/unit_tests.dir/build.make tests/CMakeFiles/unit_tests.dir/GameTest.cpp.s
-.PHONY : GameTest.cpp.s
+GameSpecLoaderTest.cpp.s:
+	cd /Users/jiawei/Desktop/373/build && $(MAKE) $(MAKESILENT) -f tests/CMakeFiles/unit_tests.dir/build.make tests/CMakeFiles/unit_tests.dir/GameSpecLoaderTest.cpp.s
+.PHONY : GameSpecLoaderTest.cpp.s
+
+RulesTest.o: RulesTest.cpp.o
+.PHONY : RulesTest.o
+
+# target to build an object file
+RulesTest.cpp.o:
+	cd /Users/jiawei/Desktop/373/build && $(MAKE) $(MAKESILENT) -f tests/CMakeFiles/unit_tests.dir/build.make tests/CMakeFiles/unit_tests.dir/RulesTest.cpp.o
+.PHONY : RulesTest.cpp.o
+
+RulesTest.i: RulesTest.cpp.i
+.PHONY : RulesTest.i
+
+# target to preprocess a source file
+RulesTest.cpp.i:
+	cd /Users/jiawei/Desktop/373/build && $(MAKE) $(MAKESILENT) -f tests/CMakeFiles/unit_tests.dir/build.make tests/CMakeFiles/unit_tests.dir/RulesTest.cpp.i
+.PHONY : RulesTest.cpp.i
+
+RulesTest.s: RulesTest.cpp.s
+.PHONY : RulesTest.s
+
+# target to generate assembly for a file
+RulesTest.cpp.s:
+	cd /Users/jiawei/Desktop/373/build && $(MAKE) $(MAKESILENT) -f tests/CMakeFiles/unit_tests.dir/build.make tests/CMakeFiles/unit_tests.dir/RulesTest.cpp.s
+.PHONY : RulesTest.cpp.s
 
 WebSocketNetworkingTest.o: WebSocketNetworkingTest.cpp.o
 .PHONY : WebSocketNetworkingTest.o
@@ -295,15 +319,18 @@ help:
 	@echo "... rebuild_cache"
 	@echo "... test"
 	@echo "... unit_tests"
-	@echo "... ForLoopRuleTest.o"
-	@echo "... ForLoopRuleTest.i"
-	@echo "... ForLoopRuleTest.s"
+	@echo "... GameInterpreterTest.o"
+	@echo "... GameInterpreterTest.i"
+	@echo "... GameInterpreterTest.s"
 	@echo "... GameServerTest.o"
 	@echo "... GameServerTest.i"
 	@echo "... GameServerTest.s"
-	@echo "... GameTest.o"
-	@echo "... GameTest.i"
-	@echo "... GameTest.s"
+	@echo "... GameSpecLoaderTest.o"
+	@echo "... GameSpecLoaderTest.i"
+	@echo "... GameSpecLoaderTest.s"
+	@echo "... RulesTest.o"
+	@echo "... RulesTest.i"
+	@echo "... RulesTest.s"
 	@echo "... WebSocketNetworkingTest.o"
 	@echo "... WebSocketNetworkingTest.i"
 	@echo "... WebSocketNetworkingTest.s"

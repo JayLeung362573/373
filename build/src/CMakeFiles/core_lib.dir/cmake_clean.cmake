@@ -7,8 +7,6 @@ file(REMOVE_RECURSE
   "CMakeFiles/core_lib.dir/GameServer.cpp.o.d"
   "CMakeFiles/core_lib.dir/MessageTranslator.cpp.o"
   "CMakeFiles/core_lib.dir/MessageTranslator.cpp.o.d"
-  "CMakeFiles/core_lib.dir/Networking.cpp.o"
-  "CMakeFiles/core_lib.dir/Networking.cpp.o.d"
   "CMakeFiles/core_lib.dir/WebsocketNetworking.cpp.o"
   "CMakeFiles/core_lib.dir/WebsocketNetworking.cpp.o.d"
 )

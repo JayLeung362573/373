@@ -8,9 +8,10 @@ set(CMAKE_DEPENDS_LANGUAGES
 
 # The set of dependency files which are needed:
 set(CMAKE_DEPENDS_DEPENDENCY_FILES
-  "/Users/jiawei/Desktop/373/tests/ForLoopRuleTest.cpp" "tests/CMakeFiles/unit_tests.dir/ForLoopRuleTest.cpp.o" "gcc" "tests/CMakeFiles/unit_tests.dir/ForLoopRuleTest.cpp.o.d"
+  "/Users/jiawei/Desktop/373/tests/GameInterpreterTest.cpp" "tests/CMakeFiles/unit_tests.dir/GameInterpreterTest.cpp.o" "gcc" "tests/CMakeFiles/unit_tests.dir/GameInterpreterTest.cpp.o.d"
   "/Users/jiawei/Desktop/373/tests/GameServerTest.cpp" "tests/CMakeFiles/unit_tests.dir/GameServerTest.cpp.o" "gcc" "tests/CMakeFiles/unit_tests.dir/GameServerTest.cpp.o.d"
-  "/Users/jiawei/Desktop/373/tests/GameTest.cpp" "tests/CMakeFiles/unit_tests.dir/GameTest.cpp.o" "gcc" "tests/CMakeFiles/unit_tests.dir/GameTest.cpp.o.d"
+  "/Users/jiawei/Desktop/373/tests/GameSpecLoaderTest.cpp" "tests/CMakeFiles/unit_tests.dir/GameSpecLoaderTest.cpp.o" "gcc" "tests/CMakeFiles/unit_tests.dir/GameSpecLoaderTest.cpp.o.d"
+  "/Users/jiawei/Desktop/373/tests/RulesTest.cpp" "tests/CMakeFiles/unit_tests.dir/RulesTest.cpp.o" "gcc" "tests/CMakeFiles/unit_tests.dir/RulesTest.cpp.o.d"
   "/Users/jiawei/Desktop/373/tests/WebSocketNetworkingTest.cpp" "tests/CMakeFiles/unit_tests.dir/WebSocketNetworkingTest.cpp.o" "gcc" "tests/CMakeFiles/unit_tests.dir/WebSocketNetworkingTest.cpp.o.d"
   )
 

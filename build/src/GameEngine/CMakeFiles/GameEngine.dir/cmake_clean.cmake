@@ -1,8 +1,8 @@
 file(REMOVE_RECURSE
   "../../lib/libGameEngine.a"
   "../../lib/libGameEngine.pdb"
-  "CMakeFiles/GameEngine.dir/Game.cpp.o"
-  "CMakeFiles/GameEngine.dir/Game.cpp.o.d"
+  "CMakeFiles/GameEngine.dir/GameInterpreter.cpp.o"
+  "CMakeFiles/GameEngine.dir/GameInterpreter.cpp.o.d"
   "CMakeFiles/GameEngine.dir/Rules.cpp.o"
   "CMakeFiles/GameEngine.dir/Rules.cpp.o.d"
 )

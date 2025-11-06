@@ -250,6 +250,19 @@ GameEngine/fast:
 .PHONY : GameEngine/fast
 
 #=============================================================================
+# Target rules for targets named Lobby
+
+# Build rule for target.
+Lobby: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 Lobby
+.PHONY : Lobby
+
+# fast build rule for target.
+Lobby/fast:
+	$(MAKE) $(MAKESILENT) -f src/Lobby/CMakeFiles/Lobby.dir/build.make src/Lobby/CMakeFiles/Lobby.dir/build
+.PHONY : Lobby/fast
+
+#=============================================================================
 # Target rules for targets named unit_tests
 
 # Build rule for target.
@@ -328,6 +341,7 @@ help:
 	@echo "... rebuild_cache"
 	@echo "... test"
 	@echo "... GameEngine"
+	@echo "... Lobby"
 	@echo "... chatserver"
 	@echo "... client-ncurses"
 	@echo "... core_lib"

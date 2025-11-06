@@ -72,19 +72,19 @@ include src/GameEngine/CMakeFiles/GameEngine.dir/flags.make
 src/GameEngine/CMakeFiles/GameEngine.dir/codegen:
 .PHONY : src/GameEngine/CMakeFiles/GameEngine.dir/codegen
 
-src/GameEngine/CMakeFiles/GameEngine.dir/Game.cpp.o: src/GameEngine/CMakeFiles/GameEngine.dir/flags.make
-src/GameEngine/CMakeFiles/GameEngine.dir/Game.cpp.o: /Users/jiawei/Desktop/373/src/GameEngine/Game.cpp
-src/GameEngine/CMakeFiles/GameEngine.dir/Game.cpp.o: src/GameEngine/CMakeFiles/GameEngine.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/jiawei/Desktop/373/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object src/GameEngine/CMakeFiles/GameEngine.dir/Game.cpp.o"
-	cd /Users/jiawei/Desktop/373/build/src/GameEngine && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT src/GameEngine/CMakeFiles/GameEngine.dir/Game.cpp.o -MF CMakeFiles/GameEngine.dir/Game.cpp.o.d -o CMakeFiles/GameEngine.dir/Game.cpp.o -c /Users/jiawei/Desktop/373/src/GameEngine/Game.cpp
+src/GameEngine/CMakeFiles/GameEngine.dir/GameInterpreter.cpp.o: src/GameEngine/CMakeFiles/GameEngine.dir/flags.make
+src/GameEngine/CMakeFiles/GameEngine.dir/GameInterpreter.cpp.o: /Users/jiawei/Desktop/373/src/GameEngine/GameInterpreter.cpp
+src/GameEngine/CMakeFiles/GameEngine.dir/GameInterpreter.cpp.o: src/GameEngine/CMakeFiles/GameEngine.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/jiawei/Desktop/373/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object src/GameEngine/CMakeFiles/GameEngine.dir/GameInterpreter.cpp.o"
+	cd /Users/jiawei/Desktop/373/build/src/GameEngine && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT src/GameEngine/CMakeFiles/GameEngine.dir/GameInterpreter.cpp.o -MF CMakeFiles/GameEngine.dir/GameInterpreter.cpp.o.d -o CMakeFiles/GameEngine.dir/GameInterpreter.cpp.o -c /Users/jiawei/Desktop/373/src/GameEngine/GameInterpreter.cpp
 
-src/GameEngine/CMakeFiles/GameEngine.dir/Game.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/GameEngine.dir/Game.cpp.i"
-	cd /Users/jiawei/Desktop/373/build/src/GameEngine && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/jiawei/Desktop/373/src/GameEngine/Game.cpp > CMakeFiles/GameEngine.dir/Game.cpp.i
+src/GameEngine/CMakeFiles/GameEngine.dir/GameInterpreter.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/GameEngine.dir/GameInterpreter.cpp.i"
+	cd /Users/jiawei/Desktop/373/build/src/GameEngine && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/jiawei/Desktop/373/src/GameEngine/GameInterpreter.cpp > CMakeFiles/GameEngine.dir/GameInterpreter.cpp.i
 
-src/GameEngine/CMakeFiles/GameEngine.dir/Game.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/GameEngine.dir/Game.cpp.s"
-	cd /Users/jiawei/Desktop/373/build/src/GameEngine && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/jiawei/Desktop/373/src/GameEngine/Game.cpp -o CMakeFiles/GameEngine.dir/Game.cpp.s
+src/GameEngine/CMakeFiles/GameEngine.dir/GameInterpreter.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/GameEngine.dir/GameInterpreter.cpp.s"
+	cd /Users/jiawei/Desktop/373/build/src/GameEngine && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/jiawei/Desktop/373/src/GameEngine/GameInterpreter.cpp -o CMakeFiles/GameEngine.dir/GameInterpreter.cpp.s
 
 src/GameEngine/CMakeFiles/GameEngine.dir/Rules.cpp.o: src/GameEngine/CMakeFiles/GameEngine.dir/flags.make
 src/GameEngine/CMakeFiles/GameEngine.dir/Rules.cpp.o: /Users/jiawei/Desktop/373/src/GameEngine/Rules.cpp
@@ -102,13 +102,13 @@ src/GameEngine/CMakeFiles/GameEngine.dir/Rules.cpp.s: cmake_force
 
 # Object files for target GameEngine
 GameEngine_OBJECTS = \
-"CMakeFiles/GameEngine.dir/Game.cpp.o" \
+"CMakeFiles/GameEngine.dir/GameInterpreter.cpp.o" \
 "CMakeFiles/GameEngine.dir/Rules.cpp.o"
 
 # External object files for target GameEngine
 GameEngine_EXTERNAL_OBJECTS =
 
-lib/libGameEngine.a: src/GameEngine/CMakeFiles/GameEngine.dir/Game.cpp.o
+lib/libGameEngine.a: src/GameEngine/CMakeFiles/GameEngine.dir/GameInterpreter.cpp.o
 lib/libGameEngine.a: src/GameEngine/CMakeFiles/GameEngine.dir/Rules.cpp.o
 lib/libGameEngine.a: src/GameEngine/CMakeFiles/GameEngine.dir/build.make
 lib/libGameEngine.a: src/GameEngine/CMakeFiles/GameEngine.dir/link.txt
