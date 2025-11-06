@@ -1,2 +1,1 @@
-/usr/bin/ar qc ../../lib/libGameEngine.a CMakeFiles/GameEngine.dir/GameInterpreter.cpp.o CMakeFiles/GameEngine.dir/Rules.cpp.o
-/usr/bin/ranlib ../../lib/libGameEngine.a
+/usr/bin/c++  -Wall -fno-rtti -fsanitize=address,undefined -g -arch arm64 -dynamiclib -Wl,-headerpad_max_install_names -o libGameEngine.dylib -install_name @rpath/libGameEngine.dylib CMakeFiles/GameEngine.dir/GameInterpreter.cpp.o CMakeFiles/GameEngine.dir/Rules.cpp.o

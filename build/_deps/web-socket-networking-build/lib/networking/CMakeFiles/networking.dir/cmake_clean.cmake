@@ -1,5 +1,5 @@
 file(REMOVE_RECURSE
-  "../libnetworking.a"
+  "../libnetworking.dylib"
   "../libnetworking.pdb"
   "CMakeFiles/networking.dir/src/Client.cpp.o"
   "CMakeFiles/networking.dir/src/Client.cpp.o.d"

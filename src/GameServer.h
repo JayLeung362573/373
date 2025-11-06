@@ -4,6 +4,8 @@
 #include <unordered_map>
 #include <vector>
 #include "Message.h"
+#include "Lobby.h"
+#include "LobbyRegistry.h"
 
 
 class NetworkingInterface;
@@ -14,7 +16,23 @@ class NetworkingInterface;
 class GameServer
 {
 public:
-    static std::vector<ClientMessage> tick(const std::vector<ClientMessage>& incomingMessages);
-private:
+    GameServer();
 
+    enum class ServerState{
+        InLobby,
+        InGame,
+        GameOver,
+    };
+
+    std::vector<ClientMessage> tick(const std::vector<ClientMessage>& incomingMessages);
+
+    ServerState getState() const;
+private:
+    std::vector<ClientMessage> handleLobbyMessages(const std::vector<ClientMessage>& incomingMessages);
+    std::vector<ClientMessage> handleGameMessages(const std::vector<ClientMessage>& incomingMessages);
+
+    std::vector<ClientMessage> broadcastLobbyState();
+    LobbyRegistry m_lobbyRegistry;
+    bool m_gameStarted;
+    bool m_gameOver;
 };

@@ -172,6 +172,19 @@ depend:
 .PHONY : depend
 
 #=============================================================================
+# Target rules for targets named treesitter
+
+# Build rule for target.
+treesitter: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 treesitter
+.PHONY : treesitter
+
+# fast build rule for target.
+treesitter/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/treesitter.dir/build.make CMakeFiles/treesitter.dir/build
+.PHONY : treesitter/fast
+
+#=============================================================================
 # Target rules for targets named networking
 
 # Build rule for target.
@@ -209,6 +222,45 @@ client-ncurses: cmake_check_build_system
 client-ncurses/fast:
 	$(MAKE) $(MAKESILENT) -f _deps/web-socket-networking-build/tools/client-ncurses/CMakeFiles/client-ncurses.dir/build.make _deps/web-socket-networking-build/tools/client-ncurses/CMakeFiles/client-ncurses.dir/build
 .PHONY : client-ncurses/fast
+
+#=============================================================================
+# Target rules for targets named tree-sitter
+
+# Build rule for target.
+tree-sitter: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 tree-sitter
+.PHONY : tree-sitter
+
+# fast build rule for target.
+tree-sitter/fast:
+	$(MAKE) $(MAKESILENT) -f _deps/tree-sitter-build/CMakeFiles/tree-sitter.dir/build.make _deps/tree-sitter-build/CMakeFiles/tree-sitter.dir/build
+.PHONY : tree-sitter/fast
+
+#=============================================================================
+# Target rules for targets named ts_socialgaming
+
+# Build rule for target.
+ts_socialgaming: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 ts_socialgaming
+.PHONY : ts_socialgaming
+
+# fast build rule for target.
+ts_socialgaming/fast:
+	$(MAKE) $(MAKESILENT) -f parser/CMakeFiles/ts_socialgaming.dir/build.make parser/CMakeFiles/ts_socialgaming.dir/build
+.PHONY : ts_socialgaming/fast
+
+#=============================================================================
+# Target rules for targets named parser
+
+# Build rule for target.
+parser: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 parser
+.PHONY : parser
+
+# fast build rule for target.
+parser/fast:
+	$(MAKE) $(MAKESILENT) -f parser/CMakeFiles/parser.dir/build.make parser/CMakeFiles/parser.dir/build
+.PHONY : parser/fast
 
 #=============================================================================
 # Target rules for targets named core_lib
@@ -327,6 +379,30 @@ gtest_main/fast:
 	$(MAKE) $(MAKESILENT) -f _deps/googletest-build/googletest/CMakeFiles/gtest_main.dir/build.make _deps/googletest-build/googletest/CMakeFiles/gtest_main.dir/build
 .PHONY : gtest_main/fast
 
+_deps/tree-sitter-src/lib/src/lib.o: _deps/tree-sitter-src/lib/src/lib.c.o
+.PHONY : _deps/tree-sitter-src/lib/src/lib.o
+
+# target to build an object file
+_deps/tree-sitter-src/lib/src/lib.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/treesitter.dir/build.make CMakeFiles/treesitter.dir/_deps/tree-sitter-src/lib/src/lib.c.o
+.PHONY : _deps/tree-sitter-src/lib/src/lib.c.o
+
+_deps/tree-sitter-src/lib/src/lib.i: _deps/tree-sitter-src/lib/src/lib.c.i
+.PHONY : _deps/tree-sitter-src/lib/src/lib.i
+
+# target to preprocess a source file
+_deps/tree-sitter-src/lib/src/lib.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/treesitter.dir/build.make CMakeFiles/treesitter.dir/_deps/tree-sitter-src/lib/src/lib.c.i
+.PHONY : _deps/tree-sitter-src/lib/src/lib.c.i
+
+_deps/tree-sitter-src/lib/src/lib.s: _deps/tree-sitter-src/lib/src/lib.c.s
+.PHONY : _deps/tree-sitter-src/lib/src/lib.s
+
+# target to generate assembly for a file
+_deps/tree-sitter-src/lib/src/lib.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/treesitter.dir/build.make CMakeFiles/treesitter.dir/_deps/tree-sitter-src/lib/src/lib.c.s
+.PHONY : _deps/tree-sitter-src/lib/src/lib.c.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -351,7 +427,14 @@ help:
 	@echo "... gtest_main"
 	@echo "... main"
 	@echo "... networking"
+	@echo "... parser"
+	@echo "... tree-sitter"
+	@echo "... treesitter"
+	@echo "... ts_socialgaming"
 	@echo "... unit_tests"
+	@echo "... _deps/tree-sitter-src/lib/src/lib.o"
+	@echo "... _deps/tree-sitter-src/lib/src/lib.i"
+	@echo "... _deps/tree-sitter-src/lib/src/lib.s"
 .PHONY : help
 
 

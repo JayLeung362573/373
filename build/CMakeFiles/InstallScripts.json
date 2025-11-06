@@ -8,6 +8,8 @@
 		"/Users/jiawei/Desktop/373/build/_deps/web-socket-networking-build/tools/cmake_install.cmake",
 		"/Users/jiawei/Desktop/373/build/_deps/web-socket-networking-build/tools/server/cmake_install.cmake",
 		"/Users/jiawei/Desktop/373/build/_deps/web-socket-networking-build/tools/client-ncurses/cmake_install.cmake",
+		"/Users/jiawei/Desktop/373/build/_deps/tree-sitter-build/cmake_install.cmake",
+		"/Users/jiawei/Desktop/373/build/parser/cmake_install.cmake",
 		"/Users/jiawei/Desktop/373/build/src/cmake_install.cmake",
 		"/Users/jiawei/Desktop/373/build/src/GameEngine/cmake_install.cmake",
 		"/Users/jiawei/Desktop/373/build/src/Lobby/cmake_install.cmake",

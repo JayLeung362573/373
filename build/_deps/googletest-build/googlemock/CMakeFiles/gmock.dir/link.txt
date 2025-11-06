@@ -1,2 +1,1 @@
-/usr/bin/ar qc ../../../lib/libgmock.a "CMakeFiles/gmock.dir/src/gmock-all.cc.o"
-/usr/bin/ranlib ../../../lib/libgmock.a
+/usr/bin/c++  -Wall -fno-rtti -fsanitize=address,undefined -g -arch arm64 -dynamiclib -Wl,-headerpad_max_install_names -current_version 1.16.0 -o ../../../lib/libgmock.1.16.0.dylib -install_name @rpath/libgmock.1.16.0.dylib "CMakeFiles/gmock.dir/src/gmock-all.cc.o"  -Wl,-rpath,/Users/jiawei/Desktop/373/build/lib ../../../lib/libgtest.1.16.0.dylib

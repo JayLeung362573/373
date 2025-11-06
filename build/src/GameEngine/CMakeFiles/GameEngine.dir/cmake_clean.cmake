@@ -1,10 +1,10 @@
 file(REMOVE_RECURSE
-  "../../lib/libGameEngine.a"
-  "../../lib/libGameEngine.pdb"
   "CMakeFiles/GameEngine.dir/GameInterpreter.cpp.o"
   "CMakeFiles/GameEngine.dir/GameInterpreter.cpp.o.d"
   "CMakeFiles/GameEngine.dir/Rules.cpp.o"
   "CMakeFiles/GameEngine.dir/Rules.cpp.o.d"
+  "libGameEngine.dylib"
+  "libGameEngine.pdb"
 )
 
 # Per-language clean rules from dependency scanning.

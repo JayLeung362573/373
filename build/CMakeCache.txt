@@ -14,8 +14,14 @@
 # EXTERNAL cache entries
 ########################
 
+//Build using an amalgamated source
+AMALGAMATED:BOOL=OFF
+
 //Builds the googlemock subproject
 BUILD_GMOCK:BOOL=ON
+
+//Build using shared libraries
+BUILD_SHARED_LIBS:BOOL=ON
 
 //Build unit tests
 BUILD_TESTS:BOOL=ON
@@ -339,6 +345,10 @@ FETCHCONTENT_QUIET:BOOL=ON
 FETCHCONTENT_SOURCE_DIR_GOOGLETEST:PATH=
 
 //When not empty, overrides where to find pre-populated content
+// for tree-sitter
+FETCHCONTENT_SOURCE_DIR_TREE-SITTER:PATH=
+
+//When not empty, overrides where to find pre-populated content
 // for web-socket-networking
 FETCHCONTENT_SOURCE_DIR_WEB-SOCKET-NETWORKING:PATH=
 
@@ -347,6 +357,9 @@ FETCHCONTENT_UPDATES_DISCONNECTED:BOOL=OFF
 
 //Enables UPDATE_DISCONNECTED behavior just for population of googletest
 FETCHCONTENT_UPDATES_DISCONNECTED_GOOGLETEST:BOOL=OFF
+
+//Enables UPDATE_DISCONNECTED behavior just for population of tree-sitter
+FETCHCONTENT_UPDATES_DISCONNECTED_TREE-SITTER:BOOL=OFF
 
 //Enables UPDATE_DISCONNECTED behavior just for population of web-socket-networking
 FETCHCONTENT_UPDATES_DISCONNECTED_WEB-SOCKET-NETWORKING:BOOL=OFF
@@ -367,6 +380,9 @@ PKG_CONFIG_ARGN:STRING=
 
 //pkg-config executable
 PKG_CONFIG_EXECUTABLE:FILEPATH=/opt/homebrew/bin/pkg-config
+
+//Enable the Wasm feature
+TREE_SITTER_FEATURE_WASM:BOOL=OFF
 
 //Value Computed by CMake
 WebSocketNetworking_BINARY_DIR:STATIC=/Users/jiawei/Desktop/373/build/_deps/web-socket-networking-build
@@ -437,6 +453,15 @@ main_SOURCE_DIR:STATIC=/Users/jiawei/Desktop/373
 
 //Path to a library.
 pkgcfg_lib_NCURSES_ncurses:FILEPATH=/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/lib/libncurses.tbd
+
+//Value Computed by CMake
+tree-sitter_BINARY_DIR:STATIC=/Users/jiawei/Desktop/373/build/_deps/tree-sitter-build
+
+//Value Computed by CMake
+tree-sitter_IS_TOP_LEVEL:STATIC=OFF
+
+//Value Computed by CMake
+tree-sitter_SOURCE_DIR:STATIC=/Users/jiawei/Desktop/373/build/_deps/tree-sitter-src
 
 
 ########################
@@ -573,7 +598,7 @@ CMAKE_MODULE_LINKER_FLAGS_RELWITHDEBINFO-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: CMAKE_NM
 CMAKE_NM-ADVANCED:INTERNAL=1
 //number of local generators
-CMAKE_NUMBER_OF_MAKEFILES:INTERNAL=14
+CMAKE_NUMBER_OF_MAKEFILES:INTERNAL=16
 //ADVANCED property for variable: CMAKE_OBJCOPY
 CMAKE_OBJCOPY-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: CMAKE_OBJDUMP

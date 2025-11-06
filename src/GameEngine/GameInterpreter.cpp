@@ -145,7 +145,8 @@ GameInterpreter::getPlayerAttribute(const ast::Variable& playerVar, String attr)
     if (!result.hasValue())
     {
         throw std::runtime_error(
-            std::format("Failed to get player attribute: {}", attr.value)
+              "Failed to get player attribute: " + attr.value
+//            std::format("Failed to get player attribute: {}", attr.value)
         );
     }
     return result.getValue();

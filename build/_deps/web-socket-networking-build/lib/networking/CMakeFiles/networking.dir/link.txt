@@ -1,2 +1,1 @@
-/usr/bin/ar qc ../libnetworking.a CMakeFiles/networking.dir/src/Server.cpp.o CMakeFiles/networking.dir/src/Client.cpp.o
-/usr/bin/ranlib ../libnetworking.a
+/usr/bin/c++  -Wall -fno-rtti -fsanitize=address,undefined -Wall -fno-rtti -O0 -g -fsanitize=address,undefined -fno-omit-frame-pointer -arch arm64 -dynamiclib -Wl,-headerpad_max_install_names -o ../libnetworking.dylib -install_name @rpath/libnetworking.dylib CMakeFiles/networking.dir/src/Server.cpp.o CMakeFiles/networking.dir/src/Client.cpp.o

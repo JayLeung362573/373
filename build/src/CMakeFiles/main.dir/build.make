@@ -95,10 +95,10 @@ main_EXTERNAL_OBJECTS =
 
 bin/main: src/CMakeFiles/main.dir/main.cpp.o
 bin/main: src/CMakeFiles/main.dir/build.make
-bin/main: lib/libcore_lib.a
-bin/main: lib/libGameEngine.a
-bin/main: _deps/web-socket-networking-build/lib/libnetworking.a
-bin/main: lib/libLobby.a
+bin/main: src/libcore_lib.dylib
+bin/main: src/GameEngine/libGameEngine.dylib
+bin/main: _deps/web-socket-networking-build/lib/libnetworking.dylib
+bin/main: src/Lobby/libLobby.dylib
 bin/main: src/CMakeFiles/main.dir/link.txt
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/Users/jiawei/Desktop/373/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Linking CXX executable ../bin/main"
 	cd /Users/jiawei/Desktop/373/build/src && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/main.dir/link.txt --verbose=$(VERBOSE)

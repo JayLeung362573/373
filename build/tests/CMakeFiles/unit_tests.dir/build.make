@@ -159,12 +159,15 @@ tests/unit_tests: tests/CMakeFiles/unit_tests.dir/GameInterpreterTest.cpp.o
 tests/unit_tests: tests/CMakeFiles/unit_tests.dir/RulesTest.cpp.o
 tests/unit_tests: tests/CMakeFiles/unit_tests.dir/GameSpecLoaderTest.cpp.o
 tests/unit_tests: tests/CMakeFiles/unit_tests.dir/build.make
-tests/unit_tests: lib/libgtest_main.a
-tests/unit_tests: lib/libcore_lib.a
-tests/unit_tests: lib/libgtest.a
-tests/unit_tests: lib/libGameEngine.a
-tests/unit_tests: _deps/web-socket-networking-build/lib/libnetworking.a
-tests/unit_tests: lib/libLobby.a
+tests/unit_tests: lib/libgtest_main.1.16.0.dylib
+tests/unit_tests: src/libcore_lib.dylib
+tests/unit_tests: lib/libparser.a
+tests/unit_tests: lib/libgtest.1.16.0.dylib
+tests/unit_tests: src/GameEngine/libGameEngine.dylib
+tests/unit_tests: _deps/web-socket-networking-build/lib/libnetworking.dylib
+tests/unit_tests: src/Lobby/libLobby.dylib
+tests/unit_tests: lib/libts_socialgaming.a
+tests/unit_tests: lib/libtreesitter.a
 tests/unit_tests: tests/CMakeFiles/unit_tests.dir/link.txt
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/Users/jiawei/Desktop/373/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Linking CXX executable unit_tests"
 	cd /Users/jiawei/Desktop/373/build/tests && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/unit_tests.dir/link.txt --verbose=$(VERBOSE)

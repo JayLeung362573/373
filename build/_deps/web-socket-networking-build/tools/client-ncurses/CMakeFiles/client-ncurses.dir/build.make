@@ -111,7 +111,7 @@ client__ncurses_EXTERNAL_OBJECTS =
 _deps/web-socket-networking-build/bin/client-ncurses: _deps/web-socket-networking-build/tools/client-ncurses/CMakeFiles/client-ncurses.dir/chatclient.cpp.o
 _deps/web-socket-networking-build/bin/client-ncurses: _deps/web-socket-networking-build/tools/client-ncurses/CMakeFiles/client-ncurses.dir/ChatWindow.cpp.o
 _deps/web-socket-networking-build/bin/client-ncurses: _deps/web-socket-networking-build/tools/client-ncurses/CMakeFiles/client-ncurses.dir/build.make
-_deps/web-socket-networking-build/bin/client-ncurses: _deps/web-socket-networking-build/lib/libnetworking.a
+_deps/web-socket-networking-build/bin/client-ncurses: _deps/web-socket-networking-build/lib/libnetworking.dylib
 _deps/web-socket-networking-build/bin/client-ncurses: /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/lib/libcurses.tbd
 _deps/web-socket-networking-build/bin/client-ncurses: /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/lib/libform.tbd
 _deps/web-socket-networking-build/bin/client-ncurses: _deps/web-socket-networking-build/tools/client-ncurses/CMakeFiles/client-ncurses.dir/link.txt

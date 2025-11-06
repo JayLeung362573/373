@@ -2,6 +2,8 @@
 #include <vector>
 #include <unordered_map>
 #include <optional>
+#include <cstdint>
+#include "LobbyTypes.h"
 
 enum class LobbyRole{
     Host,
@@ -22,19 +24,27 @@ struct LobbyPlayer{
 
 class Lobby{
 public:
-    void addPlayer(uintptr_t clientID, LobbyRole role = LobbyRole::Player);
+    Lobby(const LobbyID& id, GameType gameType, ClientID hostID, const std::string& name);
+
+    bool addPlayer(uintptr_t clientID, LobbyRole role = LobbyRole::Player);
     void removePlayer(uintptr_t clientID);
+    bool hasPlayer(ClientID clientID) const;
 
     std::optional<uintptr_t> getHostID() const;
-    void setPlayerRole(uintptr_t clientID, LobbyRole role);
 
     std::optional<LobbyRole> getPlayerRole(uintptr_t clientID) const;
-    void transferHost(uintptr_t newHostID);
 
-    int getPlayablePlayer() const;
-    bool canStartGame1(int minPlayers, int maxPlayers) const;
+    std::vector<LobbyPlayer> getPlayablePlayer() const;
 
-    std::vector<LobbyPlayer> getPlayablePlayers() const;
+    LobbyInfo getInfo() const;
+    GameType getGameType() const {return m_gameType;}
 private:
+    LobbyID m_lobbyID;
+    std::string m_lobbyName;
+    GameType m_gameType;
+    ClientID m_hostID;
+    LobbyState m_state;
+    size_t m_maxPlayers;
+
     std::unordered_map<uintptr_t, LobbyPlayer> m_players;
 };

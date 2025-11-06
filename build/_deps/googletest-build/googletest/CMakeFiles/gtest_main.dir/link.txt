@@ -1,2 +1,1 @@
-/usr/bin/ar qc ../../../lib/libgtest_main.a CMakeFiles/gtest_main.dir/src/gtest_main.cc.o
-/usr/bin/ranlib ../../../lib/libgtest_main.a
+/usr/bin/c++  -Wall -fno-rtti -fsanitize=address,undefined -g -arch arm64 -dynamiclib -Wl,-headerpad_max_install_names -current_version 1.16.0 -o ../../../lib/libgtest_main.1.16.0.dylib -install_name @rpath/libgtest_main.1.16.0.dylib CMakeFiles/gtest_main.dir/src/gtest_main.cc.o  -Wl,-rpath,/Users/jiawei/Desktop/373/build/lib ../../../lib/libgtest.1.16.0.dylib

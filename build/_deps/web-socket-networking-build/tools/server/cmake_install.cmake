@@ -41,6 +41,9 @@ if(CMAKE_INSTALL_COMPONENT STREQUAL "Unspecified" OR NOT CMAKE_INSTALL_COMPONENT
   file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/bin" TYPE EXECUTABLE FILES "/Users/jiawei/Desktop/373/build/_deps/web-socket-networking-build/bin/chatserver")
   if(EXISTS "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/bin/chatserver" AND
      NOT IS_SYMLINK "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/bin/chatserver")
+    execute_process(COMMAND /usr/bin/install_name_tool
+      -delete_rpath "/Users/jiawei/Desktop/373/build/_deps/web-socket-networking-build/lib"
+      "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/bin/chatserver")
     if(CMAKE_INSTALL_DO_STRIP)
       execute_process(COMMAND "/usr/bin/strip" -u -r "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/bin/chatserver")
     endif()
