@@ -1,0 +1,19 @@
+// Minimal game you can parse.
+configuration {
+  name: "Hello Test"
+  player range: (1, 4)
+  audience: false
+  setup: { }
+}
+
+constants { }
+
+variables { }
+
+per-player { wins: 0 }
+per-audience { }
+
+rules {
+  message all "Hello, world!";
+  scores ["wins"];
+}

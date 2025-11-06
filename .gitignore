@@ -1,4 +1,22 @@
+# Build directories
 build/
 cmake-build-*/
-CMakeFiles/.DS_Store
+CMakeFiles/
+out/
+
+# IDE
 .idea/
+.vscode/
+*.swp
+*.swo
+*~
+
+# Compiled files
+*.o
+*.a
+*.so
+*.dylib
+*.exe
+
+# macOS
+.DS_Store

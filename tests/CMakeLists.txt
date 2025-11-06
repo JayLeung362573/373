@@ -19,10 +19,11 @@ add_executable(unit_tests
   GameServerTest.cpp
   GameInterpreterTest.cpp
   RulesTest.cpp
+  GameSpecLoaderTest.cpp
 )
 
 # Link with gtest (the Quickstart uses GTest::gtest_main)
-target_link_libraries(unit_tests PRIVATE GTest::gtest_main core_lib)
+target_link_libraries(unit_tests PRIVATE GTest::gtest_main core_lib parser)
 
 target_compile_features(unit_tests PRIVATE cxx_std_23)
 

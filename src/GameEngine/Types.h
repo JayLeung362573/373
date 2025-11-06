@@ -7,6 +7,7 @@
 #include <variant>
 #include <vector>
 #include <stdexcept>
+#include <ostream>
 
 /// Represents a variable name in the AST.
 /// Used as a key in variable lookups.

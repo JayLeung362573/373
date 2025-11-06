@@ -6,7 +6,7 @@
 	CompilerName=""
 	CompilerVersion=""
 	OSName="macOS"
-	Hostname="Jiaweis-MacBook-Pro.local"
+	Hostname="u172-016-107-076.wireless.sfu.ca"
 	OSRelease="12.7.6"
 	OSVersion="21H1320"
 	OSPlatform="arm64"
@@ -25,11 +25,11 @@
 	ProcessorClockFrequency="0"
 	>
 	<Testing>
-		<StartDateTime>Nov 03 02:28 PST</StartDateTime>
-		<StartTestTime>1762165723</StartTestTime>
+		<StartDateTime>Nov 05 16:10 PST</StartDateTime>
+		<StartTestTime>1762387801</StartTestTime>
 		<TestList/>
-		<EndDateTime>Nov 03 02:28 PST</EndDateTime>
-		<EndTestTime>1762165723</EndTestTime>
+		<EndDateTime>Nov 05 16:10 PST</EndDateTime>
+		<EndTestTime>1762387801</EndTestTime>
 		<ElapsedMinutes>0</ElapsedMinutes>
 	</Testing>
 </Site>
