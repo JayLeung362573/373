@@ -429,6 +429,7 @@ src/CMakeFiles/core_lib.dir/GameClient.cpp.o: /Users/jiawei/Desktop/373/src/Game
   /Library/Developer/CommandLineTools/usr/lib/clang/14.0.0/share/asan_ignorelist.txt \
   /Users/jiawei/Desktop/373/src/GameClient.h \
   /Users/jiawei/Desktop/373/src/Lobby/Lobby.h \
+  /Users/jiawei/Desktop/373/src/Lobby/LobbyTypes.h \
   /Users/jiawei/Desktop/373/src/Message.h
 
 src/CMakeFiles/core_lib.dir/GameServer.cpp.o: /Users/jiawei/Desktop/373/src/GameServer.cpp \
@@ -860,6 +861,8 @@ src/CMakeFiles/core_lib.dir/GameServer.cpp.o: /Users/jiawei/Desktop/373/src/Game
   /Library/Developer/CommandLineTools/usr/lib/clang/14.0.0/share/asan_ignorelist.txt \
   /Users/jiawei/Desktop/373/src/GameServer.h \
   /Users/jiawei/Desktop/373/src/Lobby/Lobby.h \
+  /Users/jiawei/Desktop/373/src/Lobby/LobbyRegistry.h \
+  /Users/jiawei/Desktop/373/src/Lobby/LobbyTypes.h \
   /Users/jiawei/Desktop/373/src/Message.h
 
 src/CMakeFiles/core_lib.dir/MessageTranslator.cpp.o: /Users/jiawei/Desktop/373/src/MessageTranslator.cpp \
@@ -1233,6 +1236,7 @@ src/CMakeFiles/core_lib.dir/MessageTranslator.cpp.o: /Users/jiawei/Desktop/373/s
   /Library/Developer/CommandLineTools/usr/lib/clang/14.0.0/include/stdint.h \
   /Library/Developer/CommandLineTools/usr/lib/clang/14.0.0/share/asan_ignorelist.txt \
   /Users/jiawei/Desktop/373/src/Lobby/Lobby.h \
+  /Users/jiawei/Desktop/373/src/Lobby/LobbyTypes.h \
   /Users/jiawei/Desktop/373/src/Message.h \
   /Users/jiawei/Desktop/373/src/MessageTranslator.h
 
@@ -1670,6 +1674,7 @@ src/CMakeFiles/core_lib.dir/WebsocketNetworking.cpp.o: /Users/jiawei/Desktop/373
   _deps/web-socket-networking-src/lib/networking/include/Client.h \
   _deps/web-socket-networking-src/lib/networking/include/Server.h \
   /Users/jiawei/Desktop/373/src/Lobby/Lobby.h \
+  /Users/jiawei/Desktop/373/src/Lobby/LobbyTypes.h \
   /Users/jiawei/Desktop/373/src/Message.h \
   /Users/jiawei/Desktop/373/src/MessageTranslator.h \
   /Users/jiawei/Desktop/373/src/Networking.h \
@@ -1833,6 +1838,8 @@ _deps/web-socket-networking-src/lib/networking/include/Server.h:
 /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/sys/_pthread/_pthread_rwlockattr_t.h:
 
 /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/sys/_pthread/_pthread_rwlock_t.h:
+
+/Users/jiawei/Desktop/373/src/Lobby/LobbyTypes.h:
 
 /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/sys/_pthread/_pthread_cond_t.h:
 
@@ -2549,6 +2556,8 @@ _deps/web-socket-networking-src/lib/networking/include/Server.h:
 /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/xlocale/_time.h:
 
 /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/iterator:
+
+/Users/jiawei/Desktop/373/src/Lobby/LobbyRegistry.h:
 
 /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/__algorithm/unique_copy.h:
 

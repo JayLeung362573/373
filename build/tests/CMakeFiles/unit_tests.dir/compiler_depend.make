@@ -963,6 +963,8 @@ tests/CMakeFiles/unit_tests.dir/GameServerTest.cpp.o: /Users/jiawei/Desktop/373/
   _deps/googletest-src/googletest/include/gtest/internal/gtest-type-util.h \
   /Users/jiawei/Desktop/373/src/GameServer.h \
   /Users/jiawei/Desktop/373/src/Lobby/Lobby.h \
+  /Users/jiawei/Desktop/373/src/Lobby/LobbyRegistry.h \
+  /Users/jiawei/Desktop/373/src/Lobby/LobbyTypes.h \
   /Users/jiawei/Desktop/373/src/Message.h
 
 tests/CMakeFiles/unit_tests.dir/GameSpecLoaderTest.cpp.o: /Users/jiawei/Desktop/373/tests/GameSpecLoaderTest.cpp \
@@ -2411,6 +2413,7 @@ tests/CMakeFiles/unit_tests.dir/WebSocketNetworkingTest.cpp.o: /Users/jiawei/Des
   _deps/web-socket-networking-src/lib/networking/include/Client.h \
   _deps/web-socket-networking-src/lib/networking/include/Server.h \
   /Users/jiawei/Desktop/373/src/Lobby/Lobby.h \
+  /Users/jiawei/Desktop/373/src/Lobby/LobbyTypes.h \
   /Users/jiawei/Desktop/373/src/Message.h \
   /Users/jiawei/Desktop/373/src/Networking.h \
   /Users/jiawei/Desktop/373/src/WebSocketNetworking.h
@@ -3388,6 +3391,8 @@ _deps/googletest-src/googletest/include/gtest/gtest.h:
 
 /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/_types/_uint8_t.h:
 
+/Users/jiawei/Desktop/373/src/Lobby/LobbyTypes.h:
+
 /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/sys/_pthread/_pthread_cond_t.h:
 
 /Users/jiawei/Desktop/373/tests/GameInterpreterTest.cpp:
@@ -3397,6 +3402,8 @@ _deps/googletest-src/googletest/include/gtest/gtest.h:
 /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/xlocale/_time.h:
 
 /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/iterator:
+
+/Users/jiawei/Desktop/373/src/Lobby/LobbyRegistry.h:
 
 /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/__algorithm/unique_copy.h:
 

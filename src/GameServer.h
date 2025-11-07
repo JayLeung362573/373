@@ -35,4 +35,5 @@ private:
     LobbyRegistry m_lobbyRegistry;
     bool m_gameStarted;
     bool m_gameOver;
+    std::unordered_map<ClientID, LobbyID> m_clientToLobby;
 };

@@ -15,6 +15,9 @@ enum class MessageType : uint8_t
 
     /// Lobby messages
     JoinLobby,
+    LeaveLobby,
+    LobbyState,
+    BrowseLobbies,
 };
 
 struct JoinGameMessage
@@ -29,13 +32,31 @@ struct UpdateCycleMessage
 
 struct JoinLobbyMessage{
     std::string playerName;
+    std::string lobbyName;
+};
+
+struct LeaveLobbyMessage{
+    std::string playerName;
+};
+
+struct LobbyStateMessage{
+    std::vector<LobbyInfo> lobbies;
+    std::string currentLobbyID;
+};
+
+struct BrowseLobbiesMessage{
+    GameType gameType = GameType::Default;
 };
 
 using MessageData = std::variant<
         std::monostate,
         JoinGameMessage,
         UpdateCycleMessage,
-        JoinLobbyMessage
+
+        JoinLobbyMessage,
+        LeaveLobbyMessage,
+        LobbyStateMessage,
+        BrowseLobbiesMessage
         >;
 
 struct Message
