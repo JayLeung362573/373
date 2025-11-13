@@ -11,7 +11,7 @@ enum class LobbyRole{
     Audience,
 };
 
-struct LobbyPlayer{
+struct LobbyMember{
     uintptr_t clientID = 0;
     LobbyRole role = LobbyRole::Audience;
     bool ready = false;
@@ -22,22 +22,29 @@ struct LobbyPlayer{
     bool isPlayable() const { return isHost() || isPlayer();}
 };
 
+/// Individual lobby instance:
+/// 1) store lobby related data: name, id, type, members
+/// 2) manage players in THIS individual lobby
+/// 3) track ready states
 class Lobby{
 public:
     Lobby(const LobbyID& id, GameType gameType, ClientID hostID, const std::string& name);
 
-    bool addPlayer(uintptr_t clientID, LobbyRole role = LobbyRole::Player);
-    void removePlayer(uintptr_t clientID);
+    /// manage player list in this lobby
+    bool insertPlayer(uintptr_t clientID, LobbyRole role = LobbyRole::Player);
+    void deletePlayer(uintptr_t clientID);
     bool hasPlayer(ClientID clientID) const;
 
+    /// host management
     std::optional<uintptr_t> getHostID() const;
+    std::optional<LobbyRole> getMemberRole(uintptr_t clientID) const;
+    std::vector<LobbyMember> getAllPlayer() const;
 
-    std::optional<LobbyRole> getPlayerRole(uintptr_t clientID) const;
-
-    std::vector<LobbyPlayer> getPlayablePlayer() const;
-
+    /// getters for Info
     LobbyInfo getInfo() const;
     GameType getGameType() const {return m_gameType;}
+    size_t getPlayerCount() const {return m_players.size();}
+    bool isFull() const {return m_players.size() >= m_maxPlayers;}
 private:
     LobbyID m_lobbyID;
     std::string m_lobbyName;
@@ -46,5 +53,5 @@ private:
     LobbyState m_state;
     size_t m_maxPlayers;
 
-    std::unordered_map<uintptr_t, LobbyPlayer> m_players;
+    std::unordered_map<uintptr_t, LobbyMember> m_players;
 };

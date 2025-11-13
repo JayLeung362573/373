@@ -1,6 +1,6 @@
 #include "MessageTranslator.h"
 
-// Use template for each Meesage for easy scalability. We expect more meesage and changes to happen in the future
+// Use template for each Message for easy scalability. We expect more meesage and changes to happen in the future
 template<typename T>
 struct MessageTraits;
 
@@ -85,6 +85,29 @@ struct MessageTraits<BrowseLobbiesMessage> {
     }
 };
 
+template<>
+struct MessageTraits<GetLobbyStateMessage>{
+    static constexpr std::string_view prefix = "GetLobbyState:";
+    static std::string serialize(const GetLobbyStateMessage& getLobbyStateMsg) {
+        return std::string(prefix);
+    }
+    static Message deserialize(const std::string& payload) {
+        return { MessageType::GetLobbyState, GetLobbyStateMessage{} };
+    }
+};
+
+template<>
+struct MessageTraits<ErrorMessage>{
+    static constexpr std::string_view prefix = "Error:";
+    static std::string serialize(const ErrorMessage& errorMsg) {
+        return std::string(prefix) + errorMsg.reason;
+    }
+    static Message deserialize(const std::string& payload) {
+        std::string reason = payload.substr(prefix.size());
+        return { MessageType::Error, ErrorMessage{reason} };
+    }
+};
+
 std::string MessageTranslator::serialize(const Message& msg)
 {
     // using std::visit to access std::variant that MessageData contained
@@ -121,6 +144,12 @@ Message MessageTranslator::deserialize(const std::string& payload)
     }
     else if(payload.starts_with(MessageTraits<BrowseLobbiesMessage>::prefix)) {
         return MessageTraits<BrowseLobbiesMessage>::deserialize(payload);
+    }
+    else if(payload.starts_with(MessageTraits<GetLobbyStateMessage>::prefix)) {
+        return MessageTraits<GetLobbyStateMessage>::deserialize(payload);
+    }
+    else if(payload.starts_with(MessageTraits<ErrorMessage>::prefix)) {
+        return MessageTraits<ErrorMessage>::deserialize(payload);
     }
     else {
         return { MessageType::Empty, {} };

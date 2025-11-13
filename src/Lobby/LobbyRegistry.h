@@ -5,6 +5,9 @@
 #include "Lobby.h"
 #include "LobbyTypes.h"
 
+/// Lobby manager:
+/// 1) create and destroy lobbies
+/// 2)
 class LobbyRegistry{
 public:
 
@@ -15,11 +18,12 @@ public:
 
     bool joinLobby(ClientID playerID, const LobbyID& lobbyID);
     void leaveLobby(ClientID playerID);
-    void removeLobby(LobbyID lobbyId);
 
-//    std::optional<Lobby*> getLobby(LobbyID lobbyID);
-
+    Lobby * getLobby(const LobbyID& lobbyID) const;
+    std::optional<LobbyID> findLobbyForClient(ClientID playerID) const;
 private:
     LobbyID generateLobbyID();
+
     std::unordered_map<LobbyID, std::unique_ptr<Lobby>> m_lobbies;
+    size_t m_lobbyCounter = 0;
 };

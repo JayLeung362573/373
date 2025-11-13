@@ -7,7 +7,7 @@
 
 class WebSocketNetworkingTest : public ::testing::Test{
     const std::string testHtmlPath = "html_for_test.html";
-    
+
     void SetUp() override{
         std::ofstream htmlFile(testHtmlPath);
         if(htmlFile.is_open()){

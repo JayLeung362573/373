@@ -13,18 +13,25 @@ Lobby::Lobby(const LobbyID& id, GameType type, ClientID hostID, const std::strin
 }
 
 bool
-Lobby::addPlayer(uintptr_t clientID, LobbyRole role) {
-    LobbyPlayer player;
+Lobby::insertPlayer(uintptr_t clientID, LobbyRole role) {
+    if(isFull()){
+        return false;
+    }
+
+    if(hasPlayer(clientID)){
+        return false;
+    }
+
+    LobbyMember player;
     player.clientID = clientID;
     player.role = role;
     player.ready = false;
 
     m_players[clientID] = player;
-
     return true;
 }
 
-void Lobby::removePlayer(uintptr_t clientID) {
+void Lobby::deletePlayer(uintptr_t clientID) {
     m_players.erase(clientID);
 }
 
@@ -43,9 +50,9 @@ Lobby::getHostID() const {
     return std::nullopt;
 }
 
-std::vector<LobbyPlayer>
-Lobby::getPlayablePlayer() const {
-    std::vector<LobbyPlayer> playablePlayers;
+std::vector<LobbyMember>
+Lobby::getAllPlayer() const {
+    std::vector<LobbyMember> playablePlayers;
 
     for(const auto& [clientID, player] : m_players){
         if(player.isPlayable()){
@@ -71,7 +78,7 @@ Lobby::getInfo() const {
 }
 
 std::optional<LobbyRole>
-Lobby::getPlayerRole(uintptr_t clientID) const {
+Lobby::getMemberRole(uintptr_t clientID) const {
     auto it = m_players.find(clientID);
     if(it != m_players.end()){
         return it->second.role;
