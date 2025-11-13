@@ -166,6 +166,8 @@ class GameInterpreter : public ast::ASTVisitor
         void setInGameMessages(const std::vector<GameMessage>& inGameMessages);
         std::vector<GameMessage> consumeOutGameMessages();
 
+        const VariableMap& getGameState() const { return m_variableMap; }
+
     private:
         std::optional<TextInputMessage>
         getTextInputMsg(String playerID, String prompt) const;
