@@ -18,8 +18,7 @@ class VariableMap
             if (!m_map.contains(varName))
             {
                 throw std::runtime_error(
-                      "Variable with name '" + varName.name + "' doesn't exist in map"
-//                    std::format("Variable with name '{}' doesn't exist in map", varName.name
+                    std::format("Variable with name '{}' doesn't exist in map", varName.name)
                 );
             }
             return m_map[varName].get();

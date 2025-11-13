@@ -1,4 +1,3 @@
-#include <cassert>
 #include <memory>
 #include <vector>
 #include <variant>
@@ -41,15 +40,59 @@ GameInterpreter::visit(const ast::Attribute& attribute)
         throw std::runtime_error("Attribute base must be a Variable or Attribute");
     }
 
-    VisitResult baseResult = evaluateExpression(*baseExpr);
-    if (!baseResult.isReference())
-    {
-        throw std::runtime_error("Expected expression to evaluate to a reference");
-    }
-
+    VisitResult baseResult = resolveExpression(*baseExpr);
     Value& baseValue = baseResult.getValue();
     Value& attrValue = baseValue.getAttribute(attribute.getAttr());
+
     return VisitResult{VisitResult::Status::Done, &attrValue};
+}
+
+VisitResult
+GameInterpreter::visit(const ast::Comparison& comparison)
+{
+    Value left = evaluateExpression(*comparison.getLeft()).getValue();
+    Value right = evaluateExpression(*comparison.getRight()).getValue();
+
+    Boolean boolResult;
+
+    switch (comparison.getKind())
+    {
+        case ast::Comparison::Kind::EQ: boolResult = isEqual(left, right); break;
+        case ast::Comparison::Kind::LT: boolResult = isLessThan(left, right); break;
+    }
+
+    return VisitResult{VisitResult::Status::Done, Value{boolResult}};
+}
+
+VisitResult
+GameInterpreter::visit(const ast::LogicalOperation& logicalOp)
+{
+    Value left = evaluateExpression(*logicalOp.getLeft()).getValue();
+    Value right = evaluateExpression(*logicalOp.getRight()).getValue();
+
+    Boolean boolResult;
+
+    switch (logicalOp.getKind())
+    {
+        case ast::LogicalOperation::Kind::OR: boolResult = Boolean{doLogicalOr(left, right)}; break;
+    }
+
+    return VisitResult{VisitResult::Status::Done, Value{boolResult}};
+}
+
+VisitResult
+GameInterpreter::visit(const ast::UnaryOperation& unaryOp)
+{
+    Value target = evaluateExpression(*unaryOp.getTarget()).getValue();
+
+    Boolean boolResult;
+
+    switch (unaryOp.getKind())
+    {
+        case ast::UnaryOperation::Kind::NOT: boolResult = Boolean{doUnaryNot(target)}; break;
+    }
+
+    return VisitResult{VisitResult::Status::Done, Value{boolResult}};
 }
 
 VisitResult
@@ -73,6 +116,69 @@ GameInterpreter::visit(const ast::Assignment& assignment)
     return VisitResult{VisitResult::Status::Done, {}};
 }
 
+VisitResult
+GameInterpreter::visit(const ast::Extend& extend)
+{
+    VisitResult targetResult = resolveExpression(*extend.getTarget());
+    Value& target = targetResult.getValue();
+
+    VisitResult valueResult = evaluateExpression(*extend.getValue());
+    Value value = valueResult.getValue();
+
+    target.asList().extend(value.asList());
+
+    return VisitResult{VisitResult::Status::Done, {}};
+}
+
+VisitResult
+GameInterpreter::visit(const ast::Reverse& reverse)
+{
+    VisitResult targetResult = resolveExpression(*reverse.getTarget());
+    Value& target = targetResult.getValue();
+
+    target.asList().reverse();
+
+    return VisitResult{VisitResult::Status::Done, {}};
+}
+
+VisitResult
+GameInterpreter::visit(const ast::Shuffle& shuffle)
+{
+    VisitResult targetResult = resolveExpression(*shuffle.getTarget());
+    Value& target = targetResult.getValue();
+
+    target.asList().shuffle();
+
+    return VisitResult{VisitResult::Status::Done, {}};
+}
+
+VisitResult
+GameInterpreter::visit(const ast::Discard& discard)
+{
+    VisitResult targetResult = resolveExpression(*discard.getTarget());
+    Value& target = targetResult.getValue();
+
+    VisitResult amountResult = evaluateExpression(*discard.getAmount());
+    Value amount = amountResult.getValue();
+
+    target.asList().discard(amount.asInteger());
+
+    return VisitResult{VisitResult::Status::Done, {}};
+}
+
+VisitResult
+GameInterpreter::visit(const ast::Sort& sort)
+{
+    VisitResult targetResult = resolveExpression(*sort.getTarget());
+    Value& target = targetResult.getValue();
+
+    List<Value> sortedTarget = sortList(target.asList(), sort.getKey());
+
+    target = Value{sortedTarget};
+
+    return VisitResult{VisitResult::Status::Done, {}};
+}
+
 void
 GameInterpreter::doVariableAssignment(ast::Variable& varTarget, Value valueToAssign)
 {
@@ -88,12 +194,7 @@ GameInterpreter::doAttributeAssignment(ast::Attribute& attrTarget, Value valueTo
         throw std::runtime_error("Attribute base cannot be null");
     }
 
-    VisitResult baseResult = evaluateExpression(*baseExpr);
-    if (!baseResult.isReference())
-    {
-        throw std::runtime_error("Expected expression to evaluate to a reference");
-    }
-
+    VisitResult baseResult = resolveExpression(*baseExpr);
     Value& baseValue = baseResult.getValue();
     baseValue.setAttribute(attrTarget.getAttr(), valueToAssign);
 }
@@ -107,6 +208,40 @@ GameInterpreter::evaluateExpression(ast::Expression& expr)
         throw std::runtime_error("Expression did not evaluate to a value");
     }
     return result;
+}
+
+VisitResult
+GameInterpreter::resolveExpression(ast::Expression& expr)
+{
+    VisitResult result = expr.accept(*this);
+    if (!result.hasValue())
+    {
+        throw std::runtime_error("Expression did not resolve to a Value");
+    }
+    if (!result.isReference())
+    {
+        throw std::runtime_error("Expression did not resolve to a Value reference");
+    }
+
+    return result;
+}
+
+Boolean
+GameInterpreter::isEqual(const Value& a, const Value& b)
+{
+    bool isEqual = (a == b);
+    return Boolean{isEqual};
+}
+
+Boolean
+GameInterpreter::isLessThan(const Value& left, const Value& right)
+{
+    auto maybeIsLessThan = maybeCompareValues(left, right);
+    if (maybeIsLessThan.has_value())
+    {
+        return Boolean{*maybeIsLessThan};
+    }
+    throw std::runtime_error("Values are not less-than comparable");
 }
 
 VisitResult
@@ -145,8 +280,7 @@ GameInterpreter::getPlayerAttribute(const ast::Variable& playerVar, String attr)
     if (!result.hasValue())
     {
         throw std::runtime_error(
-              "Failed to get player attribute: " + attr.value
-//            std::format("Failed to get player attribute: {}", attr.value)
+            std::format("Failed to get player attribute: {}", attr.value)
         );
     }
     return result.getValue();

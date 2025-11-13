@@ -17,7 +17,17 @@ FetchContent_MakeAvailable(googletest)
 add_executable(unit_tests
   WebSocketNetworkingTest.cpp
   GameServerTest.cpp
-  GameInterpreterTest.cpp
+  GameInterpreterTests/AssignmentTest.cpp
+  GameInterpreterTests/ComparisonTest.cpp
+  GameInterpreterTests/ConstantTest.cpp
+  GameInterpreterTests/DiscardTest.cpp
+  GameInterpreterTests/ExtendTest.cpp
+  GameInterpreterTests/InputTextStmtTest.cpp
+  GameInterpreterTests/LogicalOperationTest.cpp
+  GameInterpreterTests/ShuffleTest.cpp
+  GameInterpreterTests/UnaryOperationTest.cpp
+  GameInterpreterTests/SortTest.cpp
+  TypesTest.cpp
   RulesTest.cpp
   GameSpecLoaderTest.cpp
   LobbyRegistryTest.cpp

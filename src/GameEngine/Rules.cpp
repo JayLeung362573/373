@@ -15,7 +15,47 @@ VisitResult ast::Attribute::accept(ast::ASTVisitor& visitor)
     return visitor.visit(*this);
 };
 
+VisitResult ast::Comparison::accept(ast::ASTVisitor& visitor)
+{
+    return visitor.visit(*this);
+};
+
+VisitResult ast::LogicalOperation::accept(ast::ASTVisitor& visitor)
+{
+    return visitor.visit(*this);
+};
+
+VisitResult ast::UnaryOperation::accept(ASTVisitor &visitor)
+{
+    return visitor.visit(*this);
+};
+
 VisitResult ast::Assignment::accept(ast::ASTVisitor& visitor)
+{
+    return visitor.visit(*this);
+};
+
+VisitResult ast::Extend::accept(ast::ASTVisitor& visitor)
+{
+    return visitor.visit(*this);
+};
+
+VisitResult ast::Reverse::accept(ast::ASTVisitor& visitor)
+{
+    return visitor.visit(*this);
+};
+
+VisitResult ast::Shuffle::accept(ast::ASTVisitor& visitor)
+{
+    return visitor.visit(*this);
+};
+
+VisitResult ast::Discard::accept(ast::ASTVisitor& visitor)
+{
+    return visitor.visit(*this);
+};
+
+VisitResult ast::Sort::accept(ast::ASTVisitor& visitor)
 {
     return visitor.visit(*this);
 };
@@ -41,6 +81,33 @@ ast::makeConstant(Value value) {
     return std::make_unique<ast::Constant>(value);
 }
 
+std::unique_ptr<ast::Comparison>
+ast::makeComparison(std::unique_ptr<ast::Expression> left,
+                    std::unique_ptr<ast::Expression> right,
+                    ast::Comparison::Kind kind)
+{
+    return std::make_unique<ast::Comparison>(
+        std::move(left), std::move(right), kind
+    );
+}
+
+std::unique_ptr<ast::LogicalOperation>
+ast::makeLogicalOperation(std::unique_ptr<ast::Expression> left,
+                          std::unique_ptr<ast::Expression> right,
+                          ast::LogicalOperation::Kind kind)
+{
+    return std::make_unique<ast::LogicalOperation>(
+        std::move(left), std::move(right), kind
+    );
+}
+
+std::unique_ptr<ast::UnaryOperation>
+ast::makeUnaryOperation(std::unique_ptr<ast::Expression> target,
+                        ast::UnaryOperation::Kind kind)
+{
+    return std::make_unique<ast::UnaryOperation>(std::move(target), kind);
+}
+
 std::unique_ptr<ast::Assignment>
 ast::makeAssignment(std::unique_ptr<ast::Expression> targetExpr,
                std::unique_ptr<ast::Expression> valueToAssign)
@@ -48,6 +115,38 @@ ast::makeAssignment(std::unique_ptr<ast::Expression> targetExpr,
     return std::make_unique<ast::Assignment>(
         std::move(targetExpr), std::move(valueToAssign)
     );
+}
+
+std::unique_ptr<ast::Extend>
+ast::makeExtend(std::unique_ptr<ast::Expression> target,
+                std::unique_ptr<ast::Expression> value)
+{
+    return std::make_unique<ast::Extend>(std::move(target), std::move(value));
+}
+
+std::unique_ptr<ast::Reverse>
+ast::makeReverse(std::unique_ptr<ast::Expression> target)
+{
+    return std::make_unique<ast::Reverse>(std::move(target));
+}
+
+std::unique_ptr<ast::Shuffle>
+ast::makeShuffle(std::unique_ptr<ast::Expression> target)
+{
+    return std::make_unique<ast::Shuffle>(std::move(target));
+}
+
+std::unique_ptr<ast::Discard>
+ast::makeDiscard(std::unique_ptr<ast::Expression> target,
+                 std::unique_ptr<ast::Expression> amount)
+{
+    return std::make_unique<ast::Discard>(std::move(target), std::move(amount));
+}
+
+std::unique_ptr<ast::Sort>
+ast::makeSort(std::unique_ptr<ast::Expression> target, std::optional<String> key)
+{
+    return std::make_unique<ast::Sort>(std::move(target), key);
 }
 
 std::unique_ptr<ast::InputTextStatement>
