@@ -52,8 +52,8 @@ GameServer::handleClientMessages(const std::vector<ClientMessage> &incomingMessa
         std::visit(visitor, clientMsg.message.data);
 
         outgoingMessages.insert(outgoingMessages.end(),
-                                visitor.responses.begin(),
-                                visitor.responses.end());
+                                std::make_move_iterator(visitor.responses.begin()),
+                                std::make_move_iterator(visitor.responses.end()));
     }
     return outgoingMessages;
 }
@@ -64,29 +64,31 @@ GameServer::handleJoinLobbyMessages(uintptr_t clientID, const JoinLobbyMessage& 
               << "} attempting to join lobby (clientID = " << clientID << ")\n";
 
     LobbyID lobbyID;
+    Lobby* lobby = nullptr;
     std::vector<ClientMessage> outgoingMessages;
 
     if(joinLobbyMsg.lobbyName.empty()){
-        lobbyID = m_lobbyRegistry.createLobby(
+        lobby = m_lobbyRegistry.createLobby(
                 clientID,
                 GameType::Default,
                 joinLobbyMsg.playerName + "'s Lobby"
         );
     } else {
         lobbyID = joinLobbyMsg.lobbyName;
-        bool joined = m_lobbyRegistry.joinLobby(clientID, lobbyID);
-
-        if(!joined){
-            Message errorMsg;
-            errorMsg.type = MessageType::Error;
-            errorMsg.data = ErrorMessage{"Lobby is full or not exist"};
-
-            outgoingMessages.push_back(ClientMessage{clientID, errorMsg});
-            return outgoingMessages;
-        }
+        lobby = m_lobbyRegistry.joinLobby(clientID, lobbyID);
     }
 
-    auto lobby = m_lobbyRegistry.getLobby(lobbyID);
+    if(!lobby){
+        Message errorMsg;
+        errorMsg.type = MessageType::Error;
+        errorMsg.data = ErrorMessage{"[handleJoinLobby: Lobby not found or is full"};
+        outgoingMessages.push_back(ClientMessage{clientID, errorMsg});
+        return outgoingMessages;
+    }
+
+    if(joinLobbyMsg.lobbyName.empty()){
+        lobbyID = lobby->getInfo().lobbyID;
+    }
 
     Message lobbyStatePayload;
     lobbyStatePayload.type = MessageType::LobbyState;
@@ -170,6 +172,14 @@ GameServer::handleGetLobbyStateMessages(uintptr_t clientID, const GetLobbyStateM
     }
 
     auto lobby = m_lobbyRegistry.getLobby(*lobbyID);
+
+    if(!lobby){
+        std::cout << "[GameServer] Error: Lobby " << *lobbyID << " not found after find\n";
+        Message errorMsg;
+        errorMsg.type = MessageType::Error;
+        errorMsg.data = ErrorMessage{"handleGetLobbyState: Lobby not found"};
+        return {ClientMessage{clientID, errorMsg}};
+    }
 
     Message response;
     response.type = MessageType::LobbyState;

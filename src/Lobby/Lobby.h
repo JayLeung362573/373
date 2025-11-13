@@ -36,7 +36,7 @@ public:
     bool hasPlayer(ClientID clientID) const;
 
     /// host management
-    std::optional<uintptr_t> getHostID() const;
+    ClientID getHostID() const;
     std::optional<LobbyRole> getMemberRole(uintptr_t clientID) const;
     std::vector<LobbyMember> getAllPlayer() const;
 

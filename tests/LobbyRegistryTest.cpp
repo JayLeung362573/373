@@ -59,25 +59,23 @@ TEST(LobbyTest, IsFullPreventsInsert) {
 // LobbyRegistry Tests
 TEST(LobbyRegistryTest, JoinEmptyLobbyCreatesNew) {
     LobbyRegistry registry;
+    Lobby* lobby = registry.createLobby(ClientID{1}, GameType::Default, "Bob's Game");
 
-    LobbyID lobbyID = registry.createLobby(ClientID{1}, GameType::Default, "Bob's Game");
-    EXPECT_FALSE(lobbyID.empty());
-
-    const Lobby* lobby = registry.getLobby(lobbyID);
     ASSERT_NE(lobby, nullptr);
     EXPECT_EQ(lobby->getInfo().lobbyName, "Bob's Game");
+    EXPECT_TRUE(lobby->hasPlayer(ClientID{1}));
 }
 
 TEST(LobbyRegistryTest, MovePlayerToExistingLobby) {
     LobbyRegistry registry;
-    LobbyID id = registry.createLobby(ClientID{1}, GameType::Default, "Chess Match");
-
-    bool joined = registry.joinLobby(ClientID{2}, LobbyID{id});
-    EXPECT_TRUE(joined);
-
-    const Lobby* lobby = registry.getLobby(LobbyID{id});
+    Lobby* lobby = registry.createLobby(ClientID{1}, GameType::Default, "Chess Match");
     ASSERT_NE(lobby, nullptr);
-    EXPECT_TRUE(lobby->hasPlayer(ClientID{2}));
+    LobbyID lobbyID = lobby->getInfo().lobbyID;
+
+    Lobby* existingLobby = registry.joinLobby(ClientID{2}, lobbyID);
+    ASSERT_NE(existingLobby, nullptr);
+    EXPECT_EQ(lobby, existingLobby);
+    EXPECT_TRUE(existingLobby->hasPlayer(ClientID{2}));
 }
 
 TEST(LobbyRegistryTest, MovePlayerToNonExistentLobbyFails) {
@@ -88,23 +86,36 @@ TEST(LobbyRegistryTest, MovePlayerToNonExistentLobbyFails) {
 
 TEST(LobbyRegistryTest, RemovePlayerFromAllLobbies) {
     LobbyRegistry registry;
-    LobbyID id1 = registry.createLobby(ClientID{1}, GameType::Default, "Test1");
-    LobbyID id2 = registry.createLobby(ClientID{2}, GameType::Default, "Test2");
+    Lobby* lobby1 = registry.createLobby(ClientID{1}, GameType::Default, "Test1");
+    Lobby* lobby2 = registry.createLobby(ClientID{2}, GameType::Default, "Test2");
+    ASSERT_NE(lobby1, nullptr);
+    ASSERT_NE(lobby2, nullptr);
 
-    registry.joinLobby(ClientID{3}, LobbyID{id1});
-    registry.joinLobby(ClientID{3}, LobbyID{id2});
+    LobbyID id1 = lobby1->getInfo().lobbyID;
+    LobbyID id2 = lobby2->getInfo().lobbyID;
+
+    Lobby* joined1 = registry.joinLobby(ClientID{3}, LobbyID{id1});
+    ASSERT_NE(joined1, nullptr);
+    EXPECT_TRUE(joined1->hasPlayer(ClientID{3}));
+
+    Lobby* joined2 = registry.joinLobby(ClientID{3}, LobbyID{id2});
+    ASSERT_EQ(joined2, nullptr);
+    EXPECT_FALSE(lobby2->hasPlayer(ClientID{3}));
 
     registry.leaveLobby(ClientID{3});
 
-    EXPECT_FALSE(registry.getLobby(id1)->hasPlayer(3));
-    EXPECT_FALSE(registry.getLobby(id2)->hasPlayer(3));
+    Lobby* lobby1After = registry.getLobby(id1);
+    ASSERT_NE(lobby1After, nullptr);
+    EXPECT_FALSE(lobby1After->hasPlayer(ClientID{3}));
+    EXPECT_TRUE(lobby1After->hasPlayer(ClientID{1}));
 }
 
 TEST(LobbyRegistryTest, FindLobbyForClientReturnsCorrectLobby) {
     LobbyRegistry registry;
-    LobbyID id1 = registry.createLobby(ClientID{1}, GameType::Default, "FindTest");
+    Lobby* lobby = registry.createLobby(ClientID{1}, GameType::Default, "FindTest");
+    LobbyID id1 = lobby->getInfo().lobbyID;
 
-    registry.joinLobby(ClientID{5}, id1);
+    registry.joinLobby(ClientID{5}, LobbyID{id1});
     auto result = registry.findLobbyForClient(5);
 
     ASSERT_TRUE(result.has_value());
@@ -113,8 +124,10 @@ TEST(LobbyRegistryTest, FindLobbyForClientReturnsCorrectLobby) {
 
 TEST(LobbyRegistryTest, FindLobbyForNonexistentClientReturnsNullopt) {
     LobbyRegistry registry;
-    LobbyID id1 = registry.createLobby(ClientID{1}, GameType::Default, "FindNone");
+    registry.createLobby(ClientID{1}, GameType::Default, "FindNone");
 
     auto result = registry.findLobbyForClient(99);
     EXPECT_FALSE(result.has_value());
 }
+
+

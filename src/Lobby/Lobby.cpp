@@ -9,6 +9,7 @@ Lobby::Lobby(const LobbyID& id, GameType type, ClientID hostID, const std::strin
         , m_state(LobbyState::Open)
         , m_maxPlayers(10)
 {
+    insertPlayer(hostID, LobbyRole::Host);
     std::cout << "[Lobby] Created lobby '" << name << "' (ID: " << id << ")\n";
 }
 
@@ -40,14 +41,9 @@ Lobby::hasPlayer(ClientID clientID) const {
     return m_players.find(clientID) != m_players.end();
 }
 
-std::optional<uintptr_t>
+ClientID
 Lobby::getHostID() const {
-    for(const auto& [clientID, player] : m_players){
-        if(player.isHost()){
-            return clientID;
-        }
-    }
-    return std::nullopt;
+    return m_hostID;
 }
 
 std::vector<LobbyMember>
@@ -72,6 +68,7 @@ Lobby::getInfo() const {
     info.hostID = m_hostID;
     info.currentPlayers = m_players.size();
     info.maxPlayers = m_maxPlayers;
+    info.minPlayers = 1;
     info.state = m_state;
 
     return info;
