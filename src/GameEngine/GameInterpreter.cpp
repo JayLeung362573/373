@@ -271,6 +271,63 @@ GameInterpreter::visit(const ast::InputTextStatement& inputTextStatement)
     return VisitResult{VisitResult::Status::Done, {}};
 }
 
+VisitResult
+GameInterpreter::visit(const ast::Match& match)
+{
+    // Evaluate the target expression
+    auto* targetExpr = match.getTarget();
+    if (!targetExpr)
+    {
+        throw std::runtime_error("Match target cannot be null");
+    }
+
+    VisitResult targetResult = evaluateExpression(*targetExpr);
+    if (!targetResult.hasValue())
+    {
+        throw std::runtime_error("Match target must evaluate to a value");
+    }
+
+    Value& targetValue = targetResult.getValue();
+
+    // Get all candidate pairs
+    auto pairs = match.getExpressionCandidateAndStatementsPairs();
+
+    // Find the first matching case
+    for (const auto& pair : pairs)
+    {
+        if (!pair.expressionCandidate)
+        {
+            // Default case (no expression to match) - always matches
+            for (auto* statement : pair.statements)
+            {
+                if (statement) statement->accept(*this);
+            }
+            return VisitResult{VisitResult::Status::Done, {}};
+        }
+
+        // Evaluate the candidate expression
+        VisitResult candidateResult = evaluateExpression(*pair.expressionCandidate);
+        if (candidateResult.hasValue())
+        {
+            Value& candidateValue = candidateResult.getValue();
+
+            // Check if they match
+            if (isEqual(targetValue, candidateValue).value)
+            {
+                // Execute statements for this case
+                for (auto* statement : pair.statements)
+                {
+                    if (statement) statement->accept(*this);
+                }
+                return VisitResult{VisitResult::Status::Done, {}};
+            }
+        }
+    }
+
+    // No case matched - do nothing
+    return VisitResult{VisitResult::Status::Done, {}};
+}
+
 Value
 GameInterpreter::getPlayerAttribute(const ast::Variable& playerVar, String attr)
 {

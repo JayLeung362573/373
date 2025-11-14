@@ -163,8 +163,25 @@ class GameInterpreter : public ast::ASTVisitor
          */
         VisitResult visit(const ast::InputTextStatement& inputTextStatement) override;
 
+        /**
+         * @brief Evaluates a match statement (switch-case style control flow).
+         *
+         * @param match The Match node to visit.
+         * @return VisitResult
+         *
+         * @pre The target expression can be evaluated.
+         * @post The first matching case's statements are executed.
+         */
+        VisitResult visit(const ast::Match& match) override;
+
         void setInGameMessages(const std::vector<GameMessage>& inGameMessages);
         std::vector<GameMessage> consumeOutGameMessages();
+
+        /**
+         * @brief Get read-only access to the game state (variable map).
+         * Useful for inspecting game state after execution.
+         */
+        const VariableMap& getGameState() const { return m_variableMap; }
 
     private:
         std::optional<TextInputMessage>
