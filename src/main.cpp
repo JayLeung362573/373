@@ -8,10 +8,114 @@
 
 #include <thread>
 #include <chrono>
+#include <iostream>
+
+// Simple simulation of Phase 1 workflow: Lobby → Game
+void runSimpleSimulation()
+{
+    std::cout << "\n========================================\n";
+    std::cout << "  PHASE 1 SIMULATION: Lobby → Game\n";
+    std::cout << "========================================\n\n";
+
+    auto server = std::make_unique<GameServer>();
+
+    const uintptr_t ALICE_ID = 100;
+    const uintptr_t BOB_ID = 200;
+    const uintptr_t CAROL_ID = 300;
+
+    // ========== STEP 1: Alice creates a lobby ==========
+    std::cout << "STEP 1: Alice creates a lobby\n";
+    std::cout << "------------------------------\n";
+
+    Message createLobbyMsg;
+    createLobbyMsg.type = MessageType::JoinLobby;
+    createLobbyMsg.data = JoinLobbyMessage{"Alice", ""};  // Empty name = create new
+
+    auto responses = server->tick({ClientMessage{ALICE_ID, createLobbyMsg}});
+
+    std::string lobbyID;
+    if (!responses.empty() && std::holds_alternative<LobbyStateMessage>(responses[0].message.data)) {
+        lobbyID = std::get<LobbyStateMessage>(responses[0].message.data).currentLobbyID;
+        std::cout << "✓ Lobby created: '" << lobbyID << "'\n";
+    }
+    std::cout << "\n";
+
+    // ========== STEP 2: Bob and Carol join ==========
+    std::cout << "STEP 2: Bob and Carol join the lobby\n";
+    std::cout << "-------------------------------------\n";
+
+    Message bobJoinMsg;
+    bobJoinMsg.type = MessageType::JoinLobby;
+    bobJoinMsg.data = JoinLobbyMessage{"Bob", lobbyID};
+
+    Message carolJoinMsg;
+    carolJoinMsg.type = MessageType::JoinLobby;
+    carolJoinMsg.data = JoinLobbyMessage{"Carol", lobbyID};
+
+    server->tick({
+        ClientMessage{BOB_ID, bobJoinMsg},
+        ClientMessage{CAROL_ID, carolJoinMsg}
+    });
+
+    std::cout << "✓ Bob joined\n";
+    std::cout << "✓ Carol joined\n";
+    std::cout << "✓ Lobby now has 3 players\n\n";
+
+    // ========== STEP 3: Alice (host) starts the game ==========
+    std::cout << "STEP 3: Alice starts the game\n";
+    std::cout << "------------------------------\n";
+
+    Message startGameMsg;
+    startGameMsg.type = MessageType::JoinGame;
+    startGameMsg.data = JoinGameMessage{"Alice"};
+
+    auto gameResponses = server->tick({ClientMessage{ALICE_ID, startGameMsg}});
+
+    std::cout << "✓ Game started!\n";
+    std::cout << "✓ Notified " << gameResponses.size() << " players\n\n";
+
+    // ========== STEP 4: Show results ==========
+    std::cout << "STEP 4: Game Results\n";
+    std::cout << "--------------------\n";
+    for (const auto& resp : gameResponses) {
+        if (resp.message.type == MessageType::JoinGame) {
+            std::string playerName;
+            if (resp.clientID == ALICE_ID) playerName = "Alice";
+            else if (resp.clientID == BOB_ID) playerName = "Bob";
+            else if (resp.clientID == CAROL_ID) playerName = "Carol";
+
+            auto& data = std::get<JoinGameMessage>(resp.message.data);
+            std::cout << "  → " << playerName << " (ID: " << resp.clientID
+                      << "): " << data.playerName << "\n";
+        }
+    }
+
+    std::cout << "\n========================================\n";
+    std::cout << "  SIMULATION COMPLETE!\n";
+    std::cout << "========================================\n\n";
+}
 
 // simple demo of two clients sending a JoinGame message to the server
 int main(int argc, char* argv[])
 {
+    // Show usage if no arguments
+    if (argc == 1) {
+        std::cout << "Usage: " << argv[0] << " [MODE]\n\n";
+        std::cout << "Available modes:\n";
+        std::cout << "  --simulate       Run Phase 1 simulation (Lobby → Game)\n";
+        std::cout << "  --use-websocket  Start WebSocket server\n\n";
+        std::cout << "Examples:\n";
+        std::cout << "  " << argv[0] << " --simulate\n";
+        std::cout << "  " << argv[0] << " --use-websocket\n";
+        return 0;
+    }
+
+    // Check for simulation mode
+    if (argc > 1 && std::string(argv[1]) == "--simulate") {
+        runSimpleSimulation();
+        return 0;
+    }
+
     bool useWebSocket = false;
 
     if (argc > 1 && std::string(argv[1]) == "--use-websocket") {
