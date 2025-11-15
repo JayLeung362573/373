@@ -6,7 +6,8 @@ add_subdirectory(Lobby)
 add_library(core_lib
   GameClient.cpp
   GameServer.cpp
-        WebsocketNetworking.cpp
+  GameSession.cpp
+  WebsocketNetworking.cpp
   MessageTranslator.cpp
 )
 

@@ -6,6 +6,8 @@
 #include "Message.h"
 #include "Lobby.h"
 #include "LobbyRegistry.h"
+#include "GameSession.h"
+#include "GameEngine/Rules.h"
 
 
 class NetworkingInterface;
@@ -31,4 +33,10 @@ public:
 
 private:
     LobbyRegistry m_lobbyRegistry;
+
+    // Track active game sessions (one per lobby)
+    std::unordered_map<LobbyID, std::unique_ptr<GameSession>> m_activeSessions;
+
+    // Helper to create simple game rules for Phase 1 testing
+    GameRules createSimpleGameRules();
 };

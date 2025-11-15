@@ -1,8 +1,37 @@
 #include <iostream>
 #include "GameServer.h"
 #include "Message.h"
+#include "GameSession.h"
 
 GameServer::GameServer() = default;
+
+GameRules GameServer::createSimpleGameRules()
+{
+    // Phase 1: Create simple hardcoded game for testing
+    // The vector must be static so the span remains valid
+    static std::vector<std::unique_ptr<ast::Statement>> statements;
+    statements.clear();
+
+    // Create test statements: winner = "Player1", score = 100
+    statements.push_back(
+        ast::makeAssignment(
+            ast::makeVariable(Name{"winner"}),
+            ast::makeConstant(Value{String{"Player1"}})
+        )
+    );
+
+    statements.push_back(
+        ast::makeAssignment(
+            ast::makeVariable(Name{"score"}),
+            ast::makeConstant(Value{Integer{100}})
+        )
+    );
+
+    std::cout << "[GameServer] Created simple game with "
+              << statements.size() << " statement(s)\n";
+
+    return GameRules{std::span(statements)};
+}
 
 struct MessageHandlerVisitor {
     uintptr_t clientID;
@@ -204,15 +233,81 @@ GameServer::handleBrowseLobbiesMessages(uintptr_t clientID, const BrowseLobbiesM
 }
 
 std::vector<ClientMessage>
-GameServer::handleJoinGameMessages(uintptr_t clientID, const JoinGameMessage& joinGameMsg){
-    std::cout << "[GameServer] JoinGame: " << joinGameMsg.playerName << "\n";
+GameServer::handleJoinGameMessages(uintptr_t clientID, const JoinGameMessage& joinGameMsg)
+{
+    std::cout << "[GameServer] Player '" << joinGameMsg.playerName
+              << "' requesting to start game (clientID: " << clientID << ")\n";
 
-    // TODO start the game
+    // ========== STEP 1: Find the lobby this client is in ==========
+    auto lobbyID = m_lobbyRegistry.findLobbyForClient(clientID);
+    if (!lobbyID) {
+        std::cout << "[GameServer] Error: Client not in any lobby\n";
+        Message errorMsg;
+        errorMsg.type = MessageType::Error;
+        errorMsg.data = ErrorMessage{"You must be in a lobby to start a game"};
+        return {ClientMessage{clientID, errorMsg}};
+    }
 
-    Message response;
-    response.type = MessageType::JoinGame;
-    response.data = JoinGameMessage{joinGameMsg.playerName};
-    return {ClientMessage{clientID, response}};
+    // ========== STEP 2: Get the lobby object ==========
+    auto lobby = m_lobbyRegistry.getLobby(*lobbyID);
+    if (!lobby) {
+        std::cout << "[GameServer] Error: Lobby '" << *lobbyID << "' not found\n";
+        Message errorMsg;
+        errorMsg.type = MessageType::Error;
+        errorMsg.data = ErrorMessage{"Lobby not found"};
+        return {ClientMessage{clientID, errorMsg}};
+    }
+
+    // ========== STEP 3: Verify only host can start game ==========
+    if (lobby->getHostID() != clientID) {
+        std::cout << "[GameServer] Error: Client " << clientID
+                  << " is not the host (host is " << lobby->getHostID() << ")\n";
+        Message errorMsg;
+        errorMsg.type = MessageType::Error;
+        errorMsg.data = ErrorMessage{"Only the lobby host can start the game"};
+        return {ClientMessage{clientID, errorMsg}};
+    }
+
+    // ========== STEP 4: Check if game already started ==========
+    if (m_activeSessions.find(*lobbyID) != m_activeSessions.end()) {
+        std::cout << "[GameServer] Error: Game already in progress for lobby '"
+                  << *lobbyID << "'\n";
+        Message errorMsg;
+        errorMsg.type = MessageType::Error;
+        errorMsg.data = ErrorMessage{"Game already in progress for this lobby"};
+        return {ClientMessage{clientID, errorMsg}};
+    }
+
+    // ========== STEP 5: Get all players from lobby ==========
+    auto players = lobby->getAllPlayer();
+    std::cout << "[GameServer] Starting game for lobby '" << *lobbyID
+              << "' with " << players.size() << " player(s)\n";
+
+    // ========== STEP 6: Create game rules ==========
+    GameRules rules = createSimpleGameRules();
+
+    // ========== STEP 7: Create and start GameSession ==========
+    auto session = std::make_unique<GameSession>(*lobbyID, rules, players);
+    session->start();  // Execute game immediately (Phase 1)
+
+    // ========== STEP 8: Store session for tracking ==========
+    m_activeSessions[*lobbyID] = std::move(session);
+
+    std::cout << "[GameServer] Game session stored. Active sessions: "
+              << m_activeSessions.size() << "\n";
+
+    // ========== STEP 9: Notify all players that game started ==========
+    std::vector<ClientMessage> responses;
+    Message startMsg;
+    startMsg.type = MessageType::JoinGame;
+    startMsg.data = JoinGameMessage{"Game started and completed"};
+
+    for (const auto& player : players) {
+        std::cout << "[GameServer] Notifying client " << player.clientID << "\n";
+        responses.push_back(ClientMessage{player.clientID, startMsg});
+    }
+
+    return responses;
 }
 
 std::vector<ClientMessage>
