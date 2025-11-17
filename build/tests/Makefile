@@ -185,29 +185,269 @@ unit_tests/fast:
 	cd /Users/jiawei/Desktop/373/build && $(MAKE) $(MAKESILENT) -f tests/CMakeFiles/unit_tests.dir/build.make tests/CMakeFiles/unit_tests.dir/build
 .PHONY : unit_tests/fast
 
-GameInterpreterTest.o: GameInterpreterTest.cpp.o
-.PHONY : GameInterpreterTest.o
+GameInterpreterTests/AssignmentTest.o: GameInterpreterTests/AssignmentTest.cpp.o
+.PHONY : GameInterpreterTests/AssignmentTest.o
 
 # target to build an object file
-GameInterpreterTest.cpp.o:
-	cd /Users/jiawei/Desktop/373/build && $(MAKE) $(MAKESILENT) -f tests/CMakeFiles/unit_tests.dir/build.make tests/CMakeFiles/unit_tests.dir/GameInterpreterTest.cpp.o
-.PHONY : GameInterpreterTest.cpp.o
+GameInterpreterTests/AssignmentTest.cpp.o:
+	cd /Users/jiawei/Desktop/373/build && $(MAKE) $(MAKESILENT) -f tests/CMakeFiles/unit_tests.dir/build.make tests/CMakeFiles/unit_tests.dir/GameInterpreterTests/AssignmentTest.cpp.o
+.PHONY : GameInterpreterTests/AssignmentTest.cpp.o
 
-GameInterpreterTest.i: GameInterpreterTest.cpp.i
-.PHONY : GameInterpreterTest.i
+GameInterpreterTests/AssignmentTest.i: GameInterpreterTests/AssignmentTest.cpp.i
+.PHONY : GameInterpreterTests/AssignmentTest.i
 
 # target to preprocess a source file
-GameInterpreterTest.cpp.i:
-	cd /Users/jiawei/Desktop/373/build && $(MAKE) $(MAKESILENT) -f tests/CMakeFiles/unit_tests.dir/build.make tests/CMakeFiles/unit_tests.dir/GameInterpreterTest.cpp.i
-.PHONY : GameInterpreterTest.cpp.i
+GameInterpreterTests/AssignmentTest.cpp.i:
+	cd /Users/jiawei/Desktop/373/build && $(MAKE) $(MAKESILENT) -f tests/CMakeFiles/unit_tests.dir/build.make tests/CMakeFiles/unit_tests.dir/GameInterpreterTests/AssignmentTest.cpp.i
+.PHONY : GameInterpreterTests/AssignmentTest.cpp.i
 
-GameInterpreterTest.s: GameInterpreterTest.cpp.s
-.PHONY : GameInterpreterTest.s
+GameInterpreterTests/AssignmentTest.s: GameInterpreterTests/AssignmentTest.cpp.s
+.PHONY : GameInterpreterTests/AssignmentTest.s
 
 # target to generate assembly for a file
-GameInterpreterTest.cpp.s:
-	cd /Users/jiawei/Desktop/373/build && $(MAKE) $(MAKESILENT) -f tests/CMakeFiles/unit_tests.dir/build.make tests/CMakeFiles/unit_tests.dir/GameInterpreterTest.cpp.s
-.PHONY : GameInterpreterTest.cpp.s
+GameInterpreterTests/AssignmentTest.cpp.s:
+	cd /Users/jiawei/Desktop/373/build && $(MAKE) $(MAKESILENT) -f tests/CMakeFiles/unit_tests.dir/build.make tests/CMakeFiles/unit_tests.dir/GameInterpreterTests/AssignmentTest.cpp.s
+.PHONY : GameInterpreterTests/AssignmentTest.cpp.s
+
+GameInterpreterTests/ComparisonTest.o: GameInterpreterTests/ComparisonTest.cpp.o
+.PHONY : GameInterpreterTests/ComparisonTest.o
+
+# target to build an object file
+GameInterpreterTests/ComparisonTest.cpp.o:
+	cd /Users/jiawei/Desktop/373/build && $(MAKE) $(MAKESILENT) -f tests/CMakeFiles/unit_tests.dir/build.make tests/CMakeFiles/unit_tests.dir/GameInterpreterTests/ComparisonTest.cpp.o
+.PHONY : GameInterpreterTests/ComparisonTest.cpp.o
+
+GameInterpreterTests/ComparisonTest.i: GameInterpreterTests/ComparisonTest.cpp.i
+.PHONY : GameInterpreterTests/ComparisonTest.i
+
+# target to preprocess a source file
+GameInterpreterTests/ComparisonTest.cpp.i:
+	cd /Users/jiawei/Desktop/373/build && $(MAKE) $(MAKESILENT) -f tests/CMakeFiles/unit_tests.dir/build.make tests/CMakeFiles/unit_tests.dir/GameInterpreterTests/ComparisonTest.cpp.i
+.PHONY : GameInterpreterTests/ComparisonTest.cpp.i
+
+GameInterpreterTests/ComparisonTest.s: GameInterpreterTests/ComparisonTest.cpp.s
+.PHONY : GameInterpreterTests/ComparisonTest.s
+
+# target to generate assembly for a file
+GameInterpreterTests/ComparisonTest.cpp.s:
+	cd /Users/jiawei/Desktop/373/build && $(MAKE) $(MAKESILENT) -f tests/CMakeFiles/unit_tests.dir/build.make tests/CMakeFiles/unit_tests.dir/GameInterpreterTests/ComparisonTest.cpp.s
+.PHONY : GameInterpreterTests/ComparisonTest.cpp.s
+
+GameInterpreterTests/ConstantTest.o: GameInterpreterTests/ConstantTest.cpp.o
+.PHONY : GameInterpreterTests/ConstantTest.o
+
+# target to build an object file
+GameInterpreterTests/ConstantTest.cpp.o:
+	cd /Users/jiawei/Desktop/373/build && $(MAKE) $(MAKESILENT) -f tests/CMakeFiles/unit_tests.dir/build.make tests/CMakeFiles/unit_tests.dir/GameInterpreterTests/ConstantTest.cpp.o
+.PHONY : GameInterpreterTests/ConstantTest.cpp.o
+
+GameInterpreterTests/ConstantTest.i: GameInterpreterTests/ConstantTest.cpp.i
+.PHONY : GameInterpreterTests/ConstantTest.i
+
+# target to preprocess a source file
+GameInterpreterTests/ConstantTest.cpp.i:
+	cd /Users/jiawei/Desktop/373/build && $(MAKE) $(MAKESILENT) -f tests/CMakeFiles/unit_tests.dir/build.make tests/CMakeFiles/unit_tests.dir/GameInterpreterTests/ConstantTest.cpp.i
+.PHONY : GameInterpreterTests/ConstantTest.cpp.i
+
+GameInterpreterTests/ConstantTest.s: GameInterpreterTests/ConstantTest.cpp.s
+.PHONY : GameInterpreterTests/ConstantTest.s
+
+# target to generate assembly for a file
+GameInterpreterTests/ConstantTest.cpp.s:
+	cd /Users/jiawei/Desktop/373/build && $(MAKE) $(MAKESILENT) -f tests/CMakeFiles/unit_tests.dir/build.make tests/CMakeFiles/unit_tests.dir/GameInterpreterTests/ConstantTest.cpp.s
+.PHONY : GameInterpreterTests/ConstantTest.cpp.s
+
+GameInterpreterTests/DiscardTest.o: GameInterpreterTests/DiscardTest.cpp.o
+.PHONY : GameInterpreterTests/DiscardTest.o
+
+# target to build an object file
+GameInterpreterTests/DiscardTest.cpp.o:
+	cd /Users/jiawei/Desktop/373/build && $(MAKE) $(MAKESILENT) -f tests/CMakeFiles/unit_tests.dir/build.make tests/CMakeFiles/unit_tests.dir/GameInterpreterTests/DiscardTest.cpp.o
+.PHONY : GameInterpreterTests/DiscardTest.cpp.o
+
+GameInterpreterTests/DiscardTest.i: GameInterpreterTests/DiscardTest.cpp.i
+.PHONY : GameInterpreterTests/DiscardTest.i
+
+# target to preprocess a source file
+GameInterpreterTests/DiscardTest.cpp.i:
+	cd /Users/jiawei/Desktop/373/build && $(MAKE) $(MAKESILENT) -f tests/CMakeFiles/unit_tests.dir/build.make tests/CMakeFiles/unit_tests.dir/GameInterpreterTests/DiscardTest.cpp.i
+.PHONY : GameInterpreterTests/DiscardTest.cpp.i
+
+GameInterpreterTests/DiscardTest.s: GameInterpreterTests/DiscardTest.cpp.s
+.PHONY : GameInterpreterTests/DiscardTest.s
+
+# target to generate assembly for a file
+GameInterpreterTests/DiscardTest.cpp.s:
+	cd /Users/jiawei/Desktop/373/build && $(MAKE) $(MAKESILENT) -f tests/CMakeFiles/unit_tests.dir/build.make tests/CMakeFiles/unit_tests.dir/GameInterpreterTests/DiscardTest.cpp.s
+.PHONY : GameInterpreterTests/DiscardTest.cpp.s
+
+GameInterpreterTests/ExtendTest.o: GameInterpreterTests/ExtendTest.cpp.o
+.PHONY : GameInterpreterTests/ExtendTest.o
+
+# target to build an object file
+GameInterpreterTests/ExtendTest.cpp.o:
+	cd /Users/jiawei/Desktop/373/build && $(MAKE) $(MAKESILENT) -f tests/CMakeFiles/unit_tests.dir/build.make tests/CMakeFiles/unit_tests.dir/GameInterpreterTests/ExtendTest.cpp.o
+.PHONY : GameInterpreterTests/ExtendTest.cpp.o
+
+GameInterpreterTests/ExtendTest.i: GameInterpreterTests/ExtendTest.cpp.i
+.PHONY : GameInterpreterTests/ExtendTest.i
+
+# target to preprocess a source file
+GameInterpreterTests/ExtendTest.cpp.i:
+	cd /Users/jiawei/Desktop/373/build && $(MAKE) $(MAKESILENT) -f tests/CMakeFiles/unit_tests.dir/build.make tests/CMakeFiles/unit_tests.dir/GameInterpreterTests/ExtendTest.cpp.i
+.PHONY : GameInterpreterTests/ExtendTest.cpp.i
+
+GameInterpreterTests/ExtendTest.s: GameInterpreterTests/ExtendTest.cpp.s
+.PHONY : GameInterpreterTests/ExtendTest.s
+
+# target to generate assembly for a file
+GameInterpreterTests/ExtendTest.cpp.s:
+	cd /Users/jiawei/Desktop/373/build && $(MAKE) $(MAKESILENT) -f tests/CMakeFiles/unit_tests.dir/build.make tests/CMakeFiles/unit_tests.dir/GameInterpreterTests/ExtendTest.cpp.s
+.PHONY : GameInterpreterTests/ExtendTest.cpp.s
+
+GameInterpreterTests/InputTextStmtTest.o: GameInterpreterTests/InputTextStmtTest.cpp.o
+.PHONY : GameInterpreterTests/InputTextStmtTest.o
+
+# target to build an object file
+GameInterpreterTests/InputTextStmtTest.cpp.o:
+	cd /Users/jiawei/Desktop/373/build && $(MAKE) $(MAKESILENT) -f tests/CMakeFiles/unit_tests.dir/build.make tests/CMakeFiles/unit_tests.dir/GameInterpreterTests/InputTextStmtTest.cpp.o
+.PHONY : GameInterpreterTests/InputTextStmtTest.cpp.o
+
+GameInterpreterTests/InputTextStmtTest.i: GameInterpreterTests/InputTextStmtTest.cpp.i
+.PHONY : GameInterpreterTests/InputTextStmtTest.i
+
+# target to preprocess a source file
+GameInterpreterTests/InputTextStmtTest.cpp.i:
+	cd /Users/jiawei/Desktop/373/build && $(MAKE) $(MAKESILENT) -f tests/CMakeFiles/unit_tests.dir/build.make tests/CMakeFiles/unit_tests.dir/GameInterpreterTests/InputTextStmtTest.cpp.i
+.PHONY : GameInterpreterTests/InputTextStmtTest.cpp.i
+
+GameInterpreterTests/InputTextStmtTest.s: GameInterpreterTests/InputTextStmtTest.cpp.s
+.PHONY : GameInterpreterTests/InputTextStmtTest.s
+
+# target to generate assembly for a file
+GameInterpreterTests/InputTextStmtTest.cpp.s:
+	cd /Users/jiawei/Desktop/373/build && $(MAKE) $(MAKESILENT) -f tests/CMakeFiles/unit_tests.dir/build.make tests/CMakeFiles/unit_tests.dir/GameInterpreterTests/InputTextStmtTest.cpp.s
+.PHONY : GameInterpreterTests/InputTextStmtTest.cpp.s
+
+GameInterpreterTests/LogicalOperationTest.o: GameInterpreterTests/LogicalOperationTest.cpp.o
+.PHONY : GameInterpreterTests/LogicalOperationTest.o
+
+# target to build an object file
+GameInterpreterTests/LogicalOperationTest.cpp.o:
+	cd /Users/jiawei/Desktop/373/build && $(MAKE) $(MAKESILENT) -f tests/CMakeFiles/unit_tests.dir/build.make tests/CMakeFiles/unit_tests.dir/GameInterpreterTests/LogicalOperationTest.cpp.o
+.PHONY : GameInterpreterTests/LogicalOperationTest.cpp.o
+
+GameInterpreterTests/LogicalOperationTest.i: GameInterpreterTests/LogicalOperationTest.cpp.i
+.PHONY : GameInterpreterTests/LogicalOperationTest.i
+
+# target to preprocess a source file
+GameInterpreterTests/LogicalOperationTest.cpp.i:
+	cd /Users/jiawei/Desktop/373/build && $(MAKE) $(MAKESILENT) -f tests/CMakeFiles/unit_tests.dir/build.make tests/CMakeFiles/unit_tests.dir/GameInterpreterTests/LogicalOperationTest.cpp.i
+.PHONY : GameInterpreterTests/LogicalOperationTest.cpp.i
+
+GameInterpreterTests/LogicalOperationTest.s: GameInterpreterTests/LogicalOperationTest.cpp.s
+.PHONY : GameInterpreterTests/LogicalOperationTest.s
+
+# target to generate assembly for a file
+GameInterpreterTests/LogicalOperationTest.cpp.s:
+	cd /Users/jiawei/Desktop/373/build && $(MAKE) $(MAKESILENT) -f tests/CMakeFiles/unit_tests.dir/build.make tests/CMakeFiles/unit_tests.dir/GameInterpreterTests/LogicalOperationTest.cpp.s
+.PHONY : GameInterpreterTests/LogicalOperationTest.cpp.s
+
+GameInterpreterTests/MatchTest.o: GameInterpreterTests/MatchTest.cpp.o
+.PHONY : GameInterpreterTests/MatchTest.o
+
+# target to build an object file
+GameInterpreterTests/MatchTest.cpp.o:
+	cd /Users/jiawei/Desktop/373/build && $(MAKE) $(MAKESILENT) -f tests/CMakeFiles/unit_tests.dir/build.make tests/CMakeFiles/unit_tests.dir/GameInterpreterTests/MatchTest.cpp.o
+.PHONY : GameInterpreterTests/MatchTest.cpp.o
+
+GameInterpreterTests/MatchTest.i: GameInterpreterTests/MatchTest.cpp.i
+.PHONY : GameInterpreterTests/MatchTest.i
+
+# target to preprocess a source file
+GameInterpreterTests/MatchTest.cpp.i:
+	cd /Users/jiawei/Desktop/373/build && $(MAKE) $(MAKESILENT) -f tests/CMakeFiles/unit_tests.dir/build.make tests/CMakeFiles/unit_tests.dir/GameInterpreterTests/MatchTest.cpp.i
+.PHONY : GameInterpreterTests/MatchTest.cpp.i
+
+GameInterpreterTests/MatchTest.s: GameInterpreterTests/MatchTest.cpp.s
+.PHONY : GameInterpreterTests/MatchTest.s
+
+# target to generate assembly for a file
+GameInterpreterTests/MatchTest.cpp.s:
+	cd /Users/jiawei/Desktop/373/build && $(MAKE) $(MAKESILENT) -f tests/CMakeFiles/unit_tests.dir/build.make tests/CMakeFiles/unit_tests.dir/GameInterpreterTests/MatchTest.cpp.s
+.PHONY : GameInterpreterTests/MatchTest.cpp.s
+
+GameInterpreterTests/ShuffleTest.o: GameInterpreterTests/ShuffleTest.cpp.o
+.PHONY : GameInterpreterTests/ShuffleTest.o
+
+# target to build an object file
+GameInterpreterTests/ShuffleTest.cpp.o:
+	cd /Users/jiawei/Desktop/373/build && $(MAKE) $(MAKESILENT) -f tests/CMakeFiles/unit_tests.dir/build.make tests/CMakeFiles/unit_tests.dir/GameInterpreterTests/ShuffleTest.cpp.o
+.PHONY : GameInterpreterTests/ShuffleTest.cpp.o
+
+GameInterpreterTests/ShuffleTest.i: GameInterpreterTests/ShuffleTest.cpp.i
+.PHONY : GameInterpreterTests/ShuffleTest.i
+
+# target to preprocess a source file
+GameInterpreterTests/ShuffleTest.cpp.i:
+	cd /Users/jiawei/Desktop/373/build && $(MAKE) $(MAKESILENT) -f tests/CMakeFiles/unit_tests.dir/build.make tests/CMakeFiles/unit_tests.dir/GameInterpreterTests/ShuffleTest.cpp.i
+.PHONY : GameInterpreterTests/ShuffleTest.cpp.i
+
+GameInterpreterTests/ShuffleTest.s: GameInterpreterTests/ShuffleTest.cpp.s
+.PHONY : GameInterpreterTests/ShuffleTest.s
+
+# target to generate assembly for a file
+GameInterpreterTests/ShuffleTest.cpp.s:
+	cd /Users/jiawei/Desktop/373/build && $(MAKE) $(MAKESILENT) -f tests/CMakeFiles/unit_tests.dir/build.make tests/CMakeFiles/unit_tests.dir/GameInterpreterTests/ShuffleTest.cpp.s
+.PHONY : GameInterpreterTests/ShuffleTest.cpp.s
+
+GameInterpreterTests/SortTest.o: GameInterpreterTests/SortTest.cpp.o
+.PHONY : GameInterpreterTests/SortTest.o
+
+# target to build an object file
+GameInterpreterTests/SortTest.cpp.o:
+	cd /Users/jiawei/Desktop/373/build && $(MAKE) $(MAKESILENT) -f tests/CMakeFiles/unit_tests.dir/build.make tests/CMakeFiles/unit_tests.dir/GameInterpreterTests/SortTest.cpp.o
+.PHONY : GameInterpreterTests/SortTest.cpp.o
+
+GameInterpreterTests/SortTest.i: GameInterpreterTests/SortTest.cpp.i
+.PHONY : GameInterpreterTests/SortTest.i
+
+# target to preprocess a source file
+GameInterpreterTests/SortTest.cpp.i:
+	cd /Users/jiawei/Desktop/373/build && $(MAKE) $(MAKESILENT) -f tests/CMakeFiles/unit_tests.dir/build.make tests/CMakeFiles/unit_tests.dir/GameInterpreterTests/SortTest.cpp.i
+.PHONY : GameInterpreterTests/SortTest.cpp.i
+
+GameInterpreterTests/SortTest.s: GameInterpreterTests/SortTest.cpp.s
+.PHONY : GameInterpreterTests/SortTest.s
+
+# target to generate assembly for a file
+GameInterpreterTests/SortTest.cpp.s:
+	cd /Users/jiawei/Desktop/373/build && $(MAKE) $(MAKESILENT) -f tests/CMakeFiles/unit_tests.dir/build.make tests/CMakeFiles/unit_tests.dir/GameInterpreterTests/SortTest.cpp.s
+.PHONY : GameInterpreterTests/SortTest.cpp.s
+
+GameInterpreterTests/UnaryOperationTest.o: GameInterpreterTests/UnaryOperationTest.cpp.o
+.PHONY : GameInterpreterTests/UnaryOperationTest.o
+
+# target to build an object file
+GameInterpreterTests/UnaryOperationTest.cpp.o:
+	cd /Users/jiawei/Desktop/373/build && $(MAKE) $(MAKESILENT) -f tests/CMakeFiles/unit_tests.dir/build.make tests/CMakeFiles/unit_tests.dir/GameInterpreterTests/UnaryOperationTest.cpp.o
+.PHONY : GameInterpreterTests/UnaryOperationTest.cpp.o
+
+GameInterpreterTests/UnaryOperationTest.i: GameInterpreterTests/UnaryOperationTest.cpp.i
+.PHONY : GameInterpreterTests/UnaryOperationTest.i
+
+# target to preprocess a source file
+GameInterpreterTests/UnaryOperationTest.cpp.i:
+	cd /Users/jiawei/Desktop/373/build && $(MAKE) $(MAKESILENT) -f tests/CMakeFiles/unit_tests.dir/build.make tests/CMakeFiles/unit_tests.dir/GameInterpreterTests/UnaryOperationTest.cpp.i
+.PHONY : GameInterpreterTests/UnaryOperationTest.cpp.i
+
+GameInterpreterTests/UnaryOperationTest.s: GameInterpreterTests/UnaryOperationTest.cpp.s
+.PHONY : GameInterpreterTests/UnaryOperationTest.s
+
+# target to generate assembly for a file
+GameInterpreterTests/UnaryOperationTest.cpp.s:
+	cd /Users/jiawei/Desktop/373/build && $(MAKE) $(MAKESILENT) -f tests/CMakeFiles/unit_tests.dir/build.make tests/CMakeFiles/unit_tests.dir/GameInterpreterTests/UnaryOperationTest.cpp.s
+.PHONY : GameInterpreterTests/UnaryOperationTest.cpp.s
 
 GameServerTest.o: GameServerTest.cpp.o
 .PHONY : GameServerTest.o
@@ -257,6 +497,30 @@ GameSpecLoaderTest.cpp.s:
 	cd /Users/jiawei/Desktop/373/build && $(MAKE) $(MAKESILENT) -f tests/CMakeFiles/unit_tests.dir/build.make tests/CMakeFiles/unit_tests.dir/GameSpecLoaderTest.cpp.s
 .PHONY : GameSpecLoaderTest.cpp.s
 
+LobbyRegistryTest.o: LobbyRegistryTest.cpp.o
+.PHONY : LobbyRegistryTest.o
+
+# target to build an object file
+LobbyRegistryTest.cpp.o:
+	cd /Users/jiawei/Desktop/373/build && $(MAKE) $(MAKESILENT) -f tests/CMakeFiles/unit_tests.dir/build.make tests/CMakeFiles/unit_tests.dir/LobbyRegistryTest.cpp.o
+.PHONY : LobbyRegistryTest.cpp.o
+
+LobbyRegistryTest.i: LobbyRegistryTest.cpp.i
+.PHONY : LobbyRegistryTest.i
+
+# target to preprocess a source file
+LobbyRegistryTest.cpp.i:
+	cd /Users/jiawei/Desktop/373/build && $(MAKE) $(MAKESILENT) -f tests/CMakeFiles/unit_tests.dir/build.make tests/CMakeFiles/unit_tests.dir/LobbyRegistryTest.cpp.i
+.PHONY : LobbyRegistryTest.cpp.i
+
+LobbyRegistryTest.s: LobbyRegistryTest.cpp.s
+.PHONY : LobbyRegistryTest.s
+
+# target to generate assembly for a file
+LobbyRegistryTest.cpp.s:
+	cd /Users/jiawei/Desktop/373/build && $(MAKE) $(MAKESILENT) -f tests/CMakeFiles/unit_tests.dir/build.make tests/CMakeFiles/unit_tests.dir/LobbyRegistryTest.cpp.s
+.PHONY : LobbyRegistryTest.cpp.s
+
 RulesTest.o: RulesTest.cpp.o
 .PHONY : RulesTest.o
 
@@ -280,6 +544,30 @@ RulesTest.s: RulesTest.cpp.s
 RulesTest.cpp.s:
 	cd /Users/jiawei/Desktop/373/build && $(MAKE) $(MAKESILENT) -f tests/CMakeFiles/unit_tests.dir/build.make tests/CMakeFiles/unit_tests.dir/RulesTest.cpp.s
 .PHONY : RulesTest.cpp.s
+
+TypesTest.o: TypesTest.cpp.o
+.PHONY : TypesTest.o
+
+# target to build an object file
+TypesTest.cpp.o:
+	cd /Users/jiawei/Desktop/373/build && $(MAKE) $(MAKESILENT) -f tests/CMakeFiles/unit_tests.dir/build.make tests/CMakeFiles/unit_tests.dir/TypesTest.cpp.o
+.PHONY : TypesTest.cpp.o
+
+TypesTest.i: TypesTest.cpp.i
+.PHONY : TypesTest.i
+
+# target to preprocess a source file
+TypesTest.cpp.i:
+	cd /Users/jiawei/Desktop/373/build && $(MAKE) $(MAKESILENT) -f tests/CMakeFiles/unit_tests.dir/build.make tests/CMakeFiles/unit_tests.dir/TypesTest.cpp.i
+.PHONY : TypesTest.cpp.i
+
+TypesTest.s: TypesTest.cpp.s
+.PHONY : TypesTest.s
+
+# target to generate assembly for a file
+TypesTest.cpp.s:
+	cd /Users/jiawei/Desktop/373/build && $(MAKE) $(MAKESILENT) -f tests/CMakeFiles/unit_tests.dir/build.make tests/CMakeFiles/unit_tests.dir/TypesTest.cpp.s
+.PHONY : TypesTest.cpp.s
 
 WebSocketNetworkingTest.o: WebSocketNetworkingTest.cpp.o
 .PHONY : WebSocketNetworkingTest.o
@@ -319,18 +607,54 @@ help:
 	@echo "... rebuild_cache"
 	@echo "... test"
 	@echo "... unit_tests"
-	@echo "... GameInterpreterTest.o"
-	@echo "... GameInterpreterTest.i"
-	@echo "... GameInterpreterTest.s"
+	@echo "... GameInterpreterTests/AssignmentTest.o"
+	@echo "... GameInterpreterTests/AssignmentTest.i"
+	@echo "... GameInterpreterTests/AssignmentTest.s"
+	@echo "... GameInterpreterTests/ComparisonTest.o"
+	@echo "... GameInterpreterTests/ComparisonTest.i"
+	@echo "... GameInterpreterTests/ComparisonTest.s"
+	@echo "... GameInterpreterTests/ConstantTest.o"
+	@echo "... GameInterpreterTests/ConstantTest.i"
+	@echo "... GameInterpreterTests/ConstantTest.s"
+	@echo "... GameInterpreterTests/DiscardTest.o"
+	@echo "... GameInterpreterTests/DiscardTest.i"
+	@echo "... GameInterpreterTests/DiscardTest.s"
+	@echo "... GameInterpreterTests/ExtendTest.o"
+	@echo "... GameInterpreterTests/ExtendTest.i"
+	@echo "... GameInterpreterTests/ExtendTest.s"
+	@echo "... GameInterpreterTests/InputTextStmtTest.o"
+	@echo "... GameInterpreterTests/InputTextStmtTest.i"
+	@echo "... GameInterpreterTests/InputTextStmtTest.s"
+	@echo "... GameInterpreterTests/LogicalOperationTest.o"
+	@echo "... GameInterpreterTests/LogicalOperationTest.i"
+	@echo "... GameInterpreterTests/LogicalOperationTest.s"
+	@echo "... GameInterpreterTests/MatchTest.o"
+	@echo "... GameInterpreterTests/MatchTest.i"
+	@echo "... GameInterpreterTests/MatchTest.s"
+	@echo "... GameInterpreterTests/ShuffleTest.o"
+	@echo "... GameInterpreterTests/ShuffleTest.i"
+	@echo "... GameInterpreterTests/ShuffleTest.s"
+	@echo "... GameInterpreterTests/SortTest.o"
+	@echo "... GameInterpreterTests/SortTest.i"
+	@echo "... GameInterpreterTests/SortTest.s"
+	@echo "... GameInterpreterTests/UnaryOperationTest.o"
+	@echo "... GameInterpreterTests/UnaryOperationTest.i"
+	@echo "... GameInterpreterTests/UnaryOperationTest.s"
 	@echo "... GameServerTest.o"
 	@echo "... GameServerTest.i"
 	@echo "... GameServerTest.s"
 	@echo "... GameSpecLoaderTest.o"
 	@echo "... GameSpecLoaderTest.i"
 	@echo "... GameSpecLoaderTest.s"
+	@echo "... LobbyRegistryTest.o"
+	@echo "... LobbyRegistryTest.i"
+	@echo "... LobbyRegistryTest.s"
 	@echo "... RulesTest.o"
 	@echo "... RulesTest.i"
 	@echo "... RulesTest.s"
+	@echo "... TypesTest.o"
+	@echo "... TypesTest.i"
+	@echo "... TypesTest.s"
 	@echo "... WebSocketNetworkingTest.o"
 	@echo "... WebSocketNetworkingTest.i"
 	@echo "... WebSocketNetworkingTest.s"

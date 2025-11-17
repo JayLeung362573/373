@@ -143,9 +143,10 @@ src/libcore_lib.dylib: src/CMakeFiles/core_lib.dir/GameServer.cpp.o
 src/libcore_lib.dylib: src/CMakeFiles/core_lib.dir/WebsocketNetworking.cpp.o
 src/libcore_lib.dylib: src/CMakeFiles/core_lib.dir/MessageTranslator.cpp.o
 src/libcore_lib.dylib: src/CMakeFiles/core_lib.dir/build.make
-src/libcore_lib.dylib: src/GameEngine/libGameEngine.dylib
 src/libcore_lib.dylib: _deps/web-socket-networking-build/lib/libnetworking.dylib
 src/libcore_lib.dylib: src/Lobby/libLobby.dylib
+src/libcore_lib.dylib: src/GameSession/libGameSession.dylib
+src/libcore_lib.dylib: src/GameEngine/libGameEngine.dylib
 src/libcore_lib.dylib: src/CMakeFiles/core_lib.dir/link.txt
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/Users/jiawei/Desktop/373/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Linking CXX shared library libcore_lib.dylib"
 	cd /Users/jiawei/Desktop/373/build/src && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/core_lib.dir/link.txt --verbose=$(VERBOSE)

@@ -23,8 +23,8 @@ int main(int argc, char* argv[])
     int CLIENT_2_ID = 101;
 
     // Send JoinGame messages from clients to server
-    Message msg1{ MessageType::JoinGame, JoinGameMessage{"joe"} };
-    Message msg2{ MessageType::JoinGame, JoinGameMessage{"amy"} };
+    Message msg1{ MessageType::StartGame, StartGameMessage{"joe"} };
+    Message msg2{ MessageType::StartGame, StartGameMessage{"amy"} };
 
     if (useWebSocket) {
         auto networking = std::make_shared<WebSocketNetworking>(8080, "../test.html");

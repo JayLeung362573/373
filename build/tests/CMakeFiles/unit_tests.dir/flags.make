@@ -4,7 +4,7 @@
 # compile CXX with /usr/bin/c++
 CXX_DEFINES = 
 
-CXX_INCLUDES = -I/Users/jiawei/Desktop/373/src -I/Users/jiawei/Desktop/373/src/lib -I/Users/jiawei/Desktop/373/src/GameEngine -I/Users/jiawei/Desktop/373/build/_deps/web-socket-networking-src/lib/networking/include -I/Users/jiawei/Desktop/373/src/Lobby -I/Users/jiawei/Desktop/373 -I/Users/jiawei/Desktop/373/build/_deps/tree-sitter-src/lib/include -isystem /Users/jiawei/Desktop/373/build/_deps/googletest-src/googletest/include -isystem /Users/jiawei/Desktop/373/build/_deps/googletest-src/googletest
+CXX_INCLUDES = -I/Users/jiawei/Desktop/373/src -I/Users/jiawei/Desktop/373/src/lib -I/Users/jiawei/Desktop/373/src/GameEngine -I/Users/jiawei/Desktop/373/build/_deps/web-socket-networking-src/lib/networking/include -I/Users/jiawei/Desktop/373/src/Lobby -I/Users/jiawei/Desktop/373/src/GameSession -I/Users/jiawei/Desktop/373/src/GameSession/.. -I/Users/jiawei/Desktop/373 -I/Users/jiawei/Desktop/373/build/_deps/tree-sitter-src/lib/include -isystem /Users/jiawei/Desktop/373/build/_deps/googletest-src/googletest/include -isystem /Users/jiawei/Desktop/373/build/_deps/googletest-src/googletest
 
 CXX_FLAGSarm64 =  -Wall -fno-rtti -fsanitize=address,undefined -g -std=c++2b -arch arm64
 

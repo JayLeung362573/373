@@ -26,8 +26,8 @@ struct MessageHandlerVisitor {
         responses = server->handleBrowseLobbiesMessages(clientID, data);
     }
 
-    void operator()(const JoinGameMessage& data) {
-        responses = server->handleJoinGameMessages(clientID, data);
+    void operator()(const StartGameMessage& data) {
+        responses = server->handleStartGameMessages(clientID, data);
     }
 
     void operator()(const std::monostate& data) {}
@@ -204,15 +204,78 @@ GameServer::handleBrowseLobbiesMessages(uintptr_t clientID, const BrowseLobbiesM
 }
 
 std::vector<ClientMessage>
-GameServer::handleJoinGameMessages(uintptr_t clientID, const JoinGameMessage& joinGameMsg){
-    std::cout << "[GameServer] JoinGame: " << joinGameMsg.playerName << "\n";
+GameServer::handleStartGameMessages(uintptr_t clientID, const StartGameMessage& startGameMsg){
+    std::cout << "[GameServer] Player " << startGameMsg.playerName << " (clientID: " << clientID << ")"
+              << " requesting to start game\n";
 
-    // TODO start the game
+    /// 1. check if this client is in a lobby
+    auto lobbyID = m_lobbyRegistry.findLobbyForClient(clientID);
+    if(!lobbyID){
+        std::cout << "[GameServer] Error: Client not in any lobby\n";
+        Message errorMsg;
+        errorMsg.type = MessageType::Error;
+        errorMsg.data = ErrorMessage{"You must be in a lobby to start a game"};
+        return {ClientMessage{clientID, errorMsg}};
+    }
 
-    Message response;
-    response.type = MessageType::JoinGame;
-    response.data = JoinGameMessage{joinGameMsg.playerName};
-    return {ClientMessage{clientID, response}};
+    /// 2. check this lobby
+    auto lobby = m_lobbyRegistry.getLobby(*lobbyID);
+    if(!lobby){
+        std::cout << "[GameServer] Error: Lobby: " << *lobbyID << "not found\n";
+        Message errorMsg;
+        errorMsg.type = MessageType::Error;
+        errorMsg.data = ErrorMessage{"Lobby not found"};
+        return {ClientMessage{clientID, errorMsg}};
+    }
+
+    /// 3. check if it is a host to start the game
+    if(lobby->getHostID() != clientID){
+        std::cout << "[GameServer] Error: Only host can start game\n";
+        Message errorMsg;
+        errorMsg.type = MessageType::Error;
+        errorMsg.data = ErrorMessage{"Only the lobby host can start the game"};
+        return {ClientMessage{clientID, errorMsg}};
+    }
+
+    /// 4. check if the game already started
+    if(m_activeSessions.find(*lobbyID) != m_activeSessions.end()){
+        std::cout << "[GameServer] Error: Game already started for lobby "
+        << *lobbyID << "\n";
+
+        Message errorMsg;
+        errorMsg.type = MessageType::Error;
+        errorMsg.data = ErrorMessage{"Game already started"};
+        return {ClientMessage{clientID, errorMsg}};
+    }
+
+    /// 5. get all players (host and players, excluding audience)
+    auto players = lobby->getAllPlayer();
+    std::cout << "[GameServer] Starting game for lobby " << *lobbyID
+              << " with " << players.size() << " players\n";
+
+    /// 6. create game rules
+    GameRules rules = createGameRules();
+
+    /// 7. create and start session
+    auto session = std::make_unique<GameSession>(*lobbyID, rules, players);
+    session->start();
+
+    /// 8. map and track this session
+    m_activeSessions[*lobbyID] = std::move(session);
+
+    /// 9. create 'startMsg' for each player and store them in 'responses',
+    /// the networking will receive this 'responses' and send(notify) to each player
+    std::vector<ClientMessage> responses;
+    Message startMsg;
+    startMsg.type = MessageType::StartGame;
+    startMsg.data = JoinLobbyMessage{"Game started"};
+
+    for(const auto& player : players){
+        std::cout << "[GameServer] Notifying player " << player.clientID << "\n";
+        responses.push_back(ClientMessage{player.clientID, startMsg});
+    }
+
+    return responses;
 }
 
 std::vector<ClientMessage>
@@ -220,5 +283,20 @@ GameServer::tick(const std::vector<ClientMessage> &incomingMessages) {
     return handleClientMessages(incomingMessages);
 }
 
+GameRules
+GameServer::createGameRules() {
+    std::vector<std::unique_ptr<ast::Statement>> statements;
+    statements.clear();
 
+    statements.push_back(
+            ast::makeAssignment(
+                    ast::makeVariable(Name{"winner"}),
+                    ast::makeConstant(Value{String{"player1"}})
+                    )
+            );
+    std::cout << "[GameServer] Created simple game with "
+              << statements.size() << " statements\n";
+
+    return GameRules{std::span(statements)};
+}
 

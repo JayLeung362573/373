@@ -5,12 +5,12 @@
 #include <string>
 #include <cstdint>
 #include <utility>
-#include "Lobby.h"
+#include "Lobby/Lobby.h"
 
 enum class MessageType : uint8_t
 {
     Empty = 0,
-    JoinGame,
+    StartGame,
     UpdateCycle,
 
     /// Lobby messages
@@ -22,7 +22,7 @@ enum class MessageType : uint8_t
     Error,
 };
 
-struct JoinGameMessage
+struct StartGameMessage
 {
     std::string playerName;
 };
@@ -60,7 +60,7 @@ struct ErrorMessage{
 
 using MessageData = std::variant<
         std::monostate,
-        JoinGameMessage,
+        StartGameMessage,
         UpdateCycleMessage,
 
         JoinLobbyMessage,

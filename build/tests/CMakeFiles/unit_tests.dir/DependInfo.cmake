@@ -8,10 +8,22 @@ set(CMAKE_DEPENDS_LANGUAGES
 
 # The set of dependency files which are needed:
 set(CMAKE_DEPENDS_DEPENDENCY_FILES
-  "/Users/jiawei/Desktop/373/tests/GameInterpreterTest.cpp" "tests/CMakeFiles/unit_tests.dir/GameInterpreterTest.cpp.o" "gcc" "tests/CMakeFiles/unit_tests.dir/GameInterpreterTest.cpp.o.d"
+  "/Users/jiawei/Desktop/373/tests/GameInterpreterTests/AssignmentTest.cpp" "tests/CMakeFiles/unit_tests.dir/GameInterpreterTests/AssignmentTest.cpp.o" "gcc" "tests/CMakeFiles/unit_tests.dir/GameInterpreterTests/AssignmentTest.cpp.o.d"
+  "/Users/jiawei/Desktop/373/tests/GameInterpreterTests/ComparisonTest.cpp" "tests/CMakeFiles/unit_tests.dir/GameInterpreterTests/ComparisonTest.cpp.o" "gcc" "tests/CMakeFiles/unit_tests.dir/GameInterpreterTests/ComparisonTest.cpp.o.d"
+  "/Users/jiawei/Desktop/373/tests/GameInterpreterTests/ConstantTest.cpp" "tests/CMakeFiles/unit_tests.dir/GameInterpreterTests/ConstantTest.cpp.o" "gcc" "tests/CMakeFiles/unit_tests.dir/GameInterpreterTests/ConstantTest.cpp.o.d"
+  "/Users/jiawei/Desktop/373/tests/GameInterpreterTests/DiscardTest.cpp" "tests/CMakeFiles/unit_tests.dir/GameInterpreterTests/DiscardTest.cpp.o" "gcc" "tests/CMakeFiles/unit_tests.dir/GameInterpreterTests/DiscardTest.cpp.o.d"
+  "/Users/jiawei/Desktop/373/tests/GameInterpreterTests/ExtendTest.cpp" "tests/CMakeFiles/unit_tests.dir/GameInterpreterTests/ExtendTest.cpp.o" "gcc" "tests/CMakeFiles/unit_tests.dir/GameInterpreterTests/ExtendTest.cpp.o.d"
+  "/Users/jiawei/Desktop/373/tests/GameInterpreterTests/InputTextStmtTest.cpp" "tests/CMakeFiles/unit_tests.dir/GameInterpreterTests/InputTextStmtTest.cpp.o" "gcc" "tests/CMakeFiles/unit_tests.dir/GameInterpreterTests/InputTextStmtTest.cpp.o.d"
+  "/Users/jiawei/Desktop/373/tests/GameInterpreterTests/LogicalOperationTest.cpp" "tests/CMakeFiles/unit_tests.dir/GameInterpreterTests/LogicalOperationTest.cpp.o" "gcc" "tests/CMakeFiles/unit_tests.dir/GameInterpreterTests/LogicalOperationTest.cpp.o.d"
+  "/Users/jiawei/Desktop/373/tests/GameInterpreterTests/MatchTest.cpp" "tests/CMakeFiles/unit_tests.dir/GameInterpreterTests/MatchTest.cpp.o" "gcc" "tests/CMakeFiles/unit_tests.dir/GameInterpreterTests/MatchTest.cpp.o.d"
+  "/Users/jiawei/Desktop/373/tests/GameInterpreterTests/ShuffleTest.cpp" "tests/CMakeFiles/unit_tests.dir/GameInterpreterTests/ShuffleTest.cpp.o" "gcc" "tests/CMakeFiles/unit_tests.dir/GameInterpreterTests/ShuffleTest.cpp.o.d"
+  "/Users/jiawei/Desktop/373/tests/GameInterpreterTests/SortTest.cpp" "tests/CMakeFiles/unit_tests.dir/GameInterpreterTests/SortTest.cpp.o" "gcc" "tests/CMakeFiles/unit_tests.dir/GameInterpreterTests/SortTest.cpp.o.d"
+  "/Users/jiawei/Desktop/373/tests/GameInterpreterTests/UnaryOperationTest.cpp" "tests/CMakeFiles/unit_tests.dir/GameInterpreterTests/UnaryOperationTest.cpp.o" "gcc" "tests/CMakeFiles/unit_tests.dir/GameInterpreterTests/UnaryOperationTest.cpp.o.d"
   "/Users/jiawei/Desktop/373/tests/GameServerTest.cpp" "tests/CMakeFiles/unit_tests.dir/GameServerTest.cpp.o" "gcc" "tests/CMakeFiles/unit_tests.dir/GameServerTest.cpp.o.d"
   "/Users/jiawei/Desktop/373/tests/GameSpecLoaderTest.cpp" "tests/CMakeFiles/unit_tests.dir/GameSpecLoaderTest.cpp.o" "gcc" "tests/CMakeFiles/unit_tests.dir/GameSpecLoaderTest.cpp.o.d"
+  "/Users/jiawei/Desktop/373/tests/LobbyRegistryTest.cpp" "tests/CMakeFiles/unit_tests.dir/LobbyRegistryTest.cpp.o" "gcc" "tests/CMakeFiles/unit_tests.dir/LobbyRegistryTest.cpp.o.d"
   "/Users/jiawei/Desktop/373/tests/RulesTest.cpp" "tests/CMakeFiles/unit_tests.dir/RulesTest.cpp.o" "gcc" "tests/CMakeFiles/unit_tests.dir/RulesTest.cpp.o.d"
+  "/Users/jiawei/Desktop/373/tests/TypesTest.cpp" "tests/CMakeFiles/unit_tests.dir/TypesTest.cpp.o" "gcc" "tests/CMakeFiles/unit_tests.dir/TypesTest.cpp.o.d"
   "/Users/jiawei/Desktop/373/tests/WebSocketNetworkingTest.cpp" "tests/CMakeFiles/unit_tests.dir/WebSocketNetworkingTest.cpp.o" "gcc" "tests/CMakeFiles/unit_tests.dir/WebSocketNetworkingTest.cpp.o.d"
   )
 

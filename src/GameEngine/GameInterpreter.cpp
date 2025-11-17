@@ -179,6 +179,24 @@ GameInterpreter::visit(const ast::Sort& sort)
     return VisitResult{VisitResult::Status::Done, {}};
 }
 
+VisitResult
+GameInterpreter::visit(const ast::Match& match)
+{
+    Value targetValue = evaluateExpression(*match.getTarget()).getValue();
+
+    for (auto& pair : match.getExpressionCandidateAndStatementsPairs())
+    {
+        Value candidateValue = evaluateExpression(*(pair.expressionCandidate)).getValue();
+        if (isEqual(targetValue, candidateValue).value)
+        {
+            executeStatements(pair.statements);
+            break; // Break on first match
+        }
+    }
+
+    return VisitResult{VisitResult::Status::Done, {}};
+}
+
 void
 GameInterpreter::doVariableAssignment(ast::Variable& varTarget, Value valueToAssign)
 {
@@ -197,6 +215,16 @@ GameInterpreter::doAttributeAssignment(ast::Attribute& attrTarget, Value valueTo
     VisitResult baseResult = resolveExpression(*baseExpr);
     Value& baseValue = baseResult.getValue();
     baseValue.setAttribute(attrTarget.getAttr(), valueToAssign);
+}
+
+void
+GameInterpreter::executeStatements(std::vector<ast::Statement*>& statements)
+{
+    // TODO: Need to handle blocking statements (e.g. get player input)
+    for (auto& statement : statements)
+    {
+        statement->accept(*this);
+    }
 }
 
 VisitResult
@@ -314,4 +342,27 @@ GameInterpreter::consumeOutGameMessages()
     auto out = std::move(m_outGameMessages);
     m_outGameMessages.clear();
     return out;
+}
+
+const VariableMap &GameInterpreter::getGameState() const {
+    return m_variableMap;
+}
+
+void GameInterpreter::run()
+{
+    if (m_done) { return; }
+
+    std::vector<ast::Statement*> rawStatements;
+    for (auto& statement : m_rules.statements)
+    {
+        rawStatements.push_back(statement.get());
+    }
+    executeStatements(rawStatements);
+
+    m_done = true;
+}
+
+bool GameInterpreter::isDone() const
+{
+    return m_done;
 }

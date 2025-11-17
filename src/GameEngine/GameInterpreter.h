@@ -7,10 +7,27 @@
 #include "GameMessage.h"
 #include "Rules.h"
 
+/**
+ * Game Interpreter that executes Game Rules.
+ * It currently only supports executing non-blocking game rules (no player I/O).
+ *
+ * Intended use:
+ *      // Initialize the interpreter
+ *      GameInterpreter interpreter(myRules);
+ *
+ *      // Run all game rules
+ *      interpreter.run();
+ *
+ * Note: The `visit` methods are public because of the Visitor Pattern, but are intended
+ *       for internal use only. This ensures the interpreter executes rules consistently
+ *       without side effects to state. This means that GameInterpreter should be the
+ *       only class calling .accept() on an ASTNode and passing itself as the visitor.
+ */
 class GameInterpreter : public ast::ASTVisitor
 {
     public:
         GameInterpreter() = default;
+        GameInterpreter(ast::GameRules& rules) : m_rules(std::move(rules)) {}
 
         VisitResult visit(const ast::ASTNode& node) override;
 
@@ -145,6 +162,16 @@ class GameInterpreter : public ast::ASTVisitor
         VisitResult visit(const ast::Sort& sort) override;
 
         /**
+         * @brief In order, checks if the `target` expression matches the candidate expression.
+         * If there's a match, all statements for that candidate are executed in order.
+         * Breaks on first match.
+         *
+         * @param match The Match node to visit.
+         * @return VisitResult
+         */
+        VisitResult visit(const ast::Match& match) override;
+
+        /**
          * @brief Prompts and stores player text input.
          *
          * This method checks for player input in inGameMessages. If there's no input,
@@ -163,8 +190,14 @@ class GameInterpreter : public ast::ASTVisitor
          */
         VisitResult visit(const ast::InputTextStatement& inputTextStatement) override;
 
+        // `setInGameMessages` and `consumeOutGameMessages` will be removed soon once
+        // InputManager is implemented. Would suggest not using
         void setInGameMessages(const std::vector<GameMessage>& inGameMessages);
         std::vector<GameMessage> consumeOutGameMessages();
+
+        void run();
+        bool isDone() const;
+        const VariableMap& getGameState() const;
 
     private:
         std::optional<TextInputMessage>
@@ -178,6 +211,9 @@ class GameInterpreter : public ast::ASTVisitor
 
         void
         doAttributeAssignment(ast::Attribute& attrTarget, Value valueToAssign);
+
+        void
+        executeStatements(std::vector<ast::Statement*>& statements);
 
         VisitResult
         evaluateExpression(ast::Expression& expr);
@@ -193,6 +229,9 @@ class GameInterpreter : public ast::ASTVisitor
 
     private:
         VariableMap m_variableMap;
+        ast::GameRules m_rules;
+
+        bool m_done;
 
         std::vector<GameMessage> m_inGameMessages;
         std::vector<GameMessage> m_outGameMessages;

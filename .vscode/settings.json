@@ -81,6 +81,8 @@
         "unordered_set": "cpp",
         "algorithm": "cpp",
         "__availability": "cpp",
-        "filesystem": "cpp"
+        "filesystem": "cpp",
+        "numeric": "cpp",
+        "random": "cpp"
     }
 }

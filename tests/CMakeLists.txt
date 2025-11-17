@@ -27,6 +27,7 @@ add_executable(unit_tests
   GameInterpreterTests/ShuffleTest.cpp
   GameInterpreterTests/UnaryOperationTest.cpp
   GameInterpreterTests/SortTest.cpp
+  GameInterpreterTests/MatchTest.cpp
   TypesTest.cpp
   RulesTest.cpp
   GameSpecLoaderTest.cpp

@@ -6,15 +6,15 @@ struct MessageTraits;
 
 // Specializations
 template<>
-struct MessageTraits<JoinGameMessage> {
+struct MessageTraits<StartGameMessage> {
     // Call statics to enable compile time, so we don't need to instantiate the object and just use it as a container
     static constexpr std::string_view prefix = "JoinGame:"; // instiatiate it as pure compile time constant
-    static std::string serialize(const JoinGameMessage& d) {
+    static std::string serialize(const StartGameMessage& d) {
         return std::string(prefix) + d.playerName;
     }
     static Message deserialize(const std::string& payload) {
         std::string name = payload.substr(prefix.size());
-        return { MessageType::JoinGame, JoinGameMessage{name} };
+        return { MessageType::StartGame, StartGameMessage{name} };
     }
 };
 
@@ -127,8 +127,8 @@ std::string MessageTranslator::serialize(const Message& msg)
 
 Message MessageTranslator::deserialize(const std::string& payload)
 {
-    if (payload.starts_with(MessageTraits<JoinGameMessage>::prefix)) {
-        return MessageTraits<JoinGameMessage>::deserialize(payload);
+    if (payload.starts_with(MessageTraits<StartGameMessage>::prefix)) {
+        return MessageTraits<StartGameMessage>::deserialize(payload);
     }
     else if (payload.starts_with(MessageTraits<UpdateCycleMessage>::prefix)) {
         return MessageTraits<UpdateCycleMessage>::deserialize(payload);

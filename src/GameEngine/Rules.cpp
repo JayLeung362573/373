@@ -60,6 +60,11 @@ VisitResult ast::Sort::accept(ast::ASTVisitor& visitor)
     return visitor.visit(*this);
 };
 
+VisitResult ast::Match::accept(ast::ASTVisitor& visitor)
+{
+    return visitor.visit(*this);
+};
+
 VisitResult ast::InputTextStatement::accept(ast::ASTVisitor& visitor)
 {
     return visitor.visit(*this);
@@ -147,6 +152,13 @@ std::unique_ptr<ast::Sort>
 ast::makeSort(std::unique_ptr<ast::Expression> target, std::optional<String> key)
 {
     return std::make_unique<ast::Sort>(std::move(target), key);
+}
+
+std::unique_ptr<ast::Match>
+ast::makeMatch(std::unique_ptr<ast::Expression> target,
+               std::vector<ast::Match::ExpressionCandidateAndStatementsPair> pairs)
+{
+    return std::make_unique<ast::Match>(std::move(target), std::move(pairs));
 }
 
 std::unique_ptr<ast::InputTextStatement>

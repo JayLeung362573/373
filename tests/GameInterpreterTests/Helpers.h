@@ -90,6 +90,15 @@ doSort(GameInterpreter& interpreter, std::unique_ptr<ast::Sort> sort)
     EXPECT_FALSE(result.isReference());
 }
 
+inline void
+doMatch(GameInterpreter& interpreter, std::unique_ptr<ast::Match> match)
+{
+    VisitResult result = match->accept(interpreter);
+    EXPECT_TRUE(result.isDone());
+    EXPECT_FALSE(result.hasValue());
+    EXPECT_FALSE(result.isReference());
+}
+
 inline Value
 loadVariable(GameInterpreter& interpreter, Name targetName)
 {

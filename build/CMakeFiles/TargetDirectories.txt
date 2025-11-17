@@ -93,6 +93,14 @@
 /Users/jiawei/Desktop/373/build/src/Lobby/CMakeFiles/install.dir
 /Users/jiawei/Desktop/373/build/src/Lobby/CMakeFiles/install/local.dir
 /Users/jiawei/Desktop/373/build/src/Lobby/CMakeFiles/install/strip.dir
+/Users/jiawei/Desktop/373/build/src/GameSession/CMakeFiles/GameSession.dir
+/Users/jiawei/Desktop/373/build/src/GameSession/CMakeFiles/test.dir
+/Users/jiawei/Desktop/373/build/src/GameSession/CMakeFiles/edit_cache.dir
+/Users/jiawei/Desktop/373/build/src/GameSession/CMakeFiles/rebuild_cache.dir
+/Users/jiawei/Desktop/373/build/src/GameSession/CMakeFiles/list_install_components.dir
+/Users/jiawei/Desktop/373/build/src/GameSession/CMakeFiles/install.dir
+/Users/jiawei/Desktop/373/build/src/GameSession/CMakeFiles/install/local.dir
+/Users/jiawei/Desktop/373/build/src/GameSession/CMakeFiles/install/strip.dir
 /Users/jiawei/Desktop/373/build/tests/CMakeFiles/unit_tests.dir
 /Users/jiawei/Desktop/373/build/tests/CMakeFiles/test.dir
 /Users/jiawei/Desktop/373/build/tests/CMakeFiles/edit_cache.dir

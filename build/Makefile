@@ -315,6 +315,19 @@ Lobby/fast:
 .PHONY : Lobby/fast
 
 #=============================================================================
+# Target rules for targets named GameSession
+
+# Build rule for target.
+GameSession: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 GameSession
+.PHONY : GameSession
+
+# fast build rule for target.
+GameSession/fast:
+	$(MAKE) $(MAKESILENT) -f src/GameSession/CMakeFiles/GameSession.dir/build.make src/GameSession/CMakeFiles/GameSession.dir/build
+.PHONY : GameSession/fast
+
+#=============================================================================
 # Target rules for targets named unit_tests
 
 # Build rule for target.
@@ -417,6 +430,7 @@ help:
 	@echo "... rebuild_cache"
 	@echo "... test"
 	@echo "... GameEngine"
+	@echo "... GameSession"
 	@echo "... Lobby"
 	@echo "... chatserver"
 	@echo "... client-ncurses"

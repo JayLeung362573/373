@@ -3,6 +3,7 @@
 #include <cassert>
 #include <memory>
 #include <optional>
+#include <map>
 
 #include "Types.h"
 
@@ -61,6 +62,9 @@ namespace ast
     // Expressions usually evaluate to a Value, but can also be LHS
     // in assignments
     class Expression : public ASTNode {};
+
+    // Statements don't evaluate to a value
+    class Statement : public ASTNode {};
 
     class Constant : public Expression
     {
@@ -168,7 +172,7 @@ namespace ast
             Kind kind;
     };
 
-    class Assignment : public ASTNode
+    class Assignment : public Statement
     {
         public:
             Assignment(std::unique_ptr<Expression> target, std::unique_ptr<Expression> value)
@@ -184,7 +188,7 @@ namespace ast
             std::unique_ptr<Expression> value;
     };
 
-    class Extend : public ASTNode
+    class Extend : public Statement
     {
         public:
             Extend(std::unique_ptr<Expression> target, std::unique_ptr<Expression> value)
@@ -200,7 +204,7 @@ namespace ast
             std::unique_ptr<Expression> value;
     };
 
-    class Reverse : public ASTNode
+    class Reverse : public Statement
     {
         public:
             Reverse(std::unique_ptr<Expression> target) : target(std::move(target)) {}
@@ -212,7 +216,7 @@ namespace ast
             std::unique_ptr<Expression> target;
     };
 
-    class Shuffle : public ASTNode
+    class Shuffle : public Statement
     {
         public:
             Shuffle(std::unique_ptr<Expression> target) : target(std::move(target)) {}
@@ -224,7 +228,7 @@ namespace ast
             std::unique_ptr<Expression> target;
     };
 
-    class Discard : public ASTNode
+    class Discard : public Statement
     {
         public:
             Discard(std::unique_ptr<Expression> target, std::unique_ptr<Expression> amount)
@@ -240,7 +244,7 @@ namespace ast
             std::unique_ptr<Expression> amount;
     };
 
-    class Sort : public ASTNode
+    class Sort : public Statement
     {
         public:
             Sort(std::unique_ptr<Expression> target, std::optional<String> key = {})
@@ -256,7 +260,53 @@ namespace ast
             std::optional<String> key;
     };
 
-    class InputTextStatement : public ASTNode
+    class Match : public Statement
+    {
+        public:
+            struct ExpressionCandidateAndStatementsPair
+            {
+                std::unique_ptr<Expression> expressionCandidate;
+                std::vector<std::unique_ptr<Statement>> statements;
+            };
+
+            struct ExpressionCandidateAndStatementsPairRaw
+            {
+                Expression* expressionCandidate;
+                std::vector<Statement*> statements;
+            };
+
+            Match(std::unique_ptr<Expression> target,
+                  std::vector<ExpressionCandidateAndStatementsPair> pairs)
+            : target(std::move(target))
+            , pairs(std::move(pairs)) {}
+
+            VisitResult accept(ASTVisitor &visitor) override;
+            Expression* getTarget() const noexcept { return target.get(); };
+
+            std::vector<ExpressionCandidateAndStatementsPairRaw>
+            getExpressionCandidateAndStatementsPairs() const
+            {
+                std::vector<ExpressionCandidateAndStatementsPairRaw> rawPairs;
+                for (auto& pair : pairs)
+                {
+                    Expression* expressionCandidate = pair.expressionCandidate.get();
+
+                    std::vector<Statement*> statements;
+                    for (auto& statement : pair.statements)
+                    {
+                        statements.push_back(statement.get());
+                    }
+                    rawPairs.push_back({expressionCandidate, statements});
+                }
+                return rawPairs;
+            }
+
+        private:
+            std::unique_ptr<Expression> target;
+            std::vector<ExpressionCandidateAndStatementsPair> pairs;
+    };
+
+    class InputTextStatement : public Statement
     {
         public:
             InputTextStatement(std::unique_ptr<Variable> player,
@@ -293,6 +343,7 @@ namespace ast
             virtual VisitResult visit(const Shuffle& shuffle) = 0;
             virtual VisitResult visit(const Discard& discard) = 0;
             virtual VisitResult visit(const Sort& sort) = 0;
+            virtual VisitResult visit(const Match& match) = 0;
             virtual VisitResult visit(const InputTextStatement& inputTextStatement) = 0;
     };
 
@@ -341,6 +392,10 @@ namespace ast
     makeSort(std::unique_ptr<ast::Expression> target,
              std::optional<String> key = {});
 
+    std::unique_ptr<ast::Match>
+    makeMatch(std::unique_ptr<ast::Expression> target,
+              std::vector<ast::Match::ExpressionCandidateAndStatementsPair> pairs);
+
     std::unique_ptr<ast::InputTextStatement>
     makeInputTextStmt(std::unique_ptr<ast::Variable> playerVar,
                       std::unique_ptr<ast::Expression> targetExpr,
@@ -366,4 +421,53 @@ namespace ast
 
     ast::Attribute*
     castExpressionToAttribute(ast::Expression* expr);
+
+    // Builder classes allow us to define these types inline, which may make it easier to set up complex trees
+    class StatementsBuilder
+    {
+        public:
+            ast::StatementsBuilder& addStatement(std::unique_ptr<ast::Statement> statement)
+            {
+                statements.push_back(std::move(statement));
+                return *this;
+            }
+
+            std::vector<std::unique_ptr<ast::Statement>> build()
+            {
+                return std::move(statements);
+            }
+
+        private:
+            std::vector<std::unique_ptr<ast::Statement>> statements;
+    };
+
+    class MatchBuilder
+    {
+        public:
+            ast::MatchBuilder& setTarget(std::unique_ptr<ast::Expression> target)
+            {
+                m_target = std::move(target);
+                return *this;
+            }
+
+            ast::MatchBuilder& addCandidatePair(ast::Match::ExpressionCandidateAndStatementsPair pair)
+            {
+                m_pairs.push_back(std::move(std::move(pair)));
+                return *this;
+            }
+
+            std::unique_ptr<ast::Match> build()
+            {
+                return ast::makeMatch(std::move(m_target), std::move(m_pairs));
+            }
+
+        private:
+            std::unique_ptr<ast::Expression> m_target;
+            std::vector<ast::Match::ExpressionCandidateAndStatementsPair> m_pairs;
+    };
+
+    struct GameRules
+    {
+        std::vector<std::unique_ptr<ast::Statement>> statements;
+    };
 };
