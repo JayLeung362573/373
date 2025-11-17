@@ -372,3 +372,40 @@ GameInterpreter::consumeOutGameMessages()
     m_outGameMessages.clear();
     return out;
 }
+
+GameInterpreter::GameInterpreter(ast::GameRules& rules)
+    : m_rules(&rules)
+    , m_isDone(false)
+{
+}
+
+void
+GameInterpreter::run()
+{
+    if (m_isDone)
+    {
+        throw std::runtime_error("Game has already finished execution");
+    }
+
+    if (!m_rules)
+    {
+        throw std::runtime_error("No game rules to execute");
+    }
+
+    // Execute all statements in the game rules
+    for (auto& statement : m_rules->statements)
+    {
+        if (statement)
+        {
+            statement->accept(*this);
+        }
+    }
+
+    m_isDone = true;
+}
+
+bool
+GameInterpreter::isDone() const
+{
+    return m_isDone;
+}

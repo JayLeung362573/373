@@ -12,6 +12,12 @@ class GameInterpreter : public ast::ASTVisitor
     public:
         GameInterpreter() = default;
 
+        /**
+         * @brief Construct interpreter with game rules for Phase 1 execution.
+         * @param rules The game rules to execute (statement list).
+         */
+        GameInterpreter(ast::GameRules& rules);
+
         VisitResult visit(const ast::ASTNode& node) override;
 
         /**
@@ -183,6 +189,20 @@ class GameInterpreter : public ast::ASTVisitor
          */
         const VariableMap& getGameState() const { return m_variableMap; }
 
+        /**
+         * @brief Execute all game rules (Phase 1: single-shot execution).
+         * Runs all statements in the game rules to completion.
+         * @pre isDone() returns false
+         * @post isDone() returns true
+         */
+        void run();
+
+        /**
+         * @brief Check if the game has finished execution.
+         * @return true if run() has been called and completed.
+         */
+        bool isDone() const;
+
     private:
         std::optional<TextInputMessage>
         getTextInputMsg(String playerID, String prompt) const;
@@ -213,4 +233,8 @@ class GameInterpreter : public ast::ASTVisitor
 
         std::vector<GameMessage> m_inGameMessages;
         std::vector<GameMessage> m_outGameMessages;
+
+        // Phase 1: Store rules and execution state
+        ast::GameRules* m_rules = nullptr;
+        bool m_isDone = false;
 };

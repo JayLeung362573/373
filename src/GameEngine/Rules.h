@@ -3,6 +3,8 @@
 #include <cassert>
 #include <memory>
 #include <optional>
+#include <span>
+#include <vector>
 
 #include "Types.h"
 
@@ -61,6 +63,9 @@ namespace ast
     // Expressions usually evaluate to a Value, but can also be LHS
     // in assignments
     class Expression : public ASTNode {};
+
+    // Statements are executed for side effects (assignments, control flow, etc.)
+    class Statement : public ASTNode {};
 
     class Constant : public Expression
     {
@@ -168,7 +173,7 @@ namespace ast
             Kind kind;
     };
 
-    class Assignment : public ASTNode
+    class Assignment : public Statement
     {
         public:
             Assignment(std::unique_ptr<Expression> target, std::unique_ptr<Expression> value)
@@ -184,7 +189,7 @@ namespace ast
             std::unique_ptr<Expression> value;
     };
 
-    class Extend : public ASTNode
+    class Extend : public Statement
     {
         public:
             Extend(std::unique_ptr<Expression> target, std::unique_ptr<Expression> value)
@@ -200,7 +205,7 @@ namespace ast
             std::unique_ptr<Expression> value;
     };
 
-    class Reverse : public ASTNode
+    class Reverse : public Statement
     {
         public:
             Reverse(std::unique_ptr<Expression> target) : target(std::move(target)) {}
@@ -212,7 +217,7 @@ namespace ast
             std::unique_ptr<Expression> target;
     };
 
-    class Shuffle : public ASTNode
+    class Shuffle : public Statement
     {
         public:
             Shuffle(std::unique_ptr<Expression> target) : target(std::move(target)) {}
@@ -224,7 +229,7 @@ namespace ast
             std::unique_ptr<Expression> target;
     };
 
-    class Discard : public ASTNode
+    class Discard : public Statement
     {
         public:
             Discard(std::unique_ptr<Expression> target, std::unique_ptr<Expression> amount)
@@ -240,7 +245,7 @@ namespace ast
             std::unique_ptr<Expression> amount;
     };
 
-    class Sort : public ASTNode
+    class Sort : public Statement
     {
         public:
             Sort(std::unique_ptr<Expression> target, std::optional<String> key = {})
@@ -256,7 +261,7 @@ namespace ast
             std::optional<String> key;
     };
 
-    class InputTextStatement : public ASTNode
+    class InputTextStatement : public Statement
     {
         public:
             InputTextStatement(std::unique_ptr<Variable> player,
@@ -277,6 +282,32 @@ namespace ast
             String prompt;
     };
 
+    // Pair of expression candidate and statements for Match cases
+    struct ExpressionCandidateAndStatements
+    {
+        Expression* expressionCandidate;  // nullptr for default case
+        std::vector<Statement*> statements;
+    };
+
+    // Match statement provides switch-case style control flow
+    class Match : public Statement
+    {
+        public:
+            Match(std::unique_ptr<Expression> target,
+                  std::vector<ExpressionCandidateAndStatements> pairs)
+            : target(std::move(target))
+            , pairs(std::move(pairs)) {}
+
+            VisitResult accept(ASTVisitor& visitor) override;
+            Expression* getTarget() const noexcept { return target.get(); }
+            const std::vector<ExpressionCandidateAndStatements>&
+            getExpressionCandidateAndStatementsPairs() const noexcept { return pairs; }
+
+        private:
+            std::unique_ptr<Expression> target;
+            std::vector<ExpressionCandidateAndStatements> pairs;
+    };
+
     class ASTVisitor
     {
         public:
@@ -294,6 +325,7 @@ namespace ast
             virtual VisitResult visit(const Discard& discard) = 0;
             virtual VisitResult visit(const Sort& sort) = 0;
             virtual VisitResult visit(const InputTextStatement& inputTextStatement) = 0;
+            virtual VisitResult visit(const Match& match) = 0;
     };
 
     std::unique_ptr<ast::Variable>
@@ -366,4 +398,10 @@ namespace ast
 
     ast::Attribute*
     castExpressionToAttribute(ast::Expression* expr);
+
+    // Container for game rules (collection of statements)
+    struct GameRules
+    {
+        std::span<std::unique_ptr<Statement>> statements;
+    };
 };

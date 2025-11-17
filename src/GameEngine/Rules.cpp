@@ -65,6 +65,11 @@ VisitResult ast::InputTextStatement::accept(ast::ASTVisitor& visitor)
     return visitor.visit(*this);
 };
 
+VisitResult ast::Match::accept(ast::ASTVisitor& visitor)
+{
+    return visitor.visit(*this);
+};
+
 std::unique_ptr<ast::Variable>
 ast::makeVariable(Name name) {
     return std::make_unique<ast::Variable>(std::move(name));
