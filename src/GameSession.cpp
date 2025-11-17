@@ -4,9 +4,10 @@
 GameSession::GameSession(LobbyID lobbyID,
                          GameRules rules,
                          std::vector<LobbyMember> players)
-    : m_lobbyID(lobbyID)
-    , m_players(players)
-    , m_runtime(std::make_unique<GameRuntime>(rules))
+    : m_lobbyID(std::move(lobbyID))
+    , m_players(std::move(players))
+    , m_rules(rules)  // Store rules first
+    , m_runtime(std::make_unique<GameRuntime>(m_rules))  // Pass reference to stored rules
 {
     std::cout << "[GameSession] Created session for lobby '" << m_lobbyID
               << "' with " << m_players.size() << " player(s)\n";

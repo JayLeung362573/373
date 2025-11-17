@@ -3,6 +3,7 @@
 #include <vector>
 #include <span>
 #include "GameInterpreter.h"
+#include "GameMessage.h"
 #include "Rules.h"
 
 /**
@@ -40,6 +41,14 @@ class GameRuntime {
         bool
         isFinished() const {
             return m_interpreter.isDone();
+        }
+
+        // Phase 2: Tick-based execution (stub for now)
+        std::vector<GameMessage>
+        tick(const std::vector<GameMessage>& inMessages) {
+            // TODO: Implement tick-based execution in Phase 2
+            // For now, just return empty (Phase 1 uses run() instead)
+            return {};
         }
 
     private:

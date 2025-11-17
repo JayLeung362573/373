@@ -8,6 +8,8 @@
 #include "GameEngine/Rules.h"
 #include "Lobby.h"
 
+using GameRules = ast::GameRules;
+
 /**
  * Manages a single game session for a lobby.
  * Acts as a translation layer between network messages (ClientMessage) and game messages (GameMessage).
@@ -67,5 +69,6 @@ private:
 
     LobbyID m_lobbyID;
     std::vector<LobbyMember> m_players;
+    GameRules m_rules;  // Store rules so GameRuntime can reference them
     std::unique_ptr<GameRuntime> m_runtime;
 };

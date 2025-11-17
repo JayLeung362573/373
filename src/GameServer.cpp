@@ -3,6 +3,8 @@
 #include "Message.h"
 #include "GameSession.h"
 
+using GameRules = ast::GameRules;
+
 GameServer::GameServer() = default;
 
 GameRules GameServer::createSimpleGameRules()

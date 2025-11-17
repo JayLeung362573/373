@@ -9,6 +9,7 @@
 #include "GameSession.h"
 #include "GameEngine/Rules.h"
 
+using GameRules = ast::GameRules;
 
 class NetworkingInterface;
 
