@@ -72,22 +72,10 @@ public:
     Structure() = default;
 
     // Copy constructor - performs deep copy
-    Structure(const Structure& other) {
-        for (const auto& elem : other.elements) {
-            elements.push_back(elem->clone());
-        }
-    }
+    Structure(const Structure& other);
 
     // Copy assignment operator - performs deep copy
-    Structure& operator=(const Structure& other) {
-        if (this != &other) {
-            elements.clear();
-            for (const auto& elem : other.elements) {
-                elements.push_back(elem->clone());
-            }
-        }
-        return *this;
-    }
+    Structure& operator=(const Structure& other);
 
     // Move constructor and assignment (defaulted)
     Structure(Structure&&) = default;
@@ -111,34 +99,11 @@ public:
     }
 
     // Print all elements with "BETWEEN\n" separator
-    void print(std::ostream& out) const {
-        bool first = true;
-        for (const auto& elem : elements) {
-            if (!first) {
-                out << "BETWEEN\n";
-            }
-            elem->print(out);
-            out << '\n';
-            first = false;
-        }
-    }
+    void print(std::ostream& out) const;
 
     // Equality comparison
     // Returns false if either structure has more than 13 elements
-    bool operator==(const Structure& other) const {
-        if (elements.size() > 13 || other.elements.size() > 13) {
-            return false;
-        }
-        if (elements.size() != other.elements.size()) {
-            return false;
-        }
-        for (size_t i = 0; i < elements.size(); ++i) {
-            if (!elements[i]->equals(*other.elements[i])) {
-                return false;
-            }
-        }
-        return true;
-    }
+    bool operator==(const Structure& other) const;
 };
 
 // printElement overload for Structure (definition in task01.cpp)
