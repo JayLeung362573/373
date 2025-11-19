@@ -72,10 +72,7 @@ private:
         virtual std::unique_ptr<Element> clone() const = 0;
         virtual void print(std::ostream& out) const = 0;
         virtual bool equals(const Element& other) const = 0;
-
-        // Use function pointer as type ID (alternative to void*)
-        using type_id_t = void(*)();
-        virtual type_id_t get_type_id() const = 0;
+        virtual const void* get_type_id() const = 0;  // Simpler: just void*
     };
 
     template<typename T>
@@ -92,17 +89,19 @@ private:
             printElement(out, data);
         }
 
-        // Static function with unique address per template instantiation
-        static void type_id_func() {}
-
-        type_id_t get_type_id() const override {
-            return &type_id_func;
+        // SIMPLEST VERSION: Each ElementImpl<T> has its own static variable
+        // We return its address as a unique identifier
+        const void* get_type_id() const override {
+            static const char type_id = 0;  // Unique per ElementImpl<T>
+            return &type_id;
         }
 
         bool equals(const Element& other) const override {
+            // Check if same type by comparing addresses
             if(get_type_id() != other.get_type_id()) {
-                return false;
+                return false;  // Different types
             }
+            // Same type - safe to cast and compare
             const auto& otherImpl = static_cast<const ElementImpl<T>&>(other);
             return data == otherImpl.data;
         }
