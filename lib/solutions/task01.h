@@ -23,19 +23,16 @@ struct is_equality_comparable<T, std::void_t<
 template<typename T>
 inline constexpr bool is_equality_comparable_v = is_equality_comparable<T>::value;
 
-// Steps 1-4: Complete Structure implementation
 class Structure {
 private:
-    // Base class for type erasure
     struct Element {
         virtual ~Element() = default;
         virtual std::unique_ptr<Element> clone() const = 0;
         virtual void print(std::ostream& out) const = 0;
-        virtual bool equals(const Element& other) const = 0;  // Step 4: equality
-        virtual const void* get_type_id() const = 0;  // Step 4: type identification
+        virtual bool equals(const Element& other) const = 0;
+        virtual const void* type_address() const = 0;  // Get unique type ID
     };
 
-    // Template wrapper for actual values
     template<typename T>
     struct ElementImpl : Element {
         T data;
@@ -50,20 +47,19 @@ private:
             printElement(out, data);
         }
 
-        // Step 4: Type-safe equality without dynamic_cast
         bool equals(const Element& other) const override {
-            // Check if types match
-            if (get_type_id() != other.get_type_id()) {
-                return false;
+            // Check if types match by comparing static variable addresses
+            if (type_address() != other.type_address()) {
+                return false;  // Different types
             }
-            // Types match, safe to cast and compare
+            // Same type - safe to cast and compare values
             const ElementImpl<T>* other_ptr = static_cast<const ElementImpl<T>*>(&other);
             return data == other_ptr->data;
         }
 
-        // Step 4: Each ElementImpl<T> has unique type ID
-        // Uses static variable address as type identifier
-        const void* get_type_id() const override {
+        const void* type_address() const override {
+            // Each ElementImpl<T> instantiation gets its own static variable
+            // Return its address as a unique type identifier
             static const char type_id = 0;
             return &type_id;
         }
@@ -72,17 +68,14 @@ private:
     std::vector<std::unique_ptr<Element>> elements;
 
 public:
-    // Step 1: Creation
     Structure() = default;
 
-    // Step 1: Copying
     Structure(const Structure& other) {
         for (const auto& elem : other.elements) {
             elements.push_back(elem->clone());
         }
     }
 
-    // Step 1: Assignment
     Structure& operator=(const Structure& other) {
         if (this != &other) {
             elements.clear();
@@ -96,7 +89,6 @@ public:
     Structure(Structure&&) = default;
     Structure& operator=(Structure&&) = default;
 
-    // Step 2: Adding elements
     template<typename T>
     void add(const T& value) {
         static_assert(std::is_copy_constructible_v<T>,
@@ -114,11 +106,7 @@ public:
         }
     }
 
-    // Step 3: Print all elements with "BETWEEN\n" separator
     void print(std::ostream& out) const;
-
-    // Step 4: Equality comparison
-    // Returns false if either Structure has > 13 elements
     bool operator==(const Structure& other) const;
 };
 
