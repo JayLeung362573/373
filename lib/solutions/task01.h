@@ -37,6 +37,7 @@ public:
     Structure& operator=(const Structure& other) {
         if(this != &other) {
             elements.clear();
+            elements.reserve(other.elements.size());
             for(const auto& element : other.elements) {
                 elements.push_back(element->clone());
             }
@@ -62,7 +63,7 @@ public:
         }
     }
 
-    bool operator==(const Structure& other) const;  // Fixed: added const
+    bool operator==(const Structure& other) const;
     void print(std::ostream& out) const;
 
 private:
@@ -71,7 +72,10 @@ private:
         virtual std::unique_ptr<Element> clone() const = 0;
         virtual void print(std::ostream& out) const = 0;
         virtual bool equals(const Element& other) const = 0;
-        virtual const void* type_address() const = 0;
+
+        // Use function pointer as type ID (alternative to void*)
+        using type_id_t = void(*)();
+        virtual type_id_t get_type_id() const = 0;
     };
 
     template<typename T>
@@ -88,13 +92,15 @@ private:
             printElement(out, data);
         }
 
-        const void* type_address() const override {
-            static const char type_id = 0;  // Fixed: added static
-            return &type_id;
+        // Static function with unique address per template instantiation
+        static void type_id_func() {}
+
+        type_id_t get_type_id() const override {
+            return &type_id_func;
         }
 
         bool equals(const Element& other) const override {
-            if(type_address() != other.type_address()) {
+            if(get_type_id() != other.get_type_id()) {
                 return false;
             }
             const auto& otherImpl = static_cast<const ElementImpl<T>&>(other);
