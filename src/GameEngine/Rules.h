@@ -561,4 +561,8 @@ namespace ast
             std::unique_ptr<ast::Expression> m_target;
             std::vector<ast::Match::Candidate> m_candidates;
     };
+    struct GameRules
+    {
+        std::vector<std::unique_ptr<ast::Statement>> statements;
+    };
 };

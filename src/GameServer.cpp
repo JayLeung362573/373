@@ -240,7 +240,7 @@ GameServer::handleStartGameMessages(uintptr_t clientID, const StartGameMessage& 
     /// 4. check if the game already started
     if(m_activeSessions.find(*lobbyID) != m_activeSessions.end()){
         std::cout << "[GameServer] Error: Game already started for lobby "
-        << *lobbyID << "\n";
+                  << *lobbyID << "\n";
 
         Message errorMsg;
         errorMsg.type = MessageType::Error;
@@ -280,7 +280,19 @@ GameServer::handleStartGameMessages(uintptr_t clientID, const StartGameMessage& 
 
 std::vector<ClientMessage>
 GameServer::tick(const std::vector<ClientMessage> &incomingMessages) {
-    return handleClientMessages(incomingMessages);
+    std::vector<ClientMessage> outgoing = handleClientMessages(incomingMessages);
+
+    for (auto& [lobbyID, session] : m_activeSessions) {
+
+        auto sessionUpdates = session->tick(incomingMessages);
+
+        outgoing.insert(outgoing.end(), sessionUpdates.begin(), sessionUpdates.end());
+
+        if (session->isFinished()) {
+            /// TODO: handle game end
+        }
+    }
+    return outgoing;
 }
 
 ast::GameRules
@@ -292,10 +304,13 @@ GameServer::createGameRules() {
             ast::makeAssignment(
                     ast::makeVariable(Name{"winner"}),
                     ast::makeConstant(Value{String{"player1"}})
-                    )
-            );
+            )
+    );
     std::cout << "[GameServer] Created simple game with "
               << statements.size() << " statements\n";
 
     return ast::GameRules{std::move(statements)};
 }
+
+
+
