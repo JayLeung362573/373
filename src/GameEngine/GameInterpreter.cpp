@@ -15,14 +15,14 @@ VisitResult
 GameInterpreter::visit(const ast::Constant& constant)
 {
     Value value = constant.getValue();
-    return VisitResult{VisitResult::Status::Done, value};
+    return VisitResult{value};
 }
 
 VisitResult
 GameInterpreter::visit(const ast::Variable& variable)
 {
     Value* value = m_variableMap.load(variable.getName());
-    return VisitResult{VisitResult::Status::Done, value};
+    return VisitResult{value};
 }
 
 VisitResult
@@ -44,7 +44,7 @@ GameInterpreter::visit(const ast::Attribute& attribute)
     Value& baseValue = baseResult.getValue();
     Value& attrValue = baseValue.getAttribute(attribute.getAttr());
 
-    return VisitResult{VisitResult::Status::Done, &attrValue};
+    return VisitResult{&attrValue};
 }
 
 VisitResult
@@ -61,7 +61,7 @@ GameInterpreter::visit(const ast::Comparison& comparison)
         case ast::Comparison::Kind::LT: boolResult = isLessThan(left, right); break;
     }
 
-    return VisitResult{VisitResult::Status::Done, Value{boolResult}};
+    return VisitResult{Value{boolResult}};
 }
 
 VisitResult
@@ -77,7 +77,7 @@ GameInterpreter::visit(const ast::LogicalOperation& logicalOp)
         case ast::LogicalOperation::Kind::OR: boolResult = Boolean{doLogicalOr(left, right)}; break;
     }
 
-    return VisitResult{VisitResult::Status::Done, Value{boolResult}};
+    return VisitResult{Value{boolResult}};
 }
 
 VisitResult
@@ -92,7 +92,7 @@ GameInterpreter::visit(const ast::UnaryOperation& unaryOp)
         case ast::UnaryOperation::Kind::NOT: boolResult = Boolean{doUnaryNot(target)}; break;
     }
 
-    return VisitResult{VisitResult::Status::Done, Value{boolResult}};
+    return VisitResult{Value{boolResult}};
 }
 
 VisitResult
@@ -113,7 +113,7 @@ GameInterpreter::visit(const ast::Assignment& assignment)
     {
         throw std::runtime_error("Assignment target must be a Variable or an Attribute");
     }
-    return VisitResult{VisitResult::Status::Done, {}};
+    return {};
 }
 
 VisitResult
@@ -127,7 +127,7 @@ GameInterpreter::visit(const ast::Extend& extend)
 
     target.asList().extend(value.asList());
 
-    return VisitResult{VisitResult::Status::Done, {}};
+    return {};
 }
 
 VisitResult
@@ -138,7 +138,7 @@ GameInterpreter::visit(const ast::Reverse& reverse)
 
     target.asList().reverse();
 
-    return VisitResult{VisitResult::Status::Done, {}};
+    return {};
 }
 
 VisitResult
@@ -149,7 +149,7 @@ GameInterpreter::visit(const ast::Shuffle& shuffle)
 
     target.asList().shuffle();
 
-    return VisitResult{VisitResult::Status::Done, {}};
+    return {};
 }
 
 VisitResult
@@ -163,7 +163,7 @@ GameInterpreter::visit(const ast::Discard& discard)
 
     target.asList().discard(amount.asInteger());
 
-    return VisitResult{VisitResult::Status::Done, {}};
+    return {};
 }
 
 VisitResult
@@ -176,7 +176,7 @@ GameInterpreter::visit(const ast::Sort& sort)
 
     target = Value{sortedTarget};
 
-    return VisitResult{VisitResult::Status::Done, {}};
+    return {};
 }
 
 VisitResult
@@ -184,17 +184,16 @@ GameInterpreter::visit(const ast::Match& match)
 {
     Value targetValue = evaluateExpression(*match.getTarget()).getValue();
 
-    for (auto& pair : match.getExpressionCandidateAndStatementsPairs())
+    for (auto& candidate : match.getCandidates())
     {
-        Value candidateValue = evaluateExpression(*(pair.expressionCandidate)).getValue();
+        Value candidateValue = evaluateExpression(*(candidate.expressionCandidate)).getValue();
         if (isEqual(targetValue, candidateValue).value)
         {
-            executeStatements(pair.statements);
-            break; // Break on first match
+            return candidate;
         }
     }
 
-    return VisitResult{VisitResult::Status::Done, {}};
+    return std::nullopt;
 }
 
 void
@@ -218,12 +217,28 @@ GameInterpreter::doAttributeAssignment(ast::Attribute& attrTarget, Value valueTo
 }
 
 void
-GameInterpreter::executeStatements(std::vector<ast::Statement*>& statements)
+GameInterpreter::execute()
 {
-    // TODO: Need to handle blocking statements (e.g. get player input)
-    for (auto& statement : statements)
+    if (!m_program.has_value())
     {
-        statement->accept(*this);
+        throw std::runtime_error("No program to execute");
+    }
+
+    executeProgram(*m_iterator.get());
+}
+
+void
+GameInterpreter::executeProgram(ProgramIterator& iterator)
+{
+    while (iterator.currentStatement() != nullptr && !needsIO())
+    {
+        m_currentIterator = &iterator;
+        iterator.currentStatement()->accept(*this);
+
+        if (!needsIO())
+        {
+            iterator.goNext();
+        }
     }
 }
 
@@ -272,31 +287,138 @@ GameInterpreter::isLessThan(const Value& left, const Value& right)
     throw std::runtime_error("Values are not less-than comparable");
 }
 
-VisitResult
-GameInterpreter::visit(const ast::InputTextStatement& inputTextStatement)
+bool
+GameInterpreter::needsIO()
 {
-    auto playerVar = inputTextStatement.getPlayer();
-    auto targetExpr = inputTextStatement.getTarget();
-    String prompt = inputTextStatement.getPrompt();
+    return m_inputManager.getPendingRequests().size() > 0;
+}
+
+VisitResult
+GameInterpreter::visit(const ast::InputText& inputText)
+{
+    auto playerVar = inputText.getPlayer();
+    auto targetExpr = inputText.getTarget();
+    String prompt = inputText.getPrompt();
     String playerID = getPlayerAttribute(*playerVar, String{"id"}).asString();
 
-    auto maybeInput = getTextInputMsg(playerID, prompt);
-    if (!maybeInput)
+    auto maybeText = m_inputManager.getTextInput(playerID, prompt);
+    if (!maybeText)
     {
-        m_outGameMessages.push_back(
-            GameMessage{GetTextInputMessage{playerID, prompt}}
-        );
-        return VisitResult{VisitResult::Status::Pending, {}};
+        return {};
     }
 
-    Value input{String{maybeInput->input}};
+    Value input{*maybeText};
     auto assignment = ast::makeAssignment(
         ast::cloneExpression(targetExpr),
         ast::makeConstant(input)
     );
     assignment->accept(*this);
 
-    return VisitResult{VisitResult::Status::Done, {}};
+    return {};
+}
+
+VisitResult
+GameInterpreter::visit(const ast::InputChoice& inputChoice)
+{
+    auto playerVar = inputChoice.getPlayer();
+    auto targetExpr = inputChoice.getTarget();
+    String prompt = inputChoice.getPrompt();
+    auto choicesExpr = inputChoice.getChoices();
+    String playerID = getPlayerAttribute(*playerVar, String{"id"}).asString();
+
+    VisitResult choicesResult = evaluateExpression(*choicesExpr);
+    Value& choicesValue = choicesResult.getValue();
+
+    if (!choicesValue.isList())
+    {
+        throw std::runtime_error("Choices must evaluate to a list");
+    }
+
+    List<Value> choices = choicesValue.asList();
+
+    auto maybeChoice = m_inputManager.getChoiceInput(playerID, prompt, choices);
+    if (!maybeChoice)
+    {
+        return {};
+    }
+
+    Value choiceValue{*maybeChoice};
+    auto assignment = ast::makeAssignment(
+        ast::cloneExpression(targetExpr),
+        ast::makeConstant(choiceValue)
+    );
+    assignment->accept(*this);
+
+    return {};
+}
+
+VisitResult
+GameInterpreter::visit(const ast::InputRange& inputRange)
+{
+    auto playerVar = inputRange.getPlayer();
+    auto targetExpr = inputRange.getTarget();
+    String prompt = inputRange.getPrompt();
+    auto minExpr = inputRange.getMinValue();
+    auto maxExpr = inputRange.getMaxValue();
+
+    String playerID = getPlayerAttribute(*playerVar, String{"id"}).asString();
+
+    Value minValue = evaluateExpression(*minExpr).getValue();
+    Value maxValue = evaluateExpression(*maxExpr).getValue();
+
+    auto maybeRange = m_inputManager.getRangeInput(
+        playerID, prompt, minValue.asInteger(), maxValue.asInteger()
+    );
+
+    if (!maybeRange)
+    {
+        return {};
+    }
+
+    auto assignment = ast::makeAssignment(
+        ast::cloneExpression(targetExpr),
+        ast::makeConstant(Value{*maybeRange})
+    );
+    assignment->accept(*this);
+
+    return {};
+}
+
+VisitResult
+GameInterpreter::visit(const ast::InputVote& inputVote)
+{
+    auto playerVar = inputVote.getPlayer();
+    auto targetExpr = inputVote.getTarget();
+    String prompt = inputVote.getPrompt();
+    auto choicesExpr = inputVote.getChoices();
+
+    String playerID = getPlayerAttribute(*playerVar, String{"id"}).asString();
+
+    VisitResult choicesResult = evaluateExpression(*choicesExpr);
+    Value& choicesValue = choicesResult.getValue();
+
+    if (!choicesValue.isList())
+    {
+        throw std::runtime_error("Vote choices must evaluate to a list");
+    }
+
+    List<Value> choices = choicesValue.asList();
+
+    auto maybeVote = m_inputManager.getVoteInput(playerID, prompt, choices);
+
+    if (!maybeVote)
+    {
+        return {};
+    }
+
+    Value voteValue{*maybeVote};
+    auto assignment = ast::makeAssignment(
+        ast::cloneExpression(targetExpr),
+        ast::makeConstant(voteValue)
+    );
+    assignment->accept(*this);
+
+    return {};
 }
 
 Value
@@ -308,7 +430,7 @@ GameInterpreter::getPlayerAttribute(const ast::Variable& playerVar, String attr)
     if (!result.hasValue())
     {
         throw std::runtime_error(
-            std::format("Failed to get player attribute: {}", attr.value)
+                "Failed to get player attribute: " + attr.value
         );
     }
     return result.getValue();

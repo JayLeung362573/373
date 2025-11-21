@@ -8,7 +8,9 @@
 
 TEST(SortTest, SortList)
 {
-    GameInterpreter interpreter;
+    InputManager inputManager;
+    GameInterpreter interpreter(inputManager, {});
+
     List<Value> myList{Value{String{"c"}}, Value{String{"a"}}, Value{String{"b"}}};
     List<Value> expected{Value{String{"a"}}, Value{String{"b"}}, Value{String{"c"}}};
 
@@ -27,7 +29,9 @@ TEST(SortTest, SortList)
 
 TEST(SortTest, SortListWithKey)
 {
-    GameInterpreter interpreter;
+    InputManager inputManager;
+    GameInterpreter interpreter(inputManager, {});
+
     Map<String, Value> map1;
     Map<String, Value> map2;
     Map<String, Value> map3;
@@ -55,7 +59,8 @@ TEST(SortTest, SortListWithKey)
 
 TEST(SortTest, SortTargetNotAList)
 {
-    GameInterpreter interpreter;
+    InputManager inputManager;
+    GameInterpreter interpreter(inputManager, {});
 
     auto stringAssignment = ast::makeAssignment(
         ast::makeVariable(Name{"notAList"}),

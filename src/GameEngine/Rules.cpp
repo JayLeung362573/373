@@ -65,7 +65,22 @@ VisitResult ast::Match::accept(ast::ASTVisitor& visitor)
     return visitor.visit(*this);
 };
 
-VisitResult ast::InputTextStatement::accept(ast::ASTVisitor& visitor)
+VisitResult ast::InputText::accept(ast::ASTVisitor& visitor)
+{
+    return visitor.visit(*this);
+};
+
+VisitResult ast::InputChoice::accept(ast::ASTVisitor& visitor)
+{
+    return visitor.visit(*this);
+};
+
+VisitResult ast::InputRange::accept(ast::ASTVisitor& visitor)
+{
+    return visitor.visit(*this);
+};
+
+VisitResult ast::InputVote::accept(ast::ASTVisitor& visitor)
 {
     return visitor.visit(*this);
 };
@@ -156,18 +171,52 @@ ast::makeSort(std::unique_ptr<ast::Expression> target, std::optional<String> key
 
 std::unique_ptr<ast::Match>
 ast::makeMatch(std::unique_ptr<ast::Expression> target,
-               std::vector<ast::Match::ExpressionCandidateAndStatementsPair> pairs)
+               std::vector<ast::Match::Candidate> candidates)
 {
-    return std::make_unique<ast::Match>(std::move(target), std::move(pairs));
+    return std::make_unique<ast::Match>(std::move(target), std::move(candidates));
 }
 
-std::unique_ptr<ast::InputTextStatement>
-ast::makeInputTextStmt(std::unique_ptr<ast::Variable> playerVar,
-                  std::unique_ptr<ast::Expression> targetExpr,
-                  String prompt)
+std::unique_ptr<ast::InputText>
+ast::makeInputText(std::unique_ptr<ast::Variable> playerVar,
+                   std::unique_ptr<ast::Expression> targetExpr,
+                   String prompt)
 {
-    return std::make_unique<ast::InputTextStatement>(
+    return std::make_unique<ast::InputText>(
         std::move(playerVar), std::move(targetExpr), std::move(prompt)
+    );
+}
+
+std::unique_ptr<ast::InputChoice>
+ast::makeInputChoice(std::unique_ptr<ast::Variable> playerVar,
+                     std::unique_ptr<ast::Expression> targetExpr,
+                     String prompt,
+                     std::unique_ptr<ast::Expression> choices)
+{
+    return std::make_unique<ast::InputChoice>(
+        std::move(playerVar), std::move(targetExpr), std::move(prompt), std::move(choices)
+    );
+}
+
+std::unique_ptr<ast::InputRange>
+ast::makeInputRange(std::unique_ptr<ast::Variable> playerVar,
+                    std::unique_ptr<ast::Expression> targetExpr,
+                    String prompt,
+                    std::unique_ptr<ast::Expression> minValue,
+                    std::unique_ptr<ast::Expression> maxValue)
+{
+    return std::make_unique<ast::InputRange>(
+        std::move(playerVar), std::move(targetExpr), std::move(prompt), std::move(minValue), std::move(maxValue)
+    );
+}
+
+std::unique_ptr<ast::InputVote>
+ast::makeInputVote(std::unique_ptr<ast::Variable> playerVar,
+                   std::unique_ptr<ast::Expression> targetExpr,
+                   String prompt,
+                   std::unique_ptr<ast::Expression> choices)
+{
+    return std::make_unique<ast::InputVote>(
+        std::move(playerVar), std::move(targetExpr), std::move(prompt), std::move(choices)
     );
 }
 

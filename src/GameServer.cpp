@@ -254,10 +254,10 @@ GameServer::handleStartGameMessages(uintptr_t clientID, const StartGameMessage& 
               << " with " << players.size() << " players\n";
 
     /// 6. create game rules
-    GameRules rules = createGameRules();
+    ast::GameRules rules = createGameRules();
 
     /// 7. create and start session
-    auto session = std::make_unique<GameSession>(*lobbyID, rules, players);
+    auto session = std::make_unique<GameSession>(*lobbyID, std::move(rules), players);
     session->start();
 
     /// 8. map and track this session
@@ -283,7 +283,7 @@ GameServer::tick(const std::vector<ClientMessage> &incomingMessages) {
     return handleClientMessages(incomingMessages);
 }
 
-GameRules
+ast::GameRules
 GameServer::createGameRules() {
     std::vector<std::unique_ptr<ast::Statement>> statements;
     statements.clear();
@@ -297,6 +297,5 @@ GameServer::createGameRules() {
     std::cout << "[GameServer] Created simple game with "
               << statements.size() << " statements\n";
 
-    return GameRules{std::span(statements)};
+    return ast::GameRules{std::move(statements)};
 }
-

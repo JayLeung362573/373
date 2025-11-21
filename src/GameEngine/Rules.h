@@ -10,13 +10,6 @@
 
 struct VisitResult
 {
-    enum class Status
-    {
-        Done,
-        Pending
-    };
-
-    Status status;
     std::optional<std::variant<Value, Value*>> value;
 
     bool hasValue() const { return value.has_value(); }
@@ -39,9 +32,6 @@ struct VisitResult
     {
         return hasValue() && std::holds_alternative<Value*>(*value);
     }
-
-    bool isDone() const { return status == Status::Done; }
-    bool isPending() const { return status == Status::Pending; }
 };
 
 // TODO: Generalize these to not return a VisitResult, but anything?
@@ -263,55 +253,55 @@ namespace ast
     class Match : public Statement
     {
         public:
-            struct ExpressionCandidateAndStatementsPair
+            struct Candidate
             {
                 std::unique_ptr<Expression> expressionCandidate;
                 std::vector<std::unique_ptr<Statement>> statements;
             };
 
-            struct ExpressionCandidateAndStatementsPairRaw
+            struct CandidateRaw
             {
                 Expression* expressionCandidate;
                 std::vector<Statement*> statements;
             };
 
             Match(std::unique_ptr<Expression> target,
-                  std::vector<ExpressionCandidateAndStatementsPair> pairs)
+                  std::vector<Candidate> candidates)
             : target(std::move(target))
-            , pairs(std::move(pairs)) {}
+            , candidates(std::move(candidates)) {}
 
             VisitResult accept(ASTVisitor &visitor) override;
             Expression* getTarget() const noexcept { return target.get(); };
 
-            std::vector<ExpressionCandidateAndStatementsPairRaw>
-            getExpressionCandidateAndStatementsPairs() const
+            std::vector<CandidateRaw>
+            getCandidates() const
             {
-                std::vector<ExpressionCandidateAndStatementsPairRaw> rawPairs;
-                for (auto& pair : pairs)
+                std::vector<CandidateRaw> rawCandidates;
+                for (auto& candidate : candidates)
                 {
-                    Expression* expressionCandidate = pair.expressionCandidate.get();
+                    Expression* expressionCandidate = candidate.expressionCandidate.get();
 
                     std::vector<Statement*> statements;
-                    for (auto& statement : pair.statements)
+                    for (auto& statement : candidate.statements)
                     {
                         statements.push_back(statement.get());
                     }
-                    rawPairs.push_back({expressionCandidate, statements});
+                    rawCandidates.push_back({expressionCandidate, statements});
                 }
-                return rawPairs;
+                return rawCandidates;
             }
 
         private:
             std::unique_ptr<Expression> target;
-            std::vector<ExpressionCandidateAndStatementsPair> pairs;
+            std::vector<Candidate> candidates;
     };
 
-    class InputTextStatement : public Statement
+    class InputText : public Statement
     {
         public:
-            InputTextStatement(std::unique_ptr<Variable> player,
-                               std::unique_ptr<Expression> target,
-                               String prompt)
+            InputText(std::unique_ptr<Variable> player,
+                      std::unique_ptr<Expression> target,
+                      String prompt)
             : player(std::move(player))
             , target(std::move(target))
             , prompt(prompt) {}
@@ -326,6 +316,86 @@ namespace ast
             std::unique_ptr<Expression> target;
             String prompt;
     };
+
+    class InputChoice : public Statement
+    {
+        public:
+            InputChoice(std::unique_ptr<Variable> player,
+                        std::unique_ptr<Expression> target,
+                        String prompt,
+                        std::unique_ptr<Expression> choices)
+            : player(std::move(player))
+            , target(std::move(target))
+            , prompt(prompt)
+            , choices(std::move(choices)) {}
+
+            VisitResult accept(ASTVisitor& visitor) override;
+            Variable* getPlayer() const noexcept { return player.get(); }
+            Expression* getTarget() const noexcept { return target.get(); }
+            String getPrompt() const noexcept { return prompt; }
+            Expression* getChoices() const noexcept { return choices.get(); }
+
+        private:
+            std::unique_ptr<Variable> player;
+            std::unique_ptr<Expression> target;
+            String prompt;
+            std::unique_ptr<Expression> choices;
+    };
+
+    class InputRange : public Statement
+    {
+        public:
+            InputRange(std::unique_ptr<Variable> player,
+                       std::unique_ptr<Expression> target,
+                       String prompt,
+                       std::unique_ptr<Expression> minValue,
+                       std::unique_ptr<Expression> maxValue)
+            : player(std::move(player))
+            , target(std::move(target))
+            , prompt(prompt)
+            , minValue(std::move(minValue))
+            , maxValue(std::move(maxValue)) {}
+
+            VisitResult accept(ASTVisitor& visitor) override;
+            Variable* getPlayer() const noexcept { return player.get(); }
+            Expression* getTarget() const noexcept { return target.get(); }
+            String getPrompt() const noexcept { return prompt; }
+            Expression* getMinValue() const noexcept { return minValue.get(); }
+            Expression* getMaxValue() const noexcept { return maxValue.get(); }
+
+        private:
+            std::unique_ptr<Variable> player;
+            std::unique_ptr<Expression> target;
+            String prompt;
+            std::unique_ptr<Expression> minValue;
+            std::unique_ptr<Expression> maxValue;
+    };
+
+    class InputVote : public Statement
+    {
+        public:
+            InputVote(std::unique_ptr<Variable> player,
+                               std::unique_ptr<Expression> target,
+                               String prompt,
+                               std::unique_ptr<Expression> choices)
+            : player(std::move(player))
+            , target(std::move(target))
+            , prompt(prompt)
+            , choices(std::move(choices)) {}
+
+            VisitResult accept(ASTVisitor& visitor) override;
+            Variable* getPlayer() const noexcept { return player.get(); }
+            Expression* getTarget() const noexcept { return target.get(); }
+            String getPrompt() const noexcept { return prompt; }
+            Expression* getChoices() const noexcept { return choices.get(); }
+
+        private:
+            std::unique_ptr<Variable> player;
+            std::unique_ptr<Expression> target;
+            String prompt;
+            std::unique_ptr<Expression> choices;
+    };
+
 
     class ASTVisitor
     {
@@ -344,7 +414,10 @@ namespace ast
             virtual VisitResult visit(const Discard& discard) = 0;
             virtual VisitResult visit(const Sort& sort) = 0;
             virtual VisitResult visit(const Match& match) = 0;
-            virtual VisitResult visit(const InputTextStatement& inputTextStatement) = 0;
+            virtual VisitResult visit(const InputText& inputText) = 0;
+            virtual VisitResult visit(const InputChoice& inputChoice) = 0;
+            virtual VisitResult visit(const InputRange& inputRange) = 0;
+            virtual VisitResult visit(const InputVote& inputVote) = 0;
     };
 
     std::unique_ptr<ast::Variable>
@@ -394,12 +467,31 @@ namespace ast
 
     std::unique_ptr<ast::Match>
     makeMatch(std::unique_ptr<ast::Expression> target,
-              std::vector<ast::Match::ExpressionCandidateAndStatementsPair> pairs);
+              std::vector<ast::Match::Candidate> candidates);
 
-    std::unique_ptr<ast::InputTextStatement>
-    makeInputTextStmt(std::unique_ptr<ast::Variable> playerVar,
-                      std::unique_ptr<ast::Expression> targetExpr,
-                      String prompt);
+    std::unique_ptr<ast::InputText>
+    makeInputText(std::unique_ptr<ast::Variable> playerVar,
+                  std::unique_ptr<ast::Expression> targetExpr,
+                  String prompt);
+
+    std::unique_ptr<ast::InputChoice>
+    makeInputChoice(std::unique_ptr<ast::Variable> playerVar,
+                    std::unique_ptr<ast::Expression> targetExpr,
+                    String prompt,
+                    std::unique_ptr<ast::Expression> choices);
+
+    std::unique_ptr<ast::InputRange>
+    makeInputRange(std::unique_ptr<ast::Variable> playerVar,
+                   std::unique_ptr<ast::Expression> targetExpr,
+                   String prompt,
+                   std::unique_ptr<ast::Expression> minValue,
+                   std::unique_ptr<ast::Expression> maxValue);
+
+    std::unique_ptr<ast::InputVote>
+    makeInputVote(std::unique_ptr<ast::Variable> playerVar,
+                  std::unique_ptr<ast::Expression> targetExpr,
+                  String prompt,
+                  std::unique_ptr<ast::Expression> choices);
 
     std::unique_ptr<ast::Constant>
     cloneConstant(ast::Constant* constant);
@@ -450,20 +542,29 @@ namespace ast
                 return *this;
             }
 
-            ast::MatchBuilder& addCandidatePair(ast::Match::ExpressionCandidateAndStatementsPair pair)
+            ast::MatchBuilder& addCandidatePair(std::unique_ptr<Expression> expressionCandidate,
+                                                std::vector<std::unique_ptr<Statement>> statements)
             {
-                m_pairs.push_back(std::move(std::move(pair)));
+                ast::Match::Candidate pair{
+                    std::move(expressionCandidate), std::move(statements)
+                };
+                m_candidates.push_back(std::move(std::move(pair)));
                 return *this;
             }
 
             std::unique_ptr<ast::Match> build()
             {
-                return ast::makeMatch(std::move(m_target), std::move(m_pairs));
+                return ast::makeMatch(std::move(m_target), std::move(m_candidates));
             }
 
         private:
             std::unique_ptr<ast::Expression> m_target;
-            std::vector<ast::Match::ExpressionCandidateAndStatementsPair> m_pairs;
+            std::vector<ast::Match::Candidate> m_candidates;
+    };
+
+    struct GameRules
+    {
+        std::vector<std::unique_ptr<ast::Statement>> statements;
     };
 
     struct GameRules

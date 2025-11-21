@@ -7,7 +7,8 @@
 
 TEST(AssignmentTest, AssignStringToVariable)
 {
-    GameInterpreter interpreter;
+    InputManager inputManager;
+    GameInterpreter interpreter(inputManager, {});
 
     auto assignment = ast::makeAssignment(
         ast::makeVariable(Name{"score"}),
@@ -21,7 +22,8 @@ TEST(AssignmentTest, AssignStringToVariable)
 
 TEST(AssignmentTest, AssignMapToVariable)
 {
-    GameInterpreter interpreter;
+    InputManager inputManager;
+    GameInterpreter interpreter(inputManager, {});
 
     Map<String, Value> map{};
     map.setAttribute(String{"a"}, Value{String{"1"}});
@@ -38,7 +40,8 @@ TEST(AssignmentTest, AssignMapToVariable)
 
 TEST(AssignmentTest, AssignVariableMapAttribute)
 {
-    GameInterpreter interpreter;
+    InputManager inputManager;
+    GameInterpreter interpreter(inputManager, {});
 
     Map<String, Value> map{};
 
@@ -69,7 +72,8 @@ TEST(AssignmentTest, AssignVariableMapAttribute)
 
 TEST(AssignmentTest, AssignVariableNestedMapAttribute)
 {
-    GameInterpreter interpreter;
+    InputManager inputManager;
+    GameInterpreter interpreter(inputManager, {});
 
     Map<String, Value> map{};
     Map<String, Value> nestedMap{};
@@ -105,7 +109,8 @@ TEST(AssignmentTest, AssignVariableNestedMapAttribute)
 
 TEST(AssignmentTest, AssignVariableToVariableString)
 {
-    GameInterpreter interpreter;
+    InputManager inputManager;
+    GameInterpreter interpreter(inputManager, {});
 
     auto var1Assignment = ast::makeAssignment(
         ast::makeVariable(Name{"var1"}),
@@ -150,7 +155,8 @@ TEST(AssignmentTest, AssignVariableToVariableString)
 
 TEST(AssignmentTest, AssignVariableToVariableMap)
 {
-    GameInterpreter interpreter;
+    InputManager inputManager;
+    GameInterpreter interpreter(inputManager, {});
 
     Map<String, Value> map;
     map.setAttribute(String{"a"}, Value{String{"1"}});
@@ -195,7 +201,8 @@ TEST(AssignmentTest, AssignVariableToVariableMap)
 
 TEST(AssignmentTest, AssignConstant)
 {
-    GameInterpreter interpreter;
+    InputManager inputManager;
+    GameInterpreter interpreter(inputManager, {});
     auto invalidAssignment = ast::makeAssignment(
         ast::makeConstant(Value{String{"a"}}), // Invalid syntax, constants are not assignable
         ast::makeConstant(Value{String{"b"}})
@@ -208,7 +215,8 @@ TEST(AssignmentTest, AssignConstant)
 
 TEST(AssignmentTest, AssignUndefinedVariable)
 {
-    GameInterpreter interpreter;
+    InputManager inputManager;
+    GameInterpreter interpreter(inputManager, {});
     auto invalidAssignment = ast::makeAssignment(
         ast::makeVariable(Name{"var1"}),
         ast::makeVariable(Name{"var2"}) // var2 is undefined
@@ -221,7 +229,8 @@ TEST(AssignmentTest, AssignUndefinedVariable)
 
 TEST(AssignmentTest, AssignUndefinedAttribute)
 {
-    GameInterpreter interpreter;
+    InputManager inputManager;
+    GameInterpreter interpreter(inputManager, {});
     Map<String, Value> map;
     map.setAttribute(String{"a"}, Value{String{"1"}});
 

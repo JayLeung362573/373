@@ -12,7 +12,9 @@ TEST(ShuffleTest, ShuffleList)
     // But a good enough check might be that two calls to shuffle create different
     // lists. Hopefully 10 distinct elements is enough to not produce the same list
     // twice.
-    GameInterpreter interpreter;
+    InputManager inputManager;
+    GameInterpreter interpreter(inputManager, {});
+
     List<Value> list{
         Value{String{"a"}},
         Value{String{"b"}},
@@ -49,7 +51,8 @@ TEST(ShuffleTest, ShuffleList)
 
 TEST(ShuffleTest, ShuffleTargetNotAList)
 {
-    GameInterpreter interpreter;
+    InputManager inputManager;
+    GameInterpreter interpreter(inputManager, {});
 
     auto stringAssignment = ast::makeAssignment(
         ast::makeVariable(Name{"notAList"}),

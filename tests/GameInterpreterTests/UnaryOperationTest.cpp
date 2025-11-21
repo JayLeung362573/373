@@ -8,7 +8,8 @@
 
 TEST(UnaryOperationTest, NotOnFalse)
 {
-    GameInterpreter interpreter;
+    InputManager inputManager;
+    GameInterpreter interpreter(inputManager, {});
 
     auto unaryOp = ast::makeUnaryOperation(
         // false
@@ -28,7 +29,8 @@ TEST(UnaryOperationTest, NotOnFalse)
 
 TEST(UnaryOperationTest, NotOnTrue)
 {
-    GameInterpreter interpreter;
+    InputManager inputManager;
+    GameInterpreter interpreter(inputManager, {});
 
     auto unaryOp = ast::makeUnaryOperation(
         // true

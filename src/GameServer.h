@@ -33,5 +33,5 @@ public:
 private:
     LobbyRegistry m_lobbyRegistry;
     std::unordered_map<LobbyID, std::unique_ptr<GameSession>> m_activeSessions;
-    GameRules createGameRules();
+    ast::GameRules createGameRules();
 };

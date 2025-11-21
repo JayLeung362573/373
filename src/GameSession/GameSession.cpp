@@ -2,7 +2,7 @@
 #include <iostream>
 #include <utility>
 
-GameSession::GameSession(LobbyID lobbyID, GameRules rules, std::vector<LobbyMember> players)
+GameSession::GameSession(LobbyID lobbyID, ast::GameRules rules, std::vector<LobbyMember> players)
     : m_lobbyID(std::move(lobbyID))
     , m_players(std::move(players))
     , m_runtime(std::make_unique<GameRuntime>(rules))
@@ -25,22 +25,23 @@ GameSession::start() {
     std::cout << "[GameSession] Game for lobby " << m_lobbyID << " finished\n";
 }
 
-std::vector<ClientMessage>
-GameSession::tick(const std::vector<ClientMessage>& incomingMessages){
-    if(m_runtime->isFinished()){
-        return {};
-    }
+// TODO: Revisit once IO implemented in GameInterpreter
+// std::vector<ClientMessage>
+// GameSession::tick(const std::vector<ClientMessage>& incomingMessages){
+//     if(m_runtime->isFinished()){
+//         return {};
+//     }
 
-    std::vector<GameMessage> gameMsgs = extractGameMessages(incomingMessages);
+//     std::vector<GameMessage> gameMsgs = extractGameMessages(incomingMessages);
 
-    auto outGameMsgs = m_runtime->tick(gameMsgs);
+//     auto outGameMsgs = m_runtime->tick(gameMsgs);
 
-    if(m_runtime->isFinished()){
-        return {};
-    }
+//     if(m_runtime->isFinished()){
+//         return {};
+//     }
 
-    return convertToClientMessages(outGameMsgs);
-}
+//     return convertToClientMessages(outGameMsgs);
+// }
 
 std::vector<GameMessage>
 GameSession::extractGameMessages(const std::vector<ClientMessage> &clientMsgs) {

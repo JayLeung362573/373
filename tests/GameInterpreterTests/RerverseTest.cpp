@@ -7,7 +7,9 @@
 
 TEST(ReverseTest, ReverseList)
 {
-    GameInterpreter interpreter;
+    InputManager inputManager;
+    GameInterpreter interpreter(inputManager, {});
+
     List<Value> list{Value{String{"a"}}, Value{String{"b"}}, Value{String{"c"}}};
     List<Value> expectedReversedList{
         Value{String{"c"}},
@@ -30,7 +32,8 @@ TEST(ReverseTest, ReverseList)
 
 TEST(ReverseTest, ReverseTargetNotAList)
 {
-    GameInterpreter interpreter;
+    InputManager inputManager;
+    GameInterpreter interpreter(inputManager, {});
 
     auto stringAssignment = ast::makeAssignment(
         ast::makeVariable(Name{"notAList"}),

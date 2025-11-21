@@ -8,14 +8,14 @@
 
 TEST(ConstantTest, VisitConstant)
 {
-    GameInterpreter interpreter;
+    InputManager inputManager;
+    GameInterpreter interpreter(inputManager, {});
+
     Value value{String{"100"}};
     auto constant = ast::makeConstant(value);
 
     VisitResult result = constant->accept(interpreter);
 
-    EXPECT_EQ(result.status, VisitResult::Status::Done);
-    EXPECT_TRUE(result.isDone());
     ASSERT_TRUE(result.hasValue());
     EXPECT_EQ(result.getValue(), value);
     EXPECT_FALSE(result.isReference());

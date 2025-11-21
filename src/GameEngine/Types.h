@@ -58,6 +58,11 @@ struct Integer
         os << integer.value;
         return os;
     }
+
+    bool operator<(const Integer& other) const noexcept
+    {
+        return value < other.value;
+    }
 };
 
 /// Represents an boolean value.

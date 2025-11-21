@@ -8,7 +8,9 @@
 
 TEST(DiscardTest, DiscardList)
 {
-    GameInterpreter interpreter;
+    InputManager inputManager;
+    GameInterpreter interpreter(inputManager, {});
+
     List<Value> myList{Value{String{"a"}}, Value{String{"b"}}};
     List<Value> expectedListAfterDiscard{};
 
@@ -30,7 +32,8 @@ TEST(DiscardTest, DiscardList)
 
 TEST(DiscardTest, DiscardTargetNotAList)
 {
-    GameInterpreter interpreter;
+    InputManager inputManager;
+    GameInterpreter interpreter(inputManager, {});
 
     auto stringAssignment = ast::makeAssignment(
         ast::makeVariable(Name{"notAList"}),
@@ -50,7 +53,9 @@ TEST(DiscardTest, DiscardTargetNotAList)
 
 TEST(DiscardTest, DiscardAmountNotAnInteger)
 {
-    GameInterpreter interpreter;
+    InputManager inputManager;
+    GameInterpreter interpreter(inputManager, {});
+
     List<Value> myList{Value{String{"a"}}, Value{String{"b"}}};
 
     auto listAssignment = ast::makeAssignment(

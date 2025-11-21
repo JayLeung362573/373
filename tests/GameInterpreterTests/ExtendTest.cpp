@@ -8,7 +8,9 @@
 
 TEST(ExtendTest, ExtendList)
 {
-    GameInterpreter interpreter;
+    InputManager inputManager;
+    GameInterpreter interpreter(inputManager, {});
+
     List<Value> list1{Value{String{"a"}}, Value{String{"b"}}};
     List<Value> list2{Value{String{"c"}}};
     List<Value> expectedExtendedList{
@@ -35,7 +37,9 @@ TEST(ExtendTest, ExtendList)
 
 TEST(ExtendTest, ExtendTargetNotAList)
 {
-    GameInterpreter interpreter;
+    InputManager inputManager;
+    GameInterpreter interpreter(inputManager, {});
+
     List<Value> list{Value{String{"c"}}};
 
     auto stringAssignment = ast::makeAssignment(
@@ -56,7 +60,9 @@ TEST(ExtendTest, ExtendTargetNotAList)
 
 TEST(ExtendTest, ExtendValueNotAList)
 {
-    GameInterpreter interpreter;
+    InputManager inputManager;
+    GameInterpreter interpreter(inputManager, {});
+
     List<Value> list{Value{String{"a"}}, Value{String{"b"}}};
 
     auto listAssignment = ast::makeAssignment(

@@ -2,6 +2,7 @@ cmake_minimum_required(VERSION 3.28.2)
 add_library(GameEngine
   GameInterpreter.cpp
   Rules.cpp
+  InputManager.cpp
 )
 
 target_include_directories(GameEngine PUBLIC

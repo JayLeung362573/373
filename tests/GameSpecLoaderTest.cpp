@@ -1,6 +1,8 @@
 #include <gtest/gtest.h>
 #include "parser/GameSpecLoader.h"
 #include "parser/GameSpec.h"
+#include <filesystem>
+
 
 class GameSpecLoaderTest : public ::testing::Test {
 protected:
@@ -8,12 +10,14 @@ protected:
 };
 
 TEST_F(GameSpecLoaderTest, LoadGameName) {
-    GameSpec spec = loader.loadFile("../games/hello-test.game");
+    std::filesystem::path filePath = std::filesystem::path(GAMES_DIR) / "hello-test.game";
+    GameSpec spec = loader.loadFile(filePath.string().c_str());
     EXPECT_EQ(spec.name, "Hello Test");
 }
 
 TEST_F(GameSpecLoaderTest, LoadRockPaperScissors) {
-    GameSpec spec = loader.loadFile("../games/rock-paper-scissors.game");
+    std::filesystem::path filePath = std::filesystem::path(GAMES_DIR) / "rock-paper-scissors.game";
+    GameSpec spec = loader.loadFile(filePath.string().c_str());
     EXPECT_EQ(spec.name, "Rock, Paper, Scissors");
 }
 

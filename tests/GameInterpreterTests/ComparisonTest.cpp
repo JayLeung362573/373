@@ -8,7 +8,8 @@
 
 TEST(ComparisonTest, IsEqual)
 {
-    GameInterpreter interpreter;
+    InputManager inputManager;
+    GameInterpreter interpreter(inputManager, {});
 
     auto comparison = ast::makeComparison(
         ast::makeConstant(Value{String{"a"}}),
@@ -23,7 +24,8 @@ TEST(ComparisonTest, IsEqual)
 
 TEST(ComparisonTest, IsLessThan)
 {
-    GameInterpreter interpreter;
+    InputManager inputManager;
+    GameInterpreter interpreter(inputManager, {});
 
     auto comparison = ast::makeComparison(
         ast::makeConstant(Value{Integer{-1}}),
@@ -38,7 +40,8 @@ TEST(ComparisonTest, IsLessThan)
 
 TEST(ComparisonTest, TypesNotComparable)
 {
-    GameInterpreter interpreter;
+    InputManager inputManager;
+    GameInterpreter interpreter(inputManager, {});
 
     auto comparison = ast::makeComparison(
         ast::makeConstant(Value{Integer{1}}),
@@ -53,7 +56,8 @@ TEST(ComparisonTest, TypesNotComparable)
 
 TEST(ComparisonTest, VariableComparisons)
 {
-    GameInterpreter interpreter;
+    InputManager inputManager;
+    GameInterpreter interpreter(inputManager, {});
 
     auto var1Assignment = ast::makeAssignment(
         ast::makeVariable(Name{"var1"}),
@@ -90,7 +94,8 @@ TEST(ComparisonTest, VariableComparisons)
 
 TEST(ComparisonTest, NestedComparisons)
 {
-    GameInterpreter interpreter;
+    InputManager inputManager;
+    GameInterpreter interpreter(inputManager, {});
 
     auto comparison = ast::makeComparison(
         ast::makeComparison(
