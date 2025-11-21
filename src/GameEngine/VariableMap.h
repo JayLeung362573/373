@@ -24,16 +24,6 @@ class VariableMap
             return m_map[varName].get();
         }
 
-        Value* load(Name varName) const {
-            auto it = m_map.find(varName);
-            if (it == m_map.end()) {
-                throw std::runtime_error(
-                    std::format("Variable with name '{}' doesn't exist in map", varName.name)
-                );
-            }
-            return it->second.get();
-        }
-
         void del(Name varName)
         {
             m_map.erase(varName);

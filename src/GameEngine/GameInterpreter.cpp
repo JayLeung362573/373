@@ -182,6 +182,49 @@ GameInterpreter::visit(const ast::Sort& sort)
 VisitResult
 GameInterpreter::visit(const ast::Match& match)
 {
+    if (m_currentIterator == nullptr)
+    {
+        throw std::runtime_error(
+            "Expected m_currentIterator to be set. Is there a program to execute?"
+        );
+    }
+
+    auto maybeCtx = m_currentIterator->currentContext<ProgramIterator::MatchExecutionContext>();
+    bool isFirstVisit = !maybeCtx.has_value();
+
+    if (isFirstVisit)
+    {
+        auto maybeCandidate = findMatch(match);
+        if (!maybeCandidate.has_value())
+        {
+            // No match, we're done
+            return {};
+        }
+
+        auto iterator = std::make_unique<ProgramIterator>(
+            ProgramRaw{{maybeCandidate.value().statements}}
+        );
+        m_currentIterator->setCurrentContext(
+            ProgramIterator::MatchExecutionContext{std::move(iterator)}
+        );
+    }
+
+    maybeCtx = m_currentIterator->currentContext<ProgramIterator::MatchExecutionContext>();
+    if (!maybeCtx.has_value())
+    {
+        throw std::runtime_error(
+            "Expected MatchExecutionContext to be set as the current context"
+        );
+    }
+
+    executeProgram(*(maybeCtx.value()->iterator));
+
+    return {};
+}
+
+std::optional<ast::Match::CandidateRaw>
+GameInterpreter::findMatch(const ast::Match& match)
+{
     Value targetValue = evaluateExpression(*match.getTarget()).getValue();
 
     for (auto& candidate : match.getCandidates())
@@ -430,61 +473,8 @@ GameInterpreter::getPlayerAttribute(const ast::Variable& playerVar, String attr)
     if (!result.hasValue())
     {
         throw std::runtime_error(
-                "Failed to get player attribute: " + attr.value
+            "Failed to get player attribute: " + attr.value
         );
     }
     return result.getValue();
-}
-
-std::optional<TextInputMessage>
-GameInterpreter::getTextInputMsg(String playerID, String prompt) const
-{
-    for (const auto& msg : m_inGameMessages)
-    {
-        if (const auto* inputMsg = std::get_if<TextInputMessage>(&msg.inner))
-        {
-            if (inputMsg->playerID == playerID && inputMsg->prompt == prompt)
-            {
-                return *inputMsg;
-            }
-        }
-    }
-    return std::nullopt;
-}
-
-void
-GameInterpreter::setInGameMessages(const std::vector<GameMessage>& inGameMessages)
-{
-    m_inGameMessages = inGameMessages;
-}
-
-std::vector<GameMessage>
-GameInterpreter::consumeOutGameMessages()
-{
-    auto out = std::move(m_outGameMessages);
-    m_outGameMessages.clear();
-    return out;
-}
-
-const VariableMap &GameInterpreter::getGameState() const {
-    return m_variableMap;
-}
-
-void GameInterpreter::run()
-{
-    if (m_done) { return; }
-
-    std::vector<ast::Statement*> rawStatements;
-    for (auto& statement : m_rules.statements)
-    {
-        rawStatements.push_back(statement.get());
-    }
-    executeStatements(rawStatements);
-
-    m_done = true;
-}
-
-bool GameInterpreter::isDone() const
-{
-    return m_done;
 }

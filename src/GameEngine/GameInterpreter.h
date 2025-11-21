@@ -4,30 +4,137 @@
 
 #include "Types.h"
 #include "VariableMap.h"
+#include "InputManager.h"
 #include "GameMessage.h"
 #include "Rules.h"
 
+
+struct ProgramRaw
+{
+    std::vector<ast::Statement*> statements;
+};
+
+
+struct Program
+{
+    std::vector<std::unique_ptr<ast::Statement>> statements;
+
+    ProgramRaw raw()
+    {
+        std::vector<ast::Statement*> statementsRaw;
+        for (auto &statement : statements)
+        {
+            statementsRaw.push_back(statement.get());
+        }
+        ProgramRaw programRaw{statementsRaw};
+        return programRaw;
+    }
+};
+
+
 /**
- * Game Interpreter that executes Game Rules.
- * It currently only supports executing non-blocking game rules (no player I/O).
+ * Keeps track of the current statement of a Program.
  *
- * Intended use:
- *      // Initialize the interpreter
- *      GameInterpreter interpreter(myRules);
+ * It also allows a context object to be set for the current statement.
+ * This allows statements that need to run a program to keep track of
+ * their own program iterator.
  *
- *      // Run all game rules
- *      interpreter.run();
- *
- * Note: The `visit` methods are public because of the Visitor Pattern, but are intended
- *       for internal use only. This ensures the interpreter executes rules consistently
- *       without side effects to state. This means that GameInterpreter should be the
- *       only class calling .accept() on an ASTNode and passing itself as the visitor.
+ * Why an iterator? In short, we need a way to pause and resume execution.
+ * A statement may block if it needs user input. In this case, the program
+ * must pause execution to allow the caller to handle getting input
+ * (e.g., via a networking call). Once the input is retrieved and passed
+ * into the interpreter's input manager, the program may resume execution
+ * at the statement it left off, which the iterator tracks.
  */
+class ProgramIterator
+{
+    public:
+        struct MatchExecutionContext
+        {
+            std::unique_ptr<ProgramIterator> iterator;
+        };
+
+        using StatementContext = std::variant<std::monostate, MatchExecutionContext>;
+
+    public:
+        ProgramIterator(ProgramRaw program) : m_statementIndex(0)
+        {
+            if (program.statements.empty())
+            {
+                throw std::runtime_error(
+                    "Can't create iterator: program must have at least one statement"
+                );
+            }
+            m_program = program;
+        }
+
+        void setCurrentContext(StatementContext context)
+        {
+            if (!currentStatement())
+            {
+                throw std::runtime_error("Can't set context: no current statement");
+            }
+            m_context = std::move(context);
+        }
+
+        ast::Statement* currentStatement()
+        {
+            if (m_statementIndex < m_program.statements.size())
+            {
+                return m_program.statements[m_statementIndex];
+            }
+            return nullptr;
+        }
+
+        template <typename ContextType>
+        std::optional<ContextType*> currentContext()
+        {
+            if (!currentStatement())
+            {
+                return std::nullopt;
+            }
+            if (std::holds_alternative<ContextType>(m_context))
+            {
+                return &std::get<ContextType>(m_context);
+            }
+            else
+            {
+                return std::nullopt;
+            }
+        }
+
+        void goNext()
+        {
+            if (!currentStatement())
+            {
+                throw std::runtime_error(
+                    "Can't go next: iterator is past the end of the program"
+                );
+            }
+            m_statementIndex++;
+            m_context = {};
+        }
+
+    private:
+        ProgramRaw m_program;
+        size_t m_statementIndex;
+        StatementContext m_context;
+};
+
+
 class GameInterpreter : public ast::ASTVisitor
 {
     public:
-        GameInterpreter() = default;
-        GameInterpreter(ast::GameRules& rules) : m_rules(std::move(rules)) {}
+        GameInterpreter(InputManager& inputManager, std::optional<Program> program)
+            : m_inputManager(inputManager)
+            , m_program(std::move(program))
+            , m_currentIterator(nullptr)
+        {
+            if (m_program.has_value())
+            {
+                m_iterator = std::make_unique<ProgramIterator>(m_program.value().raw());
+            }
+        }
 
         VisitResult visit(const ast::ASTNode& node) override;
 
@@ -173,36 +280,26 @@ class GameInterpreter : public ast::ASTVisitor
 
         /**
          * @brief Prompts and stores player text input.
-         *
-         * This method checks for player input in inGameMessages. If there's no input,
-         * it pushes a message to outGameMessages to prompt the player. If input is
-         * found, it assigns the input to the target variable or attribute.
-         *
-         * Note: This setup with the in/out messages may not be very practical??
-         *       Might add complexity if we need to handle not sending duplicate messages.
-         *       Maybe we need some kind of InputManager?
-         *
-         * @param inputTextStatement The InputTextStatement to visit.
-         * @return VisitResult Status of the input processing (Done or Pending).
-         *
-         * @pre The player variable exists in the Variable Map and has an "id" attribute.
-         * @post The player's input is assigned to the target variable or attribute.
          */
-        VisitResult visit(const ast::InputTextStatement& inputTextStatement) override;
+        VisitResult visit(const ast::InputText& inputText) override;
+        /**
+         * @brief Prompts and stores player choice input.
+         */
+        VisitResult visit(const ast::InputChoice& inputChoice) override;
+        /**
+         * @brief Prompts and stores player range input.
+         */
+        VisitResult visit(const ast::InputRange& inputRange) override;
+        /**
+         * @brief Prompts and stores player vote input.
+         */
+        VisitResult visit(const ast::InputVote& inputVote) override;
 
-        // `setInGameMessages` and `consumeOutGameMessages` will be removed soon once
-        // InputManager is implemented. Would suggest not using
-        void setInGameMessages(const std::vector<GameMessage>& inGameMessages);
-        std::vector<GameMessage> consumeOutGameMessages();
+        void execute();
 
-        void run();
-        bool isDone() const;
-        const VariableMap& getGameState() const;
+        bool needsIO();
 
     private:
-        std::optional<TextInputMessage>
-        getTextInputMsg(String playerID, String prompt) const;
-
         Value
         getPlayerAttribute(const ast::Variable& playerVar, String attr);
 
@@ -211,9 +308,6 @@ class GameInterpreter : public ast::ASTVisitor
 
         void
         doAttributeAssignment(ast::Attribute& attrTarget, Value valueToAssign);
-
-        void
-        executeStatements(std::vector<ast::Statement*>& statements);
 
         VisitResult
         evaluateExpression(ast::Expression& expr);
@@ -227,12 +321,16 @@ class GameInterpreter : public ast::ASTVisitor
         Boolean
         isLessThan(const Value& left, const Value& right);
 
+        std::optional<ast::Match::CandidateRaw>
+        findMatch(const ast::Match& match);
+
+        void executeProgram(ProgramIterator& iterator);
+
     private:
         VariableMap m_variableMap;
-        ast::GameRules m_rules;
+        InputManager& m_inputManager;
 
-        bool m_done;
-
-        std::vector<GameMessage> m_inGameMessages;
-        std::vector<GameMessage> m_outGameMessages;
+        std::optional<Program> m_program;
+        std::unique_ptr<ProgramIterator> m_iterator;
+        ProgramIterator* m_currentIterator;
 };
