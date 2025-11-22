@@ -1,28 +1,114 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>WebSocket Test</title>
+    <meta charset="utf-8" />
+    <title>Web Chat</title>
+
+    <style>
+        body, input, select, textarea {
+            background: #031e11;
+            color: #10fd60;
+        }
+
+        #messages {
+            width: 80em;
+            height: 40em;
+            border: solid 1px #cccccc;
+            margin-bottom: 5px;
+            overflow-y: hidden;
+        }
+    </style>
+
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            function appendText(text) {
+                $('#messages').append(text);
+                $('#messages').scrollTop($('#messages')[0].scrollHeight);
+            }
+
+            var ws = null;
+            var uriPieces = window.location.href.split('/');
+            var wsLocation = 'ws://localhost:' + uriPieces[2];
+            $('#uri:text').val(wsLocation);
+
+            $('#connect').click(function() {
+                ws = new WebSocket(uri.value);
+                ws.onopen = function(ev) {
+                    appendText("Connected!\n");
+                };
+                ws.onclose = function(ev) {
+                    appendText("Disconnected!\n");
+                };
+                ws.onmessage = function(ev) {
+                    appendText(ev.data + "\n");
+                };
+                ws.onerror = function(ev) {
+                    appendText("[error]\n");
+                    console.log(ev);
+                };
+            });
+
+            $('#disconnect').click(function () {
+                ws.close();
+            });
+
+            $('#send').click(function () {
+                ws.send(sendMessage.value);
+                appendText("SENT: " + sendMessage.value + "\n");
+                sendMessage.value = "";
+            });
+
+            $('#sendMessage').keyup(function(e) {
+                e.preventDefault();
+                if (e.keyCode === 13) {
+                    $('#send').click();
+                }
+            });
+
+            $('#joinLobby').click(function() {
+                sendMessage.value = "JoinLobby:Player1";
+                $('#send').click();
+            });
+
+            $('#startGame').click(function() {
+                sendMessage.value = "StartGame:Player1";
+                $('#send').click();
+            });
+
+            $('#textResponse').click(function() {
+                var response = prompt("Enter your response:");
+                if (response) {
+                    sendMessage.value = "ProvideTextInput:" + response;
+                    $('#send').click();
+                }
+            });
+        });
+    </script>
 </head>
+
 <body>
-<script>
-    const ws = new WebSocket("ws://localhost:8080");
 
-    ws.onopen = () => {
-        console.log("Connected to server!");
-        ws.send("JoinGame: Hello server!");
-    };
+<h1>Game Client Test</h1>
 
-    ws.onmessage = (event) => {
-        console.log("Message from server:", event.data);
-    };
+Chat Server: <input id="uri" size="40">
+<button id="connect">Connect</button>
+<button id="disconnect">Disconnect</button><br />
 
-    ws.onclose = () => {
-        console.log("Disconnected from server");
-    };
+<pre id="messages"></pre>
 
-    ws.onerror = (err) => {
-        console.error("WebSocket error:", err);
-    };
-</script>
+<div style="margin-bottom: 5px;">
+    Enter Message:<br />
+    <input id="sendMessage" size="80" value="" />
+    <button id="send">Send</button>
+</div>
+
+<div style="margin-top: 10px;">
+    Quick Actions:<br />
+    <button id="joinLobby">Join Lobby as Player1</button>
+    <button id="startGame">Start Game</button>
+    <button id="textResponse">Send Text Response</button>
+</div>
+
 </body>
 </html>

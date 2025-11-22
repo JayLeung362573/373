@@ -294,15 +294,12 @@ GameServer::tick(const std::vector<ClientMessage> &incomingMessages) {
     std::vector<ClientMessage> outgoing = handleClientMessages(incomingMessages);
 
     for (auto& [lobbyID, session] : m_activeSessions) {
+        if(!session->isFinished()){
+            auto sessionUpdates = session->tick(incomingMessages);
 
-        auto sessionUpdates = session->tick(incomingMessages);
-
-        outgoing.insert(outgoing.end(),
-                        sessionUpdates.begin(),
-                        sessionUpdates.end());
-
-        if (session->isFinished()) {
-            /// TODO: handle game end
+            outgoing.insert(outgoing.end(),
+                            sessionUpdates.begin(),
+                            sessionUpdates.end());
         }
     }
     return outgoing;
