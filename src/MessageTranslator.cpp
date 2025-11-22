@@ -97,6 +97,100 @@ struct MessageTraits<GetLobbyStateMessage>{
 };
 
 template<>
+struct MessageTraits<RequestTextInputMessage> {
+    static constexpr std::string_view prefix = "RequestTextInput:";
+
+    static std::string serialize(const RequestTextInputMessage& requestTextInputMsg) {
+        return std::string(prefix) + requestTextInputMsg.prompt;
+    }
+
+    static Message deserialize(const std::string& payload) {
+        std::string prompt = payload.substr(prefix.size());
+        return { MessageType::RequestTextInput, RequestTextInputMessage{prompt} };
+    }
+};
+
+template<>
+struct MessageTraits<RequestChoiceInputMessage> {
+    static constexpr std::string_view prefix = "RequestChoiceInput:";
+
+    static std::string serialize(const RequestChoiceInputMessage& requestChoiceInputMsg) {
+        return std::string(prefix) + requestChoiceInputMsg.prompt;
+    }
+
+    static Message deserialize(const std::string& payload) {
+        std::string prompt = payload.substr(prefix.size());
+        return { MessageType::RequestChoiceInput, RequestChoiceInputMessage{prompt} };
+    }
+};
+
+template<>
+struct MessageTraits<RequestRangeInputMessage> {
+    static constexpr std::string_view prefix = "RequestRangeInput:";
+
+    static std::string serialize(const RequestRangeInputMessage& requestRangeInputMsg) {
+        return std::string(prefix) + requestRangeInputMsg.prompt
+        + "|" + std::to_string(requestRangeInputMsg.min)
+        + "|" + std::to_string(requestRangeInputMsg.max);
+    }
+
+    static Message deserialize(const std::string& payload) {
+        std::string prompt = payload.substr(prefix.size());
+        return { MessageType::RequestRangeInput, RequestRangeInputMessage{prompt} };
+    }
+};
+
+template<>
+struct MessageTraits<ResponseTextInputMessage> {
+    static constexpr std::string_view prefix = "ResponseTextInput:";
+
+    static std::string serialize(const ResponseTextInputMessage& responseTextInputMsg) {
+        return std::string(prefix) + responseTextInputMsg.input +
+        "|" + responseTextInputMsg.promptReference;
+    }
+
+    static Message deserialize(const std::string& payload) {
+        std::string content = payload.substr(prefix.size());
+        size_t delimiter = content.find('|');
+        return { MessageType::ResponseTextInput,
+                 ResponseTextInputMessage{content.substr(0, delimiter),
+                                          content.substr(delimiter + 1)} };
+    }
+};
+
+template<>
+struct MessageTraits<ResponseChoiceInputMessage> {
+    static constexpr std::string_view prefix = "ResponseChoiceInput:";
+
+    static std::string serialize(const ResponseChoiceInputMessage& responseChoiceInputMsg) {
+        return std::string(prefix) + responseChoiceInputMsg.choice + responseChoiceInputMsg.promptRef;
+    }
+
+    static Message deserialize(const std::string& payload) {
+        std::string prompt = payload.substr(prefix.size());
+        return { MessageType::ResponseChoiceInput, ResponseChoiceInputMessage{prompt} };
+    }
+};
+
+template<>
+struct MessageTraits<ResponseRangeInputMessage> {
+    static constexpr std::string_view prefix = "ResponseRangeInput:";
+
+    static std::string serialize(const ResponseRangeInputMessage& responseRangeInputMsg) {
+        return std::string(prefix) + std::to_string(responseRangeInputMsg.value)
+        + "|" + responseRangeInputMsg.promptRef;
+    }
+
+    static Message deserialize(const std::string& payload) {
+        std::string prompt = payload.substr(prefix.size());
+        size_t delimiter = prompt.find('|');
+        int val = std::stoi(prompt.substr(0, delimiter));
+        return { MessageType::ResponseRangeInput,
+                 ResponseRangeInputMessage{val, prompt.substr(delimiter + 1)} };
+        }
+};
+
+template<>
 struct MessageTraits<ErrorMessage>{
     static constexpr std::string_view prefix = "Error:";
     static std::string serialize(const ErrorMessage& errorMsg) {
@@ -150,6 +244,25 @@ Message MessageTranslator::deserialize(const std::string& payload)
     }
     else if(payload.starts_with(MessageTraits<ErrorMessage>::prefix)) {
         return MessageTraits<ErrorMessage>::deserialize(payload);
+    }
+    /// Game Request and Inputs
+    else if (payload.starts_with(MessageTraits<RequestTextInputMessage>::prefix)) {
+        return MessageTraits<RequestTextInputMessage>::deserialize(payload);
+    }
+    else if (payload.starts_with(MessageTraits<RequestChoiceInputMessage>::prefix)) {
+        return MessageTraits<RequestChoiceInputMessage>::deserialize(payload);
+    }
+    else if (payload.starts_with(MessageTraits<RequestRangeInputMessage>::prefix)) {
+        return MessageTraits<RequestRangeInputMessage>::deserialize(payload);
+    }
+    else if (payload.starts_with(MessageTraits<RequestTextInputMessage>::prefix)) {
+        return MessageTraits<RequestTextInputMessage>::deserialize(payload);
+    }
+    else if (payload.starts_with(MessageTraits<ResponseChoiceInputMessage>::prefix)) {
+        return MessageTraits<ResponseChoiceInputMessage>::deserialize(payload);
+    }
+    else if (payload.starts_with(MessageTraits<ResponseRangeInputMessage>::prefix)) {
+        return MessageTraits<ResponseRangeInputMessage>::deserialize(payload);
     }
     else {
         return { MessageType::Empty, {} };

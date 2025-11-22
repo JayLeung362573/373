@@ -5,7 +5,7 @@
 #include <string>
 #include <cstdint>
 #include <utility>
-#include "Lobby/Lobby.h"
+#include "Lobby.h"
 
 enum class MessageType : uint8_t
 {
@@ -20,6 +20,16 @@ enum class MessageType : uint8_t
     BrowseLobbies,
     GetLobbyState, // client requests the current lobby state
     Error,
+
+    /// Input requests from Server
+    RequestTextInput,
+    RequestChoiceInput,
+    RequestRangeInput,
+
+    /// Responses from Players
+    ResponseTextInput,
+    ResponseChoiceInput,
+    ResponseRangeInput,
 };
 
 struct StartGameMessage
@@ -58,6 +68,36 @@ struct ErrorMessage{
     std::string reason;
 };
 
+struct RequestTextInputMessage{
+    std::string prompt;
+};
+
+struct RequestChoiceInputMessage {
+    std::string prompt;
+    std::vector<std::string> choices;
+};
+
+struct RequestRangeInputMessage {
+    std::string prompt;
+    int min;
+    int max;
+};
+
+struct ResponseTextInputMessage {
+    std::string input;
+    std::string promptReference;
+};
+
+struct ResponseChoiceInputMessage {
+    std::string choice;
+    std::string promptRef;
+};
+
+struct ResponseRangeInputMessage {
+    int value;
+    std::string promptRef;
+};
+
 using MessageData = std::variant<
         std::monostate,
         StartGameMessage,
@@ -68,7 +108,15 @@ using MessageData = std::variant<
         LobbyStateMessage,
         BrowseLobbiesMessage,
         GetLobbyStateMessage,
-        ErrorMessage
+        ErrorMessage,
+
+        RequestTextInputMessage,
+        RequestChoiceInputMessage,
+        RequestRangeInputMessage,
+
+        ResponseTextInputMessage,
+        ResponseChoiceInputMessage,
+        ResponseRangeInputMessage
         >;
 
 struct Message

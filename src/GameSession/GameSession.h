@@ -37,4 +37,10 @@ private:
 
     std::optional<Program> convertRulesToProgram(ast::GameRules& rules);
     void processIncomingMessages(const std::vector<ClientMessage>& messages);
+
+    /// Engine -> Network, server asks client
+    Message convertGameMessageToMessage(const GameMessage& engineMsg) const;
+
+    /// Network -> Engine, client answers server
+    std::optional<GameMessage> convertMessageToGameMessage(const ClientMessage& clientMsg) const;
 };

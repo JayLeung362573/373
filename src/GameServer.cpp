@@ -39,6 +39,17 @@ struct MessageHandlerVisitor {
     void operator()(const UpdateCycleMessage& data) {
         std::cout << "[GameServer]: Client should not send UpdateCycle\n";
     }
+
+    // The GameServer ignores these here because they are passed to GameSession::tick later
+    // Responses from Client (Inputs)
+    void operator()(const ResponseTextInputMessage&) {}
+    void operator()(const ResponseChoiceInputMessage&) {}
+    void operator()(const ResponseRangeInputMessage&) {}
+
+    // Requests from Server
+    void operator()(const RequestTextInputMessage&) {}
+    void operator()(const RequestChoiceInputMessage&) {}
+    void operator()(const RequestRangeInputMessage&) {}
 };
 
 std::vector<ClientMessage>
@@ -286,7 +297,9 @@ GameServer::tick(const std::vector<ClientMessage> &incomingMessages) {
 
         auto sessionUpdates = session->tick(incomingMessages);
 
-        outgoing.insert(outgoing.end(), sessionUpdates.begin(), sessionUpdates.end());
+        outgoing.insert(outgoing.end(),
+                        sessionUpdates.begin(),
+                        sessionUpdates.end());
 
         if (session->isFinished()) {
             /// TODO: handle game end
