@@ -269,13 +269,14 @@ GameServer::handleStartGameMessages(uintptr_t clientID, const StartGameMessage& 
 
     /// 7. create and start session
     auto session = std::make_unique<GameSession>(*lobbyID, std::move(rules), players);
-    session->start();
+    std::vector<ClientMessage> initialGameMessages = session->start();
 
     /// 8. map and track this session
     m_activeSessions[*lobbyID] = std::move(session);
 
     /// 9. create 'startMsg' for each player and store them in 'responses',
     /// the networking will receive this 'responses' and send(notify) to each player
+    /// and initial game prompt for inputs
     std::vector<ClientMessage> responses;
     Message startMsg;
     startMsg.type = MessageType::StartGame;
@@ -286,6 +287,10 @@ GameServer::handleStartGameMessages(uintptr_t clientID, const StartGameMessage& 
         responses.push_back(ClientMessage{player.clientID, startMsg});
     }
 
+    responses.insert(responses.end(),
+                     initialGameMessages.begin(),
+                     initialGameMessages.end());
+
     return responses;
 }
 
@@ -293,13 +298,17 @@ std::vector<ClientMessage>
 GameServer::tick(const std::vector<ClientMessage> &incomingMessages) {
     std::vector<ClientMessage> outgoing = handleClientMessages(incomingMessages);
 
-    for (auto& [lobbyID, session] : m_activeSessions) {
-        if(!session->isFinished()){
-            auto sessionUpdates = session->tick(incomingMessages);
-
+    auto it = m_activeSessions.begin();
+    while(it != m_activeSessions.end()){
+        if(it->second->isFinished()){
+            std::cout << "[GameServer] Session " << it->first << " finished and get cleaned\n";
+            it = m_activeSessions.erase(it);
+        } else{
+            auto sessionUpdates = it->second->tick(incomingMessages);
             outgoing.insert(outgoing.end(),
                             sessionUpdates.begin(),
                             sessionUpdates.end());
+            ++it;
         }
     }
     return outgoing;

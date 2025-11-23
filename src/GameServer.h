@@ -25,7 +25,7 @@ public:
 
     std::vector<ClientMessage> handleJoinLobbyMessages(uintptr_t clientID, const JoinLobbyMessage& joinLobbyMsg);
     std::vector<ClientMessage> handleLeaveLobbyMessages(uintptr_t clientID, const LeaveLobbyMessage& leaveLobbyMsg);
-    std::vector<ClientMessage> handleStartGameMessages(uintptr_t clientID, const StartGameMessage& startGameMsg);
+    std::vector<ClientMessage> handleStartGameMessages(uintptr_t clientID, const StartGameMessage& joinGameMsg);
 
     std::vector<ClientMessage> handleGetLobbyStateMessages(uintptr_t clientID, const GetLobbyStateMessage& getLobbyMsg) const;
     std::vector<ClientMessage> handleBrowseLobbiesMessages(uintptr_t clientID, const BrowseLobbiesMessage& browseLobbyMsg) const;

@@ -13,6 +13,7 @@ enum class LobbyRole{
 
 struct LobbyMember{
     uintptr_t clientID = 0;
+    std::string name;
     LobbyRole role = LobbyRole::Audience;
     bool ready = false;
 

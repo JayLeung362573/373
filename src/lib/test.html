@@ -29,7 +29,7 @@
 
             var ws = null;
             var uriPieces = window.location.href.split('/');
-            var wsLocation = 'ws://localhost:' + uriPieces[2];
+            var wsLocation = 'ws://localhost:8080' + uriPieces[2];
             $('#uri:text').val(wsLocation);
 
             $('#connect').click(function() {
@@ -76,13 +76,22 @@
                 $('#send').click();
             });
 
-            $('#textResponse').click(function() {
-                var response = prompt("Enter your response:");
-                if (response) {
-                    sendMessage.value = "ProvideTextInput:" + response;
-                    $('#send').click();
-                }
+            $('#sendRock').click(function() {
+                sendMessage.value = "ResponseChoiceInput:Rock|p1_choice";
+                $('#send').click();
             });
+
+            $('#sendPaper').click(function() {
+                sendMessage.value = "ResponseChoiceInput:Paper|p1_choice";
+                $('#send').click();
+            });
+
+            $('#sendScissors').click(function() {
+                sendMessage.value = "ResponseChoiceInput:Scissors|p1_choice";
+                $('#send').click();
+            });
+
+
         });
     </script>
 </head>
@@ -107,7 +116,13 @@ Chat Server: <input id="uri" size="40">
     Quick Actions:<br />
     <button id="joinLobby">Join Lobby as Player1</button>
     <button id="startGame">Start Game</button>
-    <button id="textResponse">Send Text Response</button>
+</div>
+
+<div style="margin-top: 10px;">
+    Game Inputs (Player 1):<br />
+    <button id="sendRock">Rock</button>
+    <button id="sendPaper">Paper</button>
+    <button id="sendScissors">Scissors</button>
 </div>
 
 </body>

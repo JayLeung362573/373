@@ -23,7 +23,7 @@ public:
                 ast::GameRules rules,
                 std::vector<LobbyMember> players);
 
-    void start();
+    std::vector<ClientMessage> start();
     std::vector<ClientMessage> tick(const std::vector<ClientMessage>& incomingMessages);
     bool isFinished() const;
     LobbyID getLobbyID() const;
@@ -43,4 +43,6 @@ private:
 
     /// Network -> Engine, client answers server
     std::optional<GameMessage> convertMessageToGameMessage(const ClientMessage& clientMsg) const;
+
+    std::vector<ClientMessage> collectOutgoingMessages();
 };
