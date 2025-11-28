@@ -1,4 +1,17 @@
 #include "MessageTranslator.h"
+#include <string_view>
+#include <string>
+#include <stdexcept>
+
+/// to parse string_view to int, for lobbyID and gameType
+static int parseInt(std::string_view sv) {
+    try {
+        return std::stoi(std::string(sv));
+    }
+    catch (const std::exception&) {
+        return 0;
+    }
+}
 
 // Use template for each Message for easy scalability. We expect more message and changes to happen in the future
 template<typename T>
@@ -12,9 +25,9 @@ struct MessageTraits<StartGameMessage> {
     static std::string serialize(const StartGameMessage& d) {
         return std::string(prefix) + d.playerName;
     }
-    static Message deserialize(const std::string& payload) {
-        std::string name = payload.substr(prefix.size());
-        return { MessageType::StartGame, StartGameMessage{name} };
+    static Message deserialize(const std::string_view payload) {
+        std::string_view name = payload.substr(prefix.size());
+        return { MessageType::StartGame, StartGameMessage{std::string(name)} };
     }
 };
 
@@ -26,9 +39,9 @@ struct MessageTraits<UpdateCycleMessage> {
     static std::string serialize(const UpdateCycleMessage& d) {
         return std::string(prefix) + std::to_string(d.cycle);
     }
-    static Message deserialize(const std::string& payload) {
-        std::string num = payload.substr(prefix.size());
-        int cycle = std::stoi(num);
+    static Message deserialize(std::string_view payload) {
+        auto num = payload.substr(prefix.size());
+        int cycle = parseInt(num);
         return { MessageType::UpdateCycle, UpdateCycleMessage{cycle} };
     }
 };
@@ -42,16 +55,16 @@ struct MessageTraits<JoinLobbyMessage> {
         return std::string(prefix) + d.playerName + "|" + d.lobbyName + "|" + std::to_string(d.gameType);
     }
 
-    static Message deserialize(const std::string& payload) {
-        std::string content = payload.substr(prefix.size());
+    static Message deserialize(std::string_view payload) {
+        auto content = payload.substr(prefix.size());
         size_t firstDelimiter = content.find('|');
         /// split PlayerName|LobbyName|GameType
-        std::string playerName;
-        std::string lobbyName;
+        std::string_view playerName;
+        std::string_view lobbyName;
         int type = 0;
 
         /// PlayerName only
-        if(firstDelimiter == std::string::npos){
+        if(firstDelimiter == std::string_view::npos){
             playerName = content;
         }
         else{
@@ -60,24 +73,24 @@ struct MessageTraits<JoinLobbyMessage> {
 
             size_t secondDelimiter = content.find('|', firstDelimiter + 1);
 
-            if(secondDelimiter == std::string::npos){
+            if(secondDelimiter == std::string_view ::npos){
                 lobbyName = content.substr(firstDelimiter + 1);
             }
             else{
                 /// PlayerName|LobbyName|GameType
                 lobbyName = content.substr(firstDelimiter + 1, secondDelimiter -(firstDelimiter + 1));
 
-                std::string typeStr = content.substr(secondDelimiter + 1);
+                std::string_view typeStr = content.substr(secondDelimiter + 1);
                 if (!typeStr.empty()) {
                     try {
-                        type = std::stoi(typeStr); // Convert string to int
+                        type = parseInt(typeStr); // Convert string to int
                     } catch (...) {
                         type = 0; // Fallback on error
                     }
                 }
             }
         }
-        return {MessageType::JoinLobby, JoinLobbyMessage{playerName, lobbyName, type}};
+        return {MessageType::JoinLobby, JoinLobbyMessage{std::string(playerName), std::string(lobbyName), type}};
     }
 };
 
@@ -87,9 +100,8 @@ struct MessageTraits<LeaveLobbyMessage>{
     static std::string serialize(const LeaveLobbyMessage& d) {
         return std::string(prefix) + d.playerName;
     }
-    static Message deserialize(const std::string& payload) {
-        std::string name = payload.substr(prefix.size());
-        return { MessageType::LeaveLobby, LeaveLobbyMessage{name}};
+    static Message deserialize(const std::string_view payload) {
+        return { MessageType::LeaveLobby, LeaveLobbyMessage{std::string(payload.substr(prefix.size()))}};
     }
 };
 
@@ -99,7 +111,7 @@ struct MessageTraits<LobbyStateMessage>{
     static std::string serialize(const LobbyStateMessage& d) {
         return std::string(prefix) + d.currentLobbyID;
     }
-    static Message deserialize(const std::string& payload) {
+    static Message deserialize(const std::string_view payload) {
         LobbyStateMessage msg;
         msg.currentLobbyID = "";
         return { MessageType::LobbyState, msg };
@@ -112,9 +124,9 @@ struct MessageTraits<BrowseLobbiesMessage> {
     static std::string serialize(const BrowseLobbiesMessage& d) {
         return std::string(prefix) + std::to_string(static_cast<int>(d.gameType));
     }
-    static Message deserialize(const std::string& payload) {
-        std::string gameTypeStr = payload.substr(prefix.size());
-        int gameTypeInt = gameTypeStr.empty() ? 0 : std::stoi(gameTypeStr);
+    static Message deserialize(const std::string_view payload) {
+        std::string_view gameTypeStr = payload.substr(prefix.size());
+        int gameTypeInt = gameTypeStr.empty() ? 0 : parseInt(gameTypeStr);
         return { MessageType::BrowseLobbies, BrowseLobbiesMessage{static_cast<GameType>(gameTypeInt)} };
     }
 };
@@ -125,7 +137,7 @@ struct MessageTraits<GetLobbyStateMessage>{
     static std::string serialize(const GetLobbyStateMessage& getLobbyStateMsg) {
         return std::string(prefix);
     }
-    static Message deserialize(const std::string& payload) {
+    static Message deserialize(const std::string_view payload) {
         return { MessageType::GetLobbyState, GetLobbyStateMessage{} };
     }
 };
@@ -138,9 +150,9 @@ struct MessageTraits<RequestTextInputMessage> {
         return std::string(prefix) + requestTextInputMsg.prompt;
     }
 
-    static Message deserialize(const std::string& payload) {
-        std::string prompt = payload.substr(prefix.size());
-        return { MessageType::RequestTextInput, RequestTextInputMessage{prompt} };
+    static Message deserialize(const std::string_view payload) {
+        std::string_view prompt = payload.substr(prefix.size());
+        return { MessageType::RequestTextInput, RequestTextInputMessage{std::string(prompt)} };
     }
 };
 
@@ -152,9 +164,9 @@ struct MessageTraits<RequestChoiceInputMessage> {
         return std::string(prefix) + requestChoiceInputMsg.prompt;
     }
 
-    static Message deserialize(const std::string& payload) {
-        std::string prompt = payload.substr(prefix.size());
-        return { MessageType::RequestChoiceInput, RequestChoiceInputMessage{prompt} };
+    static Message deserialize(const std::string_view payload) {
+        std::string_view prompt = payload.substr(prefix.size());
+        return { MessageType::RequestChoiceInput, RequestChoiceInputMessage{std::string(prompt)} };
     }
 };
 
@@ -168,9 +180,9 @@ struct MessageTraits<RequestRangeInputMessage> {
         + "|" + std::to_string(requestRangeInputMsg.max);
     }
 
-    static Message deserialize(const std::string& payload) {
-        std::string prompt = payload.substr(prefix.size());
-        return { MessageType::RequestRangeInput, RequestRangeInputMessage{prompt} };
+    static Message deserialize(const std::string_view payload) {
+        std::string_view prompt = payload.substr(prefix.size());
+        return { MessageType::RequestRangeInput, RequestRangeInputMessage{std::string(prompt)} };
     }
 };
 
@@ -183,12 +195,12 @@ struct MessageTraits<ResponseTextInputMessage> {
         "|" + responseTextInputMsg.promptReference;
     }
 
-    static Message deserialize(const std::string& payload) {
-        std::string content = payload.substr(prefix.size());
+    static Message deserialize(const std::string_view payload) {
+        std::string_view content = payload.substr(prefix.size());
         size_t delimiter = content.find('|');
         return { MessageType::ResponseTextInput,
-                 ResponseTextInputMessage{content.substr(0, delimiter),
-                                          content.substr(delimiter + 1)} };
+                 ResponseTextInputMessage{std::string(content.substr(0, delimiter)),
+                                          std::string (content.substr(delimiter + 1))} };
     }
 };
 
@@ -200,8 +212,8 @@ struct MessageTraits<ResponseChoiceInputMessage> {
         return std::string(prefix) + responseChoiceInputMsg.choice + "|" + responseChoiceInputMsg.promptRef;
     }
 
-    static Message deserialize(const std::string& payload) {
-        std::string prompt = payload.substr(prefix.size());
+    static Message deserialize(const std::string_view payload) {
+        std::string_view prompt = payload.substr(prefix.size());
         size_t delimiter = prompt.find('|');
 
         if (delimiter == std::string::npos) {
@@ -210,8 +222,8 @@ struct MessageTraits<ResponseChoiceInputMessage> {
 
         return { MessageType::ResponseChoiceInput,
                  ResponseChoiceInputMessage{
-            prompt.substr(0, delimiter),
-            prompt.substr(delimiter + 1)}};
+            std::string(prompt.substr(0, delimiter)),
+            std::string (prompt.substr(delimiter + 1))}};
     }
 };
 
@@ -224,12 +236,12 @@ struct MessageTraits<ResponseRangeInputMessage> {
         + "|" + responseRangeInputMsg.promptRef;
     }
 
-    static Message deserialize(const std::string& payload) {
-        std::string prompt = payload.substr(prefix.size());
+    static Message deserialize(const std::string_view payload) {
+        std::string_view prompt = payload.substr(prefix.size());
         size_t delimiter = prompt.find('|');
-        int val = std::stoi(prompt.substr(0, delimiter));
+        int val = parseInt(prompt.substr(0, delimiter));
         return { MessageType::ResponseRangeInput,
-                 ResponseRangeInputMessage{val, prompt.substr(delimiter + 1)} };
+                 ResponseRangeInputMessage{val, std::string(prompt.substr(delimiter + 1))} };
         }
 };
 
@@ -241,9 +253,9 @@ struct MessageTraits<GameOutputMessage> {
         return std::string(prefix) + gameOutputMsg.message;
     }
 
-    static Message deserialize(const std::string& payload) {
-        std::string msg = payload.substr(prefix.size());
-        return { MessageType::GameOutput, GameOutputMessage{msg} };
+    static Message deserialize(const std::string_view payload) {
+        std::string_view msg = payload.substr(prefix.size());
+        return { MessageType::GameOutput, GameOutputMessage{std::string (msg)} };
     }
 };
 
@@ -255,9 +267,9 @@ struct MessageTraits<GameOverMessage> {
         return std::string(prefix) + gameOverMsg.winner;
     }
 
-    static Message deserialize(const std::string& payload) {
-        std::string winner = payload.substr(prefix.size());
-        return { MessageType::GameOver, GameOverMessage{winner} };
+    static Message deserialize(const std::string_view payload) {
+        std::string_view winner = payload.substr(prefix.size());
+        return { MessageType::GameOver, GameOverMessage{std::string(winner)} };
     }
 };
 
@@ -267,9 +279,9 @@ struct MessageTraits<ErrorMessage>{
     static std::string serialize(const ErrorMessage& errorMsg) {
         return std::string(prefix) + errorMsg.reason;
     }
-    static Message deserialize(const std::string& payload) {
-        std::string reason = payload.substr(prefix.size());
-        return { MessageType::Error, ErrorMessage{reason} };
+    static Message deserialize(const std::string_view payload) {
+        std::string_view reason = payload.substr(prefix.size());
+        return { MessageType::Error, ErrorMessage{std::string(reason)} };
     }
 };
 
@@ -290,7 +302,7 @@ std::string MessageTranslator::serialize(const Message& msg)
     return serializedMessage;
 }
 
-Message MessageTranslator::deserialize(const std::string& payload)
+Message MessageTranslator::deserialize(std::string_view payload)
 {
     if (payload.starts_with(MessageTraits<StartGameMessage>::prefix)) {
         return MessageTraits<StartGameMessage>::deserialize(payload);

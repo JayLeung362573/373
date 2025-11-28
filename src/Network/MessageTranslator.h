@@ -7,5 +7,5 @@ class MessageTranslator {
 public:
     // Keep statics for stateless functionality without having to worry about runtime
     static std::string serialize(const Message& msg);
-    static Message deserialize(const std::string& payload);
+    static Message deserialize(std::string_view payload);
 };
