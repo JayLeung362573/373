@@ -7,6 +7,11 @@ GameSession::GameSession(LobbyID lobbyID, ast::GameRules rules, std::vector<Lobb
     , m_players(std::move(players))
     , m_interpreter(m_inputManager, convertRulesToProgram(rules))
     {
+        /// map player with their id
+        for(const auto& player : m_players){
+            m_playerIDs.insert(player.clientID);
+        }
+
         for (size_t i = 0; i < m_players.size(); ++i) {
             Map<String, Value> playerMap;
 
@@ -75,15 +80,8 @@ GameSession::processIncomingMessages(const std::vector<ClientMessage> &messages)
     std::vector<GameMessage> gameMessages;
 
     for (const auto &clientMsg: messages) {
-        bool isPlayerInSession = false;
-        for (const auto& player : m_players) {
-            if (player.clientID == clientMsg.clientID) {
-                isPlayerInSession = true;
-                break;
-            }
-        }
-
-        if (!isPlayerInSession) {
+        /// if client(player) isn't in this session, skip
+        if (!m_playerIDs.contains(clientMsg.clientID)) {
             continue;
         }
 

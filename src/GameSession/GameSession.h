@@ -3,6 +3,7 @@
 #include <string>
 #include <vector>
 #include <memory>
+#include <unordered_set>
 #include "Message.h"
 #include "Lobby/Lobby.h"
 #include "GameEngine/Rules.h"
@@ -31,6 +32,7 @@ public:
 private:
     LobbyID m_lobbyID;
     std::vector<LobbyMember> m_players;
+    std::unordered_set<uintptr_t> m_playerIDs;
 
     InputManager m_inputManager;
     GameInterpreter m_interpreter;
