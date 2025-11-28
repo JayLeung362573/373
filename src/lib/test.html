@@ -1,28 +1,153 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>WebSocket Test</title>
+    <meta charset="utf-8" />
+    <title>Web Chat</title>
+
+    <style>
+        body, input, select, textarea {
+            background: #031e11;
+            color: #10fd60;
+        }
+
+        #messages {
+            width: 80em;
+            height: 40em;
+            border: solid 1px #cccccc;
+            margin-bottom: 5px;
+            overflow-y: hidden;
+        }
+    </style>
+
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            var currentPrompt = "";
+            var currentResponseType = "";
+            function appendText(text) {
+                $('#messages').append(text);
+                $('#messages').scrollTop($('#messages')[0].scrollHeight);
+            }
+
+            var ws = null;
+            var uriPieces = window.location.href.split('/');
+            var wsLocation = 'ws://localhost:8080' + uriPieces[2];
+            $('#uri:text').val(wsLocation);
+
+            $('#connect').click(function() {
+                ws = new WebSocket(uri.value);
+                ws.onopen = function(ev) {
+                    appendText("Connected!\n");
+                };
+                ws.onclose = function(ev) {
+                    appendText("Disconnected!\n");
+                };
+                ws.onmessage = function(ev) {
+                    var msg = ev.data;
+                    appendText(ev.data + "\n");
+
+                    if (msg.startsWith("RequestChoiceInput:")) {
+                        currentResponseType = "ResponseChoiceInput";
+                        currentPrompt = msg.substring("RequestChoiceInput:".length);
+                    }
+                    else if (msg.startsWith("RequestTextInput:")) {
+                        currentResponseType = "ResponseTextInput";
+                        currentPrompt = msg.substring("RequestTextInput:".length);
+                    }
+                    else if (msg.startsWith("RequestRangeInput:")) {
+                        currentResponseType = "ResponseRangeInput";
+                        var content = msg.substring("RequestRangeInput:".length);
+                        currentPrompt = content.split('|')[0];
+                    }
+                };
+                ws.onerror = function(ev) {
+                    appendText("[error]\n");
+                    console.log(ev);
+                };
+            });
+
+            $('#disconnect').click(function () {
+                ws.close();
+            });
+
+            $('#send').click(function () {
+                var input = sendMessage.value;
+                var finalMessage = input;
+
+                if(currentResponseType !== "" && !input.includes(":")){
+                    finalMessage = currentResponseType + ":" + input + "|" + currentPrompt;
+                }
+
+                ws.send(finalMessage);
+                appendText("SENT: " + finalMessage + "\n");
+                $('#sendMessage').val("");
+            });
+
+            $('#sendMessage').keyup(function(e) {
+                e.preventDefault();
+                if (e.keyCode === 13) {
+                    $('#send').click();
+                }
+            });
+
+            $('#joinLobby').click(function() {
+                sendMessage.value = "JoinLobby:Player1||1";
+                $('#send').click();
+            });
+
+            $('#startGame').click(function() {
+                sendMessage.value = "StartGame:Player1";
+                $('#send').click();
+            });
+
+            $('#sendRock').click(function() {
+                sendMessage.value = "ResponseChoiceInput:Rock|p1_choice";
+                $('#send').click();
+            });
+
+            $('#sendPaper').click(function() {
+                sendMessage.value = "ResponseChoiceInput:Paper|p1_choice";
+                $('#send').click();
+            });
+
+            $('#sendScissors').click(function() {
+                sendMessage.value = "ResponseChoiceInput:Scissors|p1_choice";
+                $('#send').click();
+            });
+
+
+        });
+    </script>
 </head>
+
 <body>
-<script>
-    const ws = new WebSocket("ws://localhost:8080");
 
-    ws.onopen = () => {
-        console.log("Connected to server!");
-        ws.send("JoinGame: Hello server!");
-    };
+<h1>Game Client Test</h1>
 
-    ws.onmessage = (event) => {
-        console.log("Message from server:", event.data);
-    };
+Chat Server: <input id="uri" size="40">
+<button id="connect">Connect</button>
+<button id="disconnect">Disconnect</button><br />
 
-    ws.onclose = () => {
-        console.log("Disconnected from server");
-    };
+<pre id="messages"></pre>
 
-    ws.onerror = (err) => {
-        console.error("WebSocket error:", err);
-    };
-</script>
+<div style="margin-bottom: 5px;">
+    Enter Message:<br />
+    <input id="sendMessage" size="80" value="" />
+    <button id="send">Send</button>
+</div>
+
+<div style="margin-top: 10px;">
+    Quick Actions:<br />
+    <button id="joinLobby">Join Lobby as Player1</button>
+    <button id="startGame">Start Game</button>
+</div>
+
+<div style="margin-top: 10px;">
+    Game Inputs (Player 1):<br />
+    <button id="sendRock">Rock</button>
+    <button id="sendPaper">Paper</button>
+    <button id="sendScissors">Scissors</button>
+</div>
+
 </body>
 </html>

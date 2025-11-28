@@ -4,6 +4,9 @@
 #include <unordered_map>
 #include <vector>
 #include "Message.h"
+#include "Lobby.h"
+#include "LobbyRegistry.h"
+#include "GameSession.h"
 
 
 class NetworkingInterface;
@@ -14,7 +17,26 @@ class NetworkingInterface;
 class GameServer
 {
 public:
-    static std::vector<ClientMessage> tick(const std::vector<ClientMessage>& incomingMessages);
-private:
+    GameServer();
 
+    std::vector<ClientMessage> tick(const std::vector<ClientMessage>& incomingMessages);
+
+    std::vector<ClientMessage> handleClientMessages(const std::vector<ClientMessage>& incomingMessages);
+
+    std::vector<ClientMessage> handleJoinLobbyMessages(uintptr_t clientID, const JoinLobbyMessage& joinLobbyMsg);
+    std::vector<ClientMessage> handleLeaveLobbyMessages(uintptr_t clientID, const LeaveLobbyMessage& leaveLobbyMsg);
+    std::vector<ClientMessage> handleStartGameMessages(uintptr_t clientID, const StartGameMessage& joinGameMsg);
+
+    std::vector<ClientMessage> handleGetLobbyStateMessages(uintptr_t clientID, const GetLobbyStateMessage& getLobbyMsg) const;
+    std::vector<ClientMessage> handleBrowseLobbiesMessages(uintptr_t clientID, const BrowseLobbiesMessage& browseLobbyMsg) const;
+
+    std::vector<ClientMessage> showCurrentLobbies(uintptr_t clientID);
+private:
+    LobbyRegistry m_lobbyRegistry;
+    std::unordered_map<LobbyID, std::unique_ptr<GameSession>> m_activeSessions;
+    ast::GameRules createGameRules(GameType type);
+    bool isGameInputMessage(const Message& msg) const;
+
+    ast::GameRules createNumberBattleRules();
+    ast::GameRules createChoiceBattleRules();
 };

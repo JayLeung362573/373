@@ -1,14 +1,13 @@
 file(REMOVE_RECURSE
-  "../lib/libcore_lib.a"
-  "../lib/libcore_lib.pdb"
+  "CMakeFiles/core_lib.dir/link.d"
   "CMakeFiles/core_lib.dir/GameClient.cpp.o"
   "CMakeFiles/core_lib.dir/GameClient.cpp.o.d"
   "CMakeFiles/core_lib.dir/GameServer.cpp.o"
   "CMakeFiles/core_lib.dir/GameServer.cpp.o.d"
-  "CMakeFiles/core_lib.dir/MessageTranslator.cpp.o"
-  "CMakeFiles/core_lib.dir/MessageTranslator.cpp.o.d"
-  "CMakeFiles/core_lib.dir/WebsocketNetworking.cpp.o"
-  "CMakeFiles/core_lib.dir/WebsocketNetworking.cpp.o.d"
+  "CMakeFiles/core_lib.dir/Network/NetworkManager.cpp.o"
+  "CMakeFiles/core_lib.dir/Network/NetworkManager.cpp.o.d"
+  "libcore_lib.pdb"
+  "libcore_lib.so"
 )
 
 # Per-language clean rules from dependency scanning.

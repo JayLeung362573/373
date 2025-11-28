@@ -1,6 +1,7 @@
 file(REMOVE_RECURSE
   "../../bin/client-ncurses"
   "../../bin/client-ncurses.pdb"
+  "CMakeFiles/client-ncurses.dir/link.d"
   "CMakeFiles/client-ncurses.dir/ChatWindow.cpp.o"
   "CMakeFiles/client-ncurses.dir/ChatWindow.cpp.o.d"
   "CMakeFiles/client-ncurses.dir/chatclient.cpp.o"

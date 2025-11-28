@@ -1,2 +1,1 @@
-/usr/bin/ar qc ../libnetworking.a CMakeFiles/networking.dir/src/Server.cpp.o CMakeFiles/networking.dir/src/Client.cpp.o
-/usr/bin/ranlib ../libnetworking.a
+/usr/bin/g++ -fPIC  -Wall -fno-rtti -fsanitize=address,undefined -Wall -fno-rtti -O0 -g -fsanitize=address,undefined -fno-omit-frame-pointer -Wl,--dependency-file=CMakeFiles/networking.dir/link.d -shared -Wl,-soname,libnetworking.so -o ../libnetworking.so CMakeFiles/networking.dir/src/Server.cpp.o CMakeFiles/networking.dir/src/Client.cpp.o

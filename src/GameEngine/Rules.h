@@ -3,19 +3,13 @@
 #include <cassert>
 #include <memory>
 #include <optional>
+#include <map>
 
 #include "Types.h"
 
 
 struct VisitResult
 {
-    enum class Status
-    {
-        Done,
-        Pending
-    };
-
-    Status status;
     std::optional<std::variant<Value, Value*>> value;
 
     bool hasValue() const { return value.has_value(); }
@@ -38,9 +32,6 @@ struct VisitResult
     {
         return hasValue() && std::holds_alternative<Value*>(*value);
     }
-
-    bool isDone() const { return status == Status::Done; }
-    bool isPending() const { return status == Status::Pending; }
 };
 
 // TODO: Generalize these to not return a VisitResult, but anything?
@@ -61,6 +52,9 @@ namespace ast
     // Expressions usually evaluate to a Value, but can also be LHS
     // in assignments
     class Expression : public ASTNode {};
+
+    // Statements don't evaluate to a value
+    class Statement : public ASTNode {};
 
     class Constant : public Expression
     {
@@ -102,7 +96,73 @@ namespace ast
             String attr;
     };
 
-    class Assignment : public ASTNode
+    class Comparison : public Expression
+    {
+        public:
+            enum class Kind { LT, EQ };
+
+            Comparison(std::unique_ptr<Expression> left,
+                       std::unique_ptr<Expression> right,
+                       Kind kind)
+            : left(std::move(left))
+            , right(std::move(right))
+            , kind(kind) {}
+
+            VisitResult accept(ASTVisitor &visitor) override;
+            Expression* getLeft() const noexcept { return left.get(); };
+            Expression* getRight() const noexcept { return right.get(); };
+            Kind getKind() const noexcept { return kind; };
+
+        private:
+            std::unique_ptr<Expression> left;
+            std::unique_ptr<Expression> right;
+
+            Kind kind;
+    };
+
+    class LogicalOperation : public Expression
+    {
+        public:
+            enum class Kind { OR };
+
+            LogicalOperation(std::unique_ptr<Expression> left,
+                             std::unique_ptr<Expression> right,
+                             Kind kind)
+            : left(std::move(left))
+            , right(std::move(right))
+            , kind(kind) {}
+
+            VisitResult accept(ASTVisitor &visitor) override;
+            Expression* getLeft() const noexcept { return left.get(); };
+            Expression* getRight() const noexcept { return right.get(); };
+            Kind getKind() const noexcept { return kind; };
+
+        private:
+            std::unique_ptr<Expression> left;
+            std::unique_ptr<Expression> right;
+
+            Kind kind;
+    };
+
+    class UnaryOperation : public Expression
+    {
+        public:
+            enum class Kind { NOT };
+
+            UnaryOperation(std::unique_ptr<Expression> target, Kind kind)
+            : target(std::move(target))
+            , kind(kind) {}
+
+            VisitResult accept(ASTVisitor &visitor) override;
+            Expression* getTarget() const noexcept { return target.get(); };
+            Kind getKind() const noexcept { return kind; };
+
+        private:
+            std::unique_ptr<Expression> target;
+            Kind kind;
+    };
+
+    class Assignment : public Statement
     {
         public:
             Assignment(std::unique_ptr<Expression> target, std::unique_ptr<Expression> value)
@@ -118,12 +178,130 @@ namespace ast
             std::unique_ptr<Expression> value;
     };
 
-    class InputTextStatement : public ASTNode
+    class Extend : public Statement
     {
         public:
-            InputTextStatement(std::unique_ptr<Variable> player,
-                               std::unique_ptr<Expression> target,
-                               String prompt)
+            Extend(std::unique_ptr<Expression> target, std::unique_ptr<Expression> value)
+            : target(std::move(target))
+            , value(std::move(value)) {}
+
+            VisitResult accept(ASTVisitor &visitor) override;
+            Expression* getTarget() const noexcept { return target.get(); };
+            Expression* getValue() const noexcept { return value.get(); };
+
+        private:
+            std::unique_ptr<Expression> target;
+            std::unique_ptr<Expression> value;
+    };
+
+    class Reverse : public Statement
+    {
+        public:
+            Reverse(std::unique_ptr<Expression> target) : target(std::move(target)) {}
+
+            VisitResult accept(ASTVisitor &visitor) override;
+            Expression* getTarget() const noexcept { return target.get(); };
+
+        private:
+            std::unique_ptr<Expression> target;
+    };
+
+    class Shuffle : public Statement
+    {
+        public:
+            Shuffle(std::unique_ptr<Expression> target) : target(std::move(target)) {}
+
+            VisitResult accept(ASTVisitor &visitor) override;
+            Expression* getTarget() const noexcept { return target.get(); };
+
+        private:
+            std::unique_ptr<Expression> target;
+    };
+
+    class Discard : public Statement
+    {
+        public:
+            Discard(std::unique_ptr<Expression> target, std::unique_ptr<Expression> amount)
+            : target(std::move(target))
+            , amount(std::move(amount)) {}
+
+            VisitResult accept(ASTVisitor &visitor) override;
+            Expression* getTarget() const noexcept { return target.get(); };
+            Expression* getAmount() const noexcept { return amount.get(); };
+
+        private:
+            std::unique_ptr<Expression> target;
+            std::unique_ptr<Expression> amount;
+    };
+
+    class Sort : public Statement
+    {
+        public:
+            Sort(std::unique_ptr<Expression> target, std::optional<String> key = {})
+            : target(std::move(target))
+            , key(key) {}
+
+            VisitResult accept(ASTVisitor &visitor) override;
+            Expression* getTarget() const noexcept { return target.get(); };
+            std::optional<String> getKey() const noexcept { return key; }
+
+        private:
+            std::unique_ptr<Expression> target;
+            std::optional<String> key;
+    };
+
+    class Match : public Statement
+    {
+        public:
+            struct Candidate
+            {
+                std::unique_ptr<Expression> expressionCandidate;
+                std::vector<std::unique_ptr<Statement>> statements;
+            };
+
+            struct CandidateRaw
+            {
+                Expression* expressionCandidate;
+                std::vector<Statement*> statements;
+            };
+
+            Match(std::unique_ptr<Expression> target,
+                  std::vector<Candidate> candidates)
+            : target(std::move(target))
+            , candidates(std::move(candidates)) {}
+
+            VisitResult accept(ASTVisitor &visitor) override;
+            Expression* getTarget() const noexcept { return target.get(); };
+
+            std::vector<CandidateRaw>
+            getCandidates() const
+            {
+                std::vector<CandidateRaw> rawCandidates;
+                for (auto& candidate : candidates)
+                {
+                    Expression* expressionCandidate = candidate.expressionCandidate.get();
+
+                    std::vector<Statement*> statements;
+                    for (auto& statement : candidate.statements)
+                    {
+                        statements.push_back(statement.get());
+                    }
+                    rawCandidates.push_back({expressionCandidate, statements});
+                }
+                return rawCandidates;
+            }
+
+        private:
+            std::unique_ptr<Expression> target;
+            std::vector<Candidate> candidates;
+    };
+
+    class InputText : public Statement
+    {
+        public:
+            InputText(std::unique_ptr<Variable> player,
+                      std::unique_ptr<Expression> target,
+                      String prompt)
             : player(std::move(player))
             , target(std::move(target))
             , prompt(prompt) {}
@@ -139,6 +317,86 @@ namespace ast
             String prompt;
     };
 
+    class InputChoice : public Statement
+    {
+        public:
+            InputChoice(std::unique_ptr<Variable> player,
+                        std::unique_ptr<Expression> target,
+                        String prompt,
+                        std::unique_ptr<Expression> choices)
+            : player(std::move(player))
+            , target(std::move(target))
+            , prompt(prompt)
+            , choices(std::move(choices)) {}
+
+            VisitResult accept(ASTVisitor& visitor) override;
+            Variable* getPlayer() const noexcept { return player.get(); }
+            Expression* getTarget() const noexcept { return target.get(); }
+            String getPrompt() const noexcept { return prompt; }
+            Expression* getChoices() const noexcept { return choices.get(); }
+
+        private:
+            std::unique_ptr<Variable> player;
+            std::unique_ptr<Expression> target;
+            String prompt;
+            std::unique_ptr<Expression> choices;
+    };
+
+    class InputRange : public Statement
+    {
+        public:
+            InputRange(std::unique_ptr<Variable> player,
+                       std::unique_ptr<Expression> target,
+                       String prompt,
+                       std::unique_ptr<Expression> minValue,
+                       std::unique_ptr<Expression> maxValue)
+            : player(std::move(player))
+            , target(std::move(target))
+            , prompt(prompt)
+            , minValue(std::move(minValue))
+            , maxValue(std::move(maxValue)) {}
+
+            VisitResult accept(ASTVisitor& visitor) override;
+            Variable* getPlayer() const noexcept { return player.get(); }
+            Expression* getTarget() const noexcept { return target.get(); }
+            String getPrompt() const noexcept { return prompt; }
+            Expression* getMinValue() const noexcept { return minValue.get(); }
+            Expression* getMaxValue() const noexcept { return maxValue.get(); }
+
+        private:
+            std::unique_ptr<Variable> player;
+            std::unique_ptr<Expression> target;
+            String prompt;
+            std::unique_ptr<Expression> minValue;
+            std::unique_ptr<Expression> maxValue;
+    };
+
+    class InputVote : public Statement
+    {
+        public:
+            InputVote(std::unique_ptr<Variable> player,
+                               std::unique_ptr<Expression> target,
+                               String prompt,
+                               std::unique_ptr<Expression> choices)
+            : player(std::move(player))
+            , target(std::move(target))
+            , prompt(prompt)
+            , choices(std::move(choices)) {}
+
+            VisitResult accept(ASTVisitor& visitor) override;
+            Variable* getPlayer() const noexcept { return player.get(); }
+            Expression* getTarget() const noexcept { return target.get(); }
+            String getPrompt() const noexcept { return prompt; }
+            Expression* getChoices() const noexcept { return choices.get(); }
+
+        private:
+            std::unique_ptr<Variable> player;
+            std::unique_ptr<Expression> target;
+            String prompt;
+            std::unique_ptr<Expression> choices;
+    };
+
+
     class ASTVisitor
     {
         public:
@@ -146,8 +404,20 @@ namespace ast
             virtual VisitResult visit(const Constant& constant) = 0;
             virtual VisitResult visit(const Variable& variable) = 0;
             virtual VisitResult visit(const Attribute& attribute) = 0;
+            virtual VisitResult visit(const Comparison& comparison) = 0;
+            virtual VisitResult visit(const LogicalOperation& logicalOp) = 0;
+            virtual VisitResult visit(const UnaryOperation& unaryOp) = 0;
             virtual VisitResult visit(const Assignment& assignment) = 0;
-            virtual VisitResult visit(const InputTextStatement& inputTextStatement) = 0;
+            virtual VisitResult visit(const Extend& extend) = 0;
+            virtual VisitResult visit(const Reverse& reverse) = 0;
+            virtual VisitResult visit(const Shuffle& shuffle) = 0;
+            virtual VisitResult visit(const Discard& discard) = 0;
+            virtual VisitResult visit(const Sort& sort) = 0;
+            virtual VisitResult visit(const Match& match) = 0;
+            virtual VisitResult visit(const InputText& inputText) = 0;
+            virtual VisitResult visit(const InputChoice& inputChoice) = 0;
+            virtual VisitResult visit(const InputRange& inputRange) = 0;
+            virtual VisitResult visit(const InputVote& inputVote) = 0;
     };
 
     std::unique_ptr<ast::Variable>
@@ -159,14 +429,69 @@ namespace ast
     std::unique_ptr<ast::Constant>
     makeConstant(Value value);
 
+    std::unique_ptr<ast::Comparison>
+    makeComparison(std::unique_ptr<ast::Expression> left,
+                   std::unique_ptr<ast::Expression> right,
+                   ast::Comparison::Kind kind);
+
+    std::unique_ptr<ast::LogicalOperation>
+    makeLogicalOperation(std::unique_ptr<ast::Expression> left,
+                         std::unique_ptr<ast::Expression> right,
+                         ast::LogicalOperation::Kind kind);
+
+    std::unique_ptr<ast::UnaryOperation>
+    makeUnaryOperation(std::unique_ptr<ast::Expression> target,
+                       ast::UnaryOperation::Kind kind);
+
     std::unique_ptr<ast::Assignment>
     makeAssignment(std::unique_ptr<ast::Expression> targetExpr,
                 std::unique_ptr<ast::Expression> valueToAssign);
 
-    std::unique_ptr<ast::InputTextStatement>
-    makeInputTextStmt(std::unique_ptr<ast::Variable> playerVar,
-                      std::unique_ptr<ast::Expression> targetExpr,
-                      String prompt);
+    std::unique_ptr<ast::Extend>
+    makeExtend(std::unique_ptr<ast::Expression> target,
+               std::unique_ptr<ast::Expression> value);
+
+    std::unique_ptr<ast::Reverse>
+    makeReverse(std::unique_ptr<ast::Expression> target);
+
+    std::unique_ptr<ast::Shuffle>
+    makeShuffle(std::unique_ptr<ast::Expression> target);
+
+    std::unique_ptr<ast::Discard>
+    makeDiscard(std::unique_ptr<ast::Expression> target,
+                std::unique_ptr<ast::Expression> amount);
+
+    std::unique_ptr<ast::Sort>
+    makeSort(std::unique_ptr<ast::Expression> target,
+             std::optional<String> key = {});
+
+    std::unique_ptr<ast::Match>
+    makeMatch(std::unique_ptr<ast::Expression> target,
+              std::vector<ast::Match::Candidate> candidates);
+
+    std::unique_ptr<ast::InputText>
+    makeInputText(std::unique_ptr<ast::Variable> playerVar,
+                  std::unique_ptr<ast::Expression> targetExpr,
+                  String prompt);
+
+    std::unique_ptr<ast::InputChoice>
+    makeInputChoice(std::unique_ptr<ast::Variable> playerVar,
+                    std::unique_ptr<ast::Expression> targetExpr,
+                    String prompt,
+                    std::unique_ptr<ast::Expression> choices);
+
+    std::unique_ptr<ast::InputRange>
+    makeInputRange(std::unique_ptr<ast::Variable> playerVar,
+                   std::unique_ptr<ast::Expression> targetExpr,
+                   String prompt,
+                   std::unique_ptr<ast::Expression> minValue,
+                   std::unique_ptr<ast::Expression> maxValue);
+
+    std::unique_ptr<ast::InputVote>
+    makeInputVote(std::unique_ptr<ast::Variable> playerVar,
+                  std::unique_ptr<ast::Expression> targetExpr,
+                  String prompt,
+                  std::unique_ptr<ast::Expression> choices);
 
     std::unique_ptr<ast::Constant>
     cloneConstant(ast::Constant* constant);
@@ -188,4 +513,56 @@ namespace ast
 
     ast::Attribute*
     castExpressionToAttribute(ast::Expression* expr);
+
+    // Builder classes allow us to define these types inline, which may make it easier to set up complex trees
+    class StatementsBuilder
+    {
+        public:
+            ast::StatementsBuilder& addStatement(std::unique_ptr<ast::Statement> statement)
+            {
+                statements.push_back(std::move(statement));
+                return *this;
+            }
+
+            std::vector<std::unique_ptr<ast::Statement>> build()
+            {
+                return std::move(statements);
+            }
+
+        private:
+            std::vector<std::unique_ptr<ast::Statement>> statements;
+    };
+
+    class MatchBuilder
+    {
+        public:
+            ast::MatchBuilder& setTarget(std::unique_ptr<ast::Expression> target)
+            {
+                m_target = std::move(target);
+                return *this;
+            }
+
+            ast::MatchBuilder& addCandidatePair(std::unique_ptr<Expression> expressionCandidate,
+                                                std::vector<std::unique_ptr<Statement>> statements)
+            {
+                ast::Match::Candidate pair{
+                    std::move(expressionCandidate), std::move(statements)
+                };
+                m_candidates.push_back(std::move(std::move(pair)));
+                return *this;
+            }
+
+            std::unique_ptr<ast::Match> build()
+            {
+                return ast::makeMatch(std::move(m_target), std::move(m_candidates));
+            }
+
+        private:
+            std::unique_ptr<ast::Expression> m_target;
+            std::vector<ast::Match::Candidate> m_candidates;
+    };
+    struct GameRules
+    {
+        std::vector<std::unique_ptr<ast::Statement>> statements;
+    };
 };

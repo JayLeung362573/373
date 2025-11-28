@@ -33,12 +33,41 @@ CPMAddPackage(
     "ENABLE_NCURSES_CLIENT ON"
 )
 
+CPMAddPackage(
+  NAME spdlog
+  GITHUB_REPOSITORY gabime/spdlog
+  VERSION 1.14.1
+)
+
 set(CMAKE_CXX_STANDARD 23)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 set(CMAKE_CXX_EXTENSIONS OFF)
 
 enable_testing()
 
+# Tree-sitter C runtime library - using FetchContent
+include(FetchContent)
+
+FetchContent_Declare(
+  tree-sitter
+  GIT_REPOSITORY https://github.com/tree-sitter/tree-sitter.git
+  GIT_TAG        v0.26.0-pre-61-gb3bc7701
+)
+
+FetchContent_MakeAvailable(tree-sitter)
+
+# Build tree-sitter library from fetched content
+add_library(treesitter STATIC
+  ${tree-sitter_SOURCE_DIR}/lib/src/lib.c
+)
+target_include_directories(treesitter PUBLIC
+  ${tree-sitter_SOURCE_DIR}/lib/include
+)
+
+# Add parser subdirectory which contains the grammar and loader
+add_subdirectory(parser)
+
+# Add src and tests subdirectories
 if(EXISTS "${CMAKE_SOURCE_DIR}/src/CMakeLists.txt")
   add_subdirectory(src)
 endif()

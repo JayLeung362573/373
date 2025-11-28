@@ -7,7 +7,7 @@
 
 class WebSocketNetworkingTest : public ::testing::Test{
     const std::string testHtmlPath = "html_for_test.html";
-    
+
     void SetUp() override{
         std::ofstream htmlFile(testHtmlPath);
         if(htmlFile.is_open()){
@@ -35,7 +35,7 @@ TEST_F(WebSocketNetworkingTest, ServerInitializationAndFakeTest){
 
     ASSERT_NO_THROW(network->update());
 
-    Message testMsg {MessageType::JoinGame, JoinGameMessage{"test join game"}};
+    Message testMsg {MessageType::StartGame, StartGameMessage{"test join game"}};
     ASSERT_NO_THROW(network->sendToClient(888, testMsg)); // send to a non-exist client
 
     messages = network->receiveFromClients();

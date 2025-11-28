@@ -1,2 +1,1 @@
-/usr/bin/ar qc ../../../lib/libgmock.a "CMakeFiles/gmock.dir/src/gmock-all.cc.o"
-/usr/bin/ranlib ../../../lib/libgmock.a
+/usr/bin/g++ -fPIC  -Wall -fno-rtti -fsanitize=address,undefined -g -Wl,--dependency-file=CMakeFiles/gmock.dir/link.d -shared -Wl,-soname,libgmock.so.1.16.0 -o ../../../lib/libgmock.so.1.16.0 "CMakeFiles/gmock.dir/src/gmock-all.cc.o"  -Wl,-rpath,/root/373/build/lib: ../../../lib/libgtest.so.1.16.0

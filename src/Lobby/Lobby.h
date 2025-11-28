@@ -2,6 +2,8 @@
 #include <vector>
 #include <unordered_map>
 #include <optional>
+#include <cstdint>
+#include "LobbyTypes.h"
 
 enum class LobbyRole{
     Host,
@@ -9,8 +11,9 @@ enum class LobbyRole{
     Audience,
 };
 
-struct LobbyPlayer{
+struct LobbyMember{
     uintptr_t clientID = 0;
+    std::string name;
     LobbyRole role = LobbyRole::Audience;
     bool ready = false;
 
@@ -20,21 +23,36 @@ struct LobbyPlayer{
     bool isPlayable() const { return isHost() || isPlayer();}
 };
 
+/// Individual lobby instance:
+/// 1) store lobby related data: name, id, type, members
+/// 2) manage players in THIS individual lobby
+/// 3) track ready states
 class Lobby{
 public:
-    void addPlayer(uintptr_t clientID, LobbyRole role = LobbyRole::Player);
-    void removePlayer(uintptr_t clientID);
+    Lobby(const LobbyID& id, GameType gameType, ClientID hostID, const std::string& name);
 
-    std::optional<uintptr_t> getHostID() const;
-    void setPlayerRole(uintptr_t clientID, LobbyRole role);
+    /// manage player list in this lobby
+    bool insertPlayer(uintptr_t clientID, LobbyRole role = LobbyRole::Player);
+    void deletePlayer(uintptr_t clientID);
+    bool hasPlayer(ClientID clientID) const;
 
-    std::optional<LobbyRole> getPlayerRole(uintptr_t clientID) const;
-    void transferHost(uintptr_t newHostID);
+    /// host management
+    ClientID getHostID() const;
+    std::optional<LobbyRole> getMemberRole(uintptr_t clientID) const;
+    std::vector<LobbyMember> getAllPlayer() const;
 
-    int getPlayablePlayer() const;
-    bool canStartGame1(int minPlayers, int maxPlayers) const;
-
-    std::vector<LobbyPlayer> getPlayablePlayers() const;
+    /// getters for Info
+    LobbyInfo getInfo() const;
+    GameType getGameType() const {return m_gameType;}
+    size_t getPlayerCount() const {return m_players.size();}
+    bool isFull() const {return m_players.size() >= m_maxPlayers;}
 private:
-    std::unordered_map<uintptr_t, LobbyPlayer> m_players;
+    LobbyID m_lobbyID;
+    std::string m_lobbyName;
+    GameType m_gameType;
+    ClientID m_hostID;
+    LobbyState m_state;
+    size_t m_maxPlayers;
+
+    std::unordered_map<uintptr_t, LobbyMember> m_players;
 };

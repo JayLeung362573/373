@@ -1,2 +1,1 @@
-/usr/bin/ar qc ../../lib/libGameEngine.a CMakeFiles/GameEngine.dir/GameInterpreter.cpp.o CMakeFiles/GameEngine.dir/Rules.cpp.o
-/usr/bin/ranlib ../../lib/libGameEngine.a
+/usr/bin/g++ -fPIC  -Wall -fno-rtti -fsanitize=address,undefined -g -Wl,--dependency-file=CMakeFiles/GameEngine.dir/link.d -shared -Wl,-soname,libGameEngine.so -o libGameEngine.so CMakeFiles/GameEngine.dir/GameInterpreter.cpp.o CMakeFiles/GameEngine.dir/Rules.cpp.o CMakeFiles/GameEngine.dir/InputManager.cpp.o

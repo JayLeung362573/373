@@ -67,7 +67,7 @@ TEST(RulesTest, MakeAssignment)
 
 TEST(RulesTest, MakeInputTextStatementWithVariableTarget)
 {
-    auto inputTextStmt = ast::makeInputTextStmt(
+    auto inputTextStmt = ast::makeInputText(
         ast::makeVariable(Name{"player"}),
         ast::makeVariable(Name{"seed"}),
         String{"Enter a seed: "}
@@ -83,7 +83,7 @@ TEST(RulesTest, MakeInputTextStatementWithVariableTarget)
 
 TEST(RulesTest, MakeInputTextStatementWithAttributeTarget)
 {
-    auto inputTextStmt = ast::makeInputTextStmt(
+    auto inputTextStmt = ast::makeInputText(
         ast::makeVariable(Name{"playerMap"}),
         ast::makeAttribute(
             ast::makeVariable(Name{"playerMap"}),
