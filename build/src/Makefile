@@ -237,30 +237,6 @@ GameClient.cpp.s:
 	cd /root/373/build && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/core_lib.dir/build.make src/CMakeFiles/core_lib.dir/GameClient.cpp.s
 .PHONY : GameClient.cpp.s
 
-GameServer.o: GameServer.cpp.o
-.PHONY : GameServer.o
-
-# target to build an object file
-GameServer.cpp.o:
-	cd /root/373/build && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/core_lib.dir/build.make src/CMakeFiles/core_lib.dir/GameServer.cpp.o
-.PHONY : GameServer.cpp.o
-
-GameServer.i: GameServer.cpp.i
-.PHONY : GameServer.i
-
-# target to preprocess a source file
-GameServer.cpp.i:
-	cd /root/373/build && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/core_lib.dir/build.make src/CMakeFiles/core_lib.dir/GameServer.cpp.i
-.PHONY : GameServer.cpp.i
-
-GameServer.s: GameServer.cpp.s
-.PHONY : GameServer.s
-
-# target to generate assembly for a file
-GameServer.cpp.s:
-	cd /root/373/build && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/core_lib.dir/build.make src/CMakeFiles/core_lib.dir/GameServer.cpp.s
-.PHONY : GameServer.cpp.s
-
 Logger.o: Logger.cpp.o
 .PHONY : Logger.o
 
@@ -352,9 +328,6 @@ help:
 	@echo "... GameClient.o"
 	@echo "... GameClient.i"
 	@echo "... GameClient.s"
-	@echo "... GameServer.o"
-	@echo "... GameServer.i"
-	@echo "... GameServer.s"
 	@echo "... Logger.o"
 	@echo "... Logger.i"
 	@echo "... Logger.s"

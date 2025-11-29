@@ -367,6 +367,19 @@ Network/fast:
 .PHONY : Network/fast
 
 #=============================================================================
+# Target rules for targets named GameServer
+
+# Build rule for target.
+GameServer: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 GameServer
+.PHONY : GameServer
+
+# fast build rule for target.
+GameServer/fast:
+	$(MAKE) $(MAKESILENT) -f src/GameServer/CMakeFiles/GameServer.dir/build.make src/GameServer/CMakeFiles/GameServer.dir/build
+.PHONY : GameServer/fast
+
+#=============================================================================
 # Target rules for targets named unit_tests
 
 # Build rule for target.
@@ -482,6 +495,7 @@ help:
 	@echo "... rebuild_cache"
 	@echo "... test"
 	@echo "... GameEngine"
+	@echo "... GameServer"
 	@echo "... GameSession"
 	@echo "... Lobby"
 	@echo "... Logger_test"

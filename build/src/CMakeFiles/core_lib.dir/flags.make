@@ -4,7 +4,7 @@
 # compile CXX with /usr/bin/g++
 CXX_DEFINES = -Dcore_lib_EXPORTS
 
-CXX_INCLUDES = -I/root/373/src/lib -I/root/373/src/GameEngine -I/root/373/src/Lobby -I/root/373/src/GameSession -I/root/373/src/GameSession/.. -I/root/373/src/Network -I/root/373/src/Network/.. -I/root/373/build/_deps/web-socket-networking-src/lib/networking/include
+CXX_INCLUDES = -I/root/373/src/lib -I/root/373/src/GameEngine -I/root/373/src/Lobby -I/root/373/src/GameSession -I/root/373/src/GameSession/.. -I/root/373/src/Network -I/root/373/src/Network/.. -I/root/373/build/_deps/web-socket-networking-src/lib/networking/include -I/root/373/src/GameServer -I/root/373/src/GameServer/..
 
 CXX_FLAGS =  -Wall -fno-rtti -fsanitize=address,undefined -g -std=c++23 -fPIC
 

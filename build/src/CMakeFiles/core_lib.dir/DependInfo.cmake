@@ -9,7 +9,6 @@ set(CMAKE_DEPENDS_LANGUAGES
 # The set of dependency files which are needed:
 set(CMAKE_DEPENDS_DEPENDENCY_FILES
   "/root/373/src/GameClient.cpp" "src/CMakeFiles/core_lib.dir/GameClient.cpp.o" "gcc" "src/CMakeFiles/core_lib.dir/GameClient.cpp.o.d"
-  "/root/373/src/GameServer.cpp" "src/CMakeFiles/core_lib.dir/GameServer.cpp.o" "gcc" "src/CMakeFiles/core_lib.dir/GameServer.cpp.o.d"
   "/root/373/src/Network/NetworkManager.cpp" "src/CMakeFiles/core_lib.dir/Network/NetworkManager.cpp.o" "gcc" "src/CMakeFiles/core_lib.dir/Network/NetworkManager.cpp.o.d"
   "" "src/libcore_lib.so" "gcc" "src/CMakeFiles/core_lib.dir/link.d"
   )

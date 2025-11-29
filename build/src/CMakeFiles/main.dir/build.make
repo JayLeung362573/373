@@ -97,6 +97,7 @@ bin/main: src/CMakeFiles/main.dir/main.cpp.o
 bin/main: src/CMakeFiles/main.dir/build.make
 bin/main: src/CMakeFiles/main.dir/compiler_depend.ts
 bin/main: src/libcore_lib.so
+bin/main: src/GameServer/libGameServer.so
 bin/main: src/GameSession/libGameSession.so
 bin/main: src/GameEngine/libGameEngine.so
 bin/main: src/Network/libNetwork.so

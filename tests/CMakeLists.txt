@@ -37,10 +37,6 @@ add_executable(unit_tests
   GameSessionTest.cpp
 )
 
-set_target_properties(unit_tests PROPERTIES 
-    ENVIRONMENT "ASAN_OPTIONS=detect_leaks=0"
-)
-
 # Link with gtest (the Quickstart uses GTest::gtest_main)
 target_link_libraries(unit_tests PRIVATE GTest::gtest_main core_lib parser)
 

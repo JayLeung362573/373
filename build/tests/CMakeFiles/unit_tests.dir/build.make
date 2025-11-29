@@ -404,6 +404,7 @@ tests/unit_tests: lib/libgtest_main.so.1.16.0
 tests/unit_tests: src/libcore_lib.so
 tests/unit_tests: lib/libparser.a
 tests/unit_tests: lib/libgtest.so.1.16.0
+tests/unit_tests: src/GameServer/libGameServer.so
 tests/unit_tests: src/GameSession/libGameSession.so
 tests/unit_tests: src/GameEngine/libGameEngine.so
 tests/unit_tests: src/Network/libNetwork.so

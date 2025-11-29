@@ -1,5 +1,6 @@
 #include "LobbyRegistry.h"
 #include <iostream>
+#include <ranges>
 
 Lobby*
 LobbyRegistry::createLobby(ClientID hostID, GameType gameType, const std::string &lobbyName) {
@@ -20,11 +21,19 @@ std::vector<LobbyInfo>
 LobbyRegistry::browseLobbies(std::optional<GameType> gameType) const {
     std::vector<LobbyInfo> result;
 
-    for(const auto& [lobbyID, lobby] : m_lobbies){
-        if(!gameType.has_value() || lobby->getGameType() == *gameType){
-            result.push_back(lobby->getInfo());
-        }
-    }
+    auto filterOp = [&](const auto& pair){
+    return !gameType.has_value() || pair.second->getGameType() == *gameType;
+};
+
+    auto toInfo = [](const auto& pair){ 
+        return pair.second->getInfo(); 
+    };
+
+    auto matchingLobbies = m_lobbies 
+        | std::views::filter(filterOp) 
+        | std::views::transform(toInfo);
+
+    result.assign(matchingLobbies.begin(), matchingLobbies.end());
 
     std::cout << "[Registry] Found " << result.size() << " lobbies for game type "
               << (gameType.has_value() ? std::to_string((int)*gameType) : "ALL") << ")\n";
