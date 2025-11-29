@@ -1,0 +1,67 @@
+configuration {
+  name: "Test Game"
+  player range: (2, 4)
+  audience: false
+  setup: {}
+}
+
+constants {
+  weapons: [
+    { name: "Rock", beats: "Scissors" }
+  ]
+}
+
+variables {
+  winners: []
+  deck: []
+}
+
+per-player {
+  wins: 0
+}
+
+per-audience {}
+
+rules {
+  discard 1 from winners;
+  extend winners with players;
+  reverse deck;
+  shuffle deck;
+  sort winners;
+
+  match x = 5 {
+    true => {
+      a <- 1;
+    }
+  }
+
+  match y < 10 {
+    true => {
+      b <- 2;
+    }
+  }
+
+  match p || q {
+    true => {
+      c <- 3;
+    }
+  }
+
+  match !done {
+    true => {
+      d <- 4;
+    }
+  }
+
+  for player in players {
+    player.wins <- 0;
+  }
+
+  for weapon in weapons {
+    score <- 1 + 2;
+  }
+
+  for winner in winners {
+    winner.wins <- winner.wins + 1;
+  }
+}

@@ -3,6 +3,8 @@
 #include <string>
 #include <vector>
 #include <optional>
+#include <memory>
+#include "src/GameEngine/Rules.h"
 
 // This is currently based upon the games/rock-paper-scissors.game
 //this can be expanded in the future once we have more bits
@@ -27,6 +29,7 @@ struct SetupRule { // from the config
     std::string prompt;
     std::optional<PlayerRange> range;
 };
+
 struct GameSpec {
     std::string name;
     PlayerRange playerRange;
@@ -35,4 +38,8 @@ struct GameSpec {
 
     std::string constants;
     std::string variables;
+
+    // Parsed AST statements from the rules section
+    // Can be converted to a Program for the GameInterpreter
+    std::vector<std::unique_ptr<ast::Statement>> rulesProgram;
 };
