@@ -14,6 +14,7 @@ enum class MessageType : uint8_t
     UpdateCycle,
 
     /// Lobby messages
+    CreateLobby,
     JoinLobby,
     LeaveLobby,
     LobbyState,
@@ -44,6 +45,10 @@ struct StartGameMessage
 struct UpdateCycleMessage
 {
     int cycle;
+};
+
+struct CreateLobbyMessage {
+    // Empty, just triggers the flow
 };
 
 struct JoinLobbyMessage{
@@ -116,6 +121,7 @@ using MessageData = std::variant<
         StartGameMessage,
         UpdateCycleMessage,
 
+        CreateLobbyMessage,
         JoinLobbyMessage,
         LeaveLobbyMessage,
         LobbyStateMessage,

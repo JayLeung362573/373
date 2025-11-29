@@ -2,6 +2,7 @@
 #include <string_view>
 #include <string>
 #include <stdexcept>
+#include <iostream>
 
 /// to parse string_view to int, for lobbyID and gameType
 static int parseInt(std::string_view sv) {
@@ -43,6 +44,19 @@ struct MessageTraits<UpdateCycleMessage> {
         auto num = payload.substr(prefix.size());
         int cycle = parseInt(num);
         return { MessageType::UpdateCycle, UpdateCycleMessage{cycle} };
+    }
+};
+
+template<>
+struct MessageTraits<CreateLobbyMessage> {
+    static constexpr std::string_view prefix = "CreateLobby";
+
+    static std::string serialize(const CreateLobbyMessage&) {
+        return std::string(prefix);
+    }
+
+    static Message deserialize(std::string_view) {
+        return { MessageType::CreateLobby, CreateLobbyMessage{} };
     }
 };
 
@@ -304,11 +318,16 @@ std::string MessageTranslator::serialize(const Message& msg)
 
 Message MessageTranslator::deserialize(std::string_view payload)
 {
+    std::cout << "[Translator] Checking payload: '" << payload << "'\n";
     if (payload.starts_with(MessageTraits<StartGameMessage>::prefix)) {
         return MessageTraits<StartGameMessage>::deserialize(payload);
     }
     else if (payload.starts_with(MessageTraits<UpdateCycleMessage>::prefix)) {
         return MessageTraits<UpdateCycleMessage>::deserialize(payload);
+    }
+    else if (payload.starts_with(MessageTraits<CreateLobbyMessage>::prefix)) {
+        std::cout << "[Translator] Found CreateLobbyMessage!\n";
+        return MessageTraits<CreateLobbyMessage>::deserialize(payload);
     }
     else if(payload.starts_with(MessageTraits<JoinLobbyMessage>::prefix)) {
         return MessageTraits<JoinLobbyMessage>::deserialize(payload);
@@ -356,6 +375,7 @@ Message MessageTranslator::deserialize(std::string_view payload)
         return MessageTraits<GameOverMessage>::deserialize(payload);
     }
     else {
+        std::cout << "[Translator] No matching prefix found. Returning Empty.\n";
         return { MessageType::Empty, {} };
     }
 }
