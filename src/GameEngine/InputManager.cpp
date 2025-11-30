@@ -2,10 +2,12 @@
 #include <stdexcept>
 #include <sstream>
 
+// TODO: Clean up clearing input
+
 std::optional<String>
 InputManager::getTextInput(String playerID, String prompt)
 {
-    auto response = findResponse(playerID, prompt);
+    auto response = popResponse(playerID, prompt);
     if (response) {
         return response;
     }
@@ -20,7 +22,7 @@ InputManager::getTextInput(String playerID, String prompt)
 std::optional<String>
 InputManager::getChoiceInput(String playerID, String prompt, const List<Value>& choices)
 {
-    auto response = findResponse(playerID, prompt);
+    auto response = popResponse(playerID, prompt);
     if (response) {
         return response;
     }
@@ -35,7 +37,7 @@ InputManager::getChoiceInput(String playerID, String prompt, const List<Value>& 
 std::optional<Integer>
 InputManager::getRangeInput(String playerID, String prompt, Integer minValue, Integer maxValue)
 {
-    auto response = findResponse(playerID, prompt);
+    auto response = popResponse(playerID, prompt);
     if (response) {
         try {
             Integer value = Integer{std::stoi(response->value)};
@@ -61,7 +63,7 @@ InputManager::getRangeInput(String playerID, String prompt, Integer minValue, In
 std::optional<String>
 InputManager::getVoteInput(String playerID, String prompt, const List<Value>& choices)
 {
-    auto response = findResponse(playerID, prompt);
+    auto response = popResponse(playerID, prompt);
     if (response) {
         return response;
     }
@@ -118,7 +120,7 @@ InputManager::popPendingOutputs() {
 }
 
 std::optional<String>
-InputManager::findResponse(const String& playerID, const String& prompt) const
+InputManager::popResponse(const String& playerID, const String& prompt)
 {
     auto playerIt = m_responses.find(playerID);
     if (playerIt == m_responses.end()) {
@@ -130,7 +132,11 @@ InputManager::findResponse(const String& playerID, const String& prompt) const
         return std::nullopt;
     }
 
-    return promptIt->second;
+    String val = promptIt->second;
+
+    playerIt->second.erase(promptIt);
+
+    return val;
 }
 
 bool

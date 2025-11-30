@@ -60,10 +60,20 @@ struct MessageTraits<CreateLobbyMessage> {
     }
 };
 
+template<>
+struct MessageTraits<StartJoinLobbyMessage> {
+    static constexpr std::string_view prefix = "JoinLobby";
+
+    static std::string serialize(const StartJoinLobbyMessage&) { return std::string(prefix); }
+    static Message deserialize(std::string_view) {
+        return { MessageType::StartJoinLobby, StartJoinLobbyMessage{} };
+    }
+};
+
 /// Message format: JoinLobby:PlayerName|LobbyName|GameType
 template<>
 struct MessageTraits<JoinLobbyMessage> {
-    static constexpr std::string_view prefix = "JoinLobby:";
+    static constexpr std::string_view prefix = "InternalJoinLobby:";
 
     static std::string serialize(const JoinLobbyMessage& d) {
         return std::string(prefix) + d.playerName + "|" + d.lobbyName + "|" + std::to_string(d.gameType);
@@ -328,6 +338,9 @@ Message MessageTranslator::deserialize(std::string_view payload)
     else if (payload.starts_with(MessageTraits<CreateLobbyMessage>::prefix)) {
         std::cout << "[Translator] Found CreateLobbyMessage!\n";
         return MessageTraits<CreateLobbyMessage>::deserialize(payload);
+    }
+    else if(payload.starts_with(MessageTraits<StartJoinLobbyMessage>::prefix)) {
+        return MessageTraits<StartJoinLobbyMessage>::deserialize(payload);
     }
     else if(payload.starts_with(MessageTraits<JoinLobbyMessage>::prefix)) {
         return MessageTraits<JoinLobbyMessage>::deserialize(payload);

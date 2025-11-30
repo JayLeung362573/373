@@ -34,6 +34,9 @@ public:
     std::vector<ClientMessage> showCurrentLobbies(uintptr_t clientID);
 
     std::vector<ClientMessage> handleCreationInput(uintptr_t clientID, const Message& creationInput);
+
+    std::vector<ClientMessage> handleStartJoinLobbyMessages(uintptr_t clientID);
+    std::vector<ClientMessage> handleJoinInput(uintptr_t clientID, const Message& joinInput);
 private:
     LobbyRegistry m_lobbyRegistry;
     std::unordered_map<LobbyID, std::unique_ptr<GameSession>> m_activeSessions;
@@ -53,5 +56,15 @@ private:
         std::string lobbyName;
     };
 
+    struct LobbyJoinState {
+        enum class Step {
+            AskingForPlayerName,
+            AskingForLobbyName
+        };
+        Step currentStep;
+        std::string playerName;
+    };
+
     std::unordered_map<uintptr_t, LobbyCreationState> m_pendingCreations;
+    std::unordered_map<uintptr_t, LobbyJoinState> m_pendingJoins;
 };
