@@ -4,6 +4,14 @@
 #include <unordered_map>
 
 namespace{
+    std::string gameTypeToString(GameType type) {
+        switch(type) {
+            case GameType::NumberBattle: return "Number Battle";
+            case GameType::ChoiceBattle: return "Choice Battle";
+            default: return "Unknown";
+        }
+    }
+
     std::string formatLobbyList(const std::vector<LobbyInfo>& lobbies) {
         if (lobbies.empty()) {
             return "No existing lobbies";
@@ -11,7 +19,9 @@ namespace{
 
         std::string output = "Current active lobbies:\n";
         for (const auto& lobby : lobbies) {
-            output += " - " + lobby.lobbyName + " (ID: " + lobby.lobbyID + ") | " +
+            output += " - " + lobby.lobbyName +
+                      " (ID: " + lobby.lobbyID + ") | " +
+                      "Type: " + gameTypeToString(lobby.gameType) + " | " +
                       "Players: " + std::to_string(lobby.currentPlayers) + "/" +
                       std::to_string(lobby.maxPlayers) + "\n";
         }
@@ -157,8 +167,11 @@ GameServer::handleCreationInput(uintptr_t clientID, const Message& creationInput
             Message request;
             request.type = MessageType::RequestChoiceInput;
             request.data = RequestChoiceInputMessage{ /// for current demo games
-                    "Select Game Type",
-                    {"1 (Number Battle)", "2 (Choice Battle)"}
+                    "Select Game Type:\n"
+                    "[1] Number Battle\n"
+                    "[2] Choice Battle\n"
+                    "(Enter 1 or 2):",
+                    {"1", "2"}
             };
             return {ClientMessage{clientID, request}};
         }
@@ -195,6 +208,21 @@ GameServer::handleCreationInput(uintptr_t clientID, const Message& creationInput
 
 std::vector<ClientMessage>
 GameServer::handleStartJoinLobbyMessages(uintptr_t clientID){
+    if (m_lobbyRegistry.findLobbyForClient(clientID)) {
+        Message errorMsg;
+        errorMsg.type = MessageType::Error;
+        errorMsg.data = ErrorMessage{"You are already in a lobby. Leave first."};
+        return { ClientMessage{clientID, errorMsg} };
+    }
+
+    auto activeLobbies = m_lobbyRegistry.browseLobbies(std::nullopt);
+    if (activeLobbies.empty()) {
+        Message message;
+        message.type = MessageType::GameOutput;
+        message.data = GameOutputMessage{"No active lobbies found! Please use 'CreateLobby' first."};
+        return { ClientMessage{clientID, message} };
+    }
+
     m_pendingJoins.erase(clientID);
     m_pendingCreations.erase(clientID);
 
@@ -253,14 +281,36 @@ GameServer::handleJoinInput(uintptr_t clientID, const Message& joinInput){
             }
 
             if(lobby){
+                std::vector<ClientMessage> responses;
+
+                /// message for joiner
                 Message success = createLobbyStateMessage(lobby);
 
                 Message msg;
                 msg.type = MessageType::GameOutput;
                 msg.data = GameOutputMessage{"Joined Lobby '" + lobby->getInfo().lobbyName + "'!"};
 
+                responses.push_back({clientID, success});
+                responses.push_back({clientID, msg});
+
+                /// message for Host and other players (exclude the joiner)
+                Message notification;
+                notification.type = MessageType::GameOutput;
+                notification.data = GameOutputMessage{state.playerName + " has joined the lobby!"};
+
+                const Message& stateUpdate = success;
+
+                /// new player + updated lobbyState broadcast after joining
+                auto existingPlayers = lobby->getAllPlayer();
+                for(const auto& player : existingPlayers) {
+                    if (player.clientID != clientID) {
+                        responses.push_back({player.clientID, notification});
+                        responses.push_back({player.clientID, stateUpdate});
+                    }
+                }
+
                 m_pendingJoins.erase(clientID); /// Cleanup
-                return {ClientMessage{clientID, success}, ClientMessage{clientID, msg}};
+                return responses;
             } else{
                 Message err;
                 err.type = MessageType::RequestTextInput;

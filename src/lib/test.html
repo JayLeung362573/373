@@ -59,6 +59,10 @@
                         var content = msg.substring("RequestRangeInput:".length);
                         currentPrompt = content.split('|')[0];
                     }
+                    else if (msg.startsWith("LobbyState:") || msg.startsWith("GameOutput:") || msg.startsWith("Error:")) {
+                        currentResponseType = "";
+                        currentPrompt = "";
+                    }
                 };
                 ws.onerror = function(ev) {
                     appendText("[error]\n");
@@ -75,8 +79,7 @@
                 var finalMessage = input;
 
                 if(currentResponseType !== "" && !input.includes(":")){
-                    finalMessage = currentResponseType + ":" + input + "|" + currentPrompt;
-                }
+                    finalMessage = currentResponseType + ":" + input;                }
 
                 ws.send(finalMessage);
                 appendText("SENT: " + finalMessage + "\n");
