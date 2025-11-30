@@ -47,6 +47,10 @@ private:
     ast::GameRules createNumberBattleRules();
     ast::GameRules createChoiceBattleRules();
 
+    /// helper functions
+    Message createLobbyStateMessage(const Lobby* lobby) const;
+    Lobby* getLobbyForClient(uintptr_t clientID) const;
+
     struct LobbyCreationState{
         enum class Step{
             AskingForName,
