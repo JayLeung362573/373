@@ -19,7 +19,7 @@ GameSession::GameSession(LobbyID lobbyID, ast::GameRules rules, std::vector<Lobb
             playerMap.setAttribute(String{"name"}, Value{String{m_players[i].name}});
 
             std::string varName = "player" + std::to_string(i + 1);
-            m_interpreter.setVariable(String{varName}, Value{playerMap});
+            m_interpreter.storeVariable(Name{varName}, Value{playerMap});
 
             std::cout << "[GameSession] Registered " << varName << " -> Client " << m_players[i].clientID << "\n";
         }

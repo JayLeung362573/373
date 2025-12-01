@@ -11,8 +11,12 @@
 #include <algorithm>
 #include <random>
 #include <utility>
+#include <functional>
+#include <format>
 
 #include <iostream>
+
+struct Value;
 
 /// Represents a variable name in the AST.
 /// Used as a key in variable lookups.
@@ -113,9 +117,14 @@ struct List
     List() = default;
     List(std::initializer_list<T> init) : value(init) {}
 
-    Integer size()
+    size_t size()
     {
-        return Integer{(int)(value.size())};
+        return value.size();
+    }
+
+    T atIndex(size_t index)
+    {
+        return value[index];
     }
 
     void extend(const List<T>& list)
@@ -144,7 +153,7 @@ struct List
         {
             return;
         }
-        int clampedAmount = std::min(amount.value, size().value);
+        int clampedAmount = std::min(amount.value, (int)(size()));
 
         value.erase(value.begin(), value.begin() + clampedAmount);
     }
@@ -230,7 +239,11 @@ struct Map
 /// through the asString(), asMap(), asList() methods respectively.
 struct Value
 {
-    std::variant<List<Value>, Map<String, Value>, String, Integer, Boolean> value;
+    std::variant<List<Value>,
+                 Map<String, Value>,
+                 String,
+                 Integer,
+                 Boolean> value;
 
     bool isString() const
     {
@@ -397,6 +410,12 @@ inline bool doUnaryNot(const Value& a)
     return !(a.asBoolean().value);
 }
 
+inline Value doArithmeticAdd(const Value& a, const Value& b)
+{
+    // For now, only integers
+    return Value{Integer{a.asInteger().value + b.asInteger().value}};
+}
+
 inline List<Value> sortList(const List<Value>& list, std::optional<String> key = {})
 {
     List<Value> listCopy = list;
@@ -433,4 +452,23 @@ inline List<Value> sortList(const List<Value>& list, std::optional<String> key =
     );
 
     return listCopy;
+}
+
+inline List<Value> upFrom(int from, int to)
+{
+    if (from > to)
+    {
+        throw std::runtime_error(
+            std::format("upfrom: 'from' ({}) cannot be greater than 'to' ({})", from, to)
+        );
+    }
+
+    List<Value> list;
+
+    for (int i = from; i <= to; i++)
+    {
+        list.value.push_back(Value{Integer{i}});
+    }
+
+    return list;
 }

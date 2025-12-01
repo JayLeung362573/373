@@ -162,6 +162,64 @@ namespace ast
             Kind kind;
     };
 
+    class ArithmeticOperation : public Expression
+    {
+        public:
+            enum class Kind { ADD };
+
+            ArithmeticOperation(std::unique_ptr<Expression> left,
+                                std::unique_ptr<Expression> right,
+                                Kind kind)
+            : left(std::move(left))
+            , right(std::move(right))
+            , kind(kind) {}
+
+            VisitResult accept(ASTVisitor &visitor) override;
+            Expression* getLeft() const noexcept { return left.get(); };
+            Expression* getRight() const noexcept { return right.get(); };
+            Kind getKind() const noexcept { return kind; };
+
+        private:
+            std::unique_ptr<Expression> left;
+            std::unique_ptr<Expression> right;
+
+            Kind kind;
+    };
+
+    class Callable : public Expression
+    {
+        public:
+            enum class Kind { SIZE, UP_FROM };
+
+            Callable(std::unique_ptr<Expression> left,
+                     std::vector<std::unique_ptr<Expression>> args,
+                     Kind kind)
+            : left(std::move(left))
+            , args(std::move(args))
+            , kind(std::move(kind)) {}
+
+            VisitResult accept(ASTVisitor &visitor) override;
+            Expression* getLeft() const noexcept { return left.get(); };
+
+            std::vector<Expression*> getArgs() const noexcept
+            {
+                std::vector<Expression*> rawExpressions;
+                for (auto& expression : args)
+                {
+                    rawExpressions.push_back(expression.get());
+                }
+                return rawExpressions;
+            }
+
+            Kind getKind() const noexcept { return kind; };
+
+        private:
+            std::unique_ptr<Expression> left;
+            std::vector<std::unique_ptr<Expression>> args;
+
+            Kind kind;
+    };
+
     class Assignment : public Statement
     {
         public:
@@ -296,6 +354,40 @@ namespace ast
             std::vector<Candidate> candidates;
     };
 
+    class ForLoop : public Statement
+    {
+        public:
+            ForLoop(std::unique_ptr<Variable> element,
+                        std::unique_ptr<Expression> target,
+                        std::vector<std::unique_ptr<Statement>> statements)
+            : element(std::move(element))
+            , target(std::move(target))
+            , statements(std::move(statements)) {}
+
+            VisitResult accept(ASTVisitor &visitor) override;
+            Variable* getElement() const noexcept { return element.get(); };
+            Expression* getTarget() const noexcept { return target.get(); };
+
+            std::vector<Statement*>
+            getStatements() const
+            {
+                // This logic is also in Match, now duplicating
+                // TODO: Have a StatementList type that stores std::unique_ptr<Statement>,
+                // with raw() method to get vector of Statement* ?
+                std::vector<Statement*> rawStatements;
+                for (auto& statement : statements)
+                {
+                    rawStatements.push_back(statement.get());
+                }
+                return rawStatements;
+            }
+
+        private:
+            std::unique_ptr<Variable> element;
+            std::unique_ptr<Expression> target;
+            std::vector<std::unique_ptr<Statement>> statements;
+    };
+
     class InputText : public Statement
     {
         public:
@@ -407,6 +499,8 @@ namespace ast
             virtual VisitResult visit(const Comparison& comparison) = 0;
             virtual VisitResult visit(const LogicalOperation& logicalOp) = 0;
             virtual VisitResult visit(const UnaryOperation& unaryOp) = 0;
+            virtual VisitResult visit(const ArithmeticOperation& arithmeticOp) = 0;
+            virtual VisitResult visit(const Callable& callable) = 0;
             virtual VisitResult visit(const Assignment& assignment) = 0;
             virtual VisitResult visit(const Extend& extend) = 0;
             virtual VisitResult visit(const Reverse& reverse) = 0;
@@ -414,6 +508,7 @@ namespace ast
             virtual VisitResult visit(const Discard& discard) = 0;
             virtual VisitResult visit(const Sort& sort) = 0;
             virtual VisitResult visit(const Match& match) = 0;
+            virtual VisitResult visit(const ForLoop& forLoop) = 0;
             virtual VisitResult visit(const InputText& inputText) = 0;
             virtual VisitResult visit(const InputChoice& inputChoice) = 0;
             virtual VisitResult visit(const InputRange& inputRange) = 0;
@@ -443,9 +538,19 @@ namespace ast
     makeUnaryOperation(std::unique_ptr<ast::Expression> target,
                        ast::UnaryOperation::Kind kind);
 
+    std::unique_ptr<ast::ArithmeticOperation>
+    makeArithmeticOperation(std::unique_ptr<ast::Expression> left,
+                            std::unique_ptr<ast::Expression> right,
+                            ast::ArithmeticOperation::Kind kind);
+
+    std::unique_ptr<ast::Callable>
+    makeCallable(std::unique_ptr<ast::Expression> left,
+                 std::vector<std::unique_ptr<Expression>> args,
+                 ast::Callable::Kind kind);
+
     std::unique_ptr<ast::Assignment>
     makeAssignment(std::unique_ptr<ast::Expression> targetExpr,
-                std::unique_ptr<ast::Expression> valueToAssign);
+                   std::unique_ptr<ast::Expression> valueToAssign);
 
     std::unique_ptr<ast::Extend>
     makeExtend(std::unique_ptr<ast::Expression> target,
@@ -468,6 +573,11 @@ namespace ast
     std::unique_ptr<ast::Match>
     makeMatch(std::unique_ptr<ast::Expression> target,
               std::vector<ast::Match::Candidate> candidates);
+
+    std::unique_ptr<ast::ForLoop>
+    makeForLoop(std::unique_ptr<Variable> element,
+                std::unique_ptr<ast::Expression> target,
+                std::vector<std::unique_ptr<ast::Statement>> statements);
 
     std::unique_ptr<ast::InputText>
     makeInputText(std::unique_ptr<ast::Variable> playerVar,
@@ -531,6 +641,24 @@ namespace ast
 
         private:
             std::vector<std::unique_ptr<ast::Statement>> statements;
+    };
+
+    class ExpressionsBuilder
+    {
+        public:
+            ast::ExpressionsBuilder& addExpression(std::unique_ptr<ast::Expression> expression)
+            {
+                expressions.push_back(std::move(expression));
+                return *this;
+            }
+
+            std::vector<std::unique_ptr<ast::Expression>> build()
+            {
+                return std::move(expressions);
+            }
+
+        private:
+            std::vector<std::unique_ptr<ast::Expression>> expressions;
     };
 
     class MatchBuilder
