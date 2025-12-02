@@ -1,30 +1,32 @@
 #include "Lobby.h"
 #include <iostream>
 
-Lobby::Lobby(const LobbyID& id, GameType type, ClientID hostID, const std::string& name)
+Lobby::Lobby(const LobbyID& id, GameType type, ClientID hostID, const std::string& lobbyName, const std::string& hostPlayerName)
         : m_lobbyID(id)
-        , m_lobbyName(name)
+        , m_lobbyName(lobbyName)
         , m_gameType(type)
         , m_hostID(hostID)
         , m_state(LobbyState::Open)
         , m_maxPlayers(10)
 {
-    insertPlayer(hostID, LobbyRole::Host);
-    std::cout << "[Lobby] Created lobby '" << name << "' (ID: " << id << ")\n";
+    insertPlayer(hostID, hostPlayerName, LobbyRole::Host);
+    std::cout << "[Lobby] Created lobby '" << lobbyName << "' (ID: " << id << ")\n";
 }
 
 bool
-Lobby::insertPlayer(uintptr_t clientID, LobbyRole role) {
+Lobby::insertPlayer(uintptr_t clientID, const std::string& playerName, LobbyRole role) {
     if(isFull()){
         return false;
     }
+    auto [it, inserted] = m_players.try_emplace(clientID);
 
-    if(hasPlayer(clientID)){
+    if(!inserted){
         return false;
     }
 
-    LobbyMember player;
+    LobbyMember& player = it->second;
     player.clientID = clientID;
+    player.name = playerName;
     player.role = role;
     player.ready = false;
 
@@ -49,6 +51,7 @@ Lobby::getHostID() const {
 std::vector<LobbyMember>
 Lobby::getAllPlayer() const {
     std::vector<LobbyMember> playablePlayers;
+    playablePlayers.reserve(m_players.size());
 
     auto hostIt = m_players.find(m_hostID);
     if (hostIt != m_players.end() && hostIt->second.isPlayable()) {
@@ -82,6 +85,25 @@ Lobby::getInfo() const {
 
     return info;
 }
+
+void
+Lobby::forEachPlayer(const std::function<void(const LobbyMember&)>& action) const{
+    auto hostIt = m_players.find(m_hostID);
+    if (hostIt != m_players.end() && hostIt->second.isPlayable()) {
+        action(hostIt->second);
+    }
+
+    for(const auto& [clientID, player] : m_players){
+        if(clientID == m_hostID) {
+            continue;
+        }
+
+        if(player.isPlayable()){
+            action(player);
+        }
+    }
+}
+
 
 std::optional<LobbyRole>
 Lobby::getMemberRole(uintptr_t clientID) const {

@@ -29,10 +29,10 @@ struct LobbyMember{
 /// 3) track ready states
 class Lobby{
 public:
-    Lobby(const LobbyID& id, GameType gameType, ClientID hostID, const std::string& name);
+    Lobby(const LobbyID& id, GameType gameType, ClientID hostID, const std::string& lobbyName, const std::string& hostPlayerName);
 
     /// manage player list in this lobby
-    bool insertPlayer(uintptr_t clientID, LobbyRole role = LobbyRole::Player);
+    bool insertPlayer(uintptr_t clientID, const std::string& playerName, LobbyRole role = LobbyRole::Player);
     void deletePlayer(uintptr_t clientID);
     bool hasPlayer(ClientID clientID) const;
 
@@ -46,6 +46,10 @@ public:
     GameType getGameType() const {return m_gameType;}
     size_t getPlayerCount() const {return m_players.size();}
     bool isFull() const {return m_players.size() >= m_maxPlayers;}
+
+    /// helper function
+    void forEachPlayer(const std::function<void(const LobbyMember&)>& action) const;
+
 private:
     LobbyID m_lobbyID;
     std::string m_lobbyName;

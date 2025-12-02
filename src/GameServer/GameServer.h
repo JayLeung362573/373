@@ -53,10 +53,12 @@ private:
 
     struct LobbyCreationState{
         enum class Step{
-            AskingForName,
+            AskingForPlayerName,
+            AskingForLobbyName,
             AskingForType
         };
         Step currentStep;
+        std::string playerName;
         std::string lobbyName;
     };
 

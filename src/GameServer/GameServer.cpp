@@ -134,14 +134,14 @@ GameServer::handleCreateLobbyMessages(uintptr_t clientID) {
 
     m_pendingCreations.erase(clientID);
     LobbyCreationState state;
-    state.currentStep = LobbyCreationState::Step::AskingForName;
+    state.currentStep = LobbyCreationState::Step::AskingForPlayerName;
     m_pendingCreations[clientID] = state;
 
     std::cout << "[GameServer] Client " << clientID << " started lobby creation.\n";
 
     Message req;
     req.type = MessageType::RequestTextInput;
-    req.data = RequestTextInputMessage{"Enter Lobby Name"};
+    req.data = RequestTextInputMessage{"Enter Your player Name"};
 
     return { ClientMessage{clientID, req} };
 }
@@ -150,7 +150,23 @@ std::vector<ClientMessage>
 GameServer::handleCreationInput(uintptr_t clientID, const Message& creationInput){
     auto& state = m_pendingCreations[clientID];
 
-    if(state.currentStep == LobbyCreationState::Step::AskingForName){
+    if (state.currentStep == LobbyCreationState::Step::AskingForPlayerName) {
+        if (auto* text = std::get_if<ResponseTextInputMessage>(&creationInput.data)) {
+            if (text->input.empty()) return {
+                ClientMessage{clientID,
+                              Message{MessageType::RequestTextInput,
+                                      RequestTextInputMessage{"Name cannot be empty. Enter Player Name"}}}
+            };
+
+            state.playerName = text->input;
+            state.currentStep = LobbyCreationState::Step::AskingForLobbyName;
+
+            // Ask for Lobby Name
+            return {ClientMessage{clientID, Message{MessageType::RequestTextInput, RequestTextInputMessage{"Enter Lobby Name"}}}};
+        }
+    }
+
+    else if(state.currentStep == LobbyCreationState::Step::AskingForLobbyName){
         if(auto* text = std::get_if<ResponseTextInputMessage>(&creationInput.data)){
             if(text->input.empty()){ /// empty input for lobbyName
                 Message err;
@@ -188,7 +204,8 @@ GameServer::handleCreationInput(uintptr_t clientID, const Message& creationInput
             Lobby* lobby = m_lobbyRegistry.createLobby(
                     clientID,
                     static_cast<GameType>(typeInt),
-                    state.lobbyName
+                    state.lobbyName,
+                    state.playerName
             );
 
 
@@ -268,13 +285,13 @@ GameServer::handleJoinInput(uintptr_t clientID, const Message& joinInput){
             std::string targetLobby = text->input;
             std::cout << "[GameServer] Client " << clientID << " attempting to join: " << targetLobby << "\n";
 
-            Lobby* lobby = m_lobbyRegistry.joinLobby(clientID, targetLobby);
+            Lobby* lobby = m_lobbyRegistry.joinLobby(clientID, targetLobby, state.playerName);
 
             if(!lobby){
                 auto lobbies = m_lobbyRegistry.browseLobbies(std::nullopt);
                 for(const auto& info : lobbies){
                     if(info.lobbyName == targetLobby){
-                        lobby = m_lobbyRegistry.joinLobby(clientID, info.lobbyID);
+                        lobby = m_lobbyRegistry.joinLobby(clientID, info.lobbyID, state.playerName);
                         break;
                     }
                 }
@@ -329,6 +346,7 @@ GameServer::handleJoinLobbyMessages(uintptr_t clientID, const JoinLobbyMessage& 
 
     LobbyID lobbyID;
     Lobby* lobby = nullptr;
+    std::string playerName = joinLobbyMsg.playerName;
     std::vector<ClientMessage> outgoingMessages;
 
     if(joinLobbyMsg.lobbyName.empty()){
@@ -336,12 +354,13 @@ GameServer::handleJoinLobbyMessages(uintptr_t clientID, const JoinLobbyMessage& 
         lobby = m_lobbyRegistry.createLobby(
                 clientID,
                 static_cast<GameType>(joinLobbyMsg.gameType),
-                joinLobbyMsg.playerName + "'s Lobby"
+                playerName + "'s Lobby",
+                playerName
         );
     } else {
         /// try joining with lobbyID
         lobbyID = joinLobbyMsg.lobbyName;
-        lobby = m_lobbyRegistry.joinLobby(clientID, lobbyID);
+        lobby = m_lobbyRegistry.joinLobby(clientID, lobbyID, playerName);
 
         /// try joining with lobbyName
         if(!lobby){
@@ -350,7 +369,7 @@ GameServer::handleJoinLobbyMessages(uintptr_t clientID, const JoinLobbyMessage& 
             for (const auto& info : lobbies) {
                 if (info.lobbyName == joinLobbyMsg.lobbyName) {
                     std::cout << "[GameServer] Found lobby by name: " << info.lobbyName << " -> ID: " << info.lobbyID << "\n";
-                    lobby = m_lobbyRegistry.joinLobby(clientID, info.lobbyID);
+                    lobby = m_lobbyRegistry.joinLobby(clientID, info.lobbyID, playerName);
                     break;
                 }
             }
@@ -362,7 +381,8 @@ GameServer::handleJoinLobbyMessages(uintptr_t clientID, const JoinLobbyMessage& 
             lobby = m_lobbyRegistry.createLobby(
                     clientID,
                     static_cast<GameType>(joinLobbyMsg.gameType),
-                    joinLobbyMsg.lobbyName
+                    joinLobbyMsg.lobbyName,
+                    playerName
             );
         }
     }
@@ -375,17 +395,11 @@ GameServer::handleJoinLobbyMessages(uintptr_t clientID, const JoinLobbyMessage& 
         return outgoingMessages;
     }
 
-    lobbyID = lobby->getInfo().lobbyID;
-
     Message lobbyStatePayload = createLobbyStateMessage(lobby);
 
-    auto players = lobby->getAllPlayer();
-    std::cout << "[GameServer] Broadcasting new lobby state to "
-              << players.size() << " clients.\n";
-
-    for(const auto& player : players) {
+    lobby->forEachPlayer([&](const LobbyMember& player){
         outgoingMessages.push_back(ClientMessage{player.clientID, lobbyStatePayload});
-    }
+    });
 
     return outgoingMessages;
 }
@@ -422,13 +436,9 @@ GameServer::handleLeaveLobbyMessages(uintptr_t clientID, const LeaveLobbyMessage
 
     Message lobbyStateUpdate = createLobbyStateMessage(lobby);
 
-    auto players = lobby->getAllPlayer();
-    std::cout << "[GameServer] Broadcasting lobby state to "
-              << players.size() << " remaining clients\n";
-
-    for(const auto& player : players) {
+    lobby->forEachPlayer([&](const LobbyMember& player){
         outgoingMessages.push_back(ClientMessage{player.clientID, lobbyStateUpdate});
-    }
+    });
 
     return outgoingMessages;
 }
@@ -507,9 +517,7 @@ GameServer::handleStartGameMessages(uintptr_t clientID, const StartGameMessage& 
     }
 
     /// 5. get all players (host and players, excluding audience)
-    auto players = lobby->getAllPlayer();
-
-    if (players.size() < 2) {
+    if (lobby->getPlayerCount() < 2) {
         std::cout << "[GameServer] Error: Not enough players to start (Requires 2)\n";
         Message errorMsg;
         errorMsg.type = MessageType::Error;
@@ -517,13 +525,11 @@ GameServer::handleStartGameMessages(uintptr_t clientID, const StartGameMessage& 
         return {ClientMessage{clientID, errorMsg}};
     }
 
-    std::cout << "[GameServer] Starting game for lobby " << *lobbyID
-              << " with " << players.size() << " players\n";
-
     /// 6. create game rules
     ast::GameRules rules = createGameRules(lobby->getInfo().gameType);
 
     /// 7. create and start session
+    auto players = lobby->getAllPlayer();
     auto session = std::make_unique<GameSession>(*lobbyID, std::move(rules), players);
     std::vector<ClientMessage> initialGameMessages = session->start();
 
@@ -535,7 +541,7 @@ GameServer::handleStartGameMessages(uintptr_t clientID, const StartGameMessage& 
     /// and initial game prompt for inputs
     std::vector<ClientMessage> responses;
 
-    for(const auto& player : players){
+    lobby->forEachPlayer([&](const LobbyMember& player){
         std::cout << "[GameServer] Notifying player " << player.clientID << "\n";
 
         Message startMsg;
@@ -543,7 +549,7 @@ GameServer::handleStartGameMessages(uintptr_t clientID, const StartGameMessage& 
         startMsg.data = StartGameMessage{"Game started"};
 
         responses.push_back(ClientMessage{player.clientID, startMsg});
-    }
+    });
 
     responses.insert(responses.end(),
                      initialGameMessages.begin(),

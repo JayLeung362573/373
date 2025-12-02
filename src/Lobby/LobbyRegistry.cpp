@@ -1,12 +1,11 @@
 #include "LobbyRegistry.h"
 #include <iostream>
-#include <ranges>
 
 Lobby*
-LobbyRegistry::createLobby(ClientID hostID, GameType gameType, const std::string &lobbyName) {
+LobbyRegistry::createLobby(ClientID hostID, GameType gameType, const std::string &lobbyName, const std::string& hostPlayerName) {
     auto lobbyID = generateLobbyID();
 
-    auto lobby = std::make_unique<Lobby>(lobbyID, gameType, hostID, lobbyName);
+    auto lobby = std::make_unique<Lobby>(lobbyID, gameType, hostID, lobbyName, hostPlayerName);
 
     auto* lobbyPtr = lobby.get();
     m_lobbies[lobbyID] = std::move(lobby);
@@ -21,19 +20,11 @@ std::vector<LobbyInfo>
 LobbyRegistry::browseLobbies(std::optional<GameType> gameType) const {
     std::vector<LobbyInfo> result;
 
-    auto filterOp = [&](const auto& pair){
-    return !gameType.has_value() || pair.second->getGameType() == *gameType;
-};
-
-    auto toInfo = [](const auto& pair){ 
-        return pair.second->getInfo(); 
-    };
-
-    auto matchingLobbies = m_lobbies 
-        | std::views::filter(filterOp) 
-        | std::views::transform(toInfo);
-
-    result.assign(matchingLobbies.begin(), matchingLobbies.end());
+    for(const auto& [lobbyID, lobby] : m_lobbies){
+        if(!gameType.has_value() || lobby->getGameType() == *gameType){
+            result.push_back(lobby->getInfo());
+        }
+    }
 
     std::cout << "[Registry] Found " << result.size() << " lobbies for game type "
               << (gameType.has_value() ? std::to_string((int)*gameType) : "ALL") << ")\n";
@@ -42,7 +33,7 @@ LobbyRegistry::browseLobbies(std::optional<GameType> gameType) const {
 }
 
 Lobby*
-LobbyRegistry::joinLobby(ClientID clientID, const LobbyID &lobbyID) {
+LobbyRegistry::joinLobby(ClientID clientID, const LobbyID &lobbyID, const std::string& playerName) {
     if(m_clientLobbyMap.count(clientID)){
         std::cout << "[LobbyRegistry] Client " << clientID << " already in a lobby.\n";
         return nullptr;
@@ -54,7 +45,7 @@ LobbyRegistry::joinLobby(ClientID clientID, const LobbyID &lobbyID) {
         return nullptr;
     }
 
-    bool success = it->second->insertPlayer(clientID);
+    bool success = it->second->insertPlayer(clientID, playerName, LobbyRole::Player);
     if(success){
         std::cout << "[Registry] player: " << clientID << " joined Lobby: " << lobbyID << "\n";
 

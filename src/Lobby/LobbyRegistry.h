@@ -11,12 +11,12 @@
 class LobbyRegistry{
 public:
 
-    Lobby* createLobby(ClientID hostID, GameType gameType, const std::string& name);
+    Lobby* createLobby(ClientID hostID, GameType gameType, const std::string& lobbyName, const std::string& hostPlayerName);
     bool destroyLobby(const LobbyID& lobbyID);
 
     std::vector<LobbyInfo> browseLobbies(std::optional<GameType> gameType = std::nullopt) const;
 
-    Lobby* joinLobby(ClientID playerID, const LobbyID& lobbyID);
+    Lobby* joinLobby(ClientID playerID, const LobbyID& lobbyID, const std::string& playerName);
     void leaveLobby(ClientID playerID);
 
     Lobby * getLobby(const LobbyID& lobbyID) const;
