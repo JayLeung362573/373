@@ -3,6 +3,7 @@
 #include <string>
 #include <vector>
 #include <memory>
+#include <unordered_map>
 #include <unordered_set>
 #include "Message.h"
 #include "Lobby/Lobby.h"
@@ -33,6 +34,7 @@ private:
     LobbyID m_lobbyID;
     std::vector<LobbyMember> m_players;
     std::unordered_set<uintptr_t> m_playerIDs;
+    std::unordered_map<std::string, uintptr_t> m_playerLookup;
 
     InputManager m_inputManager;
     GameInterpreter m_interpreter;
@@ -47,4 +49,6 @@ private:
     std::optional<GameMessage> convertMessageToGameMessage(const ClientMessage& clientMsg) const;
 
     std::vector<ClientMessage> collectOutgoingMessages();
+
+    std::optional<uintptr_t> resolveClientID(const std::string& playerID) const;
 };

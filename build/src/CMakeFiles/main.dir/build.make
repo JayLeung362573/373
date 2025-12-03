@@ -103,6 +103,10 @@ bin/main: src/GameEngine/libGameEngine.so
 bin/main: src/Network/libNetwork.so
 bin/main: src/Lobby/libLobby.so
 bin/main: _deps/web-socket-networking-build/lib/libnetworking.so
+bin/main: lib/libparser.a
+bin/main: lib/libts_socialgaming.a
+bin/main: lib/libtreesitter.a
+bin/main: _deps/spdlog-build/libspdlogd.so.1.14.1
 bin/main: src/CMakeFiles/main.dir/link.txt
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/root/373/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Linking CXX executable ../bin/main"
 	cd /root/373/build/src && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/main.dir/link.txt --verbose=$(VERBOSE)

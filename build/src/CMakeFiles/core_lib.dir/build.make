@@ -118,6 +118,10 @@ src/libcore_lib.so: src/GameEngine/libGameEngine.so
 src/libcore_lib.so: src/Network/libNetwork.so
 src/libcore_lib.so: src/Lobby/libLobby.so
 src/libcore_lib.so: _deps/web-socket-networking-build/lib/libnetworking.so
+src/libcore_lib.so: lib/libparser.a
+src/libcore_lib.so: lib/libts_socialgaming.a
+src/libcore_lib.so: lib/libtreesitter.a
+src/libcore_lib.so: _deps/spdlog-build/libspdlogd.so.1.14.1
 src/libcore_lib.so: src/CMakeFiles/core_lib.dir/link.txt
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/root/373/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Linking CXX shared library libcore_lib.so"
 	cd /root/373/build/src && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/core_lib.dir/link.txt --verbose=$(VERBOSE)

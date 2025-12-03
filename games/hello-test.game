@@ -1,19 +1,35 @@
-// Minimal game you can parse.
 configuration {
-  name: "Hello Test"
-  player range: (1, 4)
+  name: "Number Battle"
+  player range: (2, 4)
   audience: false
-  setup: { }
+  setup: {
+  }
 }
 
-constants { }
-
-variables { }
-
-per-player { wins: 0 }
-per-audience { }
+variables {
+  player1
+  player2
+  player1_val
+  player2_val
+  game_result
+}
 
 rules {
-  message all "Hello, world!";
-  scores ["wins"];
+  // Syntax: input range <player_var> <prompt> <min> <max> <target_storage_var>
+  // Note: We assign the result 'into' the variable at the end
+  input range player1 "Player 1: Enter (0-100)" 0 100 player1_val;
+  
+  input range player2 "Player 2: Enter (0-100)" 0 100 player2_val;
+
+  match player1_val > player2_val {
+    true => {
+       game_result = "Player 1 Wins";
+    }
+    false => {
+       match player2_val > player1_val {
+         true => { game_result = "Player 2 Wins"; }
+         false => { game_result = "It is a Tie"; }
+       }
+    }
+  }
 }

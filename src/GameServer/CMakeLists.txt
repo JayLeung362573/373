@@ -15,4 +15,5 @@ target_link_libraries(GameServer PUBLIC
         GameEngine
         GameSession
         Lobby
-        Network)
+        Network
+        parser)

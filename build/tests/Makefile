@@ -199,6 +199,30 @@ Logger_test/fast:
 	cd /root/373/build && $(MAKE) $(MAKESILENT) -f tests/CMakeFiles/Logger_test.dir/build.make tests/CMakeFiles/Logger_test.dir/build
 .PHONY : Logger_test/fast
 
+GameInterpreterSmokeTest.o: GameInterpreterSmokeTest.cpp.o
+.PHONY : GameInterpreterSmokeTest.o
+
+# target to build an object file
+GameInterpreterSmokeTest.cpp.o:
+	cd /root/373/build && $(MAKE) $(MAKESILENT) -f tests/CMakeFiles/unit_tests.dir/build.make tests/CMakeFiles/unit_tests.dir/GameInterpreterSmokeTest.cpp.o
+.PHONY : GameInterpreterSmokeTest.cpp.o
+
+GameInterpreterSmokeTest.i: GameInterpreterSmokeTest.cpp.i
+.PHONY : GameInterpreterSmokeTest.i
+
+# target to preprocess a source file
+GameInterpreterSmokeTest.cpp.i:
+	cd /root/373/build && $(MAKE) $(MAKESILENT) -f tests/CMakeFiles/unit_tests.dir/build.make tests/CMakeFiles/unit_tests.dir/GameInterpreterSmokeTest.cpp.i
+.PHONY : GameInterpreterSmokeTest.cpp.i
+
+GameInterpreterSmokeTest.s: GameInterpreterSmokeTest.cpp.s
+.PHONY : GameInterpreterSmokeTest.s
+
+# target to generate assembly for a file
+GameInterpreterSmokeTest.cpp.s:
+	cd /root/373/build && $(MAKE) $(MAKESILENT) -f tests/CMakeFiles/unit_tests.dir/build.make tests/CMakeFiles/unit_tests.dir/GameInterpreterSmokeTest.cpp.s
+.PHONY : GameInterpreterSmokeTest.cpp.s
+
 GameInterpreterTests/AssignmentTest.o: GameInterpreterTests/AssignmentTest.cpp.o
 .PHONY : GameInterpreterTests/AssignmentTest.o
 
@@ -222,6 +246,30 @@ GameInterpreterTests/AssignmentTest.s: GameInterpreterTests/AssignmentTest.cpp.s
 GameInterpreterTests/AssignmentTest.cpp.s:
 	cd /root/373/build && $(MAKE) $(MAKESILENT) -f tests/CMakeFiles/unit_tests.dir/build.make tests/CMakeFiles/unit_tests.dir/GameInterpreterTests/AssignmentTest.cpp.s
 .PHONY : GameInterpreterTests/AssignmentTest.cpp.s
+
+GameInterpreterTests/CallableTest.o: GameInterpreterTests/CallableTest.cpp.o
+.PHONY : GameInterpreterTests/CallableTest.o
+
+# target to build an object file
+GameInterpreterTests/CallableTest.cpp.o:
+	cd /root/373/build && $(MAKE) $(MAKESILENT) -f tests/CMakeFiles/unit_tests.dir/build.make tests/CMakeFiles/unit_tests.dir/GameInterpreterTests/CallableTest.cpp.o
+.PHONY : GameInterpreterTests/CallableTest.cpp.o
+
+GameInterpreterTests/CallableTest.i: GameInterpreterTests/CallableTest.cpp.i
+.PHONY : GameInterpreterTests/CallableTest.i
+
+# target to preprocess a source file
+GameInterpreterTests/CallableTest.cpp.i:
+	cd /root/373/build && $(MAKE) $(MAKESILENT) -f tests/CMakeFiles/unit_tests.dir/build.make tests/CMakeFiles/unit_tests.dir/GameInterpreterTests/CallableTest.cpp.i
+.PHONY : GameInterpreterTests/CallableTest.cpp.i
+
+GameInterpreterTests/CallableTest.s: GameInterpreterTests/CallableTest.cpp.s
+.PHONY : GameInterpreterTests/CallableTest.s
+
+# target to generate assembly for a file
+GameInterpreterTests/CallableTest.cpp.s:
+	cd /root/373/build && $(MAKE) $(MAKESILENT) -f tests/CMakeFiles/unit_tests.dir/build.make tests/CMakeFiles/unit_tests.dir/GameInterpreterTests/CallableTest.cpp.s
+.PHONY : GameInterpreterTests/CallableTest.cpp.s
 
 GameInterpreterTests/ComparisonTest.o: GameInterpreterTests/ComparisonTest.cpp.o
 .PHONY : GameInterpreterTests/ComparisonTest.o
@@ -318,6 +366,30 @@ GameInterpreterTests/ExtendTest.s: GameInterpreterTests/ExtendTest.cpp.s
 GameInterpreterTests/ExtendTest.cpp.s:
 	cd /root/373/build && $(MAKE) $(MAKESILENT) -f tests/CMakeFiles/unit_tests.dir/build.make tests/CMakeFiles/unit_tests.dir/GameInterpreterTests/ExtendTest.cpp.s
 .PHONY : GameInterpreterTests/ExtendTest.cpp.s
+
+GameInterpreterTests/ForLoopTest.o: GameInterpreterTests/ForLoopTest.cpp.o
+.PHONY : GameInterpreterTests/ForLoopTest.o
+
+# target to build an object file
+GameInterpreterTests/ForLoopTest.cpp.o:
+	cd /root/373/build && $(MAKE) $(MAKESILENT) -f tests/CMakeFiles/unit_tests.dir/build.make tests/CMakeFiles/unit_tests.dir/GameInterpreterTests/ForLoopTest.cpp.o
+.PHONY : GameInterpreterTests/ForLoopTest.cpp.o
+
+GameInterpreterTests/ForLoopTest.i: GameInterpreterTests/ForLoopTest.cpp.i
+.PHONY : GameInterpreterTests/ForLoopTest.i
+
+# target to preprocess a source file
+GameInterpreterTests/ForLoopTest.cpp.i:
+	cd /root/373/build && $(MAKE) $(MAKESILENT) -f tests/CMakeFiles/unit_tests.dir/build.make tests/CMakeFiles/unit_tests.dir/GameInterpreterTests/ForLoopTest.cpp.i
+.PHONY : GameInterpreterTests/ForLoopTest.cpp.i
+
+GameInterpreterTests/ForLoopTest.s: GameInterpreterTests/ForLoopTest.cpp.s
+.PHONY : GameInterpreterTests/ForLoopTest.s
+
+# target to generate assembly for a file
+GameInterpreterTests/ForLoopTest.cpp.s:
+	cd /root/373/build && $(MAKE) $(MAKESILENT) -f tests/CMakeFiles/unit_tests.dir/build.make tests/CMakeFiles/unit_tests.dir/GameInterpreterTests/ForLoopTest.cpp.s
+.PHONY : GameInterpreterTests/ForLoopTest.cpp.s
 
 GameInterpreterTests/InputTextStmtTest.o: GameInterpreterTests/InputTextStmtTest.cpp.o
 .PHONY : GameInterpreterTests/InputTextStmtTest.o
@@ -535,30 +607,6 @@ GameSessionTest.cpp.s:
 	cd /root/373/build && $(MAKE) $(MAKESILENT) -f tests/CMakeFiles/unit_tests.dir/build.make tests/CMakeFiles/unit_tests.dir/GameSessionTest.cpp.s
 .PHONY : GameSessionTest.cpp.s
 
-GameSpecLoaderTest.o: GameSpecLoaderTest.cpp.o
-.PHONY : GameSpecLoaderTest.o
-
-# target to build an object file
-GameSpecLoaderTest.cpp.o:
-	cd /root/373/build && $(MAKE) $(MAKESILENT) -f tests/CMakeFiles/unit_tests.dir/build.make tests/CMakeFiles/unit_tests.dir/GameSpecLoaderTest.cpp.o
-.PHONY : GameSpecLoaderTest.cpp.o
-
-GameSpecLoaderTest.i: GameSpecLoaderTest.cpp.i
-.PHONY : GameSpecLoaderTest.i
-
-# target to preprocess a source file
-GameSpecLoaderTest.cpp.i:
-	cd /root/373/build && $(MAKE) $(MAKESILENT) -f tests/CMakeFiles/unit_tests.dir/build.make tests/CMakeFiles/unit_tests.dir/GameSpecLoaderTest.cpp.i
-.PHONY : GameSpecLoaderTest.cpp.i
-
-GameSpecLoaderTest.s: GameSpecLoaderTest.cpp.s
-.PHONY : GameSpecLoaderTest.s
-
-# target to generate assembly for a file
-GameSpecLoaderTest.cpp.s:
-	cd /root/373/build && $(MAKE) $(MAKESILENT) -f tests/CMakeFiles/unit_tests.dir/build.make tests/CMakeFiles/unit_tests.dir/GameSpecLoaderTest.cpp.s
-.PHONY : GameSpecLoaderTest.cpp.s
-
 InputManagerTest.o: InputManagerTest.cpp.o
 .PHONY : InputManagerTest.o
 
@@ -630,6 +678,246 @@ Logger_test.s: Logger_test.cpp.s
 Logger_test.cpp.s:
 	cd /root/373/build && $(MAKE) $(MAKESILENT) -f tests/CMakeFiles/Logger_test.dir/build.make tests/CMakeFiles/Logger_test.dir/Logger_test.cpp.s
 .PHONY : Logger_test.cpp.s
+
+ParserTests/ASTConverterTest.o: ParserTests/ASTConverterTest.cpp.o
+.PHONY : ParserTests/ASTConverterTest.o
+
+# target to build an object file
+ParserTests/ASTConverterTest.cpp.o:
+	cd /root/373/build && $(MAKE) $(MAKESILENT) -f tests/CMakeFiles/unit_tests.dir/build.make tests/CMakeFiles/unit_tests.dir/ParserTests/ASTConverterTest.cpp.o
+.PHONY : ParserTests/ASTConverterTest.cpp.o
+
+ParserTests/ASTConverterTest.i: ParserTests/ASTConverterTest.cpp.i
+.PHONY : ParserTests/ASTConverterTest.i
+
+# target to preprocess a source file
+ParserTests/ASTConverterTest.cpp.i:
+	cd /root/373/build && $(MAKE) $(MAKESILENT) -f tests/CMakeFiles/unit_tests.dir/build.make tests/CMakeFiles/unit_tests.dir/ParserTests/ASTConverterTest.cpp.i
+.PHONY : ParserTests/ASTConverterTest.cpp.i
+
+ParserTests/ASTConverterTest.s: ParserTests/ASTConverterTest.cpp.s
+.PHONY : ParserTests/ASTConverterTest.s
+
+# target to generate assembly for a file
+ParserTests/ASTConverterTest.cpp.s:
+	cd /root/373/build && $(MAKE) $(MAKESILENT) -f tests/CMakeFiles/unit_tests.dir/build.make tests/CMakeFiles/unit_tests.dir/ParserTests/ASTConverterTest.cpp.s
+.PHONY : ParserTests/ASTConverterTest.cpp.s
+
+ParserTests/ForLoopDebugTest.o: ParserTests/ForLoopDebugTest.cpp.o
+.PHONY : ParserTests/ForLoopDebugTest.o
+
+# target to build an object file
+ParserTests/ForLoopDebugTest.cpp.o:
+	cd /root/373/build && $(MAKE) $(MAKESILENT) -f tests/CMakeFiles/unit_tests.dir/build.make tests/CMakeFiles/unit_tests.dir/ParserTests/ForLoopDebugTest.cpp.o
+.PHONY : ParserTests/ForLoopDebugTest.cpp.o
+
+ParserTests/ForLoopDebugTest.i: ParserTests/ForLoopDebugTest.cpp.i
+.PHONY : ParserTests/ForLoopDebugTest.i
+
+# target to preprocess a source file
+ParserTests/ForLoopDebugTest.cpp.i:
+	cd /root/373/build && $(MAKE) $(MAKESILENT) -f tests/CMakeFiles/unit_tests.dir/build.make tests/CMakeFiles/unit_tests.dir/ParserTests/ForLoopDebugTest.cpp.i
+.PHONY : ParserTests/ForLoopDebugTest.cpp.i
+
+ParserTests/ForLoopDebugTest.s: ParserTests/ForLoopDebugTest.cpp.s
+.PHONY : ParserTests/ForLoopDebugTest.s
+
+# target to generate assembly for a file
+ParserTests/ForLoopDebugTest.cpp.s:
+	cd /root/373/build && $(MAKE) $(MAKESILENT) -f tests/CMakeFiles/unit_tests.dir/build.make tests/CMakeFiles/unit_tests.dir/ParserTests/ForLoopDebugTest.cpp.s
+.PHONY : ParserTests/ForLoopDebugTest.cpp.s
+
+ParserTests/FullRPSParseTest.o: ParserTests/FullRPSParseTest.cpp.o
+.PHONY : ParserTests/FullRPSParseTest.o
+
+# target to build an object file
+ParserTests/FullRPSParseTest.cpp.o:
+	cd /root/373/build && $(MAKE) $(MAKESILENT) -f tests/CMakeFiles/unit_tests.dir/build.make tests/CMakeFiles/unit_tests.dir/ParserTests/FullRPSParseTest.cpp.o
+.PHONY : ParserTests/FullRPSParseTest.cpp.o
+
+ParserTests/FullRPSParseTest.i: ParserTests/FullRPSParseTest.cpp.i
+.PHONY : ParserTests/FullRPSParseTest.i
+
+# target to preprocess a source file
+ParserTests/FullRPSParseTest.cpp.i:
+	cd /root/373/build && $(MAKE) $(MAKESILENT) -f tests/CMakeFiles/unit_tests.dir/build.make tests/CMakeFiles/unit_tests.dir/ParserTests/FullRPSParseTest.cpp.i
+.PHONY : ParserTests/FullRPSParseTest.cpp.i
+
+ParserTests/FullRPSParseTest.s: ParserTests/FullRPSParseTest.cpp.s
+.PHONY : ParserTests/FullRPSParseTest.s
+
+# target to generate assembly for a file
+ParserTests/FullRPSParseTest.cpp.s:
+	cd /root/373/build && $(MAKE) $(MAKESILENT) -f tests/CMakeFiles/unit_tests.dir/build.make tests/CMakeFiles/unit_tests.dir/ParserTests/FullRPSParseTest.cpp.s
+.PHONY : ParserTests/FullRPSParseTest.cpp.s
+
+ParserTests/GameSpecLoaderTest.o: ParserTests/GameSpecLoaderTest.cpp.o
+.PHONY : ParserTests/GameSpecLoaderTest.o
+
+# target to build an object file
+ParserTests/GameSpecLoaderTest.cpp.o:
+	cd /root/373/build && $(MAKE) $(MAKESILENT) -f tests/CMakeFiles/unit_tests.dir/build.make tests/CMakeFiles/unit_tests.dir/ParserTests/GameSpecLoaderTest.cpp.o
+.PHONY : ParserTests/GameSpecLoaderTest.cpp.o
+
+ParserTests/GameSpecLoaderTest.i: ParserTests/GameSpecLoaderTest.cpp.i
+.PHONY : ParserTests/GameSpecLoaderTest.i
+
+# target to preprocess a source file
+ParserTests/GameSpecLoaderTest.cpp.i:
+	cd /root/373/build && $(MAKE) $(MAKESILENT) -f tests/CMakeFiles/unit_tests.dir/build.make tests/CMakeFiles/unit_tests.dir/ParserTests/GameSpecLoaderTest.cpp.i
+.PHONY : ParserTests/GameSpecLoaderTest.cpp.i
+
+ParserTests/GameSpecLoaderTest.s: ParserTests/GameSpecLoaderTest.cpp.s
+.PHONY : ParserTests/GameSpecLoaderTest.s
+
+# target to generate assembly for a file
+ParserTests/GameSpecLoaderTest.cpp.s:
+	cd /root/373/build && $(MAKE) $(MAKESILENT) -f tests/CMakeFiles/unit_tests.dir/build.make tests/CMakeFiles/unit_tests.dir/ParserTests/GameSpecLoaderTest.cpp.s
+.PHONY : ParserTests/GameSpecLoaderTest.cpp.s
+
+ParserTests/InputDebugTest.o: ParserTests/InputDebugTest.cpp.o
+.PHONY : ParserTests/InputDebugTest.o
+
+# target to build an object file
+ParserTests/InputDebugTest.cpp.o:
+	cd /root/373/build && $(MAKE) $(MAKESILENT) -f tests/CMakeFiles/unit_tests.dir/build.make tests/CMakeFiles/unit_tests.dir/ParserTests/InputDebugTest.cpp.o
+.PHONY : ParserTests/InputDebugTest.cpp.o
+
+ParserTests/InputDebugTest.i: ParserTests/InputDebugTest.cpp.i
+.PHONY : ParserTests/InputDebugTest.i
+
+# target to preprocess a source file
+ParserTests/InputDebugTest.cpp.i:
+	cd /root/373/build && $(MAKE) $(MAKESILENT) -f tests/CMakeFiles/unit_tests.dir/build.make tests/CMakeFiles/unit_tests.dir/ParserTests/InputDebugTest.cpp.i
+.PHONY : ParserTests/InputDebugTest.cpp.i
+
+ParserTests/InputDebugTest.s: ParserTests/InputDebugTest.cpp.s
+.PHONY : ParserTests/InputDebugTest.s
+
+# target to generate assembly for a file
+ParserTests/InputDebugTest.cpp.s:
+	cd /root/373/build && $(MAKE) $(MAKESILENT) -f tests/CMakeFiles/unit_tests.dir/build.make tests/CMakeFiles/unit_tests.dir/ParserTests/InputDebugTest.cpp.s
+.PHONY : ParserTests/InputDebugTest.cpp.s
+
+ParserTests/IntegrationTest.o: ParserTests/IntegrationTest.cpp.o
+.PHONY : ParserTests/IntegrationTest.o
+
+# target to build an object file
+ParserTests/IntegrationTest.cpp.o:
+	cd /root/373/build && $(MAKE) $(MAKESILENT) -f tests/CMakeFiles/unit_tests.dir/build.make tests/CMakeFiles/unit_tests.dir/ParserTests/IntegrationTest.cpp.o
+.PHONY : ParserTests/IntegrationTest.cpp.o
+
+ParserTests/IntegrationTest.i: ParserTests/IntegrationTest.cpp.i
+.PHONY : ParserTests/IntegrationTest.i
+
+# target to preprocess a source file
+ParserTests/IntegrationTest.cpp.i:
+	cd /root/373/build && $(MAKE) $(MAKESILENT) -f tests/CMakeFiles/unit_tests.dir/build.make tests/CMakeFiles/unit_tests.dir/ParserTests/IntegrationTest.cpp.i
+.PHONY : ParserTests/IntegrationTest.cpp.i
+
+ParserTests/IntegrationTest.s: ParserTests/IntegrationTest.cpp.s
+.PHONY : ParserTests/IntegrationTest.s
+
+# target to generate assembly for a file
+ParserTests/IntegrationTest.cpp.s:
+	cd /root/373/build && $(MAKE) $(MAKESILENT) -f tests/CMakeFiles/unit_tests.dir/build.make tests/CMakeFiles/unit_tests.dir/ParserTests/IntegrationTest.cpp.s
+.PHONY : ParserTests/IntegrationTest.cpp.s
+
+ParserTests/MessageScoresDebugTest.o: ParserTests/MessageScoresDebugTest.cpp.o
+.PHONY : ParserTests/MessageScoresDebugTest.o
+
+# target to build an object file
+ParserTests/MessageScoresDebugTest.cpp.o:
+	cd /root/373/build && $(MAKE) $(MAKESILENT) -f tests/CMakeFiles/unit_tests.dir/build.make tests/CMakeFiles/unit_tests.dir/ParserTests/MessageScoresDebugTest.cpp.o
+.PHONY : ParserTests/MessageScoresDebugTest.cpp.o
+
+ParserTests/MessageScoresDebugTest.i: ParserTests/MessageScoresDebugTest.cpp.i
+.PHONY : ParserTests/MessageScoresDebugTest.i
+
+# target to preprocess a source file
+ParserTests/MessageScoresDebugTest.cpp.i:
+	cd /root/373/build && $(MAKE) $(MAKESILENT) -f tests/CMakeFiles/unit_tests.dir/build.make tests/CMakeFiles/unit_tests.dir/ParserTests/MessageScoresDebugTest.cpp.i
+.PHONY : ParserTests/MessageScoresDebugTest.cpp.i
+
+ParserTests/MessageScoresDebugTest.s: ParserTests/MessageScoresDebugTest.cpp.s
+.PHONY : ParserTests/MessageScoresDebugTest.s
+
+# target to generate assembly for a file
+ParserTests/MessageScoresDebugTest.cpp.s:
+	cd /root/373/build && $(MAKE) $(MAKESILENT) -f tests/CMakeFiles/unit_tests.dir/build.make tests/CMakeFiles/unit_tests.dir/ParserTests/MessageScoresDebugTest.cpp.s
+.PHONY : ParserTests/MessageScoresDebugTest.cpp.s
+
+ParserTests/MethodCallDebugTest.o: ParserTests/MethodCallDebugTest.cpp.o
+.PHONY : ParserTests/MethodCallDebugTest.o
+
+# target to build an object file
+ParserTests/MethodCallDebugTest.cpp.o:
+	cd /root/373/build && $(MAKE) $(MAKESILENT) -f tests/CMakeFiles/unit_tests.dir/build.make tests/CMakeFiles/unit_tests.dir/ParserTests/MethodCallDebugTest.cpp.o
+.PHONY : ParserTests/MethodCallDebugTest.cpp.o
+
+ParserTests/MethodCallDebugTest.i: ParserTests/MethodCallDebugTest.cpp.i
+.PHONY : ParserTests/MethodCallDebugTest.i
+
+# target to preprocess a source file
+ParserTests/MethodCallDebugTest.cpp.i:
+	cd /root/373/build && $(MAKE) $(MAKESILENT) -f tests/CMakeFiles/unit_tests.dir/build.make tests/CMakeFiles/unit_tests.dir/ParserTests/MethodCallDebugTest.cpp.i
+.PHONY : ParserTests/MethodCallDebugTest.cpp.i
+
+ParserTests/MethodCallDebugTest.s: ParserTests/MethodCallDebugTest.cpp.s
+.PHONY : ParserTests/MethodCallDebugTest.s
+
+# target to generate assembly for a file
+ParserTests/MethodCallDebugTest.cpp.s:
+	cd /root/373/build && $(MAKE) $(MAKESILENT) -f tests/CMakeFiles/unit_tests.dir/build.make tests/CMakeFiles/unit_tests.dir/ParserTests/MethodCallDebugTest.cpp.s
+.PHONY : ParserTests/MethodCallDebugTest.cpp.s
+
+ParserTests/RPSFullConversionTest.o: ParserTests/RPSFullConversionTest.cpp.o
+.PHONY : ParserTests/RPSFullConversionTest.o
+
+# target to build an object file
+ParserTests/RPSFullConversionTest.cpp.o:
+	cd /root/373/build && $(MAKE) $(MAKESILENT) -f tests/CMakeFiles/unit_tests.dir/build.make tests/CMakeFiles/unit_tests.dir/ParserTests/RPSFullConversionTest.cpp.o
+.PHONY : ParserTests/RPSFullConversionTest.cpp.o
+
+ParserTests/RPSFullConversionTest.i: ParserTests/RPSFullConversionTest.cpp.i
+.PHONY : ParserTests/RPSFullConversionTest.i
+
+# target to preprocess a source file
+ParserTests/RPSFullConversionTest.cpp.i:
+	cd /root/373/build && $(MAKE) $(MAKESILENT) -f tests/CMakeFiles/unit_tests.dir/build.make tests/CMakeFiles/unit_tests.dir/ParserTests/RPSFullConversionTest.cpp.i
+.PHONY : ParserTests/RPSFullConversionTest.cpp.i
+
+ParserTests/RPSFullConversionTest.s: ParserTests/RPSFullConversionTest.cpp.s
+.PHONY : ParserTests/RPSFullConversionTest.s
+
+# target to generate assembly for a file
+ParserTests/RPSFullConversionTest.cpp.s:
+	cd /root/373/build && $(MAKE) $(MAKESILENT) -f tests/CMakeFiles/unit_tests.dir/build.make tests/CMakeFiles/unit_tests.dir/ParserTests/RPSFullConversionTest.cpp.s
+.PHONY : ParserTests/RPSFullConversionTest.cpp.s
+
+ParserTests/RPSMinimalTest.o: ParserTests/RPSMinimalTest.cpp.o
+.PHONY : ParserTests/RPSMinimalTest.o
+
+# target to build an object file
+ParserTests/RPSMinimalTest.cpp.o:
+	cd /root/373/build && $(MAKE) $(MAKESILENT) -f tests/CMakeFiles/unit_tests.dir/build.make tests/CMakeFiles/unit_tests.dir/ParserTests/RPSMinimalTest.cpp.o
+.PHONY : ParserTests/RPSMinimalTest.cpp.o
+
+ParserTests/RPSMinimalTest.i: ParserTests/RPSMinimalTest.cpp.i
+.PHONY : ParserTests/RPSMinimalTest.i
+
+# target to preprocess a source file
+ParserTests/RPSMinimalTest.cpp.i:
+	cd /root/373/build && $(MAKE) $(MAKESILENT) -f tests/CMakeFiles/unit_tests.dir/build.make tests/CMakeFiles/unit_tests.dir/ParserTests/RPSMinimalTest.cpp.i
+.PHONY : ParserTests/RPSMinimalTest.cpp.i
+
+ParserTests/RPSMinimalTest.s: ParserTests/RPSMinimalTest.cpp.s
+.PHONY : ParserTests/RPSMinimalTest.s
+
+# target to generate assembly for a file
+ParserTests/RPSMinimalTest.cpp.s:
+	cd /root/373/build && $(MAKE) $(MAKESILENT) -f tests/CMakeFiles/unit_tests.dir/build.make tests/CMakeFiles/unit_tests.dir/ParserTests/RPSMinimalTest.cpp.s
+.PHONY : ParserTests/RPSMinimalTest.cpp.s
 
 RulesTest.o: RulesTest.cpp.o
 .PHONY : RulesTest.o
@@ -718,9 +1006,15 @@ help:
 	@echo "... test"
 	@echo "... Logger_test"
 	@echo "... unit_tests"
+	@echo "... GameInterpreterSmokeTest.o"
+	@echo "... GameInterpreterSmokeTest.i"
+	@echo "... GameInterpreterSmokeTest.s"
 	@echo "... GameInterpreterTests/AssignmentTest.o"
 	@echo "... GameInterpreterTests/AssignmentTest.i"
 	@echo "... GameInterpreterTests/AssignmentTest.s"
+	@echo "... GameInterpreterTests/CallableTest.o"
+	@echo "... GameInterpreterTests/CallableTest.i"
+	@echo "... GameInterpreterTests/CallableTest.s"
 	@echo "... GameInterpreterTests/ComparisonTest.o"
 	@echo "... GameInterpreterTests/ComparisonTest.i"
 	@echo "... GameInterpreterTests/ComparisonTest.s"
@@ -733,6 +1027,9 @@ help:
 	@echo "... GameInterpreterTests/ExtendTest.o"
 	@echo "... GameInterpreterTests/ExtendTest.i"
 	@echo "... GameInterpreterTests/ExtendTest.s"
+	@echo "... GameInterpreterTests/ForLoopTest.o"
+	@echo "... GameInterpreterTests/ForLoopTest.i"
+	@echo "... GameInterpreterTests/ForLoopTest.s"
 	@echo "... GameInterpreterTests/InputTextStmtTest.o"
 	@echo "... GameInterpreterTests/InputTextStmtTest.i"
 	@echo "... GameInterpreterTests/InputTextStmtTest.s"
@@ -760,9 +1057,6 @@ help:
 	@echo "... GameSessionTest.o"
 	@echo "... GameSessionTest.i"
 	@echo "... GameSessionTest.s"
-	@echo "... GameSpecLoaderTest.o"
-	@echo "... GameSpecLoaderTest.i"
-	@echo "... GameSpecLoaderTest.s"
 	@echo "... InputManagerTest.o"
 	@echo "... InputManagerTest.i"
 	@echo "... InputManagerTest.s"
@@ -772,6 +1066,36 @@ help:
 	@echo "... Logger_test.o"
 	@echo "... Logger_test.i"
 	@echo "... Logger_test.s"
+	@echo "... ParserTests/ASTConverterTest.o"
+	@echo "... ParserTests/ASTConverterTest.i"
+	@echo "... ParserTests/ASTConverterTest.s"
+	@echo "... ParserTests/ForLoopDebugTest.o"
+	@echo "... ParserTests/ForLoopDebugTest.i"
+	@echo "... ParserTests/ForLoopDebugTest.s"
+	@echo "... ParserTests/FullRPSParseTest.o"
+	@echo "... ParserTests/FullRPSParseTest.i"
+	@echo "... ParserTests/FullRPSParseTest.s"
+	@echo "... ParserTests/GameSpecLoaderTest.o"
+	@echo "... ParserTests/GameSpecLoaderTest.i"
+	@echo "... ParserTests/GameSpecLoaderTest.s"
+	@echo "... ParserTests/InputDebugTest.o"
+	@echo "... ParserTests/InputDebugTest.i"
+	@echo "... ParserTests/InputDebugTest.s"
+	@echo "... ParserTests/IntegrationTest.o"
+	@echo "... ParserTests/IntegrationTest.i"
+	@echo "... ParserTests/IntegrationTest.s"
+	@echo "... ParserTests/MessageScoresDebugTest.o"
+	@echo "... ParserTests/MessageScoresDebugTest.i"
+	@echo "... ParserTests/MessageScoresDebugTest.s"
+	@echo "... ParserTests/MethodCallDebugTest.o"
+	@echo "... ParserTests/MethodCallDebugTest.i"
+	@echo "... ParserTests/MethodCallDebugTest.s"
+	@echo "... ParserTests/RPSFullConversionTest.o"
+	@echo "... ParserTests/RPSFullConversionTest.i"
+	@echo "... ParserTests/RPSFullConversionTest.s"
+	@echo "... ParserTests/RPSMinimalTest.o"
+	@echo "... ParserTests/RPSMinimalTest.i"
+	@echo "... ParserTests/RPSMinimalTest.s"
 	@echo "... RulesTest.o"
 	@echo "... RulesTest.i"
 	@echo "... RulesTest.s"

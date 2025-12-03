@@ -79,7 +79,7 @@
                 var finalMessage = input;
 
                 if(currentResponseType !== "" && !input.includes(":")){
-                    finalMessage = currentResponseType + ":" + input + "|" + currentPrompt;}
+                    finalMessage = currentResponseType + ":" + input;                }
 
                 ws.send(finalMessage);
                 appendText("SENT: " + finalMessage + "\n");
@@ -93,18 +93,13 @@
                 }
             });
 
-            $('#createLobby').click(function() {
-                sendMessage.value = "CreateLobby";
-                $('#send').click();
-            });
-
             $('#joinLobby').click(function() {
-                sendMessage.value = "StartJoinLobby";
+                sendMessage.value = "JoinLobby:Player1||1";
                 $('#send').click();
             });
 
             $('#startGame').click(function() {
-                sendMessage.value = "StartGame:Host";
+                sendMessage.value = "StartGame:Player1";
                 $('#send').click();
             });
 
@@ -146,9 +141,15 @@ Chat Server: <input id="uri" size="40">
 
 <div style="margin-top: 10px;">
     Quick Actions:<br />
-    <button id="createLobby">Create Lobby</button>
-    <button id="joinLobby">Join Lobby</button>
+    <button id="joinLobby">Join Lobby as Player1</button>
     <button id="startGame">Start Game</button>
+</div>
+
+<div style="margin-top: 10px;">
+    Game Inputs (Player 1):<br />
+    <button id="sendRock">Rock</button>
+    <button id="sendPaper">Paper</button>
+    <button id="sendScissors">Scissors</button>
 </div>
 
 </body>

@@ -62,8 +62,10 @@ src/CMakeFiles/core_lib.dir/GameClient.cpp.o: /root/373/src/GameClient.cpp \
   /usr/include/c++/15/bits/max_size_type.h \
   /usr/include/c++/15/bits/memory_resource.h \
   /usr/include/c++/15/bits/memoryfwd.h \
+  /usr/include/c++/15/bits/mofunc_impl.h \
   /usr/include/c++/15/bits/monostate.h \
   /usr/include/c++/15/bits/move.h \
+  /usr/include/c++/15/bits/move_only_function.h \
   /usr/include/c++/15/bits/nested_exception.h \
   /usr/include/c++/15/bits/new_allocator.h \
   /usr/include/c++/15/bits/node_handle.h \
@@ -87,6 +89,7 @@ src/CMakeFiles/core_lib.dir/GameClient.cpp.o: /root/373/src/GameClient.cpp \
   /usr/include/c++/15/bits/shared_ptr_atomic.h \
   /usr/include/c++/15/bits/shared_ptr_base.h \
   /usr/include/c++/15/bits/std_abs.h \
+  /usr/include/c++/15/bits/std_function.h \
   /usr/include/c++/15/bits/std_mutex.h \
   /usr/include/c++/15/bits/stl_algo.h \
   /usr/include/c++/15/bits/stl_algobase.h \
@@ -142,6 +145,7 @@ src/CMakeFiles/core_lib.dir/GameClient.cpp.o: /root/373/src/GameClient.cpp \
   /usr/include/c++/15/ext/string_conversions.h \
   /usr/include/c++/15/ext/type_traits.h \
   /usr/include/c++/15/format \
+  /usr/include/c++/15/functional \
   /usr/include/c++/15/initializer_list \
   /usr/include/c++/15/ios \
   /usr/include/c++/15/iosfwd \
@@ -305,13 +309,13 @@ src/CMakeFiles/core_lib.dir/GameClient.cpp.o: /root/373/src/GameClient.cpp \
 src/CMakeFiles/core_lib.dir/Network/NetworkManager.cpp.o: /root/373/src/Network/NetworkManager.cpp \
   _deps/web-socket-networking-src/lib/networking/include/Client.h \
   _deps/web-socket-networking-src/lib/networking/include/Server.h \
+  /root/373/src/GameServer/GameServer.h \
   /root/373/src/GameEngine/GameInterpreter.h \
   /root/373/src/GameEngine/GameMessage.h \
   /root/373/src/GameEngine/InputManager.h \
   /root/373/src/GameEngine/Rules.h \
   /root/373/src/GameEngine/Types.h \
   /root/373/src/GameEngine/VariableMap.h \
-  /root/373/src/GameServer.h \
   /root/373/src/Lobby/Lobby.h \
   /root/373/src/Lobby/LobbyTypes.h \
   /root/373/src/Message.h \
@@ -672,7 +676,11 @@ src/CMakeFiles/core_lib.dir/Network/NetworkManager.cpp.o: /root/373/src/Network/
   /usr/lib/gcc/x86_64-linux-gnu/15/include/stdint.h \
   /usr/lib/gcc/x86_64-linux-gnu/15/include/syslimits.h
 
-src/libcore_lib.so: _deps/web-socket-networking-build/lib/libnetworking.so \
+src/libcore_lib.so: _deps/spdlog-build/libspdlogd.so.1.14.1 \
+  _deps/web-socket-networking-build/lib/libnetworking.so \
+  lib/libparser.a \
+  lib/libtreesitter.a \
+  lib/libts_socialgaming.a \
   /lib/x86_64-linux-gnu/libc.so.6 \
   /lib/x86_64-linux-gnu/libm.so.6 \
   /lib/x86_64-linux-gnu/libmvec.so.1 \
@@ -691,9 +699,9 @@ src/libcore_lib.so: _deps/web-socket-networking-build/lib/libnetworking.so \
   /usr/lib/gcc/x86_64-linux-gnu/15/libubsan.so \
   /usr/lib/x86_64-linux-gnu/libc_nonshared.a \
   src/CMakeFiles/core_lib.dir/GameClient.cpp.o \
-  src/CMakeFiles/core_lib.dir/GameServer.cpp.o \
   src/CMakeFiles/core_lib.dir/Network/NetworkManager.cpp.o \
   src/GameEngine/libGameEngine.so \
+  src/GameServer/libGameServer.so \
   src/GameSession/libGameSession.so \
   src/Lobby/libLobby.so \
   src/Network/libNetwork.so
@@ -716,6 +724,12 @@ src/CMakeFiles/core_lib.dir/GameClient.cpp.o:
 /usr/lib/gcc/x86_64-linux-gnu/15/libstdc++.so:
 
 /lib64/ld-linux-x86-64.so.2:
+
+lib/libts_socialgaming.a:
+
+lib/libparser.a:
+
+_deps/spdlog-build/libspdlogd.so.1.14.1:
 
 /usr/include/x86_64-linux-gnu/bits/mathcalls.h:
 
@@ -753,13 +767,9 @@ src/CMakeFiles/core_lib.dir/GameClient.cpp.o:
 
 /usr/include/c++/15/map:
 
-/usr/include/c++/15/functional:
-
 /usr/include/c++/15/deque:
 
 /usr/include/c++/15/cmath:
-
-/usr/include/c++/15/cassert:
 
 /usr/include/c++/15/bits/unordered_set.h:
 
@@ -779,13 +789,15 @@ src/CMakeFiles/core_lib.dir/GameClient.cpp.o:
 
 /root/373/src/Lobby/LobbyRegistry.h:
 
-/root/373/src/GameServer.h:
-
 /root/373/src/GameEngine/VariableMap.h:
 
 /root/373/src/GameEngine/Rules.h:
 
 /root/373/src/GameEngine/GameInterpreter.h:
+
+/usr/include/c++/15/cassert:
+
+/root/373/src/GameServer/GameServer.h:
 
 _deps/web-socket-networking-src/lib/networking/include/Server.h:
 
@@ -839,6 +851,8 @@ _deps/web-socket-networking-src/lib/networking/include/Server.h:
 
 /usr/lib/x86_64-linux-gnu/crtn.o:
 
+lib/libtreesitter.a:
+
 /usr/include/x86_64-linux-gnu/bits/waitflags.h:
 
 /usr/include/x86_64-linux-gnu/bits/unistd_ext.h:
@@ -859,19 +873,11 @@ _deps/web-socket-networking-src/lib/networking/include/Server.h:
 
 /usr/include/x86_64-linux-gnu/bits/types/struct_itimerspec.h:
 
-/usr/include/c++/15/cstdlib:
+/usr/include/x86_64-linux-gnu/bits/libm-simd-decl-stubs.h:
 
-/usr/include/c++/15/bits/requires_hosted.h:
+/usr/include/x86_64-linux-gnu/bits/types/struct_FILE.h:
 
-/usr/include/c++/15/bits/locale_facets.h:
-
-/usr/include/x86_64-linux-gnu/bits/atomic_wide_counter.h:
-
-/usr/include/c++/15/cstdio:
-
-/usr/include/x86_64-linux-gnu/bits/floatn-common.h:
-
-/usr/include/c++/15/cstdint:
+/usr/include/x86_64-linux-gnu/bits/types/mbstate_t.h:
 
 src/CMakeFiles/core_lib.dir/Network/NetworkManager.cpp.o:
 
@@ -973,10 +979,6 @@ _deps/web-socket-networking-src/lib/networking/include/Client.h:
 
 /usr/include/c++/15/bits/ostream.tcc:
 
-/usr/include/x86_64-linux-gnu/asm/unistd_64.h:
-
-/usr/include/c++/15/bits/std_mutex.h:
-
 /usr/include/c++/15/bits/node_handle.h:
 
 /usr/include/x86_64-linux-gnu/c++/15/bits/c++locale.h:
@@ -1035,7 +1037,23 @@ _deps/web-socket-networking-src/lib/networking/include/Client.h:
 
 /root/373/src/Lobby/LobbyTypes.h:
 
+/usr/include/x86_64-linux-gnu/bits/types/struct___jmp_buf_tag.h:
+
+/usr/include/x86_64-linux-gnu/bits/types/clockid_t.h:
+
 /usr/include/c++/15/bits/algorithmfwd.h:
+
+/usr/include/c++/15/bits/requires_hosted.h:
+
+/usr/include/c++/15/bits/locale_facets.h:
+
+/usr/include/c++/15/cstdlib:
+
+/usr/include/c++/15/bits/std_mutex.h:
+
+/usr/include/x86_64-linux-gnu/asm/unistd_64.h:
+
+/usr/include/x86_64-linux-gnu/bits/atomic_wide_counter.h:
 
 /usr/include/c++/15/bits/std_abs.h:
 
@@ -1155,8 +1173,6 @@ _deps/web-socket-networking-src/lib/networking/include/Client.h:
 
 /usr/include/c++/15/bits/localefwd.h:
 
-src/CMakeFiles/core_lib.dir/GameServer.cpp.o:
-
 /usr/include/c++/15/bits/allocated_ptr.h:
 
 /usr/include/c++/15/bits/istream.tcc:
@@ -1231,6 +1247,12 @@ src/CMakeFiles/core_lib.dir/GameServer.cpp.o:
 
 /usr/include/c++/15/bits/iterator_concepts.h:
 
+/usr/include/x86_64-linux-gnu/bits/types/error_t.h:
+
+/usr/include/c++/15/bits/stl_vector.h:
+
+/usr/include/c++/15/bits/functexcept.h:
+
 /usr/include/c++/15/bits/shared_ptr_atomic.h:
 
 /usr/include/c++/15/compare:
@@ -1248,6 +1270,12 @@ src/CMakeFiles/core_lib.dir/GameServer.cpp.o:
 /usr/include/c++/15/bits/mofunc_impl.h:
 
 /usr/include/x86_64-linux-gnu/bits/errno.h:
+
+/usr/include/c++/15/cstdint:
+
+/usr/include/c++/15/cstdio:
+
+/usr/include/x86_64-linux-gnu/bits/floatn-common.h:
 
 /usr/include/c++/15/ctime:
 
@@ -1274,6 +1302,8 @@ src/CMakeFiles/core_lib.dir/GameServer.cpp.o:
 /usr/include/c++/15/ext/string_conversions.h:
 
 /usr/include/c++/15/format:
+
+/usr/include/c++/15/functional:
 
 /usr/include/c++/15/ios:
 
@@ -1324,6 +1354,8 @@ src/CMakeFiles/core_lib.dir/GameServer.cpp.o:
 /root/373/src/GameEngine/GameMessage.h:
 
 /usr/include/c++/15/pstl/pstl_config.h:
+
+src/GameServer/libGameServer.so:
 
 /usr/include/c++/15/tr1/gamma.tcc:
 
@@ -1435,8 +1467,6 @@ src/Lobby/libLobby.so:
 
 /usr/include/x86_64-linux-gnu/bits/stdint-least.h:
 
-/usr/include/x86_64-linux-gnu/bits/types/mbstate_t.h:
-
 /usr/include/x86_64-linux-gnu/bits/timex.h:
 
 /usr/include/x86_64-linux-gnu/bits/stdio_lim.h:
@@ -1473,20 +1503,6 @@ src/GameEngine/libGameEngine.so:
 
 /usr/include/x86_64-linux-gnu/bits/types/clock_t.h:
 
-/usr/include/c++/15/bits/stl_vector.h:
-
-/usr/include/c++/15/bits/functexcept.h:
-
-/usr/include/x86_64-linux-gnu/bits/types/error_t.h:
-
 /root/373/src/GameSession/GameSession.h:
 
 /usr/include/x86_64-linux-gnu/bits/types/locale_t.h:
-
-/usr/include/x86_64-linux-gnu/bits/libm-simd-decl-stubs.h:
-
-/usr/include/x86_64-linux-gnu/bits/types/struct_FILE.h:
-
-/usr/include/x86_64-linux-gnu/bits/types/clockid_t.h:
-
-/usr/include/x86_64-linux-gnu/bits/types/struct___jmp_buf_tag.h:

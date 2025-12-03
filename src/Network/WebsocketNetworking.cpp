@@ -1,6 +1,13 @@
 #include "WebSocketNetworking.h"
+
 #include <fstream>
 #include "MessageTranslator.h"
+
+// enforces payload size limits and incoming-buffer caps
+namespace {
+    constexpr std::size_t MaxPayloadBytes = 4096;
+    constexpr std::size_t MaxBufferedMessages = 2048;
+}
 
 static std::string readFile(const std::string& path) {
     std::ifstream file(path);
@@ -56,7 +63,21 @@ void WebSocketNetworking::update()
             std::cout << "[WebSocket] Received: " << msg.text << " from client " << msg.connection.id << "\n";
 
             uintptr_t fromClientID  = msg.connection.id;
+            if (msg.text.size() > MaxPayloadBytes) {
+                std::cerr << "[WebSocket] Dropped oversized payload (" << msg.text.size() << " bytes) from client " << fromClientID << "\n";
+                continue;
+            }
+
+            if (m_incomingMessages.size() >= MaxBufferedMessages) {
+                std::cerr << "[WebSocket] Incoming buffer full; dropping message from client " << fromClientID << "\n";
+                break;
+            }
+
             Message translatedMsg = MessageTranslator::deserialize(msg.text);
+            if (translatedMsg.type == MessageType::Empty && msg.text != "Empty") {
+                std::cerr << "[WebSocket] Dropped malformed payload from client " << fromClientID << "\n";
+                continue;
+            }
             m_incomingMessages.emplace_back(ClientMessage{fromClientID, translatedMsg});
         }
     }
@@ -67,6 +88,11 @@ void WebSocketNetworking::update()
 
 void WebSocketNetworking::sendToClient(uintptr_t toClientID, const Message& message)
 {
+    if(!has_server_started){
+        std::cerr << "[WebSocket] ERROR: Attempted to send before server start.\n";
+        return;
+    }
+
     std::string payload = MessageTranslator::serialize(message); // This is temporarily, hopefully I can decouple this further
     std::cout << "[WebSocket] Sending to client " << toClientID << ": " << payload << "\n";
     // Convert our message into network::Message compatible with the web-socket format to send over the network

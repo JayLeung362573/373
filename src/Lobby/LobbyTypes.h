@@ -2,6 +2,8 @@
 #include <string>
 #include <cstdint>
 
+class Lobby;
+
 using ClientID = uintptr_t;
 using LobbyID = std::string;
 using GameID = std::string;
@@ -28,4 +30,19 @@ struct LobbyInfo{
     size_t maxPlayers;
     size_t minPlayers;
     LobbyState state;
+};
+
+// Added explicit result/error reporting to the registry layer
+enum class LobbyError{
+    None = 0,
+    AlreadyInLobby,
+    LobbyNotFound,
+    LobbyFull
+};
+
+struct LobbyResult{
+    Lobby* lobby = nullptr;
+    LobbyError error = LobbyError::None;
+
+    bool succeeded() const { return error == LobbyError::None && lobby != nullptr; }
 };

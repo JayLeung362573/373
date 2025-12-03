@@ -27,6 +27,28 @@ namespace{
         }
         return output;
     }
+
+    LobbyMember makeLobbyMember(uintptr_t clientID, const std::string& name, LobbyRole role) {
+        LobbyMember member;
+        member.clientID = clientID;
+        member.name = name;
+        member.role = role;
+        member.ready = false;
+        return member;
+    }
+
+    std::string lobbyErrorMessage(LobbyError error) {
+        switch(error){
+            case LobbyError::AlreadyInLobby:
+                return "You are already in a lobby. Leave first.";
+            case LobbyError::LobbyNotFound:
+                return "Lobby not found.";
+            case LobbyError::LobbyFull:
+                return "Lobby is full.";
+            default:
+                return "Lobby operation failed.";
+        }
+    }
 }
 
 GameServer::GameServer() = default;
@@ -201,15 +223,20 @@ GameServer::handleCreationInput(uintptr_t clientID, const Message& creationInput
 
             std::cout << "[GameServer] Client " << clientID << " selected type: " << typeInt << "\n";
 
-            Lobby* lobby = m_lobbyRegistry.createLobby(
-                    clientID,
+            auto lobbyResult = m_lobbyRegistry.createLobby(
+                    makeLobbyMember(clientID, state.playerName, LobbyRole::Host),
                     static_cast<GameType>(typeInt),
-                    state.lobbyName,
-                    state.playerName
+                    state.lobbyName
             );
 
+            if(!lobbyResult.succeeded()){
+                Message err;
+                err.type = MessageType::Error;
+                err.data = ErrorMessage{lobbyErrorMessage(lobbyResult.error)};
+                return {ClientMessage{clientID, err}};
+            }
 
-            Message lobbyStateMsg = createLobbyStateMessage(lobby);
+            Message lobbyStateMsg = createLobbyStateMessage(lobbyResult.lobby);
 
             Message textMsg;
             textMsg.type = MessageType::GameOutput;
@@ -285,19 +312,26 @@ GameServer::handleJoinInput(uintptr_t clientID, const Message& joinInput){
             std::string targetLobby = text->input;
             std::cout << "[GameServer] Client " << clientID << " attempting to join: " << targetLobby << "\n";
 
-            Lobby* lobby = m_lobbyRegistry.joinLobby(clientID, targetLobby, state.playerName);
+            auto tryJoin = [&](const LobbyID& lobbyID) {
+                return m_lobbyRegistry.joinLobby(
+                        makeLobbyMember(clientID, state.playerName, LobbyRole::Player),
+                        lobbyID);
+            };
 
-            if(!lobby){
+            auto lobbyResult = tryJoin(targetLobby);
+
+            if(!lobbyResult.succeeded() && lobbyResult.error == LobbyError::LobbyNotFound){
                 auto lobbies = m_lobbyRegistry.browseLobbies(std::nullopt);
                 for(const auto& info : lobbies){
                     if(info.lobbyName == targetLobby){
-                        lobby = m_lobbyRegistry.joinLobby(clientID, info.lobbyID, state.playerName);
+                        lobbyResult = tryJoin(info.lobbyID);
                         break;
                     }
                 }
             }
 
-            if(lobby){
+            if(lobbyResult.succeeded()){
+                Lobby* lobby = lobbyResult.lobby;
                 std::vector<ClientMessage> responses;
 
                 /// message for joiner
@@ -329,6 +363,12 @@ GameServer::handleJoinInput(uintptr_t clientID, const Message& joinInput){
                 m_pendingJoins.erase(clientID); /// Cleanup
                 return responses;
             } else{
+                if(lobbyResult.error != LobbyError::LobbyNotFound){
+                    Message err;
+                    err.type = MessageType::Error;
+                    err.data = ErrorMessage{lobbyErrorMessage(lobbyResult.error)};
+                    return {ClientMessage{clientID, err}};
+                }
                 Message err;
                 err.type = MessageType::RequestTextInput;
                 err.data = RequestTextInputMessage{"Lobby not found. Enter Lobby Name (or ID) to Join"};
@@ -345,55 +385,59 @@ GameServer::handleJoinLobbyMessages(uintptr_t clientID, const JoinLobbyMessage& 
               << "} attempting to join lobby (clientID = " << clientID << ")\n";
 
     LobbyID lobbyID;
-    Lobby* lobby = nullptr;
+    LobbyResult lobbyResult;
     std::string playerName = joinLobbyMsg.playerName;
     std::vector<ClientMessage> outgoingMessages;
 
+    auto makePlayer = [&](LobbyRole role){
+        return makeLobbyMember(clientID, playerName, role);
+    };
+
     if(joinLobbyMsg.lobbyName.empty()){
         /// Empty name: create new
-        lobby = m_lobbyRegistry.createLobby(
-                clientID,
+        lobbyResult = m_lobbyRegistry.createLobby(
+                makePlayer(LobbyRole::Host),
                 static_cast<GameType>(joinLobbyMsg.gameType),
-                playerName + "'s Lobby",
-                playerName
+                playerName + "'s Lobby"
         );
     } else {
         /// try joining with lobbyID
         lobbyID = joinLobbyMsg.lobbyName;
-        lobby = m_lobbyRegistry.joinLobby(clientID, lobbyID, playerName);
+        lobbyResult = m_lobbyRegistry.joinLobby(makePlayer(LobbyRole::Player), lobbyID);
 
-        /// try joining with lobbyName
-        if(!lobby){
+        /// try joining with lobbyName when not found
+        if(!lobbyResult.succeeded() && lobbyResult.error == LobbyError::LobbyNotFound){
             auto lobbies = m_lobbyRegistry.browseLobbies(static_cast<GameType>(joinLobbyMsg.gameType));
 
             for (const auto& info : lobbies) {
                 if (info.lobbyName == joinLobbyMsg.lobbyName) {
                     std::cout << "[GameServer] Found lobby by name: " << info.lobbyName << " -> ID: " << info.lobbyID << "\n";
-                    lobby = m_lobbyRegistry.joinLobby(clientID, info.lobbyID, playerName);
+                    lobbyResult = m_lobbyRegistry.joinLobby(makePlayer(LobbyRole::Player), info.lobbyID);
                     break;
                 }
             }
         }
 
-        /// still not found by id and name
-        if(!lobby){
+        /// still not found by id and name -> create new lobby with requested name
+        if(!lobbyResult.succeeded() && lobbyResult.error == LobbyError::LobbyNotFound){
             std::cout << "[GameServer] Lobby '" << lobbyID << "' not found. Creating new lobby.\n";
-            lobby = m_lobbyRegistry.createLobby(
-                    clientID,
+            lobbyResult = m_lobbyRegistry.createLobby(
+                    makePlayer(LobbyRole::Host),
                     static_cast<GameType>(joinLobbyMsg.gameType),
-                    joinLobbyMsg.lobbyName,
-                    playerName
+                    joinLobbyMsg.lobbyName
             );
         }
     }
 
-    if(!lobby){
+    if(!lobbyResult.succeeded()){
         Message errorMsg;
         errorMsg.type = MessageType::Error;
-        errorMsg.data = ErrorMessage{"[handleJoinLobby: Lobby not found or is full"};
+        errorMsg.data = ErrorMessage{lobbyErrorMessage(lobbyResult.error)};
         outgoingMessages.push_back(ClientMessage{clientID, errorMsg});
         return outgoingMessages;
     }
+
+    Lobby* lobby = lobbyResult.lobby;
 
     Message lobbyStatePayload = createLobbyStateMessage(lobby);
 

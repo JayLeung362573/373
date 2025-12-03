@@ -1,46 +1,42 @@
 #include "Lobby.h"
 #include <iostream>
+#include <functional>
 
-Lobby::Lobby(const LobbyID& id, GameType type, ClientID hostID, const std::string& lobbyName, const std::string& hostPlayerName)
+Lobby::Lobby(const LobbyID& id, GameType type, LobbyMember host, const std::string& lobbyName)
         : m_lobbyID(id)
         , m_lobbyName(lobbyName)
         , m_gameType(type)
-        , m_hostID(hostID)
+        , m_hostID(host.clientID)
         , m_state(LobbyState::Open)
         , m_maxPlayers(10)
 {
-    insertPlayer(hostID, hostPlayerName, LobbyRole::Host);
+    host.role = LobbyRole::Host;
+    insertPlayer(host);
     std::cout << "[Lobby] Created lobby '" << lobbyName << "' (ID: " << id << ")\n";
 }
 
 bool
-Lobby::insertPlayer(uintptr_t clientID, const std::string& playerName, LobbyRole role) {
-    if(isFull()){
-        return false;
-    }
-    auto [it, inserted] = m_players.try_emplace(clientID);
-
-    if(!inserted){
+Lobby::insertPlayer(const LobbyMember& member) {
+    if(isFull() || hasPlayer(member.clientID)){
         return false;
     }
 
-    LobbyMember& player = it->second;
-    player.clientID = clientID;
-    player.name = playerName;
-    player.role = role;
-    player.ready = false;
-
-    m_players[clientID] = player;
+    m_players.push_back(member);
     return true;
 }
 
 void Lobby::deletePlayer(uintptr_t clientID) {
-    m_players.erase(clientID);
+    std::erase_if(m_players, [clientID](const LobbyMember& player){
+        return player.clientID == clientID;
+    });
 }
 
 bool
 Lobby::hasPlayer(ClientID clientID) const {
-    return m_players.find(clientID) != m_players.end();
+    return std::any_of(m_players.begin(), m_players.end(),
+                       [clientID](const LobbyMember& player){
+                           return player.clientID == clientID;
+                       });
 }
 
 ClientID
@@ -53,20 +49,12 @@ Lobby::getAllPlayer() const {
     std::vector<LobbyMember> playablePlayers;
     playablePlayers.reserve(m_players.size());
 
-    auto hostIt = m_players.find(m_hostID);
-    if (hostIt != m_players.end() && hostIt->second.isPlayable()) {
-        playablePlayers.push_back(hostIt->second);
-    }
-
-    for(const auto& [clientID, player] : m_players){
-        if(clientID == m_hostID) {
-            continue;
-        }
-
-        if(player.isPlayable()){
-            playablePlayers.push_back(player);
-        }
-    }
+    std::copy_if(m_players.begin(),
+                 m_players.end(),
+                 std::back_inserter(playablePlayers),
+                 [](const LobbyMember& player){
+                     return player.isPlayable();
+                 });
 
     return playablePlayers;
 }
@@ -88,16 +76,7 @@ Lobby::getInfo() const {
 
 void
 Lobby::forEachPlayer(const std::function<void(const LobbyMember&)>& action) const{
-    auto hostIt = m_players.find(m_hostID);
-    if (hostIt != m_players.end() && hostIt->second.isPlayable()) {
-        action(hostIt->second);
-    }
-
-    for(const auto& [clientID, player] : m_players){
-        if(clientID == m_hostID) {
-            continue;
-        }
-
+    for(const auto& player : m_players){
         if(player.isPlayable()){
             action(player);
         }
@@ -107,9 +86,10 @@ Lobby::forEachPlayer(const std::function<void(const LobbyMember&)>& action) cons
 
 std::optional<LobbyRole>
 Lobby::getMemberRole(uintptr_t clientID) const {
-    auto it = m_players.find(clientID);
-    if(it != m_players.end()){
-        return it->second.role;
+    for(const auto& player : m_players){
+        if(player.clientID == clientID){
+            return player.role;
+        }
     }
     return std::nullopt;
 }

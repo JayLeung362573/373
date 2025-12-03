@@ -42,6 +42,7 @@ private:
     std::unordered_map<LobbyID, std::unique_ptr<GameSession>> m_activeSessions;
 
     ast::GameRules createGameRules(GameType type);
+    ast::GameRules loadRulesFromFile(const std::string& filepath);
     bool isGameInputMessage(const Message& msg) const;
 
     ast::GameRules createNumberBattleRules();

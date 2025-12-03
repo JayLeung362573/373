@@ -1,8 +1,9 @@
 #pragma once
-#include <vector>
-#include <unordered_map>
+#include <algorithm>
 #include <optional>
+#include <vector>
 #include <cstdint>
+#include <functional>
 #include "LobbyTypes.h"
 
 enum class LobbyRole{
@@ -29,10 +30,10 @@ struct LobbyMember{
 /// 3) track ready states
 class Lobby{
 public:
-    Lobby(const LobbyID& id, GameType gameType, ClientID hostID, const std::string& lobbyName, const std::string& hostPlayerName);
+    Lobby(const LobbyID& id, GameType gameType, LobbyMember host, const std::string& lobbyName);
 
     /// manage player list in this lobby
-    bool insertPlayer(uintptr_t clientID, const std::string& playerName, LobbyRole role = LobbyRole::Player);
+    bool insertPlayer(const LobbyMember& member);
     void deletePlayer(uintptr_t clientID);
     bool hasPlayer(ClientID clientID) const;
 
@@ -40,6 +41,7 @@ public:
     ClientID getHostID() const;
     std::optional<LobbyRole> getMemberRole(uintptr_t clientID) const;
     std::vector<LobbyMember> getAllPlayer() const;
+    const std::vector<LobbyMember>& getMembers() const { return m_players; }
 
     /// getters for Info
     LobbyInfo getInfo() const;
@@ -58,5 +60,5 @@ private:
     LobbyState m_state;
     size_t m_maxPlayers;
 
-    std::unordered_map<uintptr_t, LobbyMember> m_players;
+    std::vector<LobbyMember> m_players; // store in vector to expose range and other sequence algorithms
 };

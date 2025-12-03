@@ -692,5 +692,6 @@ namespace ast
     struct GameRules
     {
         std::vector<std::unique_ptr<ast::Statement>> statements;
+        std::unordered_map<std::string, Value> initialVariables;
     };
 };

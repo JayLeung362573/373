@@ -4,25 +4,61 @@
 #include <stdexcept>
 #include <iostream>
 
-/// to parse string_view to int, for lobbyID and gameType
-static int parseInt(std::string_view sv) {
-    try {
-        return std::stoi(std::string(sv));
+
+// We can use Table drive design pattern to select our serialization/deserialization instead of 300 lines of if/else parsing
+// Using namespace to keep these implemenetations exclusive, so nothing inside leaks into other .cpp files
+// Forward declare all traits inside anonymous namespace
+namespace {
+    // Use template for each Message for easy scalability. We expect more message and changes to happen in the future
+    template<typename T>
+    struct MessageTraits;
+}
+
+// Concept validating the shape of MessageTraits<T> to use static types to rule out bad states before runtime
+template <typename T>
+concept HasMessageTraits = requires(const T& t, std::string_view sv) {
+    { MessageTraits<T>::prefix } -> std::convertible_to<std::string_view>;
+    { MessageTraits<T>::serialize(t) } -> std::convertible_to<std::string>;
+    { MessageTraits<T>::deserialize(sv) } -> std::same_as<Message>;
+};
+
+// Parsing ultities
+namespace {
+    /// to parse string_view to int, for lobbyID and gameType
+    static int parseInt(std::string_view sv) {
+        try {
+            return std::stoi(std::string(sv));
+        }
+        catch (const std::exception&) {
+            return 0;
+        }
     }
-    catch (const std::exception&) {
-        return 0;
+
+    // Handler entry: prefix + function pointer
+    // define prefix-driven dispatch to prevent silent corruption.
+    struct MessageHandlerEntry {
+        std::string_view prefix;
+        Message (*deserialize)(std::string_view); // Function-pointer allow to handle the same function with different type at compile time
+    };
+
+    // Assignable entries to be handled at compile time 
+    // Validated by HasMessageTraits<T> at compile time
+    template <HasMessageTraits T>
+    constexpr MessageHandlerEntry makeHandlerEntry() {
+        return {
+            MessageTraits<T>::prefix,
+            MessageTraits<T>::deserialize
+        };
     }
 }
 
-// Use template for each Message for easy scalability. We expect more message and changes to happen in the future
-template<typename T>
-struct MessageTraits;
-
 // Specializations
+namespace {
+
 template<>
 struct MessageTraits<StartGameMessage> {
     // Call statics to enable compile time, so we don't need to instantiate the object and just use it as a container
-    static constexpr std::string_view prefix = "StartGame"; // instantiate it as pure compile time constant
+    static constexpr std::string_view prefix = "StartGame:"; // instantiate it as pure compile time constant
     static std::string serialize(const StartGameMessage& d) {
         return std::string(prefix) + d.playerName;
     }
@@ -312,12 +348,59 @@ struct MessageTraits<ErrorMessage>{
     }
 };
 
+// Command Pattern handlers
+constexpr auto Handlers = std::array{
+    makeHandlerEntry<StartGameMessage>(),
+    makeHandlerEntry<UpdateCycleMessage>(),
+    makeHandlerEntry<JoinLobbyMessage>(),
+    makeHandlerEntry<LeaveLobbyMessage>(),
+    makeHandlerEntry<LobbyStateMessage>(),
+    makeHandlerEntry<BrowseLobbiesMessage>(),
+    makeHandlerEntry<GetLobbyStateMessage>(),
+    makeHandlerEntry<ErrorMessage>(),
+    makeHandlerEntry<RequestTextInputMessage>(),
+    makeHandlerEntry<RequestChoiceInputMessage>(),
+    makeHandlerEntry<RequestRangeInputMessage>(),
+    makeHandlerEntry<ResponseTextInputMessage>(),
+    makeHandlerEntry<ResponseChoiceInputMessage>(),
+    makeHandlerEntry<ResponseRangeInputMessage>(),
+    makeHandlerEntry<GameOutputMessage>(),
+    makeHandlerEntry<GameOverMessage>()
+};
+
+// Statically validate for prefix uniqueness of handler table
+consteval bool prefixesAreUnique() {
+    for (size_t i = 0; i < Handlers.size(); ++i)
+        for (size_t j = 0; j < i; ++j)
+            if (Handlers[i].prefix == Handlers[j].prefix)
+                return false;
+    return true;
+}
+static_assert(prefixesAreUnique(), "Duplicate message prefix detected in Handlers table");
+
+// Statically validate for Prefix for illegal characters (like '|')
+consteval bool prefixesAreValid() {
+    for (auto& h : Handlers) {
+        if (h.prefix.empty()) return false;
+        for (char c : h.prefix)
+            if (c == '|') return false;
+    }
+    return true;
+}
+static_assert(prefixesAreValid(), "Message prefixes must not contain '|' and must not be non-empty");
+
+} // namespace. Keep these implemenetations exclusive, so nothing inside leaks into other .cpp files
+
+
 std::string MessageTranslator::serialize(const Message& msg)
 {
     // using std::visit to access std::variant that MessageData contained
     std::string serializedMessage = std::visit(
         [](auto&& data) -> std::string {
             using T = std::decay_t<decltype(data)>; // Access the variant type
+
+            static_assert(HasMessageTraits<T> || std::is_same_v<T, std::monostate>, "Missing MessageTraits<T> for a Message variant alternative type (except std::monostate)");
+
             if constexpr (!std::is_same_v<T, std::monostate>) {
                 return MessageTraits<T>::serialize(data);
             }
@@ -332,66 +415,11 @@ std::string MessageTranslator::serialize(const Message& msg)
 Message MessageTranslator::deserialize(std::string_view payload)
 {
     std::cout << "[Translator] Checking payload: '" << payload << "'\n";
-    if (payload.starts_with(MessageTraits<StartGameMessage>::prefix)) {
-        return MessageTraits<StartGameMessage>::deserialize(payload);
+    for (const auto& entry : Handlers) {
+        if (payload.starts_with(entry.prefix)) {
+            return entry.deserialize(payload);
+        }
     }
-    else if (payload.starts_with(MessageTraits<UpdateCycleMessage>::prefix)) {
-        return MessageTraits<UpdateCycleMessage>::deserialize(payload);
-    }
-    else if (payload.starts_with(MessageTraits<CreateLobbyMessage>::prefix)) {
-        std::cout << "[Translator] Found CreateLobbyMessage!\n";
-        return MessageTraits<CreateLobbyMessage>::deserialize(payload);
-    }
-    else if(payload.starts_with(MessageTraits<StartJoinLobbyMessage>::prefix)) {
-        return MessageTraits<StartJoinLobbyMessage>::deserialize(payload);
-    }
-    else if(payload.starts_with(MessageTraits<JoinLobbyMessage>::prefix)) {
-        return MessageTraits<JoinLobbyMessage>::deserialize(payload);
-    }
-    else if(payload.starts_with(MessageTraits<LeaveLobbyMessage>::prefix)) {
-        return MessageTraits<LeaveLobbyMessage>::deserialize(payload);
-    }
-    else if(payload.starts_with(MessageTraits<LobbyStateMessage>::prefix)) {
-        return MessageTraits<LobbyStateMessage>::deserialize(payload);
-    }
-    else if(payload.starts_with(MessageTraits<BrowseLobbiesMessage>::prefix)) {
-        return MessageTraits<BrowseLobbiesMessage>::deserialize(payload);
-    }
-    else if(payload.starts_with(MessageTraits<GetLobbyStateMessage>::prefix)) {
-        return MessageTraits<GetLobbyStateMessage>::deserialize(payload);
-    }
-    else if(payload.starts_with(MessageTraits<ErrorMessage>::prefix)) {
-        return MessageTraits<ErrorMessage>::deserialize(payload);
-    }
-    /// Game Request
-    else if (payload.starts_with(MessageTraits<RequestTextInputMessage>::prefix)) {
-        return MessageTraits<RequestTextInputMessage>::deserialize(payload);
-    }
-    else if (payload.starts_with(MessageTraits<RequestChoiceInputMessage>::prefix)) {
-        return MessageTraits<RequestChoiceInputMessage>::deserialize(payload);
-    }
-    else if (payload.starts_with(MessageTraits<RequestRangeInputMessage>::prefix)) {
-        return MessageTraits<RequestRangeInputMessage>::deserialize(payload);
-    }
-    /// game response
-    else if (payload.starts_with(MessageTraits<ResponseTextInputMessage>::prefix)) {
-        return MessageTraits<ResponseTextInputMessage>::deserialize(payload);
-    }
-    else if (payload.starts_with(MessageTraits<ResponseChoiceInputMessage>::prefix)) {
-        return MessageTraits<ResponseChoiceInputMessage>::deserialize(payload);
-    }
-    else if (payload.starts_with(MessageTraits<ResponseRangeInputMessage>::prefix)) {
-        return MessageTraits<ResponseRangeInputMessage>::deserialize(payload);
-    }
-    /// game output and game over message
-    else if (payload.starts_with(MessageTraits<GameOutputMessage>::prefix)) {
-        return MessageTraits<GameOutputMessage>::deserialize(payload);
-    }
-    else if (payload.starts_with(MessageTraits<GameOverMessage>::prefix)) {
-        return MessageTraits<GameOverMessage>::deserialize(payload);
-    }
-    else {
-        std::cout << "[Translator] No matching prefix found. Returning Empty.\n";
-        return { MessageType::Empty, {} };
-    }
+    std::cout << "[Translator] No matching prefix found. Returning Empty.\n";
+    return { MessageType::Empty, {} };
 }

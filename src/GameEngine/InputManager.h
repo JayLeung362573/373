@@ -27,7 +27,7 @@ public:
     std::vector<std::string> popPendingOutputs();
 
 private:
-    std::optional<String> findResponse(const String& playerID, const String& prompt) const;
+    std::optional<String> popResponse(const String& playerID, const String& prompt);
     bool hasRequestedInput(const String& playerID, const String& prompt) const;
     void addPendingRequest(GameMessage request);
 

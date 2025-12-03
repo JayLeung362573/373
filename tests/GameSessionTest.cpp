@@ -109,10 +109,14 @@ TEST(GameSessionTest, TickReturnsEmptyIfNoMessages) {
 
     GameSession session("lobby_test", std::move(rules), players);
 
-    session.start();
-    auto out = session.tick({});
-
-    EXPECT_TRUE(out.empty());
+    auto startOut = session.start();
+    ASSERT_FALSE(startOut.empty());
+    EXPECT_TRUE(
+            startOut[1].message.type == MessageType::RequestTextInput ||
+            startOut[1].message.type == MessageType::RequestRangeInput
+    );
+    auto SessionOut = session.tick({});
+    EXPECT_TRUE(SessionOut.empty());
 }
 
 TEST(GameSessionTest, TickGeneratesRequestsAfterInputRangeRule) {
